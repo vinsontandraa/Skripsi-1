@@ -1,202 +1,160 @@
 %versi 3 (22-07-2020)
 \chapter{Landasan Teori}
 \label{chap:teori}
+Pada bab ini akan dijelaskan tentang website, HTTP Archive, BigQuery, dan OSEMN Framework.
+\section{Website}
+\label{sec:website} 
+Website adalah keseluruhan halaman-halaman web yang terdapat dalam sebuah domain yang mengandung informasi. Sebuah website biasanya dibangun atas banyak web yang saling berhubungan. Web adalah sebuah sistem dengan informasi yang berbentuk teks, gambar, suara, dan lainnya yang tersimpan dalam suatu server web internet yang disajikan dalam bentuk \textit{hypertext}. Website merupakan salah satu indikasi untuk membangun kredibilitas dan citra suatu perusahaan. Website berperan sebagai bagian dari proses \textit{customer relationship} sehingga suatu perusahaan harus dapat membuat website yang profesional dan berkualitas. 
 
-\section{Skripsi}
-\label{sec:skripsi} 
- 
-Rencananya akan diisi dengan penjelasan umum mengenai buku skripsi.
+\subsection{Pengukuran Kualitas Website}
+Dalam penggunaan komputer pasti sudah dapat mengakses internet dalam mencari informasi, berinteraksi, dan melakukan transaksi online. Internet memberikan kemudahan dengan menyingkat waktu dan tidak melihat jarak. Internet dapat diakses menggunakan browser dalam mencari informasi. Browser yang baik memiliki sistem \textit{update} otomatis. ketika browser terdapat versi baru, maka browser akan melakukan pembaruan keversi terbabru. Begitu juga website, harus dilakukan pembaruan untuk menghindari resiko yang tidak diinginkan. Pengukuran yang dilakukan bisa saja dengan membandingkan versi aplikasi yang dipakai website saat ini dengan versi aplikasi dari \textit{official} website. 
 
-\dtext{11-12} 
+\subsection{Aplikasi pada Website}
+Aplikasi pada Website merupakan aplikasi atau teknologi yang dipakai dalam pembuatan sebuah website. Beberapa contoh teknologi atau aplikasi dalam pembuatan website adalah:
+\begin{enumerate}
+	\item JQuery\\
+	JQuery adalah sebuah pustaka dari JavaScript yang cepat, kecil, dan memiliki banyak fitur. 
+	\item Google Tag Manager\\
+	Google Tag Manager adalah tool gratis yang membantu mengelola dan menerapkan tag pemasaran pada website tanpa harus mengubah kode.
+\end{enumerate}
 
-\section{\LaTeX}
-\label{sec:latex}
-
-Mengapa menggunakan \LaTeX{} untuk buku skripsi dan apa keunggulan/kerugiannya bagi mahasiswa dan pembuat template. 
-
-\dtext{13-14}
-
-
-\section{Template Skripsi FTIS UNPAR}
-\label{sec:template}
- 
-Akan dipaparkan bagaimana menggunakan template ini, termasuk petunjuk singkat membuat referensi, gambar dan tabel.
-Juga hal-hal lain yang belum terpikir sampai saat ini. 
- 
-\dtext{15-16}
-
-\subsection{Tabel}  
-Berikut adalah contoh pembuatan tabel. 
-Penempatan tabel dan gambar secara umum diatur secara otomatis oleh \LaTeX{}, perhatikan contoh di file bab2.tex untuk melihat bagaimana cara memaksa tabel ditempatkan sesuai keinginan kita.
-
-Perhatikan bawa berbeda dengan penempatan judul gambar gambar, keterangan tabel harus diletakkan di atas tabel!!
-Lihat Tabel~\ref{tab:contoh1} berikut ini:
-
-\begin{table}[H] %atau h saja untuk "kira kira di sini"
-	\centering 
-	\caption{Tabel contoh}
-	\label{tab:contoh1}
-	\begin{tabular}{cccc}
-		\toprule
-		& $v_{start}$ & $\mathcal{S}_{1}$ & $v_{end}$\\
-
-		\midrule
-		$\tau_{1}$ & 1 & 12& 20\\
-		$\tau_{2}$ & 1 &  & 20\\
-		$\tau_{3}$ & 1 & 9 & 20\\
-		$\tau_{4}$ & 1 &  & 20\\
-
-		\bottomrule
-		
-	\end{tabular} 
-\end{table}
-Tabel~\ref{tab:cthwarna1} dan Tabel~\ref{tab:cthwarna2} berikut ini adalah tabel dengan sel yang berwarna dan ada dua tabel yang bersebelahan. 
-\begin{table}[H]
-	\begin{minipage}[c]{0.49\linewidth}
-		\centering
-		\caption{Tabel bewarna(1)}
-		\label{tab:cthwarna1}
-		\begin{tabular}{ccccc}
-			\toprule
-			 & $v_{start}$ & $\mathcal{S}_{2}$ & $\mathcal{S}_{1}$ & $v_{end}$\\
-			
-			\midrule
-			$\tau_{1}$ & 1 & 5 \cellcolor{green}& 12& 20\\
-			$\tau_{2}$ & 1 & 8 \cellcolor{green}& & 20\\
-			$\tau_{3}$ & 1 & 2/8/17 \cellcolor{green}& 9 & 20\\
-			$\tau_{4}$ & 1 & \cellcolor{red}& & 20\\
-			
-			\bottomrule
-
-		\end{tabular}
-	\end{minipage}
-	\begin{minipage}[c]{0.49\linewidth}
-		
-		\centering 
-		\caption{Tabel bewarna(2)}
-		\label{tab:cthwarna2}
-		\begin{tabular}{ccccc}
-			\toprule
-			 & $v_{start}$ & $\mathcal{S}_{1}$ & $\mathcal{S}_{2}$ & $v_{end}$\\
-			
-			\midrule
-			$\tau_{1}$ & 1 & 12& 5 \cellcolor{red} &20\\
-			$\tau_{2}$ & 1 &  &  8 \cellcolor{green} &20\\
-			$\tau_{3}$ & 1 & 9 & 2/8/17 \cellcolor{green} &20\\
-			$\tau_{4}$ & 1 &   & \cellcolor{red} &20\\
-			
-			\bottomrule
-		
-		\end{tabular}
-	\end{minipage}
-\end{table}
-
- 
-\subsection{Kutipan}
-\label{subs:kutipan} 
-Berikut contoh kutipan dari berbagai sumber, untuk keterangan lebih lengkap, silahkan membaca file referensi.bib yang disediakan juga di template ini.
-Contoh kutipan:
+\subsection{Kelebihan Pembaruan Versi Aplikasi Pada Website}
 \begin{itemize}
-	\item Buku:~\cite{berg:08:compgeom} 
-	\item Bab dalam buku:~\cite{kreveld:04:GIS}
-	\item Artikel dari Jurnal:~\cite{buchin:13:median}
-	\item Artikel dari prosiding seminar/konferensi:~\cite{kreveld:11:median}
-	\item Skripsi/Thesis/Disertasi:~\cite{lionov:02:animasi}~\cite{wiratma:10:following}~\cite{wiratma:22:later}
-	\item Technical/Scientific Report:~\cite{kreveld:07:watertight}
-	\item RFC (Request For Comments):~\cite{RFC1654}
-	\item Technical Documentation/Technical Manual:~\cite{Z.500}~\cite{unicode:16:stdv9}~\cite{google:16:and7}
-	\item Paten:~\cite{webb:12:comm}
-	\item Tidak dipublikasikan:~\cite{wiratma:09:median}~\cite{lionov:11:cpoly}
-	\item Laman web:~\cite{erickson:03:cgmodel}  
-	\item Lain-lain:~\cite{agung:12:tango}
-\end{itemize}    
-  
-\subsection{Gambar}
-
-Pada hampir semua editor, penempatan gambar di dalam dokumen \LaTeX{} tidak dapat dilakukan melalui proses {\it drag and drop}.
-Perhatikan contoh pada file bab2.tex untuk melihat bagaimana cara menempatkan gambar.
-Beberapa hal yang harus diperhatikan pada saat menempatkan gambar:
-\begin{itemize}
-	\item Setiap gambar {\bf harus} diacu di dalam teks (gunakan {\it field} {\sc label})
-	\item {\it Field} {\sc caption} digunakan untuk teks pengantar pada gambar. Terdapat dua bagian yaitu yang ada di antara tanda $[$ dan $]$ dan yang ada di antara tanda $\{$ dan $\}$. Yang pertama akan muncul di Daftar Gambar, sedangkan yang kedua akan muncul di teks pengantar gambar. Untuk skripsi ini, samakan isi keduanya.
-	\item Jenis file yang dapat digunakan sebagai gambar cukup banyak, tetapi yang paling populer adalah tipe {\sc png} (lihat Gambar~\ref{fig:ularpng}), tipe {\sc jpg} (Gambar~\ref{fig:ularjpg}) dan tipe {\sc pdf} (Gambar~\ref{fig:ularpdf})
-	\item Besarnya gambar dapat diatur dengan {\it field} {\sc scale}.
-	\item Penempatan gambar diatur menggunakan {\it placement specifier} (di antara tanda  $[$ dan $]$ setelah deklarasi gambar.
-	Yang umum digunakan adalah {\bf H} untuk menempatkan gambar {\bf sesuai} penempatannya di file .tex atau  {\bf h} yang berarti "kira-kira" di sini. \\
-	Jika tidak menggunakan {\it placement specifier}, \LaTeX{} akan menempatkan gambar secara otomatis untuk menghindari bagian kosong pada dokumen anda.
-	Walaupun cara ini sangat mudah, hindarkan terjadinya penempatan dua gambar secara berurutan. 	
-	\begin{itemize}
-		\item Gambar~\ref{fig:ularpng} ditempatkan di bagian atas halaman, walaupun penempatannya dilakukan setelah penulisan 3 paragraf setelah penjelasan ini.
-		\item Gambar~\ref{fig:ularjpg} dengan skala 0.5 ditempatkan di antara dua buah paragraf. Perhatikan penulisannya di dalam file bab2.tex!
-		\item Gambar~\ref{fig:ularpdf} ditempatkan menggunakan {\it specifier} {\bf h}.
-	\end{itemize}
+	\item Keamanan yang sudah diperbarui\\
+	Keamanan menjadi tujuan utama dari memperbarui versi aplikasi dari website. Aplikasi yang sudah diperbarui biasanya sudah memperbaiki kerentanan yang sudah pernah terjadi. 
+	\item Aplikasi bersifat kompatibel\\
+	Versi aplikasi yang sudah diperbarui dapat dijalankan dengan baik meskipun menggunakan perangkat yang baru. 
 \end{itemize}
- 
-\dtext{17-18}
-\begin{figure} 
-	\centering  
-	\includegraphics[scale=1]{ular-png}  
-	\caption[Gambar {\it Serpentes} dalam format png]{Gambar {\it Serpentes} dalam format png} 
-	\label{fig:ularpng} 
-\end{figure} 
-
-\dtext{19-20}
-\begin{figure}[H]
-	\centering  
-	\includegraphics[scale=0.5]{ular-jpg}  
-	\caption[Ular kecil]{Ular kecil} 
-	\label{fig:ularjpg} 
-\end{figure} 
-\dtext{21-22}
-
-\begin{figure}[ht] 
-	\centering  
-	\includegraphics[scale=1]{ular-pdf}  
-	\caption[ {\it Serpentes} betina]{ {\it Serpentes} jantan} 
-	\label{fig:ularpdf} 
-\end{figure} 
- 
-\subsection{Kode Program}
-
-Kode program dalam bahasa tertentu seringkali harus ditulis di dalam bab, bukan hanya dilampirkan di bagian Lampiran. 
-Kode~\ref{kode:aneh} menampilkan penggunaan karakter-karakter yang umum digunakan dalam sebuah program yang ditulis dengan bahasa C.
 
 
-\begin{lstlisting}[language=Java, caption=Kode untuk menampilkan karakter-karakter aneh, label=kode:aneh]
-// This does not make algorithmic sense, 
-// but it shows off significant programming characters.
 
-#include<stdio.h>
+\section{HTTP Archive}
+HTTP Archive adalah sebuah \textit{open-source project} yang dikelola oleh sekelompok \textit{developer} dan sekelompok komunitas. HTTP Archive berfungsi untuk melacak bagaimana sebuah website dibentuk.
+\subsection{Web Almanac}
+Web Almanac adalah laporan komprehensif tentang keadaan web, didukung oleh data nyata dan pakar web tepercaya. Misi web almanac adalah menggabungkan statistik mentah dan tren Arsip HTTP dengan keahlian komunitas web. Pada github web almanac terdapat beberapa contoh query yang membantu pengguna: 
+\begin{enumerate}
+	\item Accessibility\\
+	Aksesibilitas web adalah tentang pencapaian fitur dan informasi serta memberikan akses lengkap ke semua aspek antarmuka bagi orang yang tidak memiliki akses. Sebuah produk digital atau situs web tidak lengkap jika tidak dapat digunakan oleh semua orang. 
+	\item Caching\\
+	Caching adalah teknik yang memungkinkan penggunaan kembali konten yang diunduh sebelumnya. Caching melibatkan sesuatu seperti server atau web browser untuk menyimpan konton dan menandainya agar dapat digunakan kembali.
+	\item Capabilities\\
+	
+	\item CMS\\
+	Istilah CMS mengacu pada sistem yang memungkinkan individu dan organisasi untuk membuat, mengelola, dan mempublikasikan konten. CMS pada konton web adalah sistem yang bertujuan untuk membuat, mengelola, dan menerbitkan konten untuk dikonsumsi dan dialami melalui internet.
+	\item Compression\\
+	Menggunakan HTTP Compression membuat pemuatan situs lebih cepat dan menjamin pengalaman penggunaan yang lebih baik. Penggunaan compression yang efektif dapat mengurangi berat halaman dan meningkatkan kinerja web.
+	\item CSS\\
+	CSS adalah bahasa yang digunakan untuk membuat tampilan dan format pada web dan media lainnya.
+	\item Ecommerce\\
+	Ecommerce platform adalah perangkat lunak atau layanan yang memungkinkan untuk membuat dan mengoperasikan sebuah toko online.
+	\item Fonts\\
+	Teks adalah bagian penting dalam sebuah situs web dan tipografi adalah seni menyajikan teks tersebut dengan cara yang menarik dan efektif secara visual. Dalam pembuatan tipografi yang baik dibutuhkan pemilihan font yang sesuai. Dalam hal ini akan ditunjukkan bagaimana font web digunakan dan bagaimanafont tersebut dioptimalkan. 
+	\item HTTP\\
+	HTTP adalah protokol lapisan aplikasi yang dirancang untuk mentransfer informasi antara perangkat jaringan dan berjalan di atas lapisan lain dari tumpukan protokol jaringan. Dalam web almanac akan mengulas bagaimana status penerapan HTTP/2 atau HTTP versi dua pada saat ini.
+	\item Jamstack\\
+	Jamstack adalah konsep arsitektur yang relatif baru yang dirancang untuk membuat web lebih cepat, lebih aman, dan lebih mudah untuk diskalakan. Dalam web almanac akan memperkirakan dan menganalisis pertumbuhan situs Jamstack, kinerja kerangka kerja Jamstack populer, serta analisis pengalaman pengguna nyata menggunakan metrik Core Web Vitals.
+	\item Javascript\\
+	JavaScript adalah bahasa pemograman yang digunakan untuk menentukan perilaku. 
+	\item Markup\\
+	HTML adalah dasar dari sebuah website yang akan ditampilkan ke-\textit{user}. Dalam web almanac mengacu pada kumpulan halaman \textit{mobile}.
+	\item Media\\
+	Pada web alamanac, media digunakan untuk menganalisa bagaimana menggunakan gambar dan video di web.
+	\item mobile-web
+	
+	\item Page-weight\\
+	
+	\item Performance\\
+	Dalam web almanac, akan melihat data kinerja di dunia nyata yang disediakan oleh Laporan Pengalaman Pengguna Chrome (CrUX) melalui lensa perkembangan baru tersebut serta menganalisis beberapa metrik relevan lainnya.
+	\item Privacy\\
+	Web almanac memberikan gambaran umum tentang keadaan privasi saat ini di web. Hal ini bertujuan untuk meningkatkan akuntabilitas pemroses data dan transparansi mereka terhadap pengguna. Dalam hal ini, kami membahas prevalensi pelacakan online dengan berbagai teknik dan tingkat adopsi spanduk persetujuan cookie dan kebijakan privasi oleh situs web.
+	\item PWA\\
+	Dalam web almanac, kita akan melihat setiap komponen yang membuat PWA seperti apa adanya, dari perspektif berbasis data.
+	\item Resource-hints\\
+	
+	\item Security\\
+	Dalam web almanac, akan dilakukan menganalisis penerapan berbagai fitur keamanan secara mendalam dan dalam skala besar, kami mengumpulkan wawasan tentang berbagai cara pemilik situs web menerapkan mekanisme keamanan ini, didorong oleh insentif untuk melindungi penggunanya.
+	\item SEO\\
+	Dalam web almanac, untuk mengidentifikasi dan menilai elemen dan konfigurasi utama yang berperan dalam pengoptimalan pencarian organik situs web.
+	\item Third-parties\\
+	Web almanac meninjau prevalensi konten pihak ketiga dan bagaimana hal ini telah berubah sejak 2019.
+\end{enumerate}
 
-void myFunction( int input, float* output ) {
-	switch ( array[i] ) {
-		case 1: // This is silly code
-			if ( a >= 0 || b <= 3 && c != x )
-				*output += 0.005 + 20050;
-			char = 'g';
-			b = 2^n + ~right_size - leftSize * MAX_SIZE;
-			c = (--aaa + &daa) / (bbb++ - ccc % 2 );
-			strcpy(a,"hello $@?"); 
-	}
-	count = ~mask | 0x00FF00AA;
-}
 
-// Fonts for Displaying Program Code in LATEX
-// Adrian P. Robson, nepsweb.co.uk
-// 8 October 2012
-// http://nepsweb.co.uk/docs/progfonts.pdf
 
-\end{lstlisting}
 
-\subsection{Notasi}
+\section{BigQuery}
+BigQuery adalah gudang data perusahaan yang terkelola sepenuhnya yang membantu mengelola dan menganalisis data dengan fitur bawaan seperti machine learning, analisis geospasial, dan kecerdasan bisnis. BigQuery memaksimalkan fleksibelitas dengan memisahkan memisahkan mesin komputas yang menganalisa data. BigQuery ddapat digunakan sebagai tempat penyimpanan dan data tersebut dapat dianalisis. Data dapat dibaca dengan menggunakan \textit{query} gabungan. Di dalam big query memiliki dataset sebagai berikut:
+\begin{enumerate}
+	\item almanac\\
+	\item blink features\\
+	\item core web vitals\\
+	\item latest\\
+	\item lighthouse\\
+	\item pages\\
+	\item requests\\
+	\item response bodies\\
+	\item sample data\\
+	\item sample data 2020\\
+	\item scratchspace\\
+	\item summary pages\\
+	\item summary requests\\
+	\item technologies\\
+	Dataset pada technologies berisi tabel-tabel dari bulan Januari tahun 2016 sampai dengan sekarang yang terdiri dari website pada desktop dan mobile. Dataset bulan Agustus tahun 2020 baris pada desktop memiliki 61.203.638 baris dan pada mobile memiliki 67.452.994 baris yang dapat dianalisis. Masing-masing terdiri dari 4 kolom yaitu \textit{url}, \textit{category}, \textit{app}, \textit{info}. Pada kolom \textit{url (Uniform Resource Locator)} merupakan nama-nama domain, \textit{category} merupakan jenis aplikasi yang digunakan pada website tersebut, \textit{app} merupakan aplikasi yang digunakan website tersebut, \textit{info} merupakan informasi tambahan dari aplikasi. 
+	\item urls\\
+	\item wappalyzer\\
+\end{enumerate}
 
-Simbol-simbol (matematika) yang sering digunakan sepanjang penulisan skripsi, dapat dimasukkan ke dalam ``Daftar Notasi''. Daftar ini ada di halaman depan sebelum Bab~\ref{chap:intro}.
-Cara memasukkan sebuah simbol ke dalam Daftar Notasi adalah menggunakan perintah \verb|\nomenclature|. Contoh:
-\begin{center}
-    \verb|\nomenclature[]{$A$}{luas kandang ular}|    
-\end{center}
-\nomenclature[]{$A$}{luas kandang ular}
-\nomenclature[]{$n$}{banyaknya ular}
-\nomenclature[]{$k$}{jumlah kepala per seekor ular\nomrefpage}
-Argumen opsional digunakan untuk mengurutkan notasi. Silahkan lihat sendiri dokumentasi package \verb|nomencl|
+
+
+
+\section{OSEMN Framework}
+OSEMN merupakan data science framework yang memberikan langkah-langkah pengerjaan proyek.
+\subsection{Obtain Data}
+Obatain data berarti mengumpulkan data dari berbagai sumber. Langkah ini adalah langkah pertama. Mengumpulkan data sangat penting karena dalam melakukan sebuah proyek harus memiliki data. Data dapat didapat dengan meng-query dari database.
+
+\subsection{Scrub Data}
+Pada proses scrubbing data, data yang dikumpulkan tersebut akan dibersihkan atau difilter. Jika menggunakan data yang tidak difilter maka akan mempengaruhi keakuratan hasil akhir. Scrubbing data bisa saja merupakan ekstraksi data dan bertukar nilai.
+
+\subsection{Explore Data}
+Pada explore data, akan dilakukan pengecekan terhadap tipe dari data. Kemudian data-data tersebut akan dikumpulkan dan dibandingkan sehingga mendapat kesimpulan dari data yang ingin dicari. 
+
+\subsection{Model Data}
+Model data adalah pembuatan hasil akhir dari data yang diselidiki. Tujuan dari model data adalah mengelompokan data untuk memahami logika di balik cluster tersebut. 
+
+\subsection{Interpreting Data}
+Interpreting data mengacu pada penyajian data, penyampaian hasil agar dapat menunjukkan kesimpulan. Hasil-hasil yang ditunjukkan dapat berupa grafik-garfik agar dapat dijelaskan secara jelas dan aplikatif.
+
+
+
+
+\section{Pengukuran Aplikasi Usang Pada Beberapa Website Terkenal Di Indonesia}
+\subsection{\textit{Research Method}}
+\begin{enumerate}
+	\item Memilih list website yang populer\\
+	Memilih website paling populer dilakukan dengan mengambil daftar dari website teratas dari Alexa dengan negara tertentu.
+	\item Mengidentifikasi aplikasi yang dipakai website\\
+	Untuk setiap website akan dilakukan pengidentifikasian nomor versi yang dipakai. Hal ini dibantu dengan menggunakan \textit{third party} yaitu Wappalyzer. 
+	\item Mengelompokkan berdasarkan nama aplikasi dan ambil versi yang didukung\\
+	Untuk melihat nomor versi yang masih didukung akan dilakukan pencarian di website resmi dari setiap aplikasi. Terdapat beberapa website yang tidak dapat ditampilkan versinya, sehingga suatu website dapat didefinisikan didukung jika memenuhi kondisi sebagai beikut:
+	\begin{itemize}
+		\item Versi aplikasi yang didukung dapat dilihat secara eksplisit di dalam website.
+		\item Dokumen untuk versi aplikasi tersebut masih tersedia.
+		\item Aplikasi secara langsung memberikan pernyataan untuk versi yang masih didukung.
+	\end{itemize}
+	
+	\item Membandingkan versi yang dipakai aplikasi saat ini dengan versi aplikasi yang didukung\\
+	Buka kembali setiap aplikasi kemudian menggunakan Wappalyzer untuk membandingkan versi aplikasi yang dipakai dengan versi aplikasi yang masih didukung. Klasifikasikan setiap aplikasi di setiap situs web menjadi salah satu dari berikut ini:
+	\begin{itemize}
+		\item \textit{Not-versioned} berarti aplikasi yang terdeteksi oleh Wappalyzer tidak memiliki informasi versi sehingga tidak dapat dibandingkan.
+		\item Non-konklusif dapat berarti salah satu dari dua:
+		\begin{itemize}
+			\item Dapat mengambil nomor versi yang digunakan dalam aplikasi, tetapi kami tidak dapat menentukan apakah versi tersebut masih didukung atau tidak oleh pengelola.
+			\item Versi yang didukung untuk aplikasi tertentu tidak diketahui.
+		\end{itemize}
+		\item Tidak didukung berarti dapat disimmpulkan bahwa aplikasi yang digunakan menggunakan nomor versi yang tidak didukung oleh pengelola.
+		\item Didukung berarti dapat disimpulkan bahwa aplikasi yang digunakan menggunakan nomor versi masih didukung oleh pengelola.
+	\end{itemize}
+	
+	
+\end{enumerate}
 

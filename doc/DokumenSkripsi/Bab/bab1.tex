@@ -1,44 +1,57 @@
 %versi 2 (8-10-2016) 
 \chapter{Pendahuluan}
 \label{chap:intro}
-   
+Pada bab ini dijelaskan latar belakang, rumusan masalah, tujuan, batasan masalah, metodologi, dan sistematika pembahasan.
 \section{Latar Belakang}
 \label{sec:label}
+Di masa teknologi saat ini, banyak perusahaan yang menggunakan website sebagai tempat untuk mencari informasi. Terdapat banyak website yang menggunakan aplikasi yang sudah usang. HTTP Archive memiliki dataset penggunaan aplikasi suatu website yang dapat dilihat atau dianalisis menggunakan Google Cloud Platform. HTTP Archive memiliki dataset penggunaan aplikasi suatu website dari desktop dan mobile pada bulan Januari tahun 2016 sampai sekarang. Dataset yang akan dianalisis pada skripsi ini merupakan dataset desktop dan mobile pada bulan Agustus tahun 2020. Dataset pada desktop memiliki 61.203.638 baris dan pada mobile memiliki 67.452.994 baris yang dapat dianalisis. Masing-masing dataset memiliki 4 kolom, yaitu \textit{url}, \textit{category}, \textit{app}, \textit{info}. Pada kolom \textit{url (Uniform Resource Locator)} merupakan nama-nama domain, \textit{category} merupakan jenis aplikasi yang digunakan pada website tersebut, \textit{app} merupakan aplikasi yang digunakan website tersebut, \textit{info} merupakan informasi tambahan dari aplikasi. 
 
-Bagian ini akan diisi dengan apa yang melatarbelakangi pembuatan template skripsi ini.
-Termasuk juga masalah-masalah yang akan dihadapi untuk membuatnya, termasuk kurangnya kemampuan penguasaan \LaTeX{} sehingga template ini dibuat dengan mengandalkan berbagai contoh yang tersebar di dunia maya, yang digabung-gabung menjadi satu jua.
-Bagian lain juga akan dilengkapi, untuk sementara diisi dengan lorem ipsum versi bahasa inggris.
+Beberapa aplikasi sudah menyediakan fitur untuk mengupdate ke versi yang paling baru tanpa harus menginstal ulang. Dalam kebanyakan kasus, versi aplikasi yang semakin baru sudah memperbaiki banyak kerentanan yang sudah diketahui. Tetapi pengguna tidak melakukan update karena faktor malas dari pengguna komputer karena pengguna harus memeriksa setiap aplikasi untuk mengupdate keversi yang terbaru. Beberapa aplikasi usang tidak memiliki pemberitahuan untuk meng-\textit{update} sehingga pengguna tidak mengetahui jika terdapat \textit{update}. Aplikasi yang baik biasanya memberikan update otomatis dan memberikan pesan yang efektif jika terjadi \textit{update}. 
 
-\dtext{5-10}
+HTTP Archive adalah sebuah proyek \textit{open source} yang melacak bagaimana sebuah website dibuat. Di dalam HTTP Archive terdapat data-data historical yang disediakan untuk menunjukkan bagaimana sebuah website terus berkembang dan proyek ini sering digunakan untuk penelitian. HTTP Archive pertama sekali dimulai pada tahun 2010 oleh Steve Souders. Tujuan dari HTTP Archive adalah untuk melacak bagaimana web dibangun. HTTP Archive memiliki jutaan halaman web setiap bulan dan menyediakan terabyte data metadata untuk dianalisis menggunakan BigQuery. BigQuery adalah gudang data perusahaan yang terkelola sepenuhnya yang membantu mengelola dan menganalisis data dengan fitur bawaan. BigQuery membantu dalam membuat query dalam skala terabyte dalam hitungan detik dan petabyte dalam hitungan menit.
+
+Pada skripsi ini, akan dibuat sebuah penelitian untuk mengetahui seberapa besar penggunaan aplikasi usang pada seluruh website yang ada di dunia. Data dapat diambil dari HTTP Archive dengan melakukan query pada google BigQuery . Pada penelitian ini akan dilakukan perhitungan pada jumlah aplikasi yang sudah diberi versi dan belum diberi versi. Jika belum diberikan versi maka aplikasi dinyatakan usang. Kemudian hasil tersebut akan ditampilkan dalam bentuk bar chart.
+
 
 \section{Rumusan Masalah}
 \label{sec:rumusan}
-Bagian ini akan diisi dengan penajaman dari masalah-masalah yang sudah diidentifikasi di bagian sebelumnya. 
+Berikut ini adalah rumusan masalah dari penelitian ini:
+\begin{enumerate}
+	\item Bagaimana cara membaca data dari HTTP Archive?
+	\item Bagaimana mengimplementasi proyek yang sudah ada dengan menggunakan data yang lebih besar?
+	\item Berapakah jumlah data di HTTP Archive?
+\end{enumerate}
 
-\dtext{6}
 
 \section{Tujuan}
 \label{sec:tujuan}
-Akan dipaparkan secara lebih terperinci dan tersturkur apa yang menjadi tujuan pembuatan template skripsi ini
+Berikut ini adalah tujuan dari penelitian ini:
+\begin{enumerate}
+	\item Membaca data dari HTTP Archive.
+	\item Mengimplementasi proyek yang sudah ada dengan menggunakan data yang lebih besar.
+	\item Mengetahui jumlah data di HTTP Archive.
+\end{enumerate}
 
-\dtext{7}
 
 \section{Batasan Masalah}
 \label{sec:batasan}
-Untuk mempermudah pembuatan template ini, tentu ada hal-hal yang harus dibatasi, misalnya saja bahwa template ini bukan berupa style \LaTeX{} pada umumnya (dengan alasannya karena belum mampu jika diminta membuat seperti itu)
+Penelitian ini dibuat dengan batasan - batasan berikut:
+\begin{enumerate}
+	\item Ada kemungkinan rumusan masalah akan disesuaikan jika terbentur di dana (batas free-tier Google BigQuery adalah 1TB/bulan).
+\end{enumerate}
 
-\dtext{8}
 
 \section{Metodologi}
 \label{sec:metlit}
-Tentunya akan diisi dengan metodologi yang serius sehingga templatenya terkesan lebih serius.
+Bagian-bagian pekerjaan skripsi ini adalah sebagai berikut:
+\begin{enumerate}
+	\item Mempelajari HTTP Archive.
+	\item Mempelajari BigQuery.
+	\item Mempelajari bagaimana suatu website dikatakan usang.
+	\item Menganalisis beberapa website yang dikatakan usang.
+	\item Menulis dokumen skripsi.
+\end{enumerate}
 
-\dtext{9}
 
 \section{Sistematika Pembahasan}
 \label{sec:sispem}
-Rencananya Bab 2 akan berisi petunjuk penggunaan template dan dasar-dasar \LaTeX.
-Mungkin bab 3,4,5 dapt diisi oleh ketiga jurusan, misalnya peraturan dasar skripsi atau pedoman penulisan, tentu jika berkenan.
-Bab 6 akan diisi dengan kesimpulan, bahwa membuat template ini ternyata sungguh menghabiskan banyak waktu.
-
-\dtext{10}
