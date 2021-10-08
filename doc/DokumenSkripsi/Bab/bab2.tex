@@ -1,37 +1,41 @@
 %versi 3 (22-07-2020)
 \chapter{Landasan Teori}
 \label{chap:teori}
-Pada bab ini akan dijelaskan tentang website, HTTP Archive, BigQuery, dan OSEMN Framework.
-\section{Website}
-\label{sec:website} 
-Website adalah keseluruhan halaman-halaman web yang terdapat dalam sebuah domain yang mengandung informasi. Sebuah website biasanya dibangun atas banyak web yang saling berhubungan. Web adalah sebuah sistem dengan informasi yang berbentuk teks, gambar, suara, dan lainnya yang tersimpan dalam suatu server web internet yang disajikan dalam bentuk \textit{hypertext}. Website merupakan salah satu indikasi untuk membangun kredibilitas dan citra suatu perusahaan. Website berperan sebagai bagian dari proses \textit{customer relationship} sehingga suatu perusahaan harus dapat membuat website yang profesional dan berkualitas. 
 
-\subsection{Pengukuran Kualitas Website}
-Dalam penggunaan komputer pasti sudah dapat mengakses internet dalam mencari informasi, berinteraksi, dan melakukan transaksi online. Internet memberikan kemudahan dengan menyingkat waktu dan tidak melihat jarak. Internet dapat diakses menggunakan browser dalam mencari informasi. Browser yang baik memiliki sistem \textit{update} otomatis. ketika browser terdapat versi baru, maka browser akan melakukan pembaruan keversi terbabru. Begitu juga website, harus dilakukan pembaruan untuk menghindari resiko yang tidak diinginkan. Pengukuran yang dilakukan bisa saja dengan membandingkan versi aplikasi yang dipakai website saat ini dengan versi aplikasi dari \textit{official} website. 
-
-\subsection{Aplikasi pada Website}
-Aplikasi pada Website merupakan aplikasi atau teknologi yang dipakai dalam pembuatan sebuah website. Beberapa contoh teknologi atau aplikasi dalam pembuatan website adalah:
-\begin{enumerate}
-	\item JQuery\\
-	JQuery adalah sebuah pustaka dari JavaScript yang cepat, kecil, dan memiliki banyak fitur. 
-	\item Google Tag Manager\\
-	Google Tag Manager adalah tool gratis yang membantu mengelola dan menerapkan tag pemasaran pada website tanpa harus mengubah kode.
-\end{enumerate}
-
-\subsection{Kelebihan Pembaruan Versi Aplikasi Pada Website}
-\begin{itemize}
-	\item Keamanan yang sudah diperbarui\\
-	Keamanan menjadi tujuan utama dari memperbarui versi aplikasi dari website. Aplikasi yang sudah diperbarui biasanya sudah memperbaiki kerentanan yang sudah pernah terjadi. 
-	\item Aplikasi bersifat kompatibel\\
-	Versi aplikasi yang sudah diperbarui dapat dijalankan dengan baik meskipun menggunakan perangkat yang baru. 
-\end{itemize}
+\section{BigQuery\cite{bqa}}
+BigQuery\footnote{https://cloud.google.com/bigquery/docs/introduction} adalah gudang data perusahaan yang terkelola sepenuhnya yang membantu mengelola dan menganalisis data dengan fitur bawaan seperti machine learning, analisis geospasial, dan kecerdasan bisnis. BigQuery memaksimalkan fleksibelitas dengan memisahkan memisahkan mesin komputas yang menganalisa data. BigQuery dapat digunakan sebagai tempat penyimpanan dan data tersebut dapat dianalisis. Data dapat dibaca dengan menggunakan \textit{query} gabungan. Google meluncurkan bigquery secara publik pada tahun 2012 yang mengijinkan pengguna diluar Google untuk memanfaatkan \textit{power} dan \textit{performance} dari Dremel. Saat ini BigQuery sudah berkembang menjadi penyedia penyimpanan terstruktur berbasis cloud yang dikelola dan dihosting. 
+\subsection{\textit{Cloud Storage System}}
+Selain sebagai tempat untuk menjalankan \textit{query} dari data, saat ini BigQuery juga merupakan tempat penyimpanan data terstruktur di cloud. Data akan direplikasi ke beberapa lokasi yang berbeda secara geografis untuk meningkatkan ketersediaan dan ketahanan. Jika pusat data di Google pada suatu lokasi ditutup, data tetap dapat diakses tanpa terjadi gangguan. Data juga akan direplikasi dalam sebuah kluster agar tidak terjadi kehilangan data jika terjadi kegagalan perangkat keras. 
 
 
 
 \section{HTTP Archive}
-HTTP Archive adalah sebuah \textit{open-source project} yang dikelola oleh sekelompok \textit{developer} dan sekelompok komunitas. HTTP Archive berfungsi untuk melacak bagaimana sebuah website dibentuk.
-\subsection{Web Almanac}
-Web Almanac adalah laporan komprehensif tentang keadaan web, didukung oleh data nyata dan pakar web tepercaya. Misi web almanac adalah menggabungkan statistik mentah dan tren Arsip HTTP dengan keahlian komunitas web. Pada github web almanac terdapat beberapa contoh query yang membantu pengguna: 
+HTTP Archive adalah sebuah \textit{open-source project} yang melihat bagaimana website dibuat. HTTP Archive menyediakan data-data historis untuk melihat bagaimana website berkembang \footnote{https://httparchive.org/faq}. HTTP Archive pertama sekali dimulai pada tahun 2010 oleh Steve Souders dan di-\textit{maintain} oleh Pat Meenan, Rick Viscomi, Paul Calvano, and Barry Pollard. Pada HTTP Archive terdapat batasan, yaitu HTTP Archive memeriksa setiap URL tetapi tidak sampai melihat halaman lainnya. Misalnya Sebagian besar \textit{website} terdiri dari banyak halaman web terpisah. Karena batasin ini sehingga ada kemungkinan bahwa dokumen HTML sebenarnya yang dianalisis tidak mewakili situs web. Di dalam HTTP Archive terdapat dataset yang dapat diambil menggunakan teknologi bigquery, dataset tersebut adalah sebagai berikut:
+\begin{enumerate}
+	\item almanac\\
+	\item blink features\\
+	\item core web vitals\\
+	\item latest\\
+	\item lighthouse\\
+	\item pages\\
+	Dataset pada technologies berisi tabel-tabel dari bulan Januari tahun 2016 sampai dengan sekarang yang terdiri dari website pada desktop dan mobile. Dataset bulan Agustus tahun 2020 baris pada desktop memiliki 5.593.642 baris dan pada mobile memiliki 6.347.640 baris yang dapat dianalisis. Masing-masing terdiri dari URL dan payload. \textit{URL (Uniform Resource Locator)} merupakan nama-nama domain dan \textit{payload}
+	\item requests\\
+	Dataset pada technologies berisi tabel-tabel dari bulan Januari tahun 2016 sampai dengan sekarang yang terdiri dari website pada desktop dan mobile. Dataset bulan Agustus tahun 2020 baris pada desktop memiliki 535.841.778 baris dan pada mobile memiliki 579752745 baris yang dapat dianalisis. Masing-masing terdiri dari URL dan payload. \textit{URL (Uniform Resource Locator)} merupakan nama-nama domain dan \textit{payload}.
+	\item response bodies\\
+	\item sample data\\
+	\item sample data 2020\\
+	\item scratchspace\\
+	\item summary pages\\
+	\item summary requests\\
+	\item technologies\\
+	Dataset pada technologies berisi tabel-tabel dari bulan Januari tahun 2016 sampai dengan sekarang yang terdiri dari website pada desktop dan mobile. Dataset bulan Agustus tahun 2020 baris pada desktop memiliki 61.203.638 baris dan pada mobile memiliki 67.452.994 baris yang dapat dianalisis. Masing-masing terdiri dari 4 kolom yaitu \textit{URL}, \textit{category}, \textit{app}, \textit{info}. Pada kolom \textit{URL (Uniform Resource Locator)} merupakan nama-nama domain, \textit{category} merupakan jenis aplikasi yang digunakan pada website tersebut, \textit{app} merupakan aplikasi yang digunakan website tersebut, \textit{info} merupakan informasi tambahan dari aplikasi. 
+	\item urls\\
+	\item wappalyzer\\
+\end{enumerate}
+
+
+\section{Web Almanac}
+Web Almanac \footnote{https://almanac.httparchive.org/en/2020/methodology} adalah sebuah projek yang dikelola oleh HTTP Archive. Misi web almanac adalah menggabungkan statistik mentah dan tren HTTP Archive dengan keahlian komunitas web. Semua metrik yang disediakan oleh web almanac dapat direproduksi secara publik menggunakan dataset di BigQuery. Kueri dapat ditelusuri dengan menggunakan semua bab di repositori GitHub web almanac yang dapat dilihat pada \footnote{https://github.com/HTTPArchive/almanac.httparchive.org/tree/main/sql/2020}: 
 \begin{enumerate}
 	\item Accessibility\\
 	Aksesibilitas web adalah tentang pencapaian fitur dan informasi serta memberikan akses lengkap ke semua aspek antarmuka bagi orang yang tidak memiliki akses. Sebuah produk digital atau situs web tidak lengkap jika tidak dapat digunakan oleh semua orang. 
@@ -81,34 +85,8 @@ Web Almanac adalah laporan komprehensif tentang keadaan web, didukung oleh data 
 
 
 
-
-\section{BigQuery}
-BigQuery adalah gudang data perusahaan yang terkelola sepenuhnya yang membantu mengelola dan menganalisis data dengan fitur bawaan seperti machine learning, analisis geospasial, dan kecerdasan bisnis. BigQuery memaksimalkan fleksibelitas dengan memisahkan memisahkan mesin komputas yang menganalisa data. BigQuery ddapat digunakan sebagai tempat penyimpanan dan data tersebut dapat dianalisis. Data dapat dibaca dengan menggunakan \textit{query} gabungan. Di dalam big query memiliki dataset sebagai berikut:
-\begin{enumerate}
-	\item almanac\\
-	\item blink features\\
-	\item core web vitals\\
-	\item latest\\
-	\item lighthouse\\
-	\item pages\\
-	\item requests\\
-	\item response bodies\\
-	\item sample data\\
-	\item sample data 2020\\
-	\item scratchspace\\
-	\item summary pages\\
-	\item summary requests\\
-	\item technologies\\
-	Dataset pada technologies berisi tabel-tabel dari bulan Januari tahun 2016 sampai dengan sekarang yang terdiri dari website pada desktop dan mobile. Dataset bulan Agustus tahun 2020 baris pada desktop memiliki 61.203.638 baris dan pada mobile memiliki 67.452.994 baris yang dapat dianalisis. Masing-masing terdiri dari 4 kolom yaitu \textit{url}, \textit{category}, \textit{app}, \textit{info}. Pada kolom \textit{url (Uniform Resource Locator)} merupakan nama-nama domain, \textit{category} merupakan jenis aplikasi yang digunakan pada website tersebut, \textit{app} merupakan aplikasi yang digunakan website tersebut, \textit{info} merupakan informasi tambahan dari aplikasi. 
-	\item urls\\
-	\item wappalyzer\\
-\end{enumerate}
-
-
-
-
 \section{OSEMN Framework}
-OSEMN merupakan data science framework yang memberikan langkah-langkah pengerjaan proyek.
+OSEMN merupakan data science framework yang memberikan langkah-langkah pengerjaan proyek.\footnote{https://towardsdatascience.com/5-steps-of-a-data-science-project-lifecycle-26c50372b492}
 \subsection{Obtain Data}
 Obatain data berarti mengumpulkan data dari berbagai sumber. Langkah ini adalah langkah pertama. Mengumpulkan data sangat penting karena dalam melakukan sebuah proyek harus memiliki data. Data dapat didapat dengan meng-query dari database.
 
@@ -127,7 +105,7 @@ Interpreting data mengacu pada penyajian data, penyampaian hasil agar dapat menu
 
 
 
-\section{Pengukuran Aplikasi Usang Pada Beberapa Website Terkenal Di Indonesia}
+\section{Pengukuran Aplikasi Usang Pada Beberapa Website Terkenal Di Indonesia\cite{pascal}}
 \subsection{\textit{Research Method}}
 \begin{enumerate}
 	\item Memilih list website yang populer\\
@@ -151,10 +129,23 @@ Interpreting data mengacu pada penyajian data, penyampaian hasil agar dapat menu
 			\item Dapat mengambil nomor versi yang digunakan dalam aplikasi, tetapi kami tidak dapat menentukan apakah versi tersebut masih didukung atau tidak oleh pengelola.
 			\item Versi yang didukung untuk aplikasi tertentu tidak diketahui.
 		\end{itemize}
-		\item Tidak didukung berarti dapat disimmpulkan bahwa aplikasi yang digunakan menggunakan nomor versi yang tidak didukung oleh pengelola.
+		\item Tidak didukung berarti dapat disimpulkan bahwa aplikasi yang digunakan menggunakan nomor versi yang tidak didukung oleh pengelola.
 		\item Didukung berarti dapat disimpulkan bahwa aplikasi yang digunakan menggunakan nomor versi masih didukung oleh pengelola.
 	\end{itemize}
-	
-	
+	\begin{figure}[H]
+		\centering  
+		\includegraphics[scale=0.9]{Gambar/compare_version.PNG}  
+		\caption{\textit{ Algorithm to compare current version versus supported versions}} 
+		\label{fig:apr} 
+	\end{figure}
 \end{enumerate}
 
+
+\subsection{\textit{Hasil Keseluruhan}}
+Pada paper\cite{pascal}, dari 1.500 URL yang dideteksi oleh Wappalyzer, hanya 1.439 URL yang berhasil diidentifikasi. Dari 1.500 URL terebut ditemukan total 12.762 aplikasi yang dapat dilihat pada Gambar\ref{fig:apr}
+\begin{figure}[H]
+	\centering  
+	\includegraphics[scale=0.9]{Gambar/application_count_result.PNG}  
+	\caption{ \textit{Overall application count for measurement result}} 
+	\label{fig:apr} 
+\end{figure} 
