@@ -2,15 +2,12 @@
 \chapter{Landasan Teori}
 \label{chap:teori}
 
-\section{BigQuery\cite{bqa}}
-BigQuery\footnote{https://cloud.google.com/bigquery/docs/introduction} adalah gudang data perusahaan yang terkelola sepenuhnya yang membantu mengelola dan menganalisis data dengan fitur bawaan seperti machine learning, analisis geospasial, dan kecerdasan bisnis. BigQuery memaksimalkan fleksibelitas dengan memisahkan memisahkan mesin komputas yang menganalisa data. BigQuery dapat digunakan sebagai tempat penyimpanan dan data tersebut dapat dianalisis. Data dapat dibaca dengan menggunakan \textit{query} gabungan. Google meluncurkan bigquery secara publik pada tahun 2012 yang mengijinkan pengguna diluar Google untuk memanfaatkan \textit{power} dan \textit{performance} dari Dremel. Saat ini BigQuery sudah berkembang menjadi penyedia penyimpanan terstruktur berbasis cloud yang dikelola dan dihosting. 
-\subsection{\textit{Cloud Storage System}}
-Selain sebagai tempat untuk menjalankan \textit{query} dari data, saat ini BigQuery juga merupakan tempat penyimpanan data terstruktur di cloud. Data akan direplikasi ke beberapa lokasi yang berbeda secara geografis untuk meningkatkan ketersediaan dan ketahanan. Jika pusat data di Google pada suatu lokasi ditutup, data tetap dapat diakses tanpa terjadi gangguan. Data juga akan direplikasi dalam sebuah kluster agar tidak terjadi kehilangan data jika terjadi kegagalan perangkat keras. 
+\section{BigQuery\cite{bqa, bqIntroduction}}
+Google memiliki salah satu produk yaitu BigQuery yang berbasis \textit{cloud} dan dapat digunakan untuk menganalisis data tanpa harus memikirkan database. BigQuery memaksimalkan fleksibelitas dengan memisahkan memisahkan mesin komputasi yang menganalisa data. BigQuery dapat digunakan sebagai tempat penyimpanan dan data tersebut dapat dianalisis. Google meluncurkan BigQuery secara publik pada tahun 2012. Saat ini BigQuery sudah berkembang menjadi penyedia penyimpanan terstruktur berbasis \textit{cloud} yang dikelola dan dihosting. Selain sebagai tempat untuk menjalankan \textit{query} dari data, saat ini BigQuery juga merupakan tempat penyimpanan data terstruktur di \textit{cloud}. Data akan direplikasi ke beberapa lokasi yang berbeda secara geografis untuk meningkatkan ketersediaan dan ketahanan. Jika pusat data di Google pada suatu lokasi ditutup, data tetap dapat diakses tanpa terjadi gangguan. Data juga akan direplikasi dalam sebuah kluster agar tidak terjadi kehilangan data jika terjadi kegagalan perangkat keras. 
 
 
-
-\section{HTTP Archive}
-HTTP Archive adalah sebuah \textit{open-source project} yang melihat bagaimana website dibuat. HTTP Archive menyediakan data-data historis untuk melihat bagaimana website berkembang \footnote{https://httparchive.org/faq}. HTTP Archive pertama sekali dimulai pada tahun 2010 oleh Steve Souders dan di-\textit{maintain} oleh Pat Meenan, Rick Viscomi, Paul Calvano, and Barry Pollard. Pada HTTP Archive terdapat batasan, yaitu HTTP Archive memeriksa setiap URL tetapi tidak sampai melihat halaman lainnya. Misalnya Sebagian besar \textit{website} terdiri dari banyak halaman web terpisah. Karena batasin ini sehingga ada kemungkinan bahwa dokumen HTML sebenarnya yang dianalisis tidak mewakili situs web. Di dalam HTTP Archive terdapat dataset yang dapat diambil menggunakan teknologi bigquery, dataset tersebut adalah sebagai berikut:
+\section{HTTP Archive \cite{httparchiveAbout}}
+HTTP Archive adalah sebuah \textit{open-source project} yang melihat bagaimana website dibuat. HTTP Archive menyediakan data-data historis untuk melihat bagaimana website berkembang. HTTP Archive pertama sekali dimulai pada tahun 2010 oleh Steve Souders dan di-\textit{maintain} oleh Pat Meenan, Rick Viscomi, Paul Calvano, and Barry Pollard. HTTP Arhive memiliki keterbatasan seperti HTTP Archive hanya melihat halaman utama. Misalnya sebagian besar \textit{website} terdiri dari banyak halaman web terpisah. Karena batasan ini sehingga ada kemungkinan bahwa suatu halaman yang dianalisis tidak mewakili sebuah situs website. Di dalam HTTP Archive terdapat dataset yang dapat diambil menggunakan teknologi BigQuery, dataset tersebut adalah sebagai berikut:
 \begin{enumerate}
 	\item almanac\\
 	\item blink features\\
@@ -20,7 +17,7 @@ HTTP Archive adalah sebuah \textit{open-source project} yang melihat bagaimana w
 	\item pages\\
 	Dataset pada technologies berisi tabel-tabel dari bulan Januari tahun 2016 sampai dengan sekarang yang terdiri dari website pada desktop dan mobile. Dataset bulan Agustus tahun 2020 baris pada desktop memiliki 5.593.642 baris dan pada mobile memiliki 6.347.640 baris yang dapat dianalisis. Masing-masing terdiri dari URL dan payload. \textit{URL (Uniform Resource Locator)} merupakan nama-nama domain dan \textit{payload}
 	\item requests\\
-	Dataset pada technologies berisi tabel-tabel dari bulan Januari tahun 2016 sampai dengan sekarang yang terdiri dari website pada desktop dan mobile. Dataset bulan Agustus tahun 2020 baris pada desktop memiliki 535.841.778 baris dan pada mobile memiliki 579752745 baris yang dapat dianalisis. Masing-masing terdiri dari URL dan payload. \textit{URL (Uniform Resource Locator)} merupakan nama-nama domain dan \textit{payload}.
+	Dataset pada technologies berisi tabel-tabel dari bulan Januari tahun 2016 sampai dengan sekarang yang terdiri dari website pada desktop dan mobile. Dataset bulan Agustus tahun 2020 baris pada desktop memiliki 535.841.778 baris dan pada mobile memiliki 579.752.745 baris yang dapat dianalisis. Masing-masing terdiri dari URL dan payload. \textit{URL (Uniform Resource Locator)} merupakan nama-nama domain dan \textit{payload}.
 	\item response bodies\\
 	\item sample data\\
 	\item sample data 2020\\
@@ -34,8 +31,8 @@ HTTP Archive adalah sebuah \textit{open-source project} yang melihat bagaimana w
 \end{enumerate}
 
 
-\section{Web Almanac}
-Web Almanac \footnote{https://almanac.httparchive.org/en/2020/methodology} adalah sebuah projek yang dikelola oleh HTTP Archive. Misi web almanac adalah menggabungkan statistik mentah dan tren HTTP Archive dengan keahlian komunitas web. Semua metrik yang disediakan oleh web almanac dapat direproduksi secara publik menggunakan dataset di BigQuery. Kueri dapat ditelusuri dengan menggunakan semua bab di repositori GitHub web almanac yang dapat dilihat pada \footnote{https://github.com/HTTPArchive/almanac.httparchive.org/tree/main/sql/2020}: 
+\section{Web Almanac \cite{webalmanacMetho}}
+Web Almanac adalah sebuah projek yang dikelola oleh HTTP Archive. Misi web almanac adalah menggabungkan statistik mentah dan tren HTTP Archive dengan keahlian komunitas web. Semua metrik yang disediakan oleh web almanac dapat direproduksi secara publik menggunakan dataset di BigQuery. Kueri dapat ditelusuri dengan menggunakan semua bab di repositori GitHub web almanac yang dapat dilihat pada \footnote{https://github.com/HTTPArchive/almanac.httparchive.org/tree/main/sql/2020}: 
 \begin{enumerate}
 	\item Accessibility\\
 	Aksesibilitas web adalah tentang pencapaian fitur dan informasi serta memberikan akses lengkap ke semua aspek antarmuka bagi orang yang tidak memiliki akses. Sebuah produk digital atau situs web tidak lengkap jika tidak dapat digunakan oleh semua orang. 
@@ -142,10 +139,11 @@ Interpreting data mengacu pada penyajian data, penyampaian hasil agar dapat menu
 
 
 \subsection{\textit{Hasil Keseluruhan}}
-Pada paper\cite{pascal}, dari 1.500 URL yang dideteksi oleh Wappalyzer, hanya 1.439 URL yang berhasil diidentifikasi. Dari 1.500 URL terebut ditemukan total 12.762 aplikasi yang dapat dilihat pada Gambar\ref{fig:apr}
+Pada paper\cite{pascal}, dari 1.500 URL yang dideteksi oleh Wappalyzer, hanya 1.439 URL yang berhasil diidentifikasi. Dari 1.500 URL terebut ditemukan total 12.762 aplikasi yang dapat dilihat pada Gambar\ref{fig:apr2}
 \begin{figure}[H]
 	\centering  
 	\includegraphics[scale=0.9]{Gambar/application_count_result.PNG}  
 	\caption{ \textit{Overall application count for measurement result}} 
-	\label{fig:apr} 
+	\label{fig:apr2} 
 \end{figure} 
+
