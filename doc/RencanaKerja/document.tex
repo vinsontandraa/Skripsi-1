@@ -16,7 +16,7 @@
 \makeatletter
 \renewcommand{\@maketitle} {\begin{center} {\LARGE \textbf{ \textsc{\@title}} \par} \bigskip {\large \textbf{\textsc{\@author}} }\end{center} }
 \renewcommand{\thispagestyle}[1]{}
-\markright{\textbf{\textsc{AIF401/AIF402 \textemdash Rencana Kerja Skripsi \textemdash Sem. Ganjil 2021/2022}}}
+\markright{\textbf{\textsc{AIF184002 \textemdash Rencana Kerja Skripsi \textemdash Sem. Ganjil 2021/2022}}}
 
 \newcommand{\HRule}{\rule{\linewidth}{0.4mm}}
 \renewcommand{\baselinestretch}{1}
@@ -46,30 +46,28 @@
 	\section{Deskripsi}
 	Di masa teknologi saat ini, banyak perusahaan yang menggunakan website sebagai tempat untuk mencari informasi. Terdapat banyak website yang menggunakan aplikasi yang sudah usang. HTTP Archive memiliki dataset penggunaan aplikasi suatu website yang dapat dilihat atau dianalisis menggunakan Google Cloud Platform. HTTP Archive memiliki dataset penggunaan aplikasi suatu website dari desktop dan mobile pada bulan Januari tahun 2016 sampai sekarang. Berdasarkan sumber pada website almanac \footnote{https://almanac.httparchive.org/en/2020/mobile-web}, dapat diambil kesimpulan bahwa website dibuka menggunakan browser di desktop dan mobile. Dataset yang digunakan berada pada label \textit{technologies} merupakan dataset desktop dan mobile pada bulan Agustus tahun 2020. Dataset pada desktop memiliki 61.203.638 baris dan pada mobile memiliki 67.452.994 baris. 
 	
-	Berdasarkan \cite{pascal}, dari 1.500 situs teratas menurut peringkat Alexa untuk pengunjung situs di Indonesia dan mengidentifikasi jenisnya aplikasi yang mereka gunakan beserta nomor versinya, lebih dari setengah atau 63\% aplikasi yang digunakan berhasil dibandingkan dengan skrip yang telah dibuat dan hasilnya aplikasi tidak lagi didukung oleh pengelolanya.
+	HTTP Archive \footnote{https://github.com/HTTPArchive/httparchive.org/blob/main/docs/gettingstarted$\_$bigquery.md} adalah sebuah proyek yang bersifat \textit{open source} untuk melihat bagaimana website dibuat. Di dalam HTTP Archive terdapat data-data historis yang disediakan untuk menunjukkan bagaimana website terus berkembang dan proyek ini sering digunakan untuk penelitian. Didalam HTTP Archive terdapat dataset yang berisi jutaan web setiap bulan dan dapat dianalisis menggunakan teknologi BigQuery. BigQuery adalah salah satu produk dari Google yang berbasis \textit{cloud} dan dapat digunakan untuk menganalisis data tanpa harus memikirkan database. BigQuery dapat menjalankan \textit{query} dalam skala \textit{terabyte} dalam hitungan detik dan \textit{petabyte} dalam hitungan menit.
+	
+	Berdasarkan jurnal yang berjudul \textit{Measuring Unsupported Applications in Indonesia Popular Websites}, dari 1.500 situs teratas menurut peringkat Alexa untuk pengunjung situs di Indonesia dan mengidentifikasi jenisnya aplikasi yang mereka gunakan beserta nomor versinya, lebih dari setengah atau 63\% aplikasi yang digunakan berhasil dibandingkan dengan skrip yang telah dibuat dan hasilnya aplikasi tidak lagi didukung oleh pengelolanya.
 	
 	Beberapa aplikasi sudah menyediakan fitur untuk meng-\textit{update} ke versi yang paling baru tanpa harus menginstal ulang. Dalam kebanyakan kasus, versi aplikasi yang semakin baru sudah memperbaiki banyak kerentanan yang sudah diketahui. Beberapa aplikasi usang tidak memiliki pemberitahuan untuk meng-\textit{update} sehingga pengguna tidak mengetahui jika terdapat \textit{update}. Aplikasi yang baik biasanya memberikan update otomatis dan memberikan pesan yang efektif jika terjadi \textit{update}. 
-	
-	HTTP Archive \footnote{https://github.com/HTTPArchive/httparchive.org/blob/main/docs/gettingstarted$_$bigquery.md} adalah sebuah proyek yang bersifat \textit{open source} untuk melihat bagaimana website dibuat. Di dalam HTTP Archive terdapat data-data historis yang disediakan untuk menunjukkan bagaimana website terus berkembang dan proyek ini sering digunakan untuk penelitian. Didalam HTTP Archive terdapat dataset yang berisi jutaan web setiap bulan dan dapat dianalisis menggunakan teknologi BigQuery. BigQuery adalah salah satu produk dari Google yang berbasis \textit{cloud} dan dapat digunakan untuk menganalisis data tanpa harus memikirkan database. BigQuery dapat menjalankan \textit{query} dalam skala \textit{terabyte} dalam hitungan detik dan \textit{petabyte} dalam hitungan menit.
 	
 	Pada skripsi ini, akan dibuat sebuah penelitian untuk mengetahui seberapa besar penggunaan aplikasi usang pada seluruh website yang ada di dunia. Data dapat diambil dari HTTP Archive dengan melakukan \textit{query} pada BigQuery. Pada penelitian ini akan dilakukan perhitungan pada jumlah aplikasi yang sudah diberi versi dan belum diberi versi. Versi aplikasi yang dipakai setiap website juga akan dibandingkan dengan versi aplikasi yang masih didukung berdasarkan \textit{official website}-nya. Kemudian hasil tersebut akan ditampilkan dalam bentuk bar chart.
 	
 	\section{Rumusan Masalah}
 	Berikut ini adalah rumusan masalah dari penelitian ini:
 	\begin{enumerate}
-		\item Berapakah jumlah data di HTTP Archive?
 		\item Bagaimana cara membaca data dari HTTP Archive?
-		\item Bagaimana mengimplementasi proyek \textit{Measuring Unsupported Applications in Indonesia Popular 
-			Websites} dengan menggunakan data yang lebih besar?
+		\item Bagaimana mengimplementasi proyek \textit{Measuring Unsupported Applications in Indonesia Popular Websites} dengan menggunakan data yang lebih besar?
+		\item Berapa banyak website pada web almanac yang menggunakan aplikasi  yang masih didukung?
 	\end{enumerate}
 	
 	\section{Tujuan}
 	Berikut ini adalah tujuan dari penelitian ini:
 	\begin{enumerate}
-		\item Mengetahui jumlah data di HTTP Archive.
 		\item Membaca data dari HTTP Archive.
-		\item Mengimplementasi proyek \textit{Measuring Unsupported Applications in Indonesia Popular 
-			Websites} dengan menggunakan data yang lebih besar.
+		\item Mengimplementasi proyek \textit{Measuring Unsupported Applications in Indonesia Popular Websites} dengan menggunakan data yang lebih besar.
+		\item Mencari jumlah website pada web almanac yang menggunakan aplikasi yang masih didukung.
 	\end{enumerate}
 	
 	\section{Deskripsi Perangkat Lunak}
@@ -81,38 +79,40 @@
 	
 	\section{Detail Pengerjaan Skripsi}
 	Bagian-bagian pekerjaan skripsi ini adalah sebagai berikut :
-	\begin{enumerate}
-		\item Pendefinisian masalah\\
-		Menentukan tujuan pengolahan data.
-		\item Pengumpulan data\\
-		Data yang akan digunakan sudah tersedia oleh HTTP Archive.
-		\item Eksplorasi data\\
-		Melakukan pembelajaran terhadap data.
-		\item Eksplorasi teknologi\\
-		Mempelajari penggunaan BigQuery dan alat untuk visualisasi data.
-		\item Penyiapan data\\
-		Melakukan pemilihan data yang akan digunakan sehingga dapat memberikan hasil yang maksimal.
-		\item Melakukan visualisasi data.
-		\item Menulis dokumen skripsi
-	\end{enumerate}
+	\begin{itemize}
+		\item Bab 1 : Pendahuluan
+		\begin{itemize}
+			\item Pendefinisian masalah
+		\end{itemize}
+		\item Bab 2 : Landasan Teori
+		\item Bab 3 : Analisis
+		\begin{itemize}
+			\item Pengumpulan data
+			\item Eksplorasi data (termasuk visualisasi data, jika dibutuhkan)
+			\item Eksplorasi teknologi (termasuk library) dan pemilihan yg tepat (jika memang ada)
+		\end{itemize}
+		\item Bab 4 : Perancangan
+		\begin{itemize}
+			\item Penyiapan data (termasuk feature engineering)
+			\item Perancangan model dan penentuan cara evaluasinya
+		\end{itemize}
+		\item Bab 5 : Implementasi dan Pengunjian
+		\begin{itemize}
+			\item Eksperimen pengujian model (bisa sangat intensif, krn utk menguji konfigurasi model dan evaluasinya)
+			\item Peluncuran model pada aplikasi/prototipe sederhana
+		\end{itemize}
+		\item Bab 6 Kesimpulan
+	\end{itemize}
 	
 	\section{Rencana Kerja}
-	Rincian capaian yang direncanakan di Skripsi 1 adalah sebagai berikut:
+	Pada skripsi 1 sudah dilalui dengan topik lain.Sedangkan yang akan diselesaikan di Skripsi 2 adalah sebagai berikut:
 	\begin{enumerate}
-		\item 
-		\item 
-		\item
-	\end{enumerate}
-	
-	Sedangkan yang akan diselesaikan di Skripsi 2 adalah sebagai berikut:
-	\begin{enumerate}
-		\item Pendefinisian masalah
-		\item Pengumpulan data
-		\item Eksplorasi data
-		\item Eksplorasi teknologi
-		\item Penyiapan data
-		\item Melakukan visualisasi data
-		\item Menulis dokumen skripsi
+		\item Bab 1 : Pendahuluan
+		\item Bab 2 : Landasan Teori
+		\item Bab 3 : Analisis
+		\item Bab 4 : Perancangan
+		\item Bab 5 : Implementasi dan Pengujian
+		\item Bab 6 : Kesimpulan
 	\end{enumerate}
 	
 	\vspace{1cm}
@@ -130,12 +130,12 @@
 		\end{minipage} \hspace{0.5cm}
 		\begin{minipage}[b]{0.45\linewidth}
 			% \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013\\
-			\vspace{2cm} Nama: \makebox[3cm]{\hrulefill}\\ Pembimbing Pendamping
+			\vspace{2cm} Nama:  \makebox[3cm]{\hrulefill}\\ Pembimbing Pendamping
 		\end{minipage}
 		\vspace{0.5cm}
 	}{
 		% \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013\\
-		\vspace{2cm} Nama: \makebox[3cm]{\hrulefill}\\ Pembimbing Tunggal
+		\vspace{2cm} Nama: Pascal Alfadian Nugroho, S.Kom, M.Comp\\ Pembimbing Tunggal
 	}
 \end{document}
 

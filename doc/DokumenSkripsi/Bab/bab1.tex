@@ -4,13 +4,13 @@
 Pada bab ini dijelaskan latar belakang, rumusan masalah, tujuan, batasan masalah, metodologi, dan sistematika pembahasan.
 \section{Latar Belakang}
 \label{sec:label}
-Di masa teknologi saat ini, banyak perusahaan yang menggunakan website sebagai tempat untuk mencari informasi. Terdapat banyak website yang menggunakan aplikasi yang sudah usang. HTTP Archive memiliki dataset penggunaan aplikasi suatu website yang dapat dilihat atau dianalisis menggunakan Google Cloud Platform. HTTP Archive memiliki dataset penggunaan aplikasi suatu website dari desktop dan mobile pada bulan Januari tahun 2016 sampai sekarang. Berdasarkan sumber pada website almanac \footnote{https://almanac.httparchive.org/en/2020/mobile-web}, dapat diambil kesimpulan bahwa website dibuka menggunakan browser di desktop dan mobile. Dataset yang digunakan berada pada label \textit{technologies} merupakan dataset desktop dan mobile pada bulan Agustus tahun 2020. Dataset pada desktop memiliki 61.203.638 baris dan pada mobile memiliki 67.452.994 baris. 
+Di masa teknologi saat ini, banyak perusahaan yang menggunakan website sebagai tempat untuk mencari informasi. Terdapat banyak website yang menggunakan aplikasi yang sudah usang. HTTP Archive memiliki dataset penggunaan aplikasi suatu website yang dapat dilihat atau dianalisis menggunakan teknologi BigQuery. HTTP Archive memiliki dataset penggunaan aplikasi suatu website dari desktop dan mobile pada bulan Januari tahun 2016 sampai sekarang. Berdasarkan sumber pada web almanac \footnote{https://almanac.httparchive.org/en/2020/mobile-web}, dapat diambil kesimpulan bahwa website dibuka menggunakan browser di desktop dan mobile. Dataset yang digunakan berada pada label \textit{technologies} merupakan dataset desktop dan mobile dengan nama tabel 2020$\_$08$\_$01. Dataset pada desktop memiliki 61.203.638 baris dan pada mobile memiliki 67.452.994 baris. 
+
+HTTP Archive \footnote{https://github.com/HTTPArchive/httparchive.org/blob/main/docs/gettingstarted$\_$bigquery.md} adalah sebuah proyek yang bersifat \textit{open source} untuk melihat bagaimana website dibuat. Di dalam HTTP Archive terdapat data-data historis yang disediakan untuk menunjukkan bagaimana website terus berkembang dan proyek ini sering digunakan untuk penelitian. Didalam HTTP Archive terdapat dataset yang berisi jutaan web setiap bulan dan dapat dianalisis menggunakan teknologi BigQuery. BigQuery \cite{bqIntroduction} adalah salah satu produk dari Google yang berbasis \textit{cloud} dan dapat digunakan untuk menganalisis data tanpa harus memikirkan database. BigQuery dapat menjalankan \textit{query} dalam skala \textit{terabyte} dalam hitungan detik dan \textit{petabyte} dalam hitungan menit.
 
 Berdasarkan \cite{pascal}, dari 1.500 situs teratas menurut peringkat Alexa untuk pengunjung situs di Indonesia dan mengidentifikasi jenisnya aplikasi yang mereka gunakan beserta nomor versinya, lebih dari setengah atau 63\% aplikasi yang digunakan berhasil dibandingkan dengan skrip yang telah dibuat dan hasilnya aplikasi tidak lagi didukung oleh pengelolanya.
 
 Beberapa aplikasi sudah menyediakan fitur untuk meng-\textit{update} ke versi yang paling baru tanpa harus menginstal ulang. Dalam kebanyakan kasus, versi aplikasi yang semakin baru sudah memperbaiki banyak kerentanan yang sudah diketahui. Beberapa aplikasi usang tidak memiliki pemberitahuan untuk meng-\textit{update} sehingga pengguna tidak mengetahui jika terdapat \textit{update}. Aplikasi yang baik biasanya memberikan update otomatis dan memberikan pesan yang efektif jika terjadi \textit{update}. 
-
-HTTP Archive \footnote{https://github.com/HTTPArchive/httparchive.org/blob/main/docs/gettingstarted$_$bigquery.md} adalah sebuah proyek yang bersifat \textit{open source} untuk melihat bagaimana website dibuat. Di dalam HTTP Archive terdapat data-data historis yang disediakan untuk menunjukkan bagaimana website terus berkembang dan proyek ini sering digunakan untuk penelitian. Didalam HTTP Archive terdapat dataset yang berisi jutaan web setiap bulan dan dapat dianalisis menggunakan teknologi BigQuery. BigQuery \cite{bqIntroduction} adalah salah satu produk dari Google yang berbasis \textit{cloud} dan dapat digunakan untuk menganalisis data tanpa harus memikirkan database. BigQuery dapat menjalankan \textit{query} dalam skala \textit{terabyte} dalam hitungan detik dan \textit{petabyte} dalam hitungan menit.
 
 Pada skripsi ini, akan dibuat sebuah penelitian untuk mengetahui seberapa besar penggunaan aplikasi usang pada seluruh website yang ada di dunia. Data dapat diambil dari HTTP Archive dengan melakukan \textit{query} pada BigQuery. Pada penelitian ini akan dilakukan perhitungan pada jumlah aplikasi yang sudah diberi versi dan belum diberi versi. Versi aplikasi yang dipakai setiap website juga akan dibandingkan dengan versi aplikasi yang masih didukung berdasarkan \textit{official website}-nya. Kemudian hasil tersebut akan ditampilkan dalam bentuk bar chart.
 
@@ -19,9 +19,9 @@ Pada skripsi ini, akan dibuat sebuah penelitian untuk mengetahui seberapa besar 
 \label{sec:rumusan}
 Berikut ini adalah rumusan masalah dari penelitian ini:
 \begin{enumerate}
-	\item Berapakah jumlah data di HTTP Archive?
 	\item Bagaimana cara membaca data dari HTTP Archive?
 	\item Bagaimana mengimplementasi proyek \cite{pascal} dengan menggunakan data yang lebih besar?
+	\item Berapa banyak website pada web almanac yang menggunakan aplikasi  yang masih didukung?
 \end{enumerate}
 
 
@@ -29,9 +29,9 @@ Berikut ini adalah rumusan masalah dari penelitian ini:
 \label{sec:tujuan}
 Berikut ini adalah tujuan dari penelitian ini:
 \begin{enumerate}
-	\item Mengetahui jumlah data di HTTP Archive.
 	\item Membaca data dari HTTP Archive.
 	\item Mengimplementasi proyek \cite{pascal} dengan menggunakan data yang lebih besar.
+	\item Mencari jumlah website pada web almanac yang menggunakan aplikasi yang masih didukung.
 \end{enumerate}
 
 
