@@ -3,15 +3,45 @@
 Pada bab ini akan dijelaskan analisis masalah penelitian ini. Analisis meliputi Dataset Pada HTTP Archive, Langkah-Langkah Query Yang Dilakukan.
 
 \section{Eksplorasi Teknologi}
-Dalam pengerjaan skripsi ini akan menggunakan teknologi bernama BigQuery. Di dalam BigQuery, terdapat salah satu fitur yang akan digunakan yaitu membuat dataset baru. Dataset yang dibuat berisi tabel-tabel yang akan dianalisis. Tabel-tabel tersebut dapat dibuat secara manual maupun di-\textit{upload}.
+Dalam pengerjaan skripsi ini akan menggunakan teknologi bernama BigQuery. Di dalam BigQuery, terdapat salah satu fitur yang akan digunakan yaitu membuat dataset baru. Dataset bisa saja diambil dari public dataset maupun membuat sendiri datasettersbut. Dataset berisi tabel-tabel yang akan dianalisis. Tabel-tabel tersebut dapat dibuat secara manual maupun di-\textit{upload}.
 
 Berikut ini langkah-langkah dalam pembuatan dataset dan tabel:
 \begin{enumerate}
-	\item Membuka Google Cloud Project Page.
-	\item Membuat atau memilih project yang akan dikerjakan.
-	\item Membuka console kemudian memilih BigQuery.
-	\item Pada tab explorer terdapat project kemudian pengguna harus menekan tombole titik tiga dan piliih create dataset.
+	\item Membuka \href{https://console.cloud.google.com/getting-started}{Google Cloud Project Page}.
+	\begin{figure}[H]
+		\centering  
+		\includegraphics[scale=0.5]{Gambar/open_GCP.PNG}  
+		\caption{Google Cloud Project Page} 
+		\label{fig:GCP} 
+	\end{figure}
+	\item Membuat atau memilih \textit{project} yang akan dikerjakan.
+	\begin{figure}[H]
+		\centering  
+		\includegraphics[scale=0.5]{Gambar/pilih_project.PNG}  
+		\caption{Create atau Open Project} 
+		\label{fig:create_or_open} 
+	\end{figure}
+	\item Membuka \textit{console} kemudian memilih BigQuery.
+	\begin{figure}[H]
+		\centering  
+		\includegraphics[scale=0.5]{Gambar/console_BigQuery.PNG}  
+		\caption{Membuka BigQuery} 
+		\label{fig:BQ} 
+	\end{figure}
+	\item Pada tab explorer terdapat project kemudian pengguna harus menekan tombol titik tiga dan piliih \textit{create} dataset.
+	\begin{figure}[H]
+		\centering  
+		\includegraphics[scale=0.5]{Gambar/create_dataset.PNG}  
+		\caption{Membuat Dataset Baru} 
+		\label{fig:creat_dataset} 
+	\end{figure}
 	\item Buka dataset, kemudian pilih menu \textit{create table}.
+	\begin{figure}[H]
+		\centering  
+		\includegraphics[scale=0.5]{Gambar/create_table.PNG}  
+		\caption{Membuat Tabel Baru} 
+		\label{fig:create_table} 
+	\end{figure}
 \end{enumerate}
 
 \section{Dataset Pada HTTP Archive}
@@ -27,24 +57,47 @@ Di dalam HTTP Archive terdapat dataset yang dapat diambil menggunakan teknologi 
 	Pada tabel ini tidak terdapat keterangan dan tidak berhubungan dengan skripsi ini.
 	\item lighthouse\\
 	Dataset pada lighthouse berisi tabel-tabel dari bulan Juni tahun 2017 sampai dengan sekarang yang terdiri dari website pada mobile. Dataset bulan Agustus tahun 2020 baris pada mobile memiliki 6.290.147 baris \ref{table:ct_lh_mobile} yang dapat dianalisis. Masing-masing terdiri dari URL dan report. \textit{URL (Uniform Resource Locator)} merupakan nama-nama domain dan \textit{report}. Tetapi tabel ini tidak digunakan dalam pengerjaan skripsi ini. 
-	\begin{table}[H]
+	
+	
+	\begin{sidewaystable} % <-- HERE
 		\centering
-		\begin{tabular*}{\textwidth}{|l|l|@{\extracolsep{\fill}}p{8.8cm}|}
-			\hline
-			\textbf{Row} & \textbf{url} & \textbf{report}\\
-			\hline
+		\begin{tabular}{|l|l|@{\extracolsep{\fill}}p{18cm}|}\hline
 			1 & \url{https://votesearch.utah.gov/} & \{"userAgent":"Mozilla/5.0 (X11; Linux x86\_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36","environment":\{"networkUserAgent": "Mozilla/5.0 (Linux; Android 7.0; Moto G (4)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4143.7 Mobile Safari/537.36 Chrome-Lighthouse","hostUserAgent":"Mozilla/5.0 (X11; Linux x86\_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36","benchmarkIndex":506\},"lighthouseVersion": "6.1.1" ,"fetchTime": "2020-08-06T10:36:03.335Z" ,"requestedUrl":"\url{https://votesearch.utah.gov/}","finalUrl":"\url{https://vote.utah.gov/}","runWarnings":["The page may not be loading as expected because your test URL (\url{https://votesearch.utah.gov/}) was redirected to https://vote.utah.gov/. Try testing the second URL directly."],"audits":\{"is-on-https":\{"id":"is-on-https","title":"Does not use HTTPS","description":"All sites should be protected with HTTPS, even ones that don't handle sensitive data. This includes avoiding [mixed content](\url{https://developers.google.com}...\\
 			\hline
-			2 & \url{https://otricolore.ru/} & \{"userAgent": "Mozilla/5.0 (X11; Linux x86\_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36","environment":\{"networkUserAgent": "Mozilla/5.0 (Linux; Android 7.0; Moto G (4)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4143.7 Mobile Safari/537.36 Chrome-Lighthouse","hostUserAgent": "Mozilla/5.0 (X11; Linux x86\_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36","benchmarkIndex":456},"lighthouseVersion": "6.2.0" ,"fetchTime":"2020-08-11T09:30:51.743Z", "requestedUrl": "\url{https://otricolore.ru/}", "finalUrl": "\url{https://otricolore.ru/}","runWarnings":[],"audits":\{"is-on-https":\{"id":"is-on-https","title":"Uses HTTPS","description":"All sites should be protected with HTTPS, even ones that don't handle sensitive data. This includes avoiding [mixed content](\url{https://developers.google.com/web/fundamentals/security/prevent-mixed-content/what-is-mixed-content}), where some resources are loaded over HTTP despite the initial request being servedover HTTPS. HTTPS prevents int…\\
-		\hline
-	\end{tabular*}
-	\caption{Lighthouse Data Example}
-	\label{table:ct_lh_mobile}
-\end{table}
+		\end{tabular}
+		\caption{Lighthouse Data Example}
+		\label{table:ct_lh_mobile}
+	\end{sidewaystable} % <-- HERE
+	
+	
+	%     \begin{table}[H]
+		% \centering
+		% \begin{tabular*}{\textwidth}{|l|l|@{\extracolsep{\fill}}p{8.8cm}|}
+			%  \hline
+			%  \textbf{Row} & \textbf{url} & \textbf{report}\\
+			%  \hline
+			% 1 & \url{https://votesearch.utah.gov/} & \{"userAgent":"Mozilla/5.0 (X11; Linux x86\_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36","environment":\{"networkUserAgent": "Mozilla/5.0 (Linux; Android 7.0; Moto G (4)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4143.7 Mobile Safari/537.36 Chrome-Lighthouse","hostUserAgent":"Mozilla/5.0 (X11; Linux x86\_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36","benchmarkIndex":506\},"lighthouseVersion": "6.1.1" ,"fetchTime": "2020-08-06T10:36:03.335Z" ,"requestedUrl":"\url{https://votesearch.utah.gov/}","finalUrl":"\url{https://vote.utah.gov/}","runWarnings":["The page may not be loading as expected because your test URL (\url{https://votesearch.utah.gov/}) was redirected to https://vote.utah.gov/. Try testing the second URL directly."],"audits":\{"is-on-https":\{"id":"is-on-https","title":"Does not use HTTPS","description":"All sites should be protected with HTTPS, even ones that don't handle sensitive data. This includes avoiding [mixed content](\url{https://developers.google.com}...\\
+			% \hline
+			% 2 & \url{https://otricolore.ru/} & \{"userAgent": "Mozilla/5.0 (X11; Linux x86\_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36","environment":\{"networkUserAgent": "Mozilla/5.0 (Linux; Android 7.0; Moto G (4)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4143.7 Mobile Safari/537.36 Chrome-Lighthouse","hostUserAgent": "Mozilla/5.0 (X11; Linux x86\_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36","benchmarkIndex":456},"lighthouseVersion": "6.2.0" ,"fetchTime":"2020-08-11T09:30:51.743Z", "requestedUrl": "\url{https://otricolore.ru/}", "finalUrl": "\url{https://otricolore.ru/}","runWarnings":[],"audits":\{"is-on-https":\{"id":"is-on-https","title":"Uses HTTPS","description":"All sites should be protected with HTTPS, even ones that don't handle sensitive data. This includes avoiding [mixed content](\url{https://developers.google.com/web/fundamentals/security/prevent-mixed-content/what-is-mixed-content}), where some resources are loaded over HTTP despite the initial request being servedover HTTPS. HTTPS prevents int…\\
+		% \hline
+		% \end{tabular*}
+	% \caption{Lighthouse Data Example}
+	% \label{table:ct_lh_mobile}
+	% \end{table}
 
 \item pages\\
-Dataset pada pages berisi tabel-tabel dari bulan Januari tahun 2016 sampai dengan sekarang yang terdiri dari website pada desktop dan mobile. Dataset bulan Agustus tahun 2020 baris pada desktop memiliki 5.593.642 baris } dan pada mobile memiliki 6.347.640 baris. %Contoh data dapat dilihat pada tabel \ref{table:pages_data_sample}.%
+Dataset pada pages berisi tabel-tabel dari bulan Januari tahun 2016 sampai dengan sekarang yang terdiri dari website pada desktop dan mobile. Dataset bulan Agustus tahun 2020 baris pada desktop memiliki 5.593.642 baris } dan pada mobile memiliki 6.347.640 baris. Contoh data dapat dilihat pada tabel \ref{table:pages_data_sample}.
 Masing-masing terdiri dari URL dan payload. \textit{URL (Uniform Resource Locator)} merupakan nama-nama domain dan \textit{payload}. Tetapi tabel ini tidak digunakan dalam pengerjaan skripsi ini.
+
+\begin{sidewaystable} % <-- HERE
+\centering
+\begin{tabular}{|l|l|@{\extracolsep{\fill}}p{18cm}|}\hline
+	1 & https://tutorinmobiliario.cl/ & \{"startedDateTime":"2020-08-14T17:45:37.606+00:00", "title": "Run 1, First View for \url{https://tutorinmobiliario.cl/}", "id": "page\_1\_0\_1", "pageTimings": \{"onLoad":27048,"onContentLoad":-1, "\_startRender":6500\}, "\_cpu.BlinkGC.LazySweepInIdle":10, "\_testStartOffset":0,"\_start\_epoch":0, "\_cpu.ParseAuthorStyleSheet":95,"\_bytesOutDoc": 208779, "\_cpu.V8.GC\_MC\_CLEAR\_STRING\_TABLE":1, "\_cpu.V8.GC\_SCAVENGER\_SCAVENGE\_UPDATE \_REFS": 0, "\_cpu.V8.GC\_MC\_MARK\_EMBEDDER\_TRACING\_CLOSURE":0, "\_cpu.V8.GC\_MC\_MARK\_FINISH\_INCREMENTAL": 0, "\_firstPaint":6445.524999995541, "\_cpu.BlinkGC.AtomicPauseMarkEpilogue":0,  "\_cpu.V8.GC\_MC\_INCREMENTAL\_EMBEDDER \_PROLOGUE":7, "\_cpu.V8.GC\_SCAVENGER\_COMPLETE\_SWEEP\_ARRAY\_BUFFERS":0, "\_cpu.V8.GC\_MC\_EVACUATE\_REBALANCE":0,"\_optimization\_checked":1, "\_cpu.V8.GC\_MC\_MARK\_ROOTS":0, "\_cpu.BlinkGC.IncrementalMarkingStartMarking":4, "\_responses\_404":0, "\_URL": "https://tutorinmobiliario.cl/", "\_cpu.V8.GC\_SCAVENGER\_SCAVENGE\_ROOTS":3, "\_loadEventStart":27048, "\_cpu.EvaluateScript":452 , "\_score\_gzip":100, "\_cpu.V8.GC\_MC\_MARK\_WEAK\_CLOSURE\_EPHEMERON\_…\\
+	\hline
+\end{tabular}
+\caption{Pages Data Sample}
+\label{table:pages_data_sample}
+\end{sidewaystable} % <-- HERE
 
 %     \begin{table}[H]
 % \centering
@@ -170,33 +223,40 @@ ORDER BY url asc
 \subsection{Mengelompokkan Berdasarkan Nama Semua Aplikasi Yang Dipakai}
 Pengelompokan aplikasi dapat dilakukan dengan menggunakan query. Berikut adalah query yang digunakan.
 \begin{verbatim}
-SELECT versioned.app, num.num_sites , unversioned.unversioned_count , versioned.versioned_count 
+SELECT tabelName.app, num.num_sites , versioned.versioned_count , unversioned.unversioned_count
 FROM 
-(SELECT app, count(*) AS unversioned_count
-FROM `httparchive.technologies.2020_08_01_*`
-WHERE info = ""
-GROUP BY app) AS unversioned
+(SELECT DISTINCT app
+FROM `httparchive.technologies.2020_08_01_*` ) tabelName
 
-FULL OUTER JOIN 
+LEFT JOIN 
 
-(SELECT app, count(*) AS versioned_count
-FROM `httparchive.technologies.2020_08_01_*`
-WHERE info != ""
-GROUP BY app) AS versioned
-ON unversioned.app = versioned.app
+(SELECT tabel1.app, count(app) AS versioned_count
+FROM `httparchive.technologies.2020_08_01_*` AS tabel1
+WHERE tabel1.app!="" AND tabel1.info != "" 
+GROUP BY tabel1.app) AS versioned
 
-JOIN
+ON(versioned.app = tabelName.app)
+
+LEFT JOIN
+
+(SELECT tabel2.app, count(app) AS unversioned_count
+FROM `httparchive.technologies.2020_08_01_*` AS tabel2
+WHERE tabel2.app!="" AND tabel2.info = "" 
+GROUP BY tabel2.app) AS unversioned
+
+ON (unversioned.app = tabelName.app)
+
+LEFT JOIN 
 
 (SELECT app, count(url) AS num_sites
 FROM `httparchive.technologies.2020_08_01_*`
-GROUP BY app) as num
-ON versioned.app = num.app
+GROUP BY app) AS num
 
-WHERE versioned_count != 0 AND versioned.app is not null
+ON (tabelName.app = num.app)
 \end{verbatim}
 
 \subsection{Mencari Data Tentang Versi Aplikasi Yang Masih Didukung}
-Sebelum menentukan suatau aplikasi usang atau tidak, kita harus mencari versi dari setiap aplikasi secara manual. Versi setiap aplikasi dapat dilihat di-\textit{official documentation} dari setiap aplikasi. Hasil pencarian dari aplikasi yang masih didukung dapat dilihat pada link: \url{https://docs.google.com/spreadsheets/d/1P627vSIS7-f4E4U3zH0NbwetftRlmfKQj98zk5RMAE4/edit#gid=1378116505}. 
+Sebelum menentukan suatau aplikasi usang atau tidak, kita harus mencari versi dari setiap aplikasi secara manual. Versi setiap aplikasi dapat dilihat di-\textit{official documentation} dari setiap aplikasi. Hasil pencarian dari aplikasi yang masih didukung dapat dilihat pada gambar \ref{appData}. 
 
 \subsection{Melakukan Perbandingan Antara Versi Aplikasi Yang Masih Dipakai Sekarang Dengan Versi Aplikasi Yang Masih Didukung}
 

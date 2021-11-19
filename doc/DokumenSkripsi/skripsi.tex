@@ -49,8 +49,8 @@
 \usepackage{fancyhdr}%mengubah tampilan header & footer
 \usepackage{titlesec}% mengubah tamnpilan judul bab
 \usepackage{float} %penempatan gambar di tempat yg seharusnya 
-\usepackage[plainpages=false,pdfpagelabels,unicode]{hyperref}% untuk \autoref,\phantomsection & link 
 \usepackage{setspace}%line spacing
+\usepackage[plainpages=false,pdfpagelabels,unicode]{hyperref}% untuk \autoref,\phantomsection & link 
 \usepackage[pagewise]{lineno}%line numbering
 \usepackage{emptypage}%halaman kosong antar bab
 \usepackage{graphicx}%untuk graphicspath
@@ -61,6 +61,7 @@
 \usepackage{pgffor}% untuk foreach
 \usepackage{.sty/digsig}% untuk digital signature
 \usepackage{nomencl} % daftar simbol
+\usepackage{rotating}
 
 \newcommand{\vtemplateauthor}{lionov}
 \newcommand{\dtext}[1]{{\color{lightgray} \lipsum[#1]}}%command untuk dummy text
@@ -84,7 +85,7 @@
 \newcommand{\vstaINA}{\rtext{<<SKRIPSI/TUGAS AKHIR>>}} 
 \newcommand{\vstaENG}{\rtext{<<FINAL PROJECT/UNDERGRADUATE THESIS>>}}
 \newcommand{\vkaprodi}{<<Ketua Program Studi>>}
-  
+
 %data kaprodi 
 \newcommand{\kaprodiMAT}{}
 \newcommand{\kaprodiFIS}{}
@@ -94,17 +95,17 @@
 
 %perubahan data prodi
 \newcommand{\vmat}{
-\renewcommand{\vprodiINA}{MATEMATIKA} \renewcommand{\vprodiENG}{MATHEMATICS} 
-\renewcommand{\vstaINA}{SKRIPSI} \renewcommand{\vstaENG}{FINAL PROJECT} 
-\renewcommand{\vkaprodi}{\kaprodiMAT}}
+	\renewcommand{\vprodiINA}{MATEMATIKA} \renewcommand{\vprodiENG}{MATHEMATICS} 
+	\renewcommand{\vstaINA}{SKRIPSI} \renewcommand{\vstaENG}{FINAL PROJECT} 
+	\renewcommand{\vkaprodi}{\kaprodiMAT}}
 \newcommand{\vfis}{
-\renewcommand{\vprodiINA}{FISIKA} \renewcommand{\vprodiENG}{PHYSICS} 
-\renewcommand{\vstaINA}{TUGAS AKHIR} \renewcommand{\vstaENG}{FINAL PROJECT} 
-\renewcommand{\vkaprodi}{\kaprodiFIS}}
+	\renewcommand{\vprodiINA}{FISIKA} \renewcommand{\vprodiENG}{PHYSICS} 
+	\renewcommand{\vstaINA}{TUGAS AKHIR} \renewcommand{\vstaENG}{FINAL PROJECT} 
+	\renewcommand{\vkaprodi}{\kaprodiFIS}}
 \newcommand{\vtif}{
-\renewcommand{\vprodiINA}{TEKNIK INFORMATIKA}\renewcommand{\vprodiENG}{INFORMATICS} 
-\renewcommand{\vstaINA}{SKRIPSI} \renewcommand{\vstaENG}{UNDERGRADUATE THESIS} 
-\renewcommand{\vkaprodi}{\kaprodiTIF}
+	\renewcommand{\vprodiINA}{TEKNIK INFORMATIKA}\renewcommand{\vprodiENG}{INFORMATICS} 
+	\renewcommand{\vstaINA}{SKRIPSI} \renewcommand{\vstaENG}{UNDERGRADUATE THESIS} 
+	\renewcommand{\vkaprodi}{\kaprodiTIF}
 }
 
 %data mahasiswi/a dan prodi 
@@ -126,7 +127,7 @@
 			\IfStrEqCase{\vprodiN}{
 				{1}{\vmat} {2}{\vfis} {3}{\vtif}
 				{6}{\vmat} {7}{\vfis} {8}{\vtif}
-			[]}
+				[]}
 			\hypersetup{pdfsubject={\vprodiINA}}
 		}{}
 	}
@@ -144,7 +145,7 @@
 		{7}{\renewcommand{\vbulan}{Juli}}		{8}{\renewcommand{\vbulan}{Agustus}}	
 		{9}{\renewcommand{\vbulan}{September}}	{10}{\renewcommand{\vbulan}{Oktober}}
 		{11}{\renewcommand{\vbulan}{November}}	{12}{\renewcommand{\vbulan}{Desember}}
-	[]}
+		[]}
 }
 
 % data primer skripsi	 
@@ -173,7 +174,7 @@
 \newcommand{\mode}[1]{\renewcommand{\vmode}{#1} 
 	\IfStrEq{#1}{final}{\toggletrue{vfinal}}
 	{\IfStrEq{#1}{sidangakhir}{\toggletrue{vsidangakhir}}
-	{\IfStrEq{#1}{sidang}{\toggletrue{vsidang}}{\toggletrue{vbimbingan}}}}}
+		{\IfStrEq{#1}{sidang}{\toggletrue{vsidang}}{\toggletrue{vbimbingan}}}}}
 \newcommand{\linenumber}[1]{\newcommand{\vlinenum}{#1}}
 \newcommand{\linespacing}[1]{\newcommand{\vspacing}{#1}} 
 \newcommand{\gambar}[1]{\newcommand{\vgambar}{#1}}
@@ -196,7 +197,7 @@
 %line number
 \newcommand{\vlineyes}{\linenumbers \def\linenumberfont{\normalfont\tiny\sffamily}}
 \newcommand{\appline}{\IfStrEqCase{\vmode}{{sidang}{\vlineyes}{sidangakhir}{\vlineyes}{bimbingan}{\IfStrEq{\vlinenum}{yes}{\vlineyes}{}}[]}}
- 
+
 %header
 \renewcommand\headrule{\hrule width \hsize height 0.25 pt \kern 2 pt \hrule width \hsize height 1.25pt}
 \setlength{\headheight}{17.25pt}
@@ -250,8 +251,8 @@
 	\linenumber{yes}\linespacing{double} 
 	\gambar{yes}\tabel{no}\kode{yes} 
 	\bab{1,2}\lampiran{A} 
-	\namanpm{Lionov}{1997730020}\tanggal{1}{8}{2002}
-	\pembimbing{\LNV}{}\penguji{\VAN}{\HUH}
+	\namanpm{Lionov}{1997710020}\tanggal{1}{8}{2002}
+	\pembimbing{\LNV}{}\penguji{\RRF}{\PNG}
 	\judulINA{Balonku Ada Lima}
 	\judulENG{The Five Baboons}
 	\abstrakINA{\lipsum[6]}
@@ -269,221 +270,221 @@
 %isi dokumen
 \begin{document}
 	
-\raggedbottom
- 
-\pagestyle{empty}%tidak ada nomor halaman
-
-\nottoggle{vbimbingan}{
-
-	\pagenumbering{roman}
- 
-	%cover INA 
-	\begin{center}
-		{\Large \textbf{%
-		\vstaINA\\\vspace{1.5cm}
-		\vjudulINA\\\vspace{2.5cm}
-		\includegraphics{Logo-UNPAR}\\\vspace{1cm}
-		\uppercase{\vnama}\\\vspace{0.5cm}
-		NPM: \vnpm\\
-		\vfill
-		PROGRAM STUDI \vprodiINA\\
-		FAKULTAS TEKNOLOGI INFORMASI DAN SAINS\\
-		UNIVERSITAS KATOLIK PARAHYANGAN\\
-		\vtahun 
-		}}
-	\end{center}
-	\cleardoublepage
-
-\nottoggle{vsidang}{
+	\raggedbottom
 	
-	%cover ENG
-	\begin{center}
-		{\Large \textbf{%
-		\vstaENG\\\vspace{1.5cm}
-		\vjudulENG\\\vspace{2.5cm}
-		\includegraphics{Logo-UNPAR}\\\vspace{1cm}
-		\uppercase{\vnama}\\\vspace{0.5cm}
-		NPM: \vnpm \\
-		\vfill
-		DEPARTMENT OF \vprodiENG \\
-		%mencegah overfull dan memaksa nama fakultas dalam satu baris
-		\newcommand{\oridim}{\fontdimen2\font}
-		\fontdimen2\font=3.28pt
-		FACULTY OF INFORMATION TECHNOLOGY AND SCIENCES\\
-		\fontdimen2\font=\oridim
-		PARAHYANGAN CATHOLIC UNIVERSITY\\
-		\vtahun 
-		}}
-	\end{center}
-	\cleardoublepage
-
-\nottoggle{vsidangakhir}{	
-
-	% Lembar pengesahan
-	\begin{center}
-		{\Large \textbf{
-		LEMBAR PENGESAHAN \\\vspace{1.5cm} \vfill
-		\vjudulINA \\\vspace{1cm} \vfill
-		\uppercase{\vnama} \\\vspace{0.5cm}
-		NPM: \vnpm \\\vspace{0.5cm}
-		}}	
-		{\large \textbf{
-		\begin{center} 
-			Bandung, \vtanggal\ \vbulan\ \vtahun \\ \vspace{0.5cm} 
-			Menyetujui,\\ \vspace{0.25cm}
-			\ifdefempty{\vpembs}
-			{\begin{center} Pembimbing\\ 
-			    \IfStrEq{\vttddosen}{no}{\vspace{2.5cm}}			    
-			    {\begin{Form} \ \digsigfield{5cm}{2.5cm}{\vpembu}\ \end{Form}\\}
-			    \vpembu\end{center}}
-			{\begin{minipage}[b]{0.475\textwidth}
-				 \begin{center}Pembimbing Utama \\ 
-				 \IfStrEq{\vttddosen}{no}{\vspace{2.5cm}}
-				 {\begin{Form} \ \digsigfield{5cm}{2.5cm}{\vpembu}\ \end{Form}\\} 
-				 \vpembu\end{center}
-			 \end{minipage} \hspace{0.5cm}
-			 \begin{minipage}[b]{0.475\textwidth}
-				 \begin{center} Pembimbing Pendamping \\
-				 \IfStrEq{\vttddosen}{no}{\vspace{2.5cm}}
-				 {\begin{Form} \ \digsigfield{5cm}{2.5cm}{\vpembs}\ \end{Form}\\}
-				 \vpembs\end{center}
-			 \end{minipage}	
-			}
-		\end{center}  
-		\vspace{0.75cm} 
-		\begin{center}	
-			\begin{minipage}[b]{0.475\textwidth}
-				\begin{center}Ketua Tim Penguji \\ 
-				\IfStrEq{\vttddosen}{no}{\vspace{2.5cm}}
-				{\begin{Form} \ \digsigfield{5cm}{2.5cm}{\vpengi}\ \end{Form}\\}
-				\vpengi\end{center}
-			\end{minipage} \hspace{0.5cm}
-			\begin{minipage}[b]{0.475\textwidth}
-				\begin{center}Anggota Tim Penguji \\ 
-				\IfStrEq{\vttddosen}{no}{\vspace{2.5cm}}
-				{\begin{Form} \ \digsigfield{5cm}{2.5cm}{\vpengii}\ \end{Form}\\}
-				\vpengii\end{center} 
-			\end{minipage} 
+	\pagestyle{empty}%tidak ada nomor halaman
+	
+	\nottoggle{vbimbingan}{
+		
+		\pagenumbering{roman}
+		
+		%cover INA 
+		\begin{center}
+			{\Large \textbf{%
+					\vstaINA\\\vspace{1.5cm}
+					\vjudulINA\\\vspace{2.5cm}
+					\includegraphics{Logo-UNPAR}\\\vspace{1cm}
+					\uppercase{\vnama}\\\vspace{0.5cm}
+					NPM: \vnpm\\
+					\vfill
+					PROGRAM STUDI \vprodiINA\\
+					FAKULTAS TEKNOLOGI INFORMASI DAN SAINS\\
+					UNIVERSITAS KATOLIK PARAHYANGAN\\
+					\vtahun 
+			}}
 		\end{center}
-		\vspace{0.75cm}
-		\begin{center} 
-		Mengetahui,\\ \vspace{0.5cm}	
-		Ketua Program Studi \\
-		\IfStrEq{\vttddosen}{no}{\vspace{2.5cm}}
-		{\begin{Form} \ \digsigfield{5cm}{2.5cm}{\vkaprodi\ (Kaprodi)}\ \end{Form}\\}
-		\vkaprodi
-		\end{center}
-		}}			 
-	\end{center}
-	\cleardoublepage 
+		\cleardoublepage
+		
+		\nottoggle{vsidang}{
+			
+			%cover ENG
+			\begin{center}
+				{\Large \textbf{%
+						\vstaENG\\\vspace{1.5cm}
+						\vjudulENG\\\vspace{2.5cm}
+						\includegraphics{Logo-UNPAR}\\\vspace{1cm}
+						\uppercase{\vnama}\\\vspace{0.5cm}
+						NPM: \vnpm \\
+						\vfill
+						DEPARTMENT OF \vprodiENG \\
+						%mencegah overfull dan memaksa nama fakultas dalam satu baris
+						\newcommand{\oridim}{\fontdimen2\font}
+						\fontdimen2\font=3.28pt
+						FACULTY OF INFORMATION TECHNOLOGY AND SCIENCES\\
+						\fontdimen2\font=\oridim
+						PARAHYANGAN CATHOLIC UNIVERSITY\\
+						\vtahun 
+				}}
+			\end{center}
+			\cleardoublepage
+			
+			\nottoggle{vsidangakhir}{	
+				
+				% Lembar pengesahan
+				\begin{center}
+					{\Large \textbf{
+							LEMBAR PENGESAHAN \\\vspace{1.5cm} \vfill
+							\vjudulINA \\\vspace{1cm} \vfill
+							\uppercase{\vnama} \\\vspace{0.5cm}
+							NPM: \vnpm \\\vspace{0.5cm}
+					}}	
+					{\large \textbf{
+							\begin{center} 
+								Bandung, \vtanggal\ \vbulan\ \vtahun \\ \vspace{0.5cm} 
+								Menyetujui,\\ \vspace{0.25cm}
+								\ifdefempty{\vpembs}
+								{\begin{center} Pembimbing\\ 
+										\IfStrEq{\vttddosen}{no}{\vspace{2.5cm}}			    
+										{\begin{Form} \ \digsigfield{5cm}{2.5cm}{\vpembu}\ \end{Form}\\}
+										\vpembu\end{center}}
+								{\begin{minipage}[b]{0.475\textwidth}
+										\begin{center}Pembimbing Utama \\ 
+											\IfStrEq{\vttddosen}{no}{\vspace{2.5cm}}
+											{\begin{Form} \ \digsigfield{5cm}{2.5cm}{\vpembu}\ \end{Form}\\} 
+											\vpembu\end{center}
+									\end{minipage} \hspace{0.5cm}
+									\begin{minipage}[b]{0.475\textwidth}
+										\begin{center} Pembimbing Pendamping \\
+											\IfStrEq{\vttddosen}{no}{\vspace{2.5cm}}
+											{\begin{Form} \ \digsigfield{5cm}{2.5cm}{\vpembs}\ \end{Form}\\}
+											\vpembs\end{center}
+									\end{minipage}	
+								}
+							\end{center}  
+							\vspace{0.75cm} 
+							\begin{center}	
+								\begin{minipage}[b]{0.475\textwidth}
+									\begin{center}Ketua Tim Penguji \\ 
+										\IfStrEq{\vttddosen}{no}{\vspace{2.5cm}}
+										{\begin{Form} \ \digsigfield{5cm}{2.5cm}{\vpengi}\ \end{Form}\\}
+										\vpengi\end{center}
+								\end{minipage} \hspace{0.5cm}
+								\begin{minipage}[b]{0.475\textwidth}
+									\begin{center}Anggota Tim Penguji \\ 
+										\IfStrEq{\vttddosen}{no}{\vspace{2.5cm}}
+										{\begin{Form} \ \digsigfield{5cm}{2.5cm}{\vpengii}\ \end{Form}\\}
+										\vpengii\end{center} 
+								\end{minipage} 
+							\end{center}
+							\vspace{0.75cm}
+							\begin{center} 
+								Mengetahui,\\ \vspace{0.5cm}	
+								Ketua Program Studi \\
+								\IfStrEq{\vttddosen}{no}{\vspace{2.5cm}}
+								{\begin{Form} \ \digsigfield{5cm}{2.5cm}{\vkaprodi\ (Kaprodi)}\ \end{Form}\\}
+								\vkaprodi
+							\end{center}
+					}}			 
+				\end{center}
+				\cleardoublepage 
+				
+				% Lembar Pernyataan
+				\vspace*{4cm}
+				\begin{center} 
+					{\Large \textbf{PERNYATAAN}\\} \vspace{1cm}
+				\end{center}
+				{\noindent Dengan ini saya yang bertandatangan di bawah ini menyatakan bahwa \MakeLowercase{\vstaINA} dengan judul:  \vspace{0.5cm}
+					\begin{center} {\large \textbf{\vjudulINA}}\end{center}
+					\vspace{0.5cm}
+					adalah benar-benar karya saya sendiri, dan saya tidak melakukan penjiplakan atau pengutipan dengan cara-cara yang tidak sesuai dengan etika keilmuan yang berlaku dalam masyarakat keilmuan.}
+				\vspace{0pt}\\
+				{\noindent			
+					Atas pernyataan ini, saya siap menanggung segala risiko dan sanksi yang dijatuhkan kepada saya, apabila di kemudian hari ditemukan adanya pelanggaran terhadap etika keilmuan dalam karya saya, atau jika ada tuntutan formal atau non-formal dari pihak lain berkaitan dengan keaslian~karya~saya~ini.\\}
+				\vspace{0.25cm}
+				
+				\begin{flushright}	
+					Dinyatakan di Bandung,\\
+					Tanggal \vtanggal\ \vbulan\ \vtahun \\
+					\IfStrEq{\vttd}{digital}
+					{\begin{Form} \ \digsigfield{5cm}{2.25cm}{\vnama}\ \end{Form}\\}
+					{\IfStrEq{\vttd}{gambar}
+						{\includegraphics[width=3.5cm,height=3.5cm,keepaspectratio]{ttd}\\}
+						{{\IfStrEq{\vttd}{meterai}
+								{\vspace{0.5cm}
+									\begin{tabular}{|p{1.75cm}|}\hline\\Meterai\\Rp. 10000\\ \hline\end{tabular}\\\vspace{0.5cm}}
+								{\vspace{2.5cm}}
+							}
+						}    
+					}
+					\vnama \\
+					NPM: \vnpm
+				\end{flushright}
+				\cleardoublepage 
+				
+			}{} %vsidangakhir	
+			
+			% Abstrak & Abstract
+			\renewcommand{\abstractname}{Abstrak} 
+			\vspace*{4cm} 
+			\begin{abstract} 
+				{\noindent \vabstrakINA} \vskip 1cm
+				{\noindent \textbf{Kata-kata kunci:} \vkunciINA}
+			\end{abstract}
+			\cleardoublepage 
+			\renewcommand{\abstractname}{Abstract}
+			\vspace*{4cm}
+			\begin{abstract}
+				{\noindent \vabstrakENG} \vskip 1cm		
+				{\noindent \textbf{Keywords:} \vkunciENG} 
+			\end{abstract}			
+			\cleardoublepage
+			
+			\nottoggle{vsidangakhir}{	
+				
+				% Lembar persembahan
+				\vspace*{5cm} \begin{quote} \raggedleft {\em \Large{\vuntuk}} \end{quote}
+				\cleardoublepage
+				
+				\pagestyle{plain} %nomor halaman (romawi) dan tidak ada header	  
+				% Kata pengantar
+				\chapter*{Kata Pengantar}
+				\label{ch:prakata}
+				\addcontentsline{toc}{chapter}{Kata Pengantar}
+				\vprakata \vspace{0.25cm}
+				\begin{flushright} Bandung,\ \vbulan\ \vtahun \\ \vspace{1cm} Penulis \end{flushright}
+				\cleardoublepage		
+			}{}%vsidangakhir
+			
+		}{} %vsidang 
+		
+		\tableofcontents \cleardoublepage 							% Daftar isi
+		\IfStrEq{\vgambar}{yes}{\listoffigures \cleardoublepage}{} 	% Daftar gambar
+		\IfStrEq{\vtabel}{yes}{\listoftables \cleardoublepage}{} 	% Daftar tabel  
+		\IfStrEq{\vkode}{yes}{
+			\lstlistoflistings \addcontentsline{toc}{chapter}{Daftar Kode Program}
+			\cleardoublepage}{} % Daftar kode 
+		\IfStrEq{\vnotasi}{yes}{    
+			\setlength{\nomitemsep}{-\parsep}
+			\printnomenclature 
+			\addcontentsline{toc}{chapter}{Daftar Notasi}
+			\cleardoublepage}{} % Daftar notasi 
+	}{} %vbimbingan
 	
-	% Lembar Pernyataan
-	\vspace*{4cm}
-	\begin{center} 
-		{\Large \textbf{PERNYATAAN}\\} \vspace{1cm}
-	\end{center}
-	{\noindent Dengan ini saya yang bertandatangan di bawah ini menyatakan bahwa \MakeLowercase{\vstaINA} dengan judul:  \vspace{0.5cm}
-	\begin{center} {\large \textbf{\vjudulINA}}\end{center}
-	\vspace{0.5cm}
-	adalah benar-benar karya saya sendiri, dan saya tidak melakukan penjiplakan atau pengutipan dengan cara-cara yang tidak sesuai dengan etika keilmuan yang berlaku dalam masyarakat keilmuan.}
-	\vspace{0pt}\\
-	{\noindent			
-	Atas pernyataan ini, saya siap menanggung segala risiko dan sanksi yang dijatuhkan kepada saya, apabila di kemudian hari ditemukan adanya pelanggaran terhadap etika keilmuan dalam karya saya, atau jika ada tuntutan formal atau non-formal dari pihak lain berkaitan dengan keaslian~karya~saya~ini.\\}
-	\vspace{0.25cm}
+	\pagenumbering{arabic} %nomor halaman 
 	
-	\begin{flushright}	
-		Dinyatakan di Bandung,\\
-		Tanggal \vtanggal\ \vbulan\ \vtahun \\
-		\IfStrEq{\vttd}{digital}
-		    {\begin{Form} \ \digsigfield{5cm}{2.25cm}{\vnama}\ \end{Form}\\}
-		    {\IfStrEq{\vttd}{gambar}
-		        {\includegraphics[width=3.5cm,height=3.5cm,keepaspectratio]{ttd}\\}
-		        {{\IfStrEq{\vttd}{meterai}
-		            {\vspace{0.5cm}
-        		    \begin{tabular}{|p{1.75cm}|}\hline\\Meterai\\Rp. 6000\\ \hline\end{tabular}\\\vspace{0.5cm}}
-        		    {\vspace{2.5cm}}
-		        }
-		        }    
-        	}
-		\vnama \\
-		NPM: \vnpm
-	\end{flushright}
-	 \cleardoublepage 
-
-}{} %vsidangakhir	
-
-	% Abstrak & Abstract
-	\renewcommand{\abstractname}{Abstrak} 
-	\vspace*{4cm} 
-	\begin{abstract} 
-		{\noindent \vabstrakINA} \vskip 1cm
-		{\noindent \textbf{Kata-kata kunci:} \vkunciINA}
-	\end{abstract}
-	\cleardoublepage 
-	\renewcommand{\abstractname}{Abstract}
-	\vspace*{4cm}
-	\begin{abstract}
-		{\noindent \vabstrakENG} \vskip 1cm		
-		{\noindent \textbf{Keywords:} \vkunciENG} 
-	\end{abstract}			
-	\cleardoublepage
-
-\nottoggle{vsidangakhir}{	
-
-	% Lembar persembahan
-	\vspace*{5cm} \begin{quote} \raggedleft {\em \Large{\vuntuk}} \end{quote}
-	\cleardoublepage
+	\appspacing%apply spacing
+	\appline%apply line number
 	
-	\pagestyle{plain} %nomor halaman (romawi) dan tidak ada header	  
-	% Kata pengantar
-	\chapter*{Kata Pengantar}
-	\label{ch:prakata}
-	\addcontentsline{toc}{chapter}{Kata Pengantar}
-	\vprakata \vspace{0.25cm}
-	\begin{flushright} Bandung,\ \vbulan\ \vtahun \\ \vspace{1cm} Penulis \end{flushright}
-	\cleardoublepage		
-}{}%vsidangakhir
-
-}{} %vsidang 
-
-\tableofcontents \cleardoublepage 							% Daftar isi
-\IfStrEq{\vgambar}{yes}{\listoffigures \cleardoublepage}{} 	% Daftar gambar
-\IfStrEq{\vtabel}{yes}{\listoftables \cleardoublepage}{} 	% Daftar tabel  
-\IfStrEq{\vkode}{yes}{
-    \lstlistoflistings \addcontentsline{toc}{chapter}{Daftar Kode Program}
-    \cleardoublepage}{} % Daftar kode 
-\IfStrEq{\vnotasi}{yes}{    
-    \setlength{\nomitemsep}{-\parsep}
-    \printnomenclature 
-    \addcontentsline{toc}{chapter}{Daftar Notasi}
-    \cleardoublepage}{} % Daftar notasi 
-}{} %vbimbingan
-
-\pagenumbering{arabic} %nomor halaman 
-
-\appspacing%apply spacing
-\appline%apply line number
-
-\setpagewiselinenumbers  %supaya reset ke 1 di setiap halaman
- 
-\pagestyle{fancy}%header 
-
-%include bab 
-\foreach \i in \vbab { \edef\vfile{Bab/bab\i} \IfFileExists{\vfile}{\include{\vfile}}} 
-
-%update nama daftar referensi
-\renewcommand{\bibname}{Daftar Referensi}
-
-\singlespacing%selalu single spacing untuk lampiran dan daftar referensi
-
-\nolinenumbers%tidak ada line number untuk lampiran dan daftar referensi
-
-\bibliographystyle{.sty/compj} %gunakan compj 
-\bibliography{referensi}
-
-\appendix%Penomoran lampiran dengan huruf  
-
-%include lampiran
-\foreach \i in \vlamp { \edef\vfile{Lampiran/lamp\i} \IfFileExists{\vfile}{\include{\vfile}}} 
-
+	\setpagewiselinenumbers  %supaya reset ke 1 di setiap halaman
+	
+	\pagestyle{fancy}%header 
+	
+	%include bab 
+	\foreach \i in \vbab { \edef\vfile{Bab/bab\i} \IfFileExists{\vfile}{\include{\vfile}}} 
+	
+	%update nama daftar referensi
+	\renewcommand{\bibname}{Daftar Referensi}
+	
+	\singlespacing%selalu single spacing untuk lampiran dan daftar referensi
+	
+	\nolinenumbers%tidak ada line number untuk lampiran dan daftar referensi
+	
+	\bibliographystyle{.sty/compj} %gunakan compj 
+	\bibliography{referensi}
+	
+	\appendix%Penomoran lampiran dengan huruf  
+	
+	%include lampiran
+	\foreach \i in \vlamp { \edef\vfile{Lampiran/lamp\i} \IfFileExists{\vfile}{\include{\vfile}}} 
+	
 \end{document}
