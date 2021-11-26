@@ -1,8 +1,9 @@
 \chapter{Percobaan Awal}
 \label{chap:percobaan_awal}
-Pada bab ini akan dijelaskan analisis masalah penelitian ini. Analisis meliputi Dataset Pada HTTP Archive, Langkah-Langkah Query Yang Dilakukan.
+Pada bab ini akan dijelaskan analisis masalah penelitian ini. Analisis meliputi Eksplorasi Teknologi, Dataset Pada HTTP Archive, Langkah-Langkah Query Yang Dilakukan.
 
 \section{Eksplorasi Teknologi}
+\subsection{BigQuery}
 Dalam pengerjaan skripsi ini akan menggunakan teknologi bernama BigQuery. Di dalam BigQuery, terdapat salah satu fitur yang akan digunakan yaitu membuat dataset baru. Dataset bisa saja diambil dari public dataset maupun membuat sendiri datasettersbut. Dataset berisi tabel-tabel yang akan dianalisis. Tabel-tabel tersebut dapat dibuat secara manual maupun di-\textit{upload}.
 
 Berikut ini langkah-langkah dalam pembuatan dataset dan tabel:
@@ -44,6 +45,14 @@ Berikut ini langkah-langkah dalam pembuatan dataset dan tabel:
 	\end{figure}
 \end{enumerate}
 
+\subsection{ReactJS}
+Selain penggunaan BigQuery, skripsi ini juga menggunakan ReactJS dalam pembuatan charts maupun melakukan perbandingan versi dari aplikasi. Data yang dipakai untuk membuat chart merupakan data JSON yang sudah di-\textit{download} melalui BigQuery. Pembuatan project react dapat dilakukan dengan menggunakan sintaks:
+\begin{verbatim}
+	npx create-react-app my-app
+	cd my-app
+	npm start
+\end{verbatim}
+
 \section{Dataset Pada HTTP Archive}
 Di dalam HTTP Archive terdapat dataset yang dapat diambil menggunakan teknologi BigQuery, dataset tersebut adalah sebagai berikut:
 \begin{enumerate}
@@ -59,15 +68,29 @@ Di dalam HTTP Archive terdapat dataset yang dapat diambil menggunakan teknologi 
 	Dataset pada lighthouse berisi tabel-tabel dari bulan Juni tahun 2017 sampai dengan sekarang yang terdiri dari website pada mobile. Dataset bulan Agustus tahun 2020 baris pada mobile memiliki 6.290.147 baris \ref{table:ct_lh_mobile} yang dapat dianalisis. Masing-masing terdiri dari URL dan report. \textit{URL (Uniform Resource Locator)} merupakan nama-nama domain dan \textit{report}. Tetapi tabel ini tidak digunakan dalam pengerjaan skripsi ini. 
 	
 	
-	\begin{sidewaystable} % <-- HERE
+	\begin{table}[H]
 		\centering
-		\begin{tabular}{|l|l|@{\extracolsep{\fill}}p{18cm}|}\hline
-			1 & \url{https://votesearch.utah.gov/} & \{"userAgent":"Mozilla/5.0 (X11; Linux x86\_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36","environment":\{"networkUserAgent": "Mozilla/5.0 (Linux; Android 7.0; Moto G (4)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4143.7 Mobile Safari/537.36 Chrome-Lighthouse","hostUserAgent":"Mozilla/5.0 (X11; Linux x86\_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36","benchmarkIndex":506\},"lighthouseVersion": "6.1.1" ,"fetchTime": "2020-08-06T10:36:03.335Z" ,"requestedUrl":"\url{https://votesearch.utah.gov/}","finalUrl":"\url{https://vote.utah.gov/}","runWarnings":["The page may not be loading as expected because your test URL (\url{https://votesearch.utah.gov/}) was redirected to https://vote.utah.gov/. Try testing the second URL directly."],"audits":\{"is-on-https":\{"id":"is-on-https","title":"Does not use HTTPS","description":"All sites should be protected with HTTPS, even ones that don't handle sensitive data. This includes avoiding [mixed content](\url{https://developers.google.com}...\\
+		\begin{tabular*}{\textwidth}{|l|p{14.4cm}|}
 			\hline
-		\end{tabular}
+			\textbf{url} & \url{https://votesearch.utah.gov/}\\ 
+			\hline
+			\textbf{report} & \{"userAgent":"Mozilla/5.0 (X11; Linux x86\_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36","environment":\{"networkUserAgent": "Mozilla/5.0 (Linux; Android 7.0; Moto G (4)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4143.7 Mobile Safari/537.36 Chrome-Lighthouse","hostUserAgent":"Mozilla/5.0 (X11; Linux x86\_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36","benchmarkIndex":506\},"lighthouseVersion": "6.1.1" ,"fetchTime": "2020-08-06T10:36:03.335Z" ,"requestedUrl":"\url{https://votesearch.utah.gov/}","finalUrl":"\url{https://vote.utah.gov/}","runWarnings":["The page may not be loading as expected because your test URL (\url{https://votesearch.utah.gov/}) was redirected to https://vote.utah.gov/. Try testing the second URL directly."],"audits":\{"is-on-https":\{"id":"is-on-https","title":"Does not use HTTPS","description":"All sites should be protected with HTTPS, even ones that don't handle sensitive data. This includes avoiding [mixed content](\url{https://developers.google.com}...\\
+			\hline
+			
+		\end{tabular*}
 		\caption{Lighthouse Data Example}
 		\label{table:ct_lh_mobile}
-	\end{sidewaystable} % <-- HERE
+	\end{table}
+	
+	% \begin{sidewaystable} % <-- HERE
+		% \centering
+		% \begin{tabular}{|l|l|@{\extracolsep{\fill}}p{18cm}|}\hline
+			% 1 & \url{https://votesearch.utah.gov/} & \{"userAgent":"Mozilla/5.0 (X11; Linux x86\_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36","environment":\{"networkUserAgent": "Mozilla/5.0 (Linux; Android 7.0; Moto G (4)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4143.7 Mobile Safari/537.36 Chrome-Lighthouse","hostUserAgent":"Mozilla/5.0 (X11; Linux x86\_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36","benchmarkIndex":506\},"lighthouseVersion": "6.1.1" ,"fetchTime": "2020-08-06T10:36:03.335Z" ,"requestedUrl":"\url{https://votesearch.utah.gov/}","finalUrl":"\url{https://vote.utah.gov/}","runWarnings":["The page may not be loading as expected because your test URL (\url{https://votesearch.utah.gov/}) was redirected to https://vote.utah.gov/. Try testing the second URL directly."],"audits":\{"is-on-https":\{"id":"is-on-https","title":"Does not use HTTPS","description":"All sites should be protected with HTTPS, even ones that don't handle sensitive data. This includes avoiding [mixed content](\url{https://developers.google.com}...\\
+			% \hline
+			% \end{tabular}
+		% \caption{Lighthouse Data Example}
+		% \label{table:ct_lh_mobile}
+		% \end{sidewaystable} % <-- HERE
 	
 	
 	%     \begin{table}[H]
@@ -86,33 +109,47 @@ Di dalam HTTP Archive terdapat dataset yang dapat diambil menggunakan teknologi 
 	% \end{table}
 
 \item pages\\
-Dataset pada pages berisi tabel-tabel dari bulan Januari tahun 2016 sampai dengan sekarang yang terdiri dari website pada desktop dan mobile. Dataset bulan Agustus tahun 2020 baris pada desktop memiliki 5.593.642 baris } dan pada mobile memiliki 6.347.640 baris. Contoh data dapat dilihat pada tabel \ref{table:pages_data_sample}.
+Dataset pada pages berisi tabel-tabel dari bulan Januari tahun 2016 sampai dengan sekarang yang terdiri dari website pada desktop dan mobile. Dataset bulan Agustus tahun 2020 baris pada desktop memiliki 5.593.642 baris dan pada mobile memiliki 6.347.640 baris. Contoh data dapat dilihat pada tabel \ref{table:pages_data_sample}.
 Masing-masing terdiri dari URL dan payload. \textit{URL (Uniform Resource Locator)} merupakan nama-nama domain dan \textit{payload}. Tetapi tabel ini tidak digunakan dalam pengerjaan skripsi ini.
 
-\begin{sidewaystable} % <-- HERE
-\centering
-\begin{tabular}{|l|l|@{\extracolsep{\fill}}p{18cm}|}\hline
-	1 & https://tutorinmobiliario.cl/ & \{"startedDateTime":"2020-08-14T17:45:37.606+00:00", "title": "Run 1, First View for \url{https://tutorinmobiliario.cl/}", "id": "page\_1\_0\_1", "pageTimings": \{"onLoad":27048,"onContentLoad":-1, "\_startRender":6500\}, "\_cpu.BlinkGC.LazySweepInIdle":10, "\_testStartOffset":0,"\_start\_epoch":0, "\_cpu.ParseAuthorStyleSheet":95,"\_bytesOutDoc": 208779, "\_cpu.V8.GC\_MC\_CLEAR\_STRING\_TABLE":1, "\_cpu.V8.GC\_SCAVENGER\_SCAVENGE\_UPDATE \_REFS": 0, "\_cpu.V8.GC\_MC\_MARK\_EMBEDDER\_TRACING\_CLOSURE":0, "\_cpu.V8.GC\_MC\_MARK\_FINISH\_INCREMENTAL": 0, "\_firstPaint":6445.524999995541, "\_cpu.BlinkGC.AtomicPauseMarkEpilogue":0,  "\_cpu.V8.GC\_MC\_INCREMENTAL\_EMBEDDER \_PROLOGUE":7, "\_cpu.V8.GC\_SCAVENGER\_COMPLETE\_SWEEP\_ARRAY\_BUFFERS":0, "\_cpu.V8.GC\_MC\_EVACUATE\_REBALANCE":0,"\_optimization\_checked":1, "\_cpu.V8.GC\_MC\_MARK\_ROOTS":0, "\_cpu.BlinkGC.IncrementalMarkingStartMarking":4, "\_responses\_404":0, "\_URL": "https://tutorinmobiliario.cl/", "\_cpu.V8.GC\_SCAVENGER\_SCAVENGE\_ROOTS":3, "\_loadEventStart":27048, "\_cpu.EvaluateScript":452 , "\_score\_gzip":100, "\_cpu.V8.GC\_MC\_MARK\_WEAK\_CLOSURE\_EPHEMERON\_…\\
-	\hline
-\end{tabular}
-\caption{Pages Data Sample}
-\label{table:pages_data_sample}
-\end{sidewaystable} % <-- HERE
+\begin{table}[H]
+	\centering
+	\begin{tabular*}{\textwidth}{|l|p{14.13cm}|}
+		\hline
+		\textbf{url} & \url{https://tutorinmobiliario.cl/}\\ 
+		\hline
+		\textbf{payload} & \{"startedDateTime":"2020-08-14T17:45:37.606+00:00", "title": "Run 1, First View for \url{https://tutorinmobiliario.cl/}", "id": "page\_1\_0\_1", "pageTimings": \{"onLoad":27048,"onContentLoad":-1, "\_startRender":6500\}, "\_cpu.BlinkGC.LazySweepInIdle":10, "\_testStartOffset":0,"\_start\_epoch":0, "\_cpu.ParseAuthorStyleSheet":95,"\_bytesOutDoc": 208779, "\_cpu.V8.GC\_MC\_CLEAR\_STRING\_TABLE":1, "\_cpu.V8.GC\_SCAVENGER\_SCAVENGE\_UPDATE \_REFS": 0, "\_cpu.V8.GC\_MC\_MARK\_EMBEDDER\_TRACING\_CLOSURE":0, "\_cpu.V8.GC\_MC\_MARK\_FINISH\_INCREMENTAL": 0, "\_firstPaint":6445.524999995541, "\_cpu.BlinkGC.AtomicPauseMarkEpilogue":0,  "\_cpu.V8.GC\_MC\_INCREMENTAL\_EMBEDDER \_PROLOGUE":7, "\_cpu.V8.GC\_SCAVENGER\_COMPLETE\_SWEEP\_ARRAY\_BUFFERS":0, "\_cpu.V8.GC\_MC\_EVACUATE\_REBALANCE":0,"\_optimization\_checked":1, "\_cpu.V8.GC\_MC\_MARK\_ROOTS":0, "\_cpu.BlinkGC. IncrementalMarkingStartMarking": 4, "\_responses\_404":0, "\_URL": "\url{https://tutorinmobiliario.cl/}", "\_cpu.V8.GC\_SCAVENGER\_SCAVENGE\_ROOTS":3, "\_loadEventStart":27048, "\_cpu.EvaluateScript":452 , "\_score\_gzip":100, "\_cpu.V8.GC\_MC\_MARK\_WEAK\_CLOSURE\_EPHEMERON\_…\\
+		\hline
+		
+	\end{tabular*}
+	\caption{Pages Data Example}
+	\label{table:pages_data_sample}
+\end{table}
+
+%     \begin{sidewaystable} % <-- HERE
+	% \centering
+	% \begin{tabular}{|l|l|@{\extracolsep{\fill}}p{18cm}|}\hline
+		% 1 & https://tutorinmobiliario.cl/ & \{"startedDateTime":"2020-08-14T17:45:37.606+00:00", "title": "Run 1, First View for \url{https://tutorinmobiliario.cl/}", "id": "page\_1\_0\_1", "pageTimings": \{"onLoad":27048,"onContentLoad":-1, "\_startRender":6500\}, "\_cpu.BlinkGC.LazySweepInIdle":10, "\_testStartOffset":0,"\_start\_epoch":0, "\_cpu.ParseAuthorStyleSheet":95,"\_bytesOutDoc": 208779, "\_cpu.V8.GC\_MC\_CLEAR\_STRING\_TABLE":1, "\_cpu.V8.GC\_SCAVENGER\_SCAVENGE\_UPDATE \_REFS": 0, "\_cpu.V8.GC\_MC\_MARK\_EMBEDDER\_TRACING\_CLOSURE":0, "\_cpu.V8.GC\_MC\_MARK\_FINISH\_INCREMENTAL": 0, "\_firstPaint":6445.524999995541, "\_cpu.BlinkGC.AtomicPauseMarkEpilogue":0,  "\_cpu.V8.GC\_MC\_INCREMENTAL\_EMBEDDER \_PROLOGUE":7, "\_cpu.V8.GC\_SCAVENGER\_COMPLETE\_SWEEP\_ARRAY\_BUFFERS":0, "\_cpu.V8.GC\_MC\_EVACUATE\_REBALANCE":0,"\_optimization\_checked":1, "\_cpu.V8.GC\_MC\_MARK\_ROOTS":0, "\_cpu.BlinkGC.IncrementalMarkingStartMarking":4, "\_responses\_404":0, "\_URL": "https://tutorinmobiliario.cl/", "\_cpu.V8.GC\_SCAVENGER\_SCAVENGE\_ROOTS":3, "\_loadEventStart":27048, "\_cpu.EvaluateScript":452 , "\_score\_gzip":100, "\_cpu.V8.GC\_MC\_MARK\_WEAK\_CLOSURE\_EPHEMERON\_…\\
+		% \hline
+		% \end{tabular}
+	% \caption{Pages Data Sample}
+	% \label{table:pages_data_sample}
+	% \end{sidewaystable} % <-- HERE
 
 %     \begin{table}[H]
-% \centering
-% \begin{tabular*}{\textwidth}{|l|l|@{\extracolsep{\fill}}p{8.8cm}|}
-	%  \hline
-	%  \textbf{Row} & \textbf{url} & \textbf{payload}\\
-	%  \hline
-	% 1 & https://tutorinmobiliario.cl/ & \{"startedDateTime":"2020-08-14T17:45:37.606+00:00", "title": "Run 1, First View for \url{https://tutorinmobiliario.cl/}", "id": "page\_1\_0\_1", "pageTimings": \{"onLoad":27048,"onContentLoad":-1, "\_startRender":6500\}, "\_cpu.BlinkGC.LazySweepInIdle":10, "\_testStartOffset":0,"\_start\_epoch":0, "\_cpu.ParseAuthorStyleSheet":95,"\_bytesOutDoc": 208779, "\_cpu.V8.GC\_MC\_CLEAR\_STRING\_TABLE":1, "\_cpu.V8.GC\_SCAVENGER\_SCAVENGE\_UPDATE\_REFS": 0, "\_cpu.V8.GC\_MC\_MARK\_EMBEDDER\_TRACING\_CLOSURE":0, "\_cpu.V8.GC\_MC\_MARK\_FINISH\_INCREMENTAL": 0, "\_firstPaint":6445.524999995541, "\_cpu.BlinkGC.AtomicPauseMarkEpilogue":0,  "\_cpu.V8.GC\_MC\_INCREMENTAL\_EMBEDDER\_PROLOGUE":7, "\_cpu.V8.GC\_SCAVENGER\_COMPLETE\_SWEEP\_ARRAY\_BUFFERS":0, "\_cpu.V8.GC\_MC\_EVACUATE\_REBALANCE":0,"\_optimization\_checked":1, "\_cpu.V8.GC\_MC\_MARK\_ROOTS":0, "\_cpu.BlinkGC.IncrementalMarkingStartMarking":4, "\_responses\_404":0, "\_URL": "https://tutorinmobiliario.cl/", "\_cpu.V8.GC\_SCAVENGER\_SCAVENGE\_ROOTS":3, "\_loadEventStart":27048, "\_cpu.EvaluateScript":452 , "\_score\_gzip":100, "\_cpu.V8.GC\_MC\_MARK\_WEAK\_CLOSURE\_EPHEMERON\_…\\
-	% \hline
-	% 2 & https://nishinatoshiharu.com/ & \{"startedDateTime":"2020-08-18T21:50:57.272+00:00","title":"Run 1, First View for https://nishinatoshiharu.com/","id":"page$\_$1$\_$0$\_$1","pageTimings":\{"onLoad":24788,"onContentLoad":-1,"$\_$startRender":4800\},"$\_$cpu.BlinkGC.LazySweepInIdle":28,"$\_$testStartOffset":0,"$\_$start$\_$epoch":0,"$\_$cpu.ParseAuthorStyleSheet":98,"$\_$bytesOutDoc":469240,"$\_$cpu.V8.GC$\_$MC$\_$CLEAR$\_$STRING$\_$TABLE":1,"$\_$cpu.V8.GC$\_$SCAVENGER$\_$SCAVENGE$\_$UPDATE$\_$REFS":0,"$\_$cpu.V8.GC$\_$MC$\_$MARK$\_$EMBEDDER$\_$TRACING$\_$CLOSURE":0,"$\_$cpu.V8.GC$\_$MC$\_$MARK$\_$FINISH$\_$INCREMENTAL":0,"$\_$firstPaint":4826.009999997041,"$\_$cpu.BlinkGC.AtomicPauseMarkEpilogue":0,"$\_$cpu.V8.GC$\_$MC$\_$INCREMENTAL$\_$EMBEDDER$\_$PROLOGUE":14,"$\_$cpu.V8.GC$\_$SCAVENGER$\_$COMPLETE$\_$SWEEP$\_$ARRAY$\_$BUFFERS":0,"$\_$cpu.V8.GC$\_$MC$\_$EVACUATE$\_$REBALANCE":0,"$\_$optimization$\_$checked":1,"$\_$cpu.V8.GC$\_$MC$\_$MARK$\_$ROOTS":0,"$\_$cpu.BlinkGC.IncrementalMarkingStartMarking":9,"$\_$responses$\_$404":0,"$\_$URL":"https://nishinatoshiharu.com/","$\_$cpu.V8.GC$\_$SCAVENGER$\_$SCAVENGE$\_$ROOTS":5,"$\_$loadEventStart":24788,"$\_$cpu.EvaluateScript":712,"$\_$score$\_$gzip":100,"$\_$cpu.V8.GC$\_$MC$\_$MARK$\_$WEAK$\_$CLOSURE$\_$EPHEMERON…\\
-	% \hline
-	% \end{tabular*}
-% \caption{Pages Data Sample}
-% \label{table:pages_data_sample}
-% \end{table}
+	% \centering
+	% \begin{tabular*}{\textwidth}{|l|l|@{\extracolsep{\fill}}p{8.8cm}|}
+		%  \hline
+		%  \textbf{Row} & \textbf{url} & \textbf{payload}\\
+		%  \hline
+		% 1 & https://tutorinmobiliario.cl/ & \{"startedDateTime":"2020-08-14T17:45:37.606+00:00", "title": "Run 1, First View for \url{https://tutorinmobiliario.cl/}", "id": "page\_1\_0\_1", "pageTimings": \{"onLoad":27048,"onContentLoad":-1, "\_startRender":6500\}, "\_cpu.BlinkGC.LazySweepInIdle":10, "\_testStartOffset":0,"\_start\_epoch":0, "\_cpu.ParseAuthorStyleSheet":95,"\_bytesOutDoc": 208779, "\_cpu.V8.GC\_MC\_CLEAR\_STRING\_TABLE":1, "\_cpu.V8.GC\_SCAVENGER\_SCAVENGE\_UPDATE\_REFS": 0, "\_cpu.V8.GC\_MC\_MARK\_EMBEDDER\_TRACING\_CLOSURE":0, "\_cpu.V8.GC\_MC\_MARK\_FINISH\_INCREMENTAL": 0, "\_firstPaint":6445.524999995541, "\_cpu.BlinkGC.AtomicPauseMarkEpilogue":0,  "\_cpu.V8.GC\_MC\_INCREMENTAL\_EMBEDDER\_PROLOGUE":7, "\_cpu.V8.GC\_SCAVENGER\_COMPLETE\_SWEEP\_ARRAY\_BUFFERS":0, "\_cpu.V8.GC\_MC\_EVACUATE\_REBALANCE":0,"\_optimization\_checked":1, "\_cpu.V8.GC\_MC\_MARK\_ROOTS":0, "\_cpu.BlinkGC.IncrementalMarkingStartMarking":4, "\_responses\_404":0, "\_URL": "https://tutorinmobiliario.cl/", "\_cpu.V8.GC\_SCAVENGER\_SCAVENGE\_ROOTS":3, "\_loadEventStart":27048, "\_cpu.EvaluateScript":452 , "\_score\_gzip":100, "\_cpu.V8.GC\_MC\_MARK\_WEAK\_CLOSURE\_EPHEMERON\_…\\
+		% \hline
+		% 2 & https://nishinatoshiharu.com/ & \{"startedDateTime":"2020-08-18T21:50:57.272+00:00","title":"Run 1, First View for https://nishinatoshiharu.com/","id":"page$\_$1$\_$0$\_$1","pageTimings":\{"onLoad":24788,"onContentLoad":-1,"$\_$startRender":4800\},"$\_$cpu.BlinkGC.LazySweepInIdle":28,"$\_$testStartOffset":0,"$\_$start$\_$epoch":0,"$\_$cpu.ParseAuthorStyleSheet":98,"$\_$bytesOutDoc":469240,"$\_$cpu.V8.GC$\_$MC$\_$CLEAR$\_$STRING$\_$TABLE":1,"$\_$cpu.V8.GC$\_$SCAVENGER$\_$SCAVENGE$\_$UPDATE$\_$REFS":0,"$\_$cpu.V8.GC$\_$MC$\_$MARK$\_$EMBEDDER$\_$TRACING$\_$CLOSURE":0,"$\_$cpu.V8.GC$\_$MC$\_$MARK$\_$FINISH$\_$INCREMENTAL":0,"$\_$firstPaint":4826.009999997041,"$\_$cpu.BlinkGC.AtomicPauseMarkEpilogue":0,"$\_$cpu.V8.GC$\_$MC$\_$INCREMENTAL$\_$EMBEDDER$\_$PROLOGUE":14,"$\_$cpu.V8.GC$\_$SCAVENGER$\_$COMPLETE$\_$SWEEP$\_$ARRAY$\_$BUFFERS":0,"$\_$cpu.V8.GC$\_$MC$\_$EVACUATE$\_$REBALANCE":0,"$\_$optimization$\_$checked":1,"$\_$cpu.V8.GC$\_$MC$\_$MARK$\_$ROOTS":0,"$\_$cpu.BlinkGC.IncrementalMarkingStartMarking":9,"$\_$responses$\_$404":0,"$\_$URL":"https://nishinatoshiharu.com/","$\_$cpu.V8.GC$\_$SCAVENGER$\_$SCAVENGE$\_$ROOTS":5,"$\_$loadEventStart":24788,"$\_$cpu.EvaluateScript":712,"$\_$score$\_$gzip":100,"$\_$cpu.V8.GC$\_$MC$\_$MARK$\_$WEAK$\_$CLOSURE$\_$EPHEMERON…\\
+		% \hline
+		% \end{tabular*}
+	% \caption{Pages Data Sample}
+	% \label{table:pages_data_sample}
+	% \end{table}
 
 
 \item requests\\
@@ -133,65 +170,65 @@ Dataset pada response$\_$requests berisi tabel-tabel dari bulan November tahun 2
 Dataset pada technologies berisi tabel-tabel dari bulan Januari tahun 2016 sampai dengan sekarang yang terdiri dari website pada desktop dan mobile. Dataset bulan Agustus tahun 2020 baris pada desktop memiliki 61.203.638 baris  dapat dilihat pada gambar \ref{table:ct_tech_desktop} dan pada mobile memiliki 67.452.994 baris \ref{table:ct_tech_mobile} yang dapat dianalisis. Masing-masing terdiri dari 4 kolom yaitu \textit{URL}, \textit{category}, \textit{app}, \textit{info}. Pada kolom \textit{URL (Uniform Resource Locator)} merupakan nama-nama domain, \textit{category} merupakan jenis aplikasi yang digunakan pada website tersebut, \textit{app} merupakan aplikasi yang digunakan website tersebut, \textit{info} merupakan informasi tambahan dari aplikasi. 
 
 \begin{table}[H]
-\centering
-\begin{tabular}{|l|l|p{3cm}|p{3cm}|l|}
-	\hline
-	\textbf{Row} & \textbf{url} & \textbf{category} & app & info\\
-	\hline
-	1 & https://www.3-king.com/ & Analytics & Google Analytics & \\
-	\hline
-	2 & https://www.fleabites.net/ & Miscellaneous & Twitter Emoji (Twemoji) & \\
-	\hline
-	3 & http://www.elcarnicero.cl/ & Widgets & OWL Carousel & \\
-	\hline
-	4 & https://thankyou.ws/ & Analytics & Google Analytics & \\
-	\hline
-	5 & https://rogerwaters.com/ & Reverse proxies & Nginx & \\
-	\hline
-	6 & http://www.palaciodaslampadas.com.br/ & JavaScript libraries & jQuery & 2.1.1\\
-	\hline
-	7 & https://copenhagencamping.dk/ & CMS & WordPress & \\
-	\hline
-	8 & https://eachat.ma/ & Ecommerce & WooCommerce & 4.3.0\\
-	\hline
-	9 & https://advokat-bondarchuk.ru/ & Blogs & WordPress & \\
-	\hline
-	10 & https://passport.rsl.ru/ & JavaScript libraries & jQuery & 1.7.1\\
-	\hline
-\end{tabular}
-\caption{Technologies Desktop Data Sample}
-\label{table:ct_tech_desktop}
+	\centering
+	\begin{tabular}{|l|l|p{3cm}|p{3cm}|l|}
+		\hline
+		\textbf{Row} & \textbf{url} & \textbf{category} & app & info\\
+		\hline
+		1 & https://www.3-king.com/ & Analytics & Google Analytics & \\
+		\hline
+		2 & https://www.fleabites.net/ & Miscellaneous & Twitter Emoji (Twemoji) & \\
+		\hline
+		3 & http://www.elcarnicero.cl/ & Widgets & OWL Carousel & \\
+		\hline
+		4 & https://thankyou.ws/ & Analytics & Google Analytics & \\
+		\hline
+		5 & https://rogerwaters.com/ & Reverse proxies & Nginx & \\
+		\hline
+		6 & http://www.palaciodaslampadas.com.br/ & JavaScript libraries & jQuery & 2.1.1\\
+		\hline
+		7 & https://copenhagencamping.dk/ & CMS & WordPress & \\
+		\hline
+		8 & https://eachat.ma/ & Ecommerce & WooCommerce & 4.3.0\\
+		\hline
+		9 & https://advokat-bondarchuk.ru/ & Blogs & WordPress & \\
+		\hline
+		10 & https://passport.rsl.ru/ & JavaScript libraries & jQuery & 1.7.1\\
+		\hline
+	\end{tabular}
+	\caption{Technologies Desktop Data Sample}
+	\label{table:ct_tech_desktop}
 \end{table}
 
 \begin{table}[H]
-\centering
-\begin{tabular}{|l|l|p{3cm}|p{3cm}|l|}
-	\hline
-	\textbf{Row} & \textbf{url} & \textbf{category} & app & info\\
-	\hline
-	1 & http://www.carobd.fr/ & UI frameworks & Bootstrap & 4.1.3\\
-	\hline
-	2 & http://www.minikabebe.com/ & Font scripts & Font Awesome & \\
-	\hline
-	3 & https://sibirskisamojedcom.wordpress.com/ & Blogs & WordPress & \\
-	\hline
-	4 & https://www.peauideale.com/ & Analytics & Google Analytics & \\
-	\hline
-	5 & https://www.bestcours.com/ & JavaScript libraries & jQuery & 1.11.1\\
-	\hline
-	6 & https://www.chirurgo-stefanoenrico.it/ & UI frameworks & Bootstrap & \\
-	\hline
-	7 & https://retrocores.com/ & JavaScript libraries & jQuery & 1.12.4\\
-	\hline
-	8 & https://pakmule.com/ & Web servers & Apache & \\
-	\hline
-	9 & https://edilsonalves.com.br/ & JavaScript libraries & jQuery & 1.12.4\\
-	\hline
-	10 & https://mobilierdasie.com/ & Ecommerce & Google Analytics Enhanced eCommerce & \\
-	\hline
-\end{tabular}
-\caption{Technologies Mobile Data Sample}
-\label{table:ct_tech_mobile}
+	\centering
+	\begin{tabular}{|l|l|p{3cm}|p{3cm}|l|}
+		\hline
+		\textbf{Row} & \textbf{url} & \textbf{category} & app & info\\
+		\hline
+		1 & http://www.carobd.fr/ & UI frameworks & Bootstrap & 4.1.3\\
+		\hline
+		2 & http://www.minikabebe.com/ & Font scripts & Font Awesome & \\
+		\hline
+		3 & https://sibirskisamojedcom.wordpress.com/ & Blogs & WordPress & \\
+		\hline
+		4 & https://www.peauideale.com/ & Analytics & Google Analytics & \\
+		\hline
+		5 & https://www.bestcours.com/ & JavaScript libraries & jQuery & 1.11.1\\
+		\hline
+		6 & https://www.chirurgo-stefanoenrico.it/ & UI frameworks & Bootstrap & \\
+		\hline
+		7 & https://retrocores.com/ & JavaScript libraries & jQuery & 1.12.4\\
+		\hline
+		8 & https://pakmule.com/ & Web servers & Apache & \\
+		\hline
+		9 & https://edilsonalves.com.br/ & JavaScript libraries & jQuery & 1.12.4\\
+		\hline
+		10 & https://mobilierdasie.com/ & Ecommerce & Google Analytics Enhanced eCommerce & \\
+		\hline
+	\end{tabular}
+	\caption{Technologies Mobile Data Sample}
+	\label{table:ct_tech_mobile}
 \end{table}
 
 
@@ -202,7 +239,7 @@ Pada tabel ini tidak terdapat keterangan dan tidak berhubungan dengan skripsi in
 \end{enumerate}
 
 \section{Langkah-Langkah Query Yang Dilakukan}
-Pada section ini akan dijelaskan tentang langkah-langkah query yang dilakukan dalam memperoleh data dan analisis yang dilakukan. Data yang diambil merupakan dataset dari tabel technologies 2020$\_$08$\_$01:
+Pada section ini akan dijelaskan tentang langkah-langkah query yang dilakukan dalam memperoleh data dan analisis yang dilakukan. Data yang diambil adalah data percobaan sebanyak 100 data. Data yang diambil merupakan dataset dari tabel technologies 2020$\_$08$\_$01:
 
 \subsection{Mengumpulkan List Website}
 Langkah pertama yang dilakukan yaitu mengumpulkan website. Website yang dicari tidak berdasarkan berdasarkan \textit{rank} karena tidak tersedia pada dataset tersebut. Berikut adalah \textit{query} yang digunakan untuk mengumpulkan list website.
@@ -210,6 +247,7 @@ Langkah pertama yang dilakukan yaitu mengumpulkan website. Website yang dicari t
 SELECT url
 FROM `httparchive.technologies.2020_08_01_*`
 ORDER BY url asc
+LIMIT 100
 \end{verbatim}
 
 \subsection{Mencari Aplikasi Yang Digunakan Website}
@@ -218,6 +256,7 @@ Setiap website akan dicari aplikasi apa saja yang digunakan dalam pembangunan we
 SELECT url, app, info
 FROM `httparchive.technologies.2020_08_01_*`
 ORDER BY url asc
+LIMIT 100
 \end{verbatim}
 
 \subsection{Mengelompokkan Berdasarkan Nama Semua Aplikasi Yang Dipakai}
@@ -253,6 +292,7 @@ FROM `httparchive.technologies.2020_08_01_*`
 GROUP BY app) AS num
 
 ON (tabelName.app = num.app)
+LIMIT 100
 \end{verbatim}
 
 \subsection{Mencari Data Tentang Versi Aplikasi Yang Masih Didukung}
@@ -263,3 +303,11 @@ Sebelum menentukan suatau aplikasi usang atau tidak, kita harus mencari versi da
 
 
 
+\section{Hasil Sample Data Dengan Beberapa Aplikasi}
+Diambil 29 data sample dengan aplikasi dan nomor versinya. Pada gambar \ref{fig:data_sample_res} aplikasi Lodash dengan versi 4.7.15 memiliki jumlah 265.552 kali dipakai oleh website.
+\begin{figure}[H]
+\centering  
+\includegraphics[scale=0.5]{Gambar/hasil_chart_all.PNG}  
+\caption{Data Sample Jumlah Aplikasi Dengan Versi yang Dipakai} 
+\label{fig:data_sample_res} 
+\end{figure}
