@@ -1,9 +1,8 @@
 \chapter{Percobaan Awal}
 \label{chap:percobaan_awal}
-Pada bab ini akan dijelaskan analisis masalah penelitian ini. Analisis meliputi Eksplorasi Teknologi, Dataset Pada HTTP Archive, Langkah-Langkah Query Yang Dilakukan.
+Pada bab ini akan dijelaskan analisis masalah penelitian ini. Analisis meliputi Eksplorasi Teknologi, Dataset Pada HTTP Archive, Langkah-Langkah Query Yang Dilakukan, dan Hasil Sample Data Dengan Beberapa Aplikasi.
 
 \section{Eksplorasi Teknologi}
-\subsection{BigQuery}
 Dalam pengerjaan skripsi ini akan menggunakan teknologi bernama BigQuery. Di dalam BigQuery, terdapat salah satu fitur yang akan digunakan yaitu membuat dataset baru. Dataset bisa saja diambil dari public dataset maupun membuat sendiri datasettersbut. Dataset berisi tabel-tabel yang akan dianalisis. Tabel-tabel tersebut dapat dibuat secara manual maupun di-\textit{upload}.
 
 Berikut ini langkah-langkah dalam pembuatan dataset dan tabel:
@@ -11,47 +10,39 @@ Berikut ini langkah-langkah dalam pembuatan dataset dan tabel:
 	\item Membuka \href{https://console.cloud.google.com/getting-started}{Google Cloud Project Page}.
 	\begin{figure}[H]
 		\centering  
-		\includegraphics[scale=0.5]{Gambar/open_GCP.PNG}  
+		\includegraphics[scale=0.45]{Gambar/open_GCP.PNG}  
 		\caption{Google Cloud Project Page} 
 		\label{fig:GCP} 
 	\end{figure}
 	\item Membuat atau memilih \textit{project} yang akan dikerjakan.
 	\begin{figure}[H]
 		\centering  
-		\includegraphics[scale=0.5]{Gambar/pilih_project.PNG}  
+		\includegraphics[scale=0.45]{Gambar/pilih_project.PNG}  
 		\caption{Create atau Open Project} 
 		\label{fig:create_or_open} 
 	\end{figure}
 	\item Membuka \textit{console} kemudian memilih BigQuery.
 	\begin{figure}[H]
 		\centering  
-		\includegraphics[scale=0.5]{Gambar/console_BigQuery.PNG}  
+		\includegraphics[scale=0.45]{Gambar/console_BigQuery.PNG}  
 		\caption{Membuka BigQuery} 
 		\label{fig:BQ} 
 	\end{figure}
 	\item Pada tab explorer terdapat project kemudian pengguna harus menekan tombol titik tiga dan piliih \textit{create} dataset.
 	\begin{figure}[H]
 		\centering  
-		\includegraphics[scale=0.5]{Gambar/create_dataset.PNG}  
+		\includegraphics[scale=0.45]{Gambar/create_dataset.PNG}  
 		\caption{Membuat Dataset Baru} 
 		\label{fig:creat_dataset} 
 	\end{figure}
 	\item Buka dataset, kemudian pilih menu \textit{create table}.
 	\begin{figure}[H]
 		\centering  
-		\includegraphics[scale=0.5]{Gambar/create_table.PNG}  
+		\includegraphics[scale=0.45]{Gambar/create_table.PNG}  
 		\caption{Membuat Tabel Baru} 
 		\label{fig:create_table} 
 	\end{figure}
 \end{enumerate}
-
-\subsection{ReactJS}
-Selain penggunaan BigQuery, skripsi ini juga menggunakan ReactJS dalam pembuatan charts maupun melakukan perbandingan versi dari aplikasi. Data yang dipakai untuk membuat chart merupakan data JSON yang sudah di-\textit{download} melalui BigQuery. Pembuatan project react dapat dilakukan dengan menggunakan sintaks:
-\begin{verbatim}
-	npx create-react-app my-app
-	cd my-app
-	npm start
-\end{verbatim}
 
 \section{Dataset Pada HTTP Archive}
 Di dalam HTTP Archive terdapat dataset yang dapat diambil menggunakan teknologi BigQuery, dataset tersebut adalah sebagai berikut:
@@ -65,7 +56,7 @@ Di dalam HTTP Archive terdapat dataset yang dapat diambil menggunakan teknologi 
 	\item latest\\
 	Pada tabel ini tidak terdapat keterangan dan tidak berhubungan dengan skripsi ini.
 	\item lighthouse\\
-	Dataset pada lighthouse berisi tabel-tabel dari bulan Juni tahun 2017 sampai dengan sekarang yang terdiri dari website pada mobile. Dataset bulan Agustus tahun 2020 baris pada mobile memiliki 6.290.147 baris \ref{table:ct_lh_mobile} yang dapat dianalisis. Masing-masing terdiri dari URL dan report. \textit{URL (Uniform Resource Locator)} merupakan nama-nama domain dan \textit{report}. Tetapi tabel ini tidak digunakan dalam pengerjaan skripsi ini. 
+	Dataset pada lighthouse berisi tabel-tabel dari bulan Juni tahun 2017 sampai dengan sekarang yang terdiri dari website pada mobile. Dataset bulan Agustus tahun 2020 baris pada mobile memiliki 6.290.147 baris.Contoh data dapat dilihat pada tabel \ref{table:ct_lh_mobile}. Tabel terdiri dari url dan report. \textit{URL (Uniform Resource Locator)} merupakan nama-nama domain dan \textit{report}. Tetapi tabel ini tidak digunakan dalam pengerjaan skripsi ini. 
 	
 	
 	\begin{table}[H]
@@ -110,7 +101,7 @@ Di dalam HTTP Archive terdapat dataset yang dapat diambil menggunakan teknologi 
 
 \item pages\\
 Dataset pada pages berisi tabel-tabel dari bulan Januari tahun 2016 sampai dengan sekarang yang terdiri dari website pada desktop dan mobile. Dataset bulan Agustus tahun 2020 baris pada desktop memiliki 5.593.642 baris dan pada mobile memiliki 6.347.640 baris. Contoh data dapat dilihat pada tabel \ref{table:pages_data_sample}.
-Masing-masing terdiri dari URL dan payload. \textit{URL (Uniform Resource Locator)} merupakan nama-nama domain dan \textit{payload}. Tetapi tabel ini tidak digunakan dalam pengerjaan skripsi ini.
+Masing-masing terdiri dari url dan payload. \textit{URL (Uniform Resource Locator)} merupakan nama-nama domain dan \textit{payload}. Tetapi tabel ini tidak digunakan dalam pengerjaan skripsi ini.
 
 \begin{table}[H]
 	\centering
@@ -167,7 +158,7 @@ Dataset pada summary$\_$pages berisi tabel-tabel dari bulan November tahun 2010 
 \item summary$\_$requests\\
 Dataset pada response$\_$requests berisi tabel-tabel dari bulan November tahun 2010 sampai dengan sekarang yang terdiri dari website pada desktop. Dataset bulan Agustus tahun 2020 baris pada desktop memiliki 215.621.667 baris dan pada mobile memiliki 1.234.599 baris yang dapat dianalisis. Masing-masing terdiri dari requestid, pageid, startedDateTime, time, method, url, urlShort, redirectUrl, firstReq, firstHtml, reqHttpVersion, reqHeaderSize, reqBodySize, reqCookieLen, reqOtherHeader, status, respHttpVersion, respHeaderSize, respBodySize, respSize, respCookieLen, expAge, mimeType, respOtherHeader, req$\_$accept, req$\_$accept$\_$charset, req$\_$accept$\_$encoding, req$\_$accept$\_$language, req$\_$connection, req$\_$host, req$\_$if$\_$modified$\_$since, req$\_$if$\_$none$\_$match, req$\_$referer, req$\_$user$\_$agent, resp$\_$accept$\_$ranges, resp$\_$age, resp$\_$cache$\_$control, resp$\_$connection, resp$\_$content$\_$encoding, resp$\_$content$\_$language, resp$\_$content$\_$length, resp$\_$content$\_$location, resp$\_$content$\_$type, resp$\_$date, resp$\_$etag, resp$\_$expires, resp$\_$keep$\_$alive, resp$\_$last$\_$modified, resp$\_$location, resp$\_$pragma, resp$\_$server, resp$\_$transfer$\_$encoding, resp$\_$vary, resp$\_$via, resp$\_$x$\_$powered$\_$by. Tetapi tabel ini tidak digunakan dalam pengerjaan skripsi ini.
 \item technologies\\
-Dataset pada technologies berisi tabel-tabel dari bulan Januari tahun 2016 sampai dengan sekarang yang terdiri dari website pada desktop dan mobile. Dataset bulan Agustus tahun 2020 baris pada desktop memiliki 61.203.638 baris  dapat dilihat pada gambar \ref{table:ct_tech_desktop} dan pada mobile memiliki 67.452.994 baris \ref{table:ct_tech_mobile} yang dapat dianalisis. Masing-masing terdiri dari 4 kolom yaitu \textit{URL}, \textit{category}, \textit{app}, \textit{info}. Pada kolom \textit{URL (Uniform Resource Locator)} merupakan nama-nama domain, \textit{category} merupakan jenis aplikasi yang digunakan pada website tersebut, \textit{app} merupakan aplikasi yang digunakan website tersebut, \textit{info} merupakan informasi tambahan dari aplikasi. 
+Dataset pada technologies berisi tabel-tabel dari bulan Januari tahun 2016 sampai dengan sekarang yang terdiri dari website pada desktop dan mobile. Dataset bulan Agustus tahun 2020 baris pada desktop memiliki 61.203.638 baris. Contoh data dapat dilihat pada tabel \ref{table:ct_tech_desktop} dan pada mobile memiliki 67.452.994 baris. Contoh data dapat dilihat pada tabel \ref{table:ct_tech_mobile}. Masing-masing terdiri dari 4 kolom yaitu \textit{url}, \textit{category}, \textit{app}, \textit{info}. Pada kolom \textit{URL (Uniform Resource Locator)} merupakan nama-nama domain, \textit{category} merupakan jenis aplikasi yang digunakan pada website tersebut, \textit{app} merupakan aplikasi yang digunakan website tersebut, \textit{info} merupakan informasi tambahan dari aplikasi. 
 
 \begin{table}[H]
 	\centering
@@ -239,29 +230,96 @@ Pada tabel ini tidak terdapat keterangan dan tidak berhubungan dengan skripsi in
 \end{enumerate}
 
 \section{Langkah-Langkah Query Yang Dilakukan}
-Pada section ini akan dijelaskan tentang langkah-langkah query yang dilakukan dalam memperoleh data dan analisis yang dilakukan. Data yang diambil adalah data percobaan sebanyak 100 data. Data yang diambil merupakan dataset dari tabel technologies 2020$\_$08$\_$01:
+\label{langkah_query}
+Pada section ini akan dijelaskan tentang langkah-langkah \textit{query} yang dilakukan dalam memperoleh data dan analisis yang dilakukan. Data yang diambil adalah data percobaan sebanyak 10 data. Data yang diambil merupakan dataset dari tabel technologies 2020$\_$08$\_$01:
 
 \subsection{Mengumpulkan List Website}
 Langkah pertama yang dilakukan yaitu mengumpulkan website. Website yang dicari tidak berdasarkan berdasarkan \textit{rank} karena tidak tersedia pada dataset tersebut. Berikut adalah \textit{query} yang digunakan untuk mengumpulkan list website.
-\begin{verbatim}
+\begin{lstlisting}
 SELECT url
 FROM `httparchive.technologies.2020_08_01_*`
-ORDER BY url asc
-LIMIT 100
-\end{verbatim}
+GROUP BY url
+LIMIT 10
+\end{lstlisting}
+
+Pada \textit{query} diatas akan dilakukan pemilihan pada kolom url dengan menggunakan perintah SELECT dari project httparchive dataset \textit{technologies} tabel 2020\_08\_01\_* dengan menggunakan perintah FROM. Mengelompokan pada kolom url yang dilakukan dengan menggunakan perintah GROUP BY sehingga tidak ada nama url yang sama. Kolom akan dibatasi sebanyak 10 baris dengan menggunakan perintah LIMIT. Sepuluh contoh hasil keluaran dari \textit{query} diatas dapat dilihat pada \ref{table:contoh_langkah1}:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|}
+	\hline
+	\textbf{Row} & \textbf{url}\\
+	\hline
+	1 & https://www.theinsider.life/\\
+	\hline
+	2 & http://www.mtctutorials.com/ \\
+	\hline
+	3 & https://noticias24horases.com.br/\\
+	\hline
+	4 & https://www.tonyburke.com.au/ \\
+	\hline
+	5 & http://www.bakedbyjoanna.com/\\
+	\hline
+	6 & https://stuftburgerbar.com/\\
+	\hline
+	7 & https://www.skagitpowersports.com/\\
+	\hline
+	8 & http://www.arazatimaderas.com/ \\
+	\hline
+	9 & https://oasisexc.com/\\
+	\hline
+	10 & https://www.captainslanding.com/\\
+	\hline
+\end{tabular}
+\caption{Hasil Pengumpulan List Website}
+\label{table:contoh_langkah1}
+\end{table}
 
 \subsection{Mencari Aplikasi Yang Digunakan Website}
-Setiap website akan dicari aplikasi apa saja yang digunakan dalam pembangunan website tersebut dan versi dari aplikasi yang dipakainya. Berikut adalah query yang digunakan.
-\begin{verbatim}
-SELECT url, app, info
+Setiap website akan dicari aplikasi apa saja yang digunakan dalam pembangunan website tersebut dan versi dari aplikasi yang dipakainya. Berikut adalah \textit{query} yang digunakan.
+\begin{lstlisting}
+SELECT url, app
 FROM `httparchive.technologies.2020_08_01_*`
 ORDER BY url asc
-LIMIT 100
-\end{verbatim}
+LIMIT 10
+\end{lstlisting}
+
+Pada \textit{query} diatas akan dilakukan pemilihan pada kolom url dan app dengan menggunakan perintah SELECT dari project httparchive dataset \textit{technologies} tabel 2020\_08\_01\_* dengan menggunakan perintah FROM. Kolom akan diurutkan berdasarkan url secara \textit{ascending}. Kolom akan dibatasi sebanyak 10 baris dengan menggunakan perintah LIMIT. Sepuluh contoh hasil keluaran dari \textit{query} diatas dapat dilihat pada tabel \ref{table:contoh_langkah2}:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|}
+	\hline
+	\textbf{Row} & \textbf{url} & \textbf{app}\\
+	\hline
+	1 & http://0-1.ru/ & Liveinternet\\
+	\hline
+	2 & http://0-1.ru/ & Yandex.Metrika\\
+	\hline
+	3 & http://0-1.ru/ & IIS\\
+	\hline
+	4 & http://0-1.ru/ & Microsoft ASP.NET\\
+	\hline
+	5 & http://0-1.ru/ & YouTube\\
+	\hline
+	6 & http://0-1.ru/ & Microsoft ASP.NET\\
+	\hline
+	7 & http://0-1.ru/ & YouTube\\
+	\hline
+	8 & http://0-1.ru/ & Yandex.Metrika\\
+	\hline
+	9 & http://0-1.ru/ & Windows Server\\
+	\hline
+	10 & http://0-1.ru/ & Windows Server\\
+	\hline
+\end{tabular}
+\caption{Contoh Aplikasi Yang Digunakan Website}
+\label{table:contoh_langkah2}
+\end{table}
 
 \subsection{Mengelompokkan Berdasarkan Nama Semua Aplikasi Yang Dipakai}
-Pengelompokan aplikasi dapat dilakukan dengan menggunakan query. Berikut adalah query yang digunakan.
-\begin{verbatim}
+Pengelompokan aplikasi dapat dilakukan dengan menggunakan \textit{query}. Berikut adalah \textit{query} yang digunakan.
+\begin{lstlisting}
 SELECT tabelName.app, num.num_sites , versioned.versioned_count , unversioned.unversioned_count
 FROM 
 (SELECT DISTINCT app
@@ -292,15 +350,124 @@ FROM `httparchive.technologies.2020_08_01_*`
 GROUP BY app) AS num
 
 ON (tabelName.app = num.app)
-LIMIT 100
-\end{verbatim}
+LIMIT 10
+\end{lstlisting}
+
+Pada \textit{query} diatas akan dibuat beberapa tabel baru yang bersifat sementara. Pada tabel tersebut akan dilakukan pemilihan pada kolom app dengan menggunakan perintah SELECT dan menggunakan DISTINCT agar app yang ditampilkan hanya keluar satu kali. Data diambil dari project httparchive dataset \textit{technologies} tabel 2020\_08\_01\_* dengan menggunakan perintah FROM. Kemudian tabel akan digabungkan dengan tabel lain. Kolom lain berisikan jumlah aplikasi yang memiliki versi, jumlah aplikasi yang tidak memiliki versi, dan jumlah situs yang menggunakan aplikasi tertentu. Kemudian dengan menggunakan perintah SELECT, akan dipanggil beberapa variabel dari setiap kolom dari setiap tabel. Kolom yang diambil berupa: app, jumlah situs yang dipakai aplikasi (num\_sites), jumlah aplikasi yang memiliki versi (versioned\_count), dan jumlah aplikasi yang tidak memiliki versi (unversioned\_count). Kolom akan dibatasi sebanyak 10 baris dengan menggunakan perintah LIMIT. Sepuluh contoh hasil keluaran dari \textit{query} diatas dapat dilihat pada tabel \ref{table:contoh_langkah3}:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|l|l|}
+	\hline
+	\textbf{Row} & \textbf{app} & \textbf{num\_sites} & \textbf{versioned\_count} & \textbf{unversioned\_count}\\
+	\hline
+	1 & jQuery & 10.003.030 & 9.979.001 & 24.029\\
+	\hline
+	2 & Apache & 4.067.380 & 1.118.200 & 2.949.180\\
+	\hline
+	3 & PHP & 5.977.790 & 2.522.620 & 3.455.170\\
+	\hline
+	4 & MySQL & 4.047.343 & null & 4.047.343\\
+	\hline
+	5 & Microsoft SharePoint & 14.419 & 11.402 & 3.017\\
+	\hline
+	6 & YouTube & 1.028.360& null & 1.028.360\\
+	\hline
+	7 & Microsoft ASP.NET & 865.276 & 407.366 & 457.910\\
+	\hline
+	8 & Google Code Prettify & 32.171 & null & 32.171\\
+	\hline
+	9 & Typekit & 253.890 & 253.203 & 687\\
+	\hline
+	10 & Slick & 759.805 & 66.249 & 693.556\\
+	\hline
+\end{tabular}
+\caption{Hasil Pengelompokan Aplikasi Beserta Jumlah \textit{Versioned} Dan \textit{Unversioned}}
+\label{table:contoh_langkah3}
+\end{table}
 
 \subsection{Mencari Data Tentang Versi Aplikasi Yang Masih Didukung}
-Sebelum menentukan suatau aplikasi usang atau tidak, kita harus mencari versi dari setiap aplikasi secara manual. Versi setiap aplikasi dapat dilihat di-\textit{official documentation} dari setiap aplikasi. Hasil pencarian dari aplikasi yang masih didukung dapat dilihat pada gambar \ref{appData}. 
+Sebelum menentukan suatau aplikasi usang atau tidak, kita harus mencari versi dari setiap aplikasi secara manual. Versi setiap aplikasi dapat dilihat di-\textit{official documentation} dari setiap aplikasi. Hasil pencarian dari aplikasi yang masih didukung dapat dilihat pada tabel \ref{lamp:A}. 
 
 \subsection{Melakukan Perbandingan Antara Versi Aplikasi Yang Masih Dipakai Sekarang Dengan Versi Aplikasi Yang Masih Didukung}
+Setelah mendapatkan data versi minimal dari setiap aplikasi, data tersebut akan dibandingkan dengan versi aplikasi yang dipakai \textit{url}. \textit{Supported} adalah versi aplikasi dari yang dipakai \textit{url} masih mendukung atau diatas atau sama dengan versi yang didukung didokumen. \textit{unsupported} adalah versi aplikasi dari yang dipakai url sudah tidak mendukung atau dibawah versi yang didukung didokumen. \textit{not\_versioned} adalah versi aplikasi dari url tidak ditampilkan. \textit{non\_conclusive} adalah versi aplikasi tidak dapat ditentukan. Berikut ini adalah hasil sepuluh data yang dapat dilihat pada tabel \ref{table:contoh_langkah5.1}. Data diambil berdasarkan banyak aplikasi yang dipakai oleh url tertentu. 
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|r|r|r|r|}
+	\hline
+	\textbf{url} & \textbf{supported} & \textbf{unsupported} & \textbf{not\_versioned} & \textbf{non\_conclusive}\\
+	\hline
+	authservice.pegipegi.com & 0 & 9 & 224 & 2\\
+	\hline
+	serviceauth.pegipegi.com & 0 & 13 & 220 & 2\\
+	\hline
+	mcatselfprep.com &0 & 14 & 52 & 8\\
+	\hline
+	perpetua.it & 0 & 14 & 50 & 12\\
+	\hline
+	sulava.com & 0 & 10 & 59 & 10\\
+	\hline
+	
+	theraceclub.com & 2 & 12 & 48 & 16\\
+	\hline
+	
+	jobs.discover.com & 4 & 8 & 58 & 8\\
+	\hline
+	
+	dickssportinggoods.jobs & 4 & 8 & 56 & 8 \\
+	\hline
+	careers.symphonytalent.com & 4 & 8 & 56 & 8 \\
+	\hline
+	
+	jobs.cedarfair.com & 4 & 8 & 52 & 12\\
+	\hline
+\end{tabular}
+\caption{Hasil Perbandingan Aplikasi Berdasarkan url}
+\label{table:contoh_langkah5.1}
+\end{table}
 
+Data juga dikelompokkan berdasarkan \textit{category} yang memiliki aplikasi yang \textit{unsupported}. Kemudian \textit{category} tersebut dihitung kembali dan dikelompokkan berdasarkan jumlah aplikasi yang \textit{unsupport}-nya. Hasil dapat dilihat pada tabel \ref{table:contoh_langkah5.2}.
+\begin{table}[H]
+\centering
+\begin{tabular}{|r|r|r|r|r|}
+	\hline
+	\textbf{n=0} & \textbf{n=1} & \textbf{n=2} & \textbf{n=3} & \textbf{n>=4}\\
+	\hline
+	2 & 1 & 0 & 0 & 58\\
+	\hline
+\end{tabular}
+\caption{Jumlah Category Dengan Aplikasi Unsupported}
+\label{table:contoh_langkah5.2}
+\end{table}
 
+Data juga dibandingkan berdasarkan aplikasi tertentu. Data yang dihasilkan adalah num\_sites atau jumlah url yang menggunakan aplikasi tertentu, app, supported atau aplikasi yang masih didukung, unsupported atau aplikasi yang sudah tidak didukung, not\_versioned atau aplikasi yang tidak diberi informasi versi, dan non\_conclusive atau versi aplikasi tidak dapat ditentukan. Hasil dari data dapat dilihat pada tabel \ref{table:contoh_langkah5.3}.
+\begin{adjustwidth}{-2.5 cm}{-2.5 cm}\centering\begin{threeparttable}[!htb]
+	\begin{tabular}{|r|l|r|r|r|r|}
+		\hline
+		\textbf{num\_sites} & \textbf{app} & \textbf{supported} & \textbf{unsupported} & \textbf{not\_versioned} & \textbf{non\_conclusive}\\
+		\hline
+		10003030 &jQuery &1604830 &8374171 &24029 &0 \\
+		\hline
+		8190668 &Google Analytics &0 &0 &8190668 &0 \\
+		\hline
+		7494642 &WordPress &350 &4891016 &2603276 &0 \\
+		\hline
+		7230612 &Nginx &652 &1789692 &5440268 &0 \\
+		\hline
+		5977790 &PHP &167095 &2355525 &3455170 &0 \\
+		\hline
+		5481111 &Google Font API &0 &0 &5481111 &0 \\
+		\hline
+		4529823 &Google Tag Manager &0 &0 &4529823 &0 \\
+		\hline
+		4067380 &Apache &764690 &353510 &2949180 &0 \\
+		\hline
+		4047343 &MySQL &0 &0 &4047343 &0 \\
+		\hline
+	\end{tabular}
+	\caption{Hasil Perbandingan Aplikasi}
+	\label{table:contoh_langkah5.3}
+\end{threeparttable}\end{adjustwidth}
 
 
 \section{Hasil Sample Data Dengan Beberapa Aplikasi}
