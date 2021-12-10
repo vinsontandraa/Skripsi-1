@@ -1,0 +1,35 @@
+\chapter{Pembangunan Perangkat Lunak}
+\label{chap:pembangunan PL}
+Pada bab ini akan dijelaskan tentang implementasi perngkat lunak, masalah yang dihadapi pada saat implementasi.
+\section{Implementasi Perangkat Lunak}
+Perangkat lunak dibuat sesuai dengan data pada Bab \ref{chap:percobaan_awal} dan \ref{chap:penggalian data}. Implementasi perangkat lunak ini menggunakan bahasa pemograman JavaScript. Pada skripsi ini akan digunakan beberapa library seperti: RactJS dan ChartJS. Terdapat beberapa folder yang dipisahkan seperti folder json berguna untuk menyimpan file-file json dalam pembuatan chart dan folder tabel berguna untuk . Selain itu terdapat App.js sebagai tempat semua code dituliskan.
+
+\subsection{Folder JSON}
+Pada folder ini akan berisikan data-data yang dibutuhkan dalam pembuatan chart dalam bentuk json. Pada setiap file json tersebut terdapat label, kemudia didalam label terdapat array of object dengan data app, info, jumlah. App merupakan aplikasi yang aplikasi yang dipakai, info merupakan informasi versi yang dipakai aplikasi, dan jumlah merupakan jumlah url yang menggunakan aplikasi dengan versi tertentu. Contoh kode dapat dilihat pada lampiran .
+
+\subsection{Folder Tabel}
+Pada folder ini akan berisikan folder json dan kelas untuk membuat tabel. 
+\subsubsection{Folder JSON}
+pada folder json terdapat array of object dengan data info dan result. Info merupakan informasi versi dan result merupakan pernyataan yang menyatakan versi tersebut masih didukung atau tidak. 
+\subsubsection{Kelas PaginationTable.js}
+Kelas ini berfungsi untuk membuat tabel-tabel yang memiliki data yang banyak. Pada kelas ini data akan dibagi kebeberapa halaman sehingga data yang ditampilkan tidak terlalu panjang. Kode program dapat dilihat pada lampiran \ref{Pagination Table}
+\subsubsection{Kelas BasicTable.js}
+Kelas ini berfungsi untuk membuat tabel-tabel yang memiliki data yang kecil. Kode program dapat dilihat pada lampiran \ref{Basic Table}
+
+
+\subsection{Kelas App.js}
+App.js merupakan sebuah kelas utama yang dibuat untuk menampilkan data-data. Data-data yang sudah dikumpulkan akan dipanggil oleh kelas App.js. Kode program dapat dilihat pada lampiran \ref{App}
+
+
+\section{Masalah yang Dihadapi pada Saat Implementasi}
+Berikut adalah beberapa masalah yang dihadapi saat implementasi:
+\begin{enumerate}
+	\item Data yang diolah masih kotor, sehingga sulit untuk memisahkan data yang valid dan tidak valid.
+	\item Waktu pengerjaan cukup singkat.
+\end{enumerate}
+
+
+
+
+
+

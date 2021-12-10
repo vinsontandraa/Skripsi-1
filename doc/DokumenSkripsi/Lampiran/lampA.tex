@@ -1,5 +1,5 @@
 %versi 3 (18-12-2016)
-\chapter{Kode Program}
+\chapter{Data Aplikasi}
 \label{lamp:A}
 
 %terdapat 2 cara untuk memasukkan kode program
@@ -8,7 +8,7 @@
 % Perhatikan contoh yang diberikan!!
 %
 % untuk keduanya, ada parameter yang harus diisi:
-% - language: bahasa dari kode program (pilihan: Java, C, C++, PHP, Matlab, C\\\#, HTML, R, Python, SQL, dll)
+% - language: bahasa dari kode program (pilihan: Java, C, C++, PHP, Matlab, C\\\hline\#, HTML, R, Python, SQL, dll)
 % - caption: nama file dari kode program yang akan ditampilkan di dokumen akhir
 %
 % Perhatian: Abaikan warning tentang textasteriskcentered!!
@@ -23,360 +23,362 @@
 %\begin{adjustwidth}{-2.5 cm}{-2.5 cm}\centering\begin{threeparttable}[!htb]...\end{threeparttable}\end{adjustwidth}
 
 \setlength\LTleft{-2cm}
-\begin{longtable}{|p{0.2\linewidth}|r|r|r|p{0.2\linewidth}|p{0.1\linewidth}|p{0.2\linewidth}|p{0.15\linewidth}|}
-	
-	\hline
-	app &num sites &unversioned  &versioned  &website &min supported
-	&min supported version reference \\\hline
-	jQuery &10,003,030 &24,029 &9,979,001 &\url{https://jquery.com} &3 &\url{https://jquery.com/} \\
-	WordPress &7,494,642 &2,603,276 &4,891,366 &\url{https://wordpress.org} &5.8 &\url{https://github.com/twbs/release} \\
-	jQuery Migrate &3,597,289 &268,962 &3,328,327 &\url{https://github.com/jquery/jquery-migrate} &1.12 &\url{https://github.com/jquery/jquery-migrate} \\
-	Font Awesome &3,827,039 &1,040,702 &2,786,337 &\url{https://fontawesome.com/} &5 &\url{https://fontawesome.com/6\#is-version-5-still-being-supported} \\
-	jQuery UI &2,575,775 &33,127 &2,542,648 &\url{http://jqueryui.com} &1.13.0 &\url{https://jqueryui.com/} \\
-	jQuery UI &2,575,775 &33,127 &2,542,648 &\url{http://jqueryui.com} &1.13.0 &\url{https://jqueryui.com/} \\
-	Bootstrap &3,391,648 &868,637 &2,523,011 &\url{https://getbootstrap.com} &4 &\url{https://github.com/twbs/release} \\
-	Bootstrap &3,391,648 &868,637 &2,523,011 &\url{https://getbootstrap.com} &4 &\url{https://github.com/twbs/release} \\
-	PHP &5,977,790 &3,455,170 &2,522,620 &\url{http://php.net} &7.4 &\url{https://www.php.net/supported-versions.php} \\
-	Nginx &7,230,612 &5,440,268 &1,790,344 &\url{http://nginx.org/en} &1.20 &\url{https://nginx.org/en/download.html} \\
-	Modernizr &1,900,060 &231,481 &1,668,579 &\url{https://modernizr.com} &? &\url{https://github.com/Modernizr/Modernizr/releases} \\
-	Yoast SEO &1,366,287 &49 &1,366,238 &\url{http://yoast.com} &? &\url{https://yoast.com/wordpress/plugins/seo/change-log-wordpress-seo/} \\
-	Apache &4,067,380 &2,949,180 &1,118,200 &\url{http://apache.org} &2.4 &\url{https://httpd.apache.org} \\
-	FancyBox &827,596 &72,541 &755,055 &\url{http://fancyapps.com/fancybox} &? &\url{https://github.com/fancyapps/fancybox/releases} \\
-	IIS &962,466 &218,661 &743,805 &\url{http://www.iis.net} &8 &\url{https://support.microsoft.com/en-us/lifecycle/search?alpha=Windows\%20Server\%202012} \\
-	WooCommerce &616,072 &75,796 &540,276 &\url{https://woocommerce.com} &? &\url{https://developer.woocommerce.com/releases/} \\
-	Moment.js &555,640 &37,730 &517,910 &\url{https://momentjs.com} &? &\url{https://github.com/moment/moment/blob/develop/CHANGELOG.md} \\
-	Lodash &517,688 &10,781 &506,907 &\url{http://www.lodash.com} &? &\url{https://github.com/lodash/lodash/releases} \\
-	Underscore.js &540,820 &101,362 &439,458 &\url{http://underscorejs.org} &? &\url{http://underscorejs.org/} \\
-	MediaElement.js &420,046 &33 &420,013 &\url{http://www.mediaelementjs.com} &? &\url{https://github.com/mediaelement/mediaelement/releases} \\
-	MediaElement.js &420,046 &33 &420,013 &\url{http://www.mediaelementjs.com} &? &\url{https://github.com/mediaelement/mediaelement/releases} \\
-	Microsoft ASP.NET &865,276 &457,910 &407,366 &\url{https://www.asp.net} &3.1.20 &\url{https://dotnet.microsoft.com/platform/support/policy/dotnet-core} \\
-	Revslider &502,266 &97,735 &404,531 &\url{https://revolution.themepunch.com/} &? &\url{https://www.sliderrevolution.com/documentation/changelog/} \\
-	RequireJS &334,538 &22,537 &312,001 &\url{http://requirejs.org} &? &\url{https://github.com/requirejs/requirejs/tags} \\
-	OpenSSL &279,452 &46 &279,406 &\url{http://openssl.org} &1.1.1 &\url{https://www.openssl.org/policies/releasestrat.html} \\
-	Typekit &253,890 &687 &253,203 &\url{http://typekit.com} &? &\url{https://www.drupal.org/project/typekit/releases} \\
-	Hammer.js &302,093 &52,360 &249,733 &\url{https://hammerjs.github.io} &? &\url{https://hammerjs.github.io/changelog/} \\
-	Google PageSpeed &225,920 &18 &225,902 &\url{http://developers.google.com/speed/pagespeed/mod} &? &\url{https://www.modpagespeed.com/doc/release\_notes} \\
-	Handlebars &249,598 &32,220 &217,378 &\url{http://handlebarsjs.com} &? &\url{https://github.com/handlebars-lang/handlebars.js/blob/master/release-notes.md} \\
-	YUI &201,973 &486 &201,487 &\url{http://yuilibrary.com} &? &\url{https://github.com/yui/yui3/releases} \\
-	Drupal &256,421 &64,326 &192,095 &\url{https://drupal.org} &7 &\url{https://www.drupal.org/psa-2019-02-25} \\
-	MooTools &190,400 &2,356 &188,044 &\url{https://mootools.net} &? &\url{https://mootools.net/blog/category/releases/page/1} \\
-	ZURB Foundation &273,337 &90,398 &182,939 &\url{http://foundation.zurb.com} &? &\url{https://get.foundation/sites/docs/\#} \\
-	Backbone.js &178,970 &2,540 &176,430 &\url{http://backbonejs.org} &? &\url{https://backbonejs.org/} \\
-	All in One SEO Pack &170,116 &35 &170,081 &\url{https://wordpress.org/plugins/all-in-one-seo-pack/} &? &\url{https://aioseo.com/changelog/} \\
-	Elementor &275,007 &110,287 &164,720 &\url{https://elementor.com} &? &\url{https://elementor.com/pro/changelog/} \\
-	AngularJS &170,870 &8,261 &162,609 &\url{https://angularjs.org} &1.7 &\url{https://blog.angular.io/stable-angularjs-and-long-term-support-7e077635ee9c} \\
-	Mustache &160,656 &1,263 &159,393 &\url{https://mustache.github.io} &? &\url{https://openbase.com/js/mustache/versions} \\
-	Prototype &151,881 &8,485 &143,396 &\url{http://www.prototypejs.org} &? &\url{http://prototypejs.org/download/} \\
-	Vue.js &249,087 &127,606 &121,481 &\url{https://vuejs.org} &2 &\url{https://forum.vuejs.org/t/vue-1-x-end-of-life-support/58143} \\
-	React &501,584 &402,192 &99,392 &\url{https://reactjs.org} &? &\url{https://reactjs.org/versions/} \\
-	React &501,584 &402,192 &99,392 &\url{https://reactjs.org} &? &\url{https://reactjs.org/versions/} \\
-	jQuery Mobile &105,150 &6,933 &98,217 &\url{https://jquerymobile.com} &? &\url{https://jquerymobile.com/changelog/} \\
-	Varnish &307,088 &215,982 &91,106 &\url{http://www.varnish-cache.org} &6.0.8 &\url{https://varnish-cache.org/releases/} \\
-	VideoJS &139,619 &58,869 &80,750 &\url{http://videojs.com} &? &\url{https://github.com/videojs/Video.js/releases} \\
-	Leaflet &79,227 &1,093 &78,134 &\url{http://leafletjs.com} &? &\url{https://github.com/Leaflet/Leaflet/releases} \\
-	NextGEN Gallery &78,889 &799 &78,090 &\url{https://www.imagely.com/wordpress-gallery-plugin} &2 &\url{https://www.imagely.com/docs/shortcodes/} \\
-	Dojo &83,516 &8,379 &75,137 &\url{https://dojotoolkit.org} &? &\url{https://dojotoolkit.org/reference-guide/1.9/releasenotes/index.html} \\
-	Fingerprintjs &86,871 &16,625 &70,246 &\url{https://valve.github.io/fingerprintjs2/} &? &\url{https://github.com/fingerprintjs/fingerprintjs/releases} \\
-	Gravity Forms &109,959 &42,565 &67,394 &\url{http://gravityforms.com} &? &\url{https://docs.gravityforms.com/gravityforms-change-log/} \\
-	Slick &759,805 &693,556 &66,249 &\url{https://kenwheeler.github.io/slick} &? &\url{https://github.com/slick/slick/releases} \\
-	Firebase &64,037 &851 &63,186 &\url{https://firebase.com} &? &\url{https://firebase.google.com/support/releases} \\
-	Stripe &63,812 &6,400 &57,412 &\url{http://stripe.com} &? &\url{https://support.fivetran.com/hc/en-us/articles/360061749154-Stripe-Release-Notes} \\
-	Magento &118,689 &66,799 &51,890 &\url{https://magento.com} &? &\url{https://devdocs.magento.com/recommendations/release-notes.html} \\
-	WP-Statistics &50,635 & &50,635 &\url{https://wp-statistics.com} &? &\url{https://github.com/wp-statistics/wp-statistics/releases} \\
-	OpenResty &258,293 &208,454 &49,839 &\url{http://openresty.org} &? &\url{https://openresty.org/en/changes.html} \\
-	Angular &50,196 &1,230 &48,966 &\url{https://angular.io} &10 &\url{https://angular.io/guide/releases\#support-policy-and-schedule}\\
-	W3 Total Cache &220,179 &172,179 &48,000 &\url{http://www.w3-edge.com/wordpress-plugins/w3-total-cache} &? &\url{https://github.com/szepeviktor/w3-total-cache-fixed/releases} \\
-	Knockout.js &44,595 &5 &44,590 &\url{http://knockoutjs.com} &? &\url{https://github.com/knockout/knockout/releases} \\
-	Raphael &37,091 &147 &36,944 &\url{https://dmitrybaranovskiy.github.io/raphael/} &? &\url{https://github.com/DmitryBaranovskiy/raphael/releases} \\
-	Raphael &37,091 &147 &36,944 &\url{https://dmitrybaranovskiy.github.io/raphael/} &? &\url{https://github.com/DmitryBaranovskiy/raphael/releases} \\
-	Apache Tomcat &46,424 &11,498 &34,926 &\url{http://tomcat.apache.org} &8.5 &\url{http://tomcat.apache.org/whichversion.html} \\
-	mod\_ssl &33,928 &22 &33,906 &\url{http://modssl.org} &? &\url{http://www.modssl.org/} \\
-	\url{script.aculo.us} &77,344 &45,988 &31,356 &\url{https://script.aculo.us} &? &\url{https://github.com/madrobby/scriptaculous/blob/v1.9.0/CHANGELOG} \\
-	Flywheel &31,288 & &31,288 &\url{https://getflywheel.com/} &? &\url{https://docs.flywheel.io/hc/en-us/sections/360002865234-Release-Notes} \\
-	SoundManager &31,075 &2,117 &28,958 &\url{http://www.schillmania.com/projects/soundmanager2} &? &\url{https://github.com/nicklockwood/SoundManager} \\
-	Sentry &421,294 &392,442 &28,852 &\url{https://sentry.io/} &? &\url{https://docs.datafabric.hpe.com/62/EcosystemRN/SentryRN.html} \\
-	TinyMCE &29,228 &747 &28,481 &\url{http://tinymce.com} &5.3 &\url{https://www.tiny.cloud/docs/general-configuration-guide/system-requirements/} \\
-	Highcharts &27,438 &279 &27,159 &\url{https://www.highcharts.com} &? &\url{https://www.highcharts.com/blog/changelog/} \\
-	Snap.svg &26,460 &75 &26,385 &\url{http://snapsvg.io/} &? &\url{https://github.com/adobe-webplatform/Snap.svg/blob/master/history.md} \\
-	Gatsby &27,922 &1,552 &26,370 &\url{https://www.gatsbyjs.org/} &3 &\url{https://github.com/gatsbyjs/gatsby\#contributing-to-gatsby-v1} \\
-	Gatsby &27,922 &1,552 &26,370 &\url{https://www.gatsbyjs.org/} &3 &\url{https://github.com/gatsbyjs/gatsby\#contributing-to-gatsby-v1} \\
-	D3 &27,147 &1,184 &25,963 &\url{http://d3js.org} &? &\url{https://github.com/d3/d3/releases} \\
-	MediaWiki &25,549 &246 &25,303 &\url{https://www.mediawiki.org} &? &\url{https://www.mediawiki.org/wiki/Release\_notes} \\
-	MediaWiki &25,549 &246 &25,303 &\url{https://www.mediawiki.org} &? &\url{https://www.mediawiki.org/wiki/Release\_notes} \\
-	CKEditor &47,426 &22,382 &25,044 &\url{http://ckeditor.com} &? &\url{https://ckeditor.com/ckeditor-4/download/releases/} \\
-	XRegExp &24,799 &53 &24,746 &\url{http://xregexp.com} &? &\url{https://github.com/slevithan/xregexp/releases} \\
-	Joomla &244,033 &220,989 &23,044 &\url{https://www.joomla.org} &3.10 &\url{https://docs.joomla.org/Joomla!\_CMS\_versions} \\
-	Phusion Passenger &35,462 &12,634 &22,828 &\url{https://phusionpassenger.com} &? &\url{https://github.com/phusion/passenger/releases} \\
-	Kendo UI &22,212 &778 &21,434 &\url{https://www.telerik.com/kendo-ui} &? &\url{https://www.telerik.com/support/whats-new/kendo-ui/release-history} \\
-	Duda &22,241 &1,627 &20,614 &\url{https://www.duda.co/website-builder} &? & \\
-	Ember.js &20,458 &32 &20,426 &\url{http://emberjs.com} &3.20 &\url{https://emberjs.com/releases/lts} \\
-	FrontPage &21,073 &815 &20,258 &\url{http://office.microsoft.com/frontpage} &? &\url{https://microsoft.fandom.com/wiki/Microsoft\_FrontPage} \\
-	Marionette.js &20,745 &1,452 &19,293 &\url{https://marionettejs.com/} &? &\url{https://github.com/marionettejs/backbone.marionette/releases} \\
-	GoDaddy Website Builder &\#REF! & &18,616 &\url{https://id.godaddy.com/websites/website-builder} &? &\url{https://www.godaddy.com/garage/hubupdates/} \\
-	MathJax &18,738 &336 &18,402 &\url{https://www.mathjax.org/} &? &\url{https://github.com/mathjax/MathJax/releases?after=2.7.8\#:~:text=dpvc\%20released\%20this\%20on\%20Sep\%204\%2C\%202019\%20After,techniques\%2C\%20including\%20Typescript\%2C\%20ES6\%20modules\%2C\%20Promises\%2C\%20and\%20more.} \\
-	Shopware &16,687 &114 &16,573 &\url{https://www.shopware.com/en/} &? &\url{https://www.emizentech.com/blog/shopware-6-4-3-1-released.html\#:~:text=August\%2025\%2C\%202021\%202\%20Mins\%20Read\%20In\%20August\%2C,new\%20features.\%20It\%20requires\%20Shopware\%206.3.0.0\%20or\%20newer.} \\
-	CodeMirror &16,677 &404 &16,273 &\url{https://codemirror.net/} &? &\url{https://github.com/felixhusse/codemirror-addon} \\
-	DNN &20,994 &4,928 &16,066 &\url{http://dnnsoftware.com} &8.5 &\url{https://www.dnnsoftware.com/docs/developers/product-versions.html} \\
-	mod\_dav &14,398 &5 &14,393 &\url{http://webdav.org/mod\_dav} &? &\url{http://webdav.org/mod\_dav/} \\
-	Python &374,597 &360,531 &14,066 &\url{http://python.org} &3.6 &\url{https://www.python.org/downloads/} \\
-	mod\_perl &13,220 &5 &13,215 &\url{http://perl.apache.org} &? &\url{https://perl.apache.org/download/} \\
-	Algolia &20,096 &7,084 &13,012 &\url{http://www.algolia.com} &? &\url{https://github.com/algolia/algoliasearch-client-javascript/releases} \\
-	Perl &17,085 &5,113 &11,972 &\url{http://perl.org} &5.32 &\url{http://www.cpan.org/src/} \\
-	Microsoft SharePoint &14,419 &3,017 &11,402 &\url{https://www.microsoft.com/id-id/microsoft-365/sharepoint/collaboration?ms.officeurl=sharepoint&rtc=1} &? &\url{https://docs.microsoft.com/en-us/officeupdates/sharepoint-updates} \\
-	Outbrain &11,349 &52 &11,297 &\url{https://www.outbrain.com} &? &\url{https://support.fivetran.com/hc/en-us/articles/1500003153781-Outbrain-Release-Notes} \\
-	mod\_jk &11,308 &137 &11,171 &\url{http://tomcat.apache.org/tomcat-3.3-doc/mod\_jk-howto.html} &? &\url{https://archive.apache.org/dist/tomcat/tomcat-connectors/} \\
-	Debian &189,721 &178,767 &10,954 &\url{https://debian.org} &? &\url{https://www.debian.org/releases/} \\
-	EasyEngine &10,054 & &10,054 &\url{https://easyengine.io} &? &\url{https://github.com/EasyEngine/easyengine/releases} \\
-	vBulletin &10,238 &1,050 &9,188 &\url{https://www.vbulletin.com/} &? &\url{https://enxf.net/resources/vbulletin-v5-5-6-connect-vbulletin-v5-connect-enxf-nulled.1178/updates} \\
-	Sitefinity &9,121 &2 &9,119 &\url{https://www.progress.com/sitefinity-cms} &? &\url{https://www.progress.com/sitefinity-cms/release-notes\#:~:text=Sitefinity\%20CMS\%2013.0.7300\%20\%28Official,Release\%29\%20May\%2013\%2C\%202020.} \\
-	three.js &9,540 &459 &9,081 &\url{https://threejs.org/} &? &\url{https://github.com/mrdoob/three.js/releases} \\
-	Concrete5 &10,842 &2,100 &8,742 &\url{https://www.concretecms.com/} &? &\url{https://www.concretecms.com/about/blog/core-releases} \\
-	Liferay &14,281 &5,690 &8,591 &\url{https://www.liferay.com/} &? &\url{https://github.com/liferay/liferay-portal/releases} \\
-	JavaServer Pages &8,459 &18 &8,441 &\url{https://www.oracle.com/java/technologies/jspt.html} &? &\url{https://jcp.org/aboutJava/communityprocess/maintenance/jsr245/245-MR2\_1.html} \\
-	Meteor &8,888 &460 &8,428 &\url{https://www.meteor.com/} &? &\url{https://docs.meteor.com/changelog.html} \\
-	Java Servlet &10,267 &1,963 &8,304 &\url{https://www.oracle.com/java/technologies/java-servlet-tec.html} &? & \\
-	PDF.js &11,055 &2,935 &8,120 &\url{https://mozilla.github.io/pdf.js/} &? &\url{https://github.com/mozilla/pdf.js/releases} \\
-	mod\_wsgi &7,840 &2 &7,838 &\url{https://code.google.com/p/modwsgi} &? &\url{https://github.com/GrahamDumpleton/mod\_wsgi/releases} \\
-	MyWebsite &7,789 & &7,789 &\url{https://www.ionos.com} &? & \\
-	ExtJS &7,690 &374 &7,316 &\url{https://www.sencha.com} &? &\url{http://api.cenboomh.com/extjs/release-notes.html} \\
-	SPIP &8,340 &1,161 &7,179 &\url{https://www.spip.net/en\_rubrique25.html} &4 &\url{https://www.spip.net/en\_article6499.html} \\
-	Hugo &6,793 &16 &6,777 &\url{http://gohugo.io} &? &\url{https://github.com/gohugoio/hugo/releases} \\
-	Braintree &7,280 &561 &6,719 &\url{https://www.braintreepayments.com/} &? &\url{https://www.drupal.org/project/commerce\_braintree/releases} \\
-	Volusion &6,395 &4 &6,391 &\url{https://www.volusion.com/} &? &\url{https://www.volusion.com/v1-release-notes/index.html} \\
-	Open Journal Systems &6,297 &7 &6,290 &\url{https://pkp.sfu.ca/ojs/} &? & \\
-	Dynamicweb &6,165 & &6,165 &\url{https://www.dynamicweb.dk/} &? &\url{https://doc.dynamicweb.com/downloads/releases/release-notes/dw-9-10-release-notes} \\
-	Chart.js &233,052 &227,016 &6,036 &\url{https://www.chartjs.org} &? &\url{https://github.com/chartjs/Chart.js/releases} \\
-	Apache Traffic Server &13,233 &7,294 &5,939 &\url{http://trafficserver.apache.org/} &7.1 &\url{https://docs.trafficserver.apache.org/en/latest/release-notes/roadmap.en.html} \\
-	Microsoft HTTPAPI &5,803 & &5,803 &\url{https://www.microsoft.com/id-id/} &? & \\
-	Supersized &9,853 &4,055 &5,798 &\url{http://buildinternet.com/project/supersized} &? &\url{https://github.com/buildinternet/supersized} \\
-	mod\_python &5,253 & &5,253 &\url{http://www.modpython.org} &? &\url{http://modpython.org/} \\
-	Infusionsoft &4,814 &3 &4,811 &\url{https://keap.com/} &? &\url{https://help.infusionsoft.com/help/release-notes} \\
-	gunicorn &4,593 &11 &4,582 &\url{https://gunicorn.org/} &? &\url{https://github.com/benoitc/gunicorn/releases} \\
-	Mobirise &4,272 & &4,272 &\url{https://mobirise.com/} &? &\url{https://mobirise.com/history.html} \\
-	WebSite X5 &4,261 & &4,261 &\url{https://www.websitex5.com/en/} &? &\url{https://www.websitex5.com/changelog/v2019.1/en.php?ed=&\_ga=2.8172977.285220766.1636086202-530522610.1634454942} \\
-	Discourse &3,997 &14 &3,983 &\url{https://discourse.org} &? &\url{https://meta.discourse.org/c/releases/30} \\
-	Next.js &55,570 &51,606 &3,964 &\url{https://nextjs.org} &? &\url{https://github.com/vercel/next.js/releases} \\
-	\url{Socket.io} &37,349 &33,459 &3,890 &\url{https://socket.io} &? &\url{https://github.com/socketio/socket.io/releases} \\
-	Apollo &3,751 &2 &3,749 &\url{https://www.apollographql.com} &? &\url{https://github.com/ApolloAuto/apollo/releases} \\
-	Nette Framework &18,202 &14,464 &3,738 &\url{https://nette.org/} &? &\url{https://files.nette.org/releases/} \\
-	OpenLayers &6,527 &2,912 &3,615 &\url{https://openlayers.org/} &? &\url{https://github.com/openlayers/openlayers/releases/} \\
-	Jekyll &4,873 &1,511 &3,362 &\url{http://jekyllrb.com/} &? &\url{https://jekyllrb.com/news/releases/} \\
-	WP Rocket &214,557 &211,230 &3,327 &\url{https://wp-rocket.me/} &? &\url{https://wp-rocket.me/changelog/} \\
-	Microsoft Word &25,390 &22,079 &3,311 &\url{https://www.microsoft.com/id-id/microsoft-365/word?legRedir=true&CorrelationId=bfde8a81-96e3-403d-ab78-3c3e7b0c9e3d&rtc=1} &? &\url{https://docs.microsoft.com/en-us/officeupdates/current-channel} \\
-	AMP Plugin &3,102 & &3,102 &\url{https://amp-wp.org/} &? &\url{https://amp-wp.org/category/amp-plugin/} \\
-	NVD3 &3,189 &124 &3,065 &\url{https://nvd3.org/} &? &\url{https://github.com/novus/nvd3/releases} \\
-	lighttpd &3,590 &654 &2,936 &\url{http://www.lighttpd.net/} &1.4.54 &\url{https://repology.org/project/lighttpd/versions} \\
-	Plyr &27,608 &24,711 &2,897 &\url{https://plyr.io/} &? &\url{https://github.com/sampotts/plyr/blob/master/CHANGELOG.md} \\
-	Ghost &2,927 &51 &2,876 &\url{https://ghost.org/} &? &\url{https://github.com/TryGhost/Ghost/releases} \\
-	SMF &2,812 &2 &2,810 &\url{https://simplemachines.org/} &? &\url{https://github.com/SimpleMachines/SMF2.1/releases} \\
-	Discuz! X &4,657 &1,986 &2,671 &\url{https://www.discuz.net/} &? &\url{https://gitee.com/Discuz/DiscuzX/releases} \\
-	Google Maps &579,317 &576,804 &2,513 &\url{http://maps.google.com} &? &\url{https://developers.google.com/maps/documentation/javascript/releases} \\
-	Welcart &2,693 &206 &2,487 &\url{https://www.welcart.com/} &? & \\
-	Polymer &2,393 &23 &2,370 &\url{http://polymer-project.org} &? &\url{https://github.com/Polymer/polymer/releases} \\
-	Atlassian Jira &2,103 &57 &2,046 &\url{https://www.atlassian.com/software/jira} &? &\url{https://marketplace.atlassian.com/apps/1213607/jira-software/version-history} \\
-	Mura CMS &1,982 & &1,982 &\url{https://www.murasoftware.com/} &? &\url{https://docs.murasoftware.com/v10/release-notes/} \\
-	JBoss Application Server &2,160 &230 &1,930 &\url{https://www.jboss.org/jbossas.html} &? &\url{https://jbossas.jboss.org/downloads/} \\
-	jQuery-pjax &22,688 &20,786 &1,902 &\url{https://github.com/defunkt/jquery-pjax} &? &\url{https://github.com/defunkt/jquery-pjax/tags} \\
-	Resin &1,875 & &1,875 &\url{https://caucho.com/} &? &\url{https://caucho.com/products/resin/download} \\
-	Jetty &1,955 &117 &1,838 &\url{http://www.eclipse.org/jetty/} &9.4 &\url{https://www.eclipse.org/jetty/download.php} \\
-	amCharts &6,021 &4,320 &1,701 &\url{http://amcharts.com} &4.0 &\url{https://www.amcharts.com/versions/} \\
-	Hogan.js &16,334 &14,691 &1,643 &\url{https://twitter.github.io/hogan.js/} &? &\url{https://support.lumary.com/hc/en-us/articles/360023301851-Hogan-release-notes} \\
-	mod\_fastcgi &4,049 &2,408 &1,641 &\url{http://www.fastcgi.com/mod\_fastcgi/docs/mod\_fastcgi.html} &? &\url{http://freshmeat.sourceforge.net/projects/mod\_fastcgi/releases} \\
-	Oracle Application Server &1,616 &24 &1,592 &\url{https://www.oracle.com/middleware/technologies/internet-application-server.html} &? &\url{https://support.oracle.com/knowledge/Middleware/397022\_1.html} \\
-	Material Design Lite &36,380 &34,867 &1,513 &\url{https://getmdl.io/} &? &\url{https://github.com/google/material-design-lite/releases} \\
-	JBoss Web &1,505 & &1,505 &\url{https://jbossweb.jboss.org/} &? &\url{https://jbossas.jboss.org/downloads/} \\
-	KineticJS &5,084 &3,614 &1,470 &\url{https://github.com/ericdrowell/KineticJS/} &? &\url{https://github.com/ericdrowell/KineticJS/releases} \\
-	DreamWeaver &159,256 &157,813 &1,443 &\url{https://www.adobe.com/products/dreamweaver.html} &? &\url{https://helpx.adobe.com/dreamweaver/dreamweaver-releasenotes.html} \\
-	Miva &1,490 &100 &1,390 &\url{https://www.miva.com/} &? &\url{https://www.miva.com/template-changes} \\
-	Highstock &1,334 & &1,334 &\url{https://www.highcharts.com/blog/products/stock/} &? &\url{https://www.highcharts.com/blog/changelog/} \\
-	JavaServer Faces &1,324 &4 &1,320 &\url{https://javaee.github.io/javaserverfaces-spec/} &? &\url{https://www.javatpoint.com/what-is-jsf} \\
-	Flask &1,246 & &1,246 &\url{https://flask.palletsprojects.com/en/2.0.x/} &? &\url{https://github.com/pallets/flask/releases} \\
-	Angular Material &10,281 &9,040 &1,241 &\url{https://material.angularjs.org/latest/} &? &\url{https://github.com/angular/material/blob/master/CHANGELOG.md} \\
-	Zend &1,389 &171 &1,218 &\url{https://www.zend.com/} &? &\url{https://www.zend.com/release-notes/zend-server} \\
-	Sensors Data &3,146 &1,932 &1,214 &\url{https://www.sensorsdata.cn/auto} &? & \\
-	Hexo &1,378 &166 &1,212 &\url{https://hexo.io/} &? &\url{https://github.com/hexojs/hexo/releases} \\
-	Outlook Web App &3,205 &2,091 &1,114 &\url{https://support.microsoft.com/en-us/outlook?ui=en-us&rs=en-us&ad=us} &? &\url{https://docs.microsoft.com/en-us/officeupdates/current-channel} \\
-	hCaptcha &1,122 &21 &1,101 &\url{https://www.hcaptcha.com/} &? &\url{https://github.com/hCaptcha/hcaptcha-wordpress-plugin/releases} \\
-	Adobe GoLive &1,913 &823 &1,090 &\url{https://www.adobe.com/products/golive} &? & \\
-	Alpine.js &1,695 &613 &1,082 &\url{https://github.com/alpinejs/alpine} &? &\url{https://github.com/alpinejs/alpine/releases} \\
-	Umbraco &1,368 &365 &1,003 &\url{https://umbraco.com/} &? &\url{https://umbraco.com/products/knowledge-center/versioning-and-release-cadence/} \\
-	Neos Flow &977 &6 &971 &\url{https://flow.neos.io/} &? &\url{https://github.com/neos/flow-development-collection/releases} \\
-	Bluefish &926 &17 &909 &\url{https://sourceforge.net/projects/bluefish/} &? &\url{https://bluefish.openoffice.nl/index.html} \\
-	EPrints &849 &13 &836 &\url{https://www.eprints.org/uk/} &? &\url{https://wiki.eprints.org/w/Manual} \\
-	Neos CMS &873 &39 &834 &\url{https://www.neos.io/} &4.3 &\url{https://www.neos.io/features/release-process.html} \\
-	CodeIgniter &818 & &818 &\url{http://codeigniter.com} &? &\url{https://www.codeigniter.com/download\#:~:text=CodeIgniter\%20has\%20two\%20supported\%20versions\%3A\%20CodeIgniter\%204\%20\%28current\%29,is\%20ongoing\%2C\%20and\%20the\%20current\%20version\%20is\%20v4.1.4.} \\
-	Ionic &2,203 &1,432 &771 &\url{https://ionicframework.com/} &? &\url{https://ionicframework.com/docs/reference/release-notes} \\
-	HHVM &669 &10 &659 &\url{https://hhvm.com/} &4.102 &\url{https://docs.hhvm.com/hhvm/installation/release-schedule} \\
-	RockRMS &657 & &657 &\url{https://www.rockrms.com/} &? &\url{https://www.rockrms.com/releasenotes?version} \\
-	ADPLAN &1,003 &383 &620 &\url{https://adplan.gafcodes.com/} &? & \\
-	GlassFish &1,676 &1,065 &611 &\url{https://javaee.github.io/glassfish/} &? &\url{https://glassfish.org/download} \\
-	iWeb &565 &5 &560 &\url{https://www.apple.com/mac/} &? & \\
-	Contenido &559 & &559 &\url{https://www.contenido.org/en} &? & \\
-	Gridsome &558 & &558 &\url{https://gridsome.org/} &? &\url{https://gridsome.org/blog/} \\
-	Koha &580 &26 &554 &\url{https://koha-community.org/} &? &\url{https://git.koha-community.org/Koha-community/koha-release-notes} \\
-	Sulu &535 & &535 &\url{https://sulu.io/} &? &\url{https://sulu.io/know-how/blog} \\
-	Plotly &521 & &521 &\url{https://plotly.com/javascript/} &? &\url{https://github.com/plotly/plotly.py/releases} \\
-	Webdev &561 &49 &512 &\url{https://windev.com/webdev/index.html} &? &\url{https://web-develop.ca/index.php?board=48.0} \\
-	Adyen &509 & &509 &\url{https://www.adyen.com/} &? &\url{https://docs.adyen.com/online-payments/release-notes} \\
-	Oracle Web Cache &519 &10 &509 &\url{https://www.oracle.com/index.html} &? &\url{https://opensolution.org/download/quick-cms-and-quick-cms-ext-other.html} \\
-	Chamilo &474 & &474 &\url{https://chamilo.org/en/} &? &\url{https://www.radiotallercepra.org/campus/documentation/changelog.html} \\
-	Vaadin &592 &128 &464 &\url{https://vaadin.com/} &? &\url{https://vaadin.com/releases/} \\
-	MkDocs &438 & &438 &\url{https://www.mkdocs.org/} &? &\url{https://www.mkdocs.org/about/release-notes/} \\
-	GrowingIO &434 & &434 &\url{https://www.growingio.com/} &? &\url{https://docs.growingio.com/op/developer-manual/sdkintegrated/mp/gtouchsdk-releasenotes} \\
-	Chevereto &402 &3 &399 &\url{https://chevereto.com/} &? &\url{https://releases.chevereto.com/3.X/3.20/3.20.12.html\#links} \\
-	imperia CMS &450 &64 &386 &\url{https://www.pirobase-imperia.com/de/produkte/produktuebersicht/imperia-cms} &? &\url{http://imperiamucms.com/release-notes/} \\
-	Contensis &330 & &330 &\url{https://www.contensis.com/} &? &\url{https://github.com/zengenti/contensis-react-base} \\
-	Sarka-SPIP &329 &1 &328 &\url{http://www.sarka-spip.net/} &4.0 &\url{https://www.spip.net/en\_article6499.html} \\
-	Phaser &329 &2 &327 &\url{https://phaser.io/} &? &\url{https://github.com/photonstorm/phaser/releases} \\
-	GitBook &359 &32 &327 &\url{https://www.gitbook.com/} &? & \\
-	govCMS &323 & &323 &\url{https://www.govcms.gov.au/} &? &\url{https://github.com/govCMS/govCMS8/releases} \\
-	GeneXus &356 &38 &318 &\url{https://www.genexus.com/en/} &? &\url{https://www.genexus.com/en/developers/downloadcenter} \\
-	Sphinx &3,010 &2,701 &309 &\url{https://www.sphinx-doc.org/en/master/} &? &\url{https://github.com/sphinxsearch/sphinx/releases} \\
-	A-Frame &302 &12 &290 &\url{https://aframe.io/} &? &\url{https://github.com/aframevr/aframe/releases} \\
-	Transifex &289 & &289 &\url{https://www.transifex.com/} &? &\url{https://github.com/transifex/transifex-client/releases} \\
-	Ckan &301 &13 &288 &\url{https://ckan.org/} &? &\url{https://github.com/KSP-CKAN/CKAN/releases} \\
-	TornadoServer &286 & &286 &\url{https://www.tornadoweb.org/en/stable/} &? &\url{https://www.tornadoweb.org/en/stable/releases.html} \\
-	FlexCMP &293 &10 &283 &\url{https://www.flexcmp.com/dxp} &? & \\
-	Catberry.js &280 &4 &276 &\url{https://catberry.github.io/} &? &\url{https://github.com/catberry/catberry/releases} \\
-	Oracle Commerce Cloud &255 &2 &253 &\url{https://cloud.oracle.com/commerce-cloud} &? &\url{https://docs.adyen.com/plugins/oracle-commerce-cloud/release-notes} \\
-	Akka HTTP &226 & &226 &\url{https://akka.io/} &? &\url{https://doc.akka.io/docs/akka-http/current/release-notes/index.html} \\
-	X-Cart &1,065 &842 &223 &\url{https://www.x-cart.com/} &? &\url{https://devs.x-cart.com/changelog/} \\
-	Typecho &227 &7 &220 &\url{http://typecho.org/} &? &\url{https://github.com/typecho/typecho/releases} \\
-	OpenUI5 &219 & &219 &\url{https://openui5.org/} &? &\url{https://openui5.org/releases/} \\
-	phpwind &344 &142 &202 &\url{https://www.phpwind.net/} &? & \\
-	Highlight.js &35,637 &35,437 &200 &\url{https://highlightjs.org/} &? &\url{https://github.com/highlightjs/highlight.js/releases} \\
-	CherryPy &194 &2 &192 &\url{https://www.cherrypy.org/} &? &\url{https://github.com/cherrypy/cherrypy/tags} \\
-	CMSimple &254 &62 &192 &\url{https://www.cmsimple.org/en/} &? &\url{http://freshmeat.sourceforge.net/projects/cmsimple/releases} \\
-	Kooboo CMS &247 &56 &191 &\url{https://www.kooboo.com/} &? &\url{https://github.com/Tsingbo-Kooboo/KoobooMvc5/releases} \\
-	mod\_auth\_pam &197 &20 &177 &\url{http://pam.sourceforge.net/mod\_auth\_pam/} &? &\url{http://pam.sourceforge.net/mod\_auth\_pam/download.html} \\
-	Coppermine &174 & &174 &\url{https://coppermine-gallery.net/} &? &\url{https://github.com/coppermine-gallery/cpg1.6.x/releases} \\
-	Serendipity &162 &8 &154 &\url{https://docs.s9y.org/} &? &\url{https://github.com/s9y/Serendipity/releases} \\
-	Elm &150 & &150 &\url{https://elm-lang.org/} &? &\url{https://github.com/elm/compiler/releases} \\
-	MochiKit &171 &32 &139 &\url{https://mochi.github.io/mochikit/} &? &\url{https://mochi.github.io/mochikit/doc/html/MochiKit/index.html} \\
-	FreeBSD &14,647 &14,517 &130 &\url{https://www.freebsd.org/} &12.2 &\url{https://www.freebsd.org/releases/} \\
-	Quick.Cart &459 &335 &124 &\url{https://opensolution.org/home.html} &? &\url{https://opensolution.org/download/quick.cart-and-quick-cart-ext-other.html} \\
-	Quick.CMS &443 &321 &122 &\url{https://opensolution.org/home.html} &? & \\
-	thttpd &121 &5 &116 &\url{https://acme.com/software/thttpd/} &? &\url{https://www.acme.com/software/thttpd/} \\
-	Dancer &114 & &114 &\url{https://perldancer.org/} &? & \\
-	Danneo CMS &108 & &108 &\url{https://danneo.com/} &? & \\
-	Cherokee &132 &26 &106 &\url{http://cherokee-project.com/} &? &\url{http://cherokee-project.com/downloads.html} \\
-	MoinMoin &154 &50 &104 &\url{https://moinmo.in/} &? &\url{https://github.com/moinwiki/moin-1.9/blob/1.9.11/docs/CHANGES\#L13} \\
-	Microsoft Publisher &97 &3 &94 &\url{https://www.microsoft.com/id-id/microsoft-365/publisher?legRedir=true&CorrelationId=1f1413ff-e9cc-4b09-b58f-3b46df35f0f7&rtc=1} &? &\url{https://en.wikipedia.org/wiki/Microsoft\_Publisher\#Release\_history} \\
-	Kentico CMS &13,969 &13,877 &92 &\url{https://www.kentico.com//index.html} &? &\url{https://xperience.io/product/roadmap/version-history} \\
-	Clipboard.js &89,517 &89,426 &91 &\url{https://clipboardjs.com/} &? &\url{https://github.com/zenorocha/clipboard.js/releases} \\
-	JavaScript Infovis Toolkit &283 &197 &86 &\url{https://philogb.github.io/jit/} &? & \\
-	WebGUI &84 & &84 &\url{http://www.webgui.org/} &? &\url{https://blog.webgui.org/} \\
-	VuePress &84 & &84 &\url{https://vuepress.vuejs.org/} &? &\url{https://github.com/vuejs/vuepress/releases} \\
-	GoJS &76 & &76 &\url{https://gojs.net/latest/index.html} &? &\url{https://github.com/NorthwoodsSoftware/GoJS/releases?after=v2.1.27} \\
-	Wink &21,296 &21,222 &74 &\url{http://ww25.winktoolkit.org/?subid1=20211017-1942-127b-942c-c06d160ea89a} &? &\url{https://github.com/chamilo/chamilo-lms/releases} \\
-	Trac &83 &16 &67 &\url{https://trac.edgewall.org/} &? &\url{https://trac.edgewall.org/wiki/TracDownload} \\
-	IBM HTTP Server &793 &728 &65 &\url{https://www.ibm.com/cloud/websphere-application-server} &? &\url{https://www.ibm.com/docs/en/ibm-http-server} \\
-	AOLserver &63 & &63 &\url{https://www.aol.com/} &? &\url{http://aolserver.sourceforge.net/category/releases/} \\
-	Lift &61 & &61 &\url{https://liftweb.net/} &? &\url{https://liftweb.net/} \\
-	Reveal.js &1,123 &1,064 &59 &\url{https://revealjs.com/} &? &\url{https://github.com/hakimel/reveal.js/releases} \\
-	jComponent &56 & &56 &\url{https://componentator.com/} &? &\url{https://docs.totaljs.com/components/} \\
-	Microsoft Excel &76 &20 &56 &\url{https://www.microsoft.com/id-id/microsoft-365/excel?legRedir=true&CorrelationId=c9040e26-c5d7-41a0-8a12-98f3b77df4a6&rtc=1} &? &\url{https://docs.microsoft.com/en-us/officeupdates/current-channel} \\
-	ReDoc &53 & &53 &\url{https://github.com/Redocly/redoc} &? &\url{https://github.com/Redocly/redoc} \\
-	Shopfa &52 & &52 &\url{https://shopfa.com/} &? & \\
-	Aegea &50 & &50 &\url{https://blogengine.ru/} &? & \\
-	Hiawatha &49 & &49 &\url{https://www.hiawatha-webserver.org/} &? &\url{https://www.hiawatha-webserver.org/about} \\
-	Backdrop &716 &667 &49 &\url{https://backdropcms.org/} &? &\url{https://github.com/backdrop/backdrop/releases\#:~:text=The\%20Backdrop\%20community\%20is\%20proud\%20to\%20release\%20version,Migrate\%20to\%201.x-1.0.17\%20along\%20with\%20this\%20core\%20update.} \\
-	decimal.js &2,793 &2,744 &49 &\url{https://mikemcl.github.io/decimal.js/} &? &\url{https://www.npmjs.com/package/decimal.js/v/3.0.0} \\
-	Adobe RoboHelp &63 &15 &48 &\url{https://www.adobe.com/products/robohelp.html} &? &\url{https://helpx.adobe.com/robohelp/using/rh\_system\_requirements.html\#RoboHelp} \\
-	Warp &46 & &46 &\url{https://www.stackage.org/package/warp} &? &\url{https://www.stackage.org/package/warp} \\
-	AsciiDoc &51 &6 &45 &\url{http://www.methods.co.nz/asciidoc} &? &\url{https://github.com/asciidoctor/asciidoctor/releases} \\
-	Koken &43 & &43 &\url{https://www.koken.me/} &? &\url{https://www.koken.me/} \\
-	Atlassian Bitbucket &46 &3 &43 &\url{https://www.atlassian.com/software/bitbucket} &? &\url{https://developer.atlassian.com/server/bitbucket/reference/api-changelog/} \\
-	MODX &8,319 &8,277 &42 &\url{https://modx.com/} &? &\url{https://modx.com/blog/category/release/} \\
-	PHP-Fusion &408 &369 &39 &\url{https://www.php-fusion.co.uk/home.php} &? &\url{https://www.php-fusion.co.uk/infusions/downloads/downloads.php?type=recent} \\
-	OroCommerce &58 &22 &36 &\url{https://oroinc.com/} &? &\url{https://github.com/oroinc/orocommerce-application/releases} \\
-	Doxygen &49 &14 &35 &\url{https://www.doxygen.nl/index.html} &? &\url{https://www.doxygen.nl/manual/changelog.html} \\
-	TwistedWeb &236 &202 &34 &\url{https://twistedmatrix.com/trac/wiki/TwistedWeb} &? &\url{https://pypi.org/project/Twisted/\#history} \\
-	Invenio &33 & &33 &\url{https://invenio-software.org/} &? &\url{https://invenio-software.org/blog/} \\
-	DokuWiki &1,361 &1,328 &33 &\url{https://www.dokuwiki.org/dokuwiki} &? &\url{https://www.dokuwiki.org/devel:releases\#releases} \\
-	Roadiz CMS &50 &18 &32 &\url{https://www.roadiz.io/} &? &\url{https://github.com/roadiz/roadiz/releases} \\
-	Semantic-ui &9,749 &9,717 &32 &\url{https://semantic-ui.com/} &? &\url{https://github.com/Semantic-Org/Semantic-UI/releases} \\
-	Coaster CMS &30 & &30 &\url{https://www.coastercms.org/} &? &\url{https://www.coastercms.org/blog/} \\
-	cgit &30 & &30 &\url{https://git.zx2c4.com/cgit} &? &\url{https://git.zx2c4.com/cgit} \\
-	TiddlyWiki &36 &8 &28 &\url{https://tiddlywiki.com/} &? &\url{https://github.com/Jermolene/TiddlyWiki5/releases} \\
-	otrs &72 &45 &27 &\url{https://otrs.com/} &? &\url{https://otrs.com/overview-release-notes-security-advisories/release-notes/} \\
-	Open Classifieds &27 &2 &25 &\url{https://open-classifieds.com/} &? & \\
-	Gallery &112 &87 &25 &\url{http://galleryproject.org/} &? &\url{http://galleryproject.org/} \\
-	MobX &22,987 &22,963 &24 &\url{https://mobx.js.org/README.html} &? &\url{https://github.com/mobxjs/mobx/releases} \\
-	Bokeh &78 &57 &21 &\url{https://bokeh.org/} &? &\url{https://docs.bokeh.org/en/latest/docs/releases.html\#release-2-4-0} \\
-	AppDynamics &2,645 &2,624 &21 &\url{https://www.appdynamics.com/} &? &\url{https://docs.appdynamics.com/21.5/en/product-and-release-announcements/release-notes} \\
-	BrowserCMS &20 & &20 &\url{http://browsercms.org/} &? & \\
-	CoinHive &338 &318 &20 &\url{https://www.troyhunt.com/i-now-own-the-coinhive-domain-heres-how-im-fighting-cryptojacking-and-doing-good-things-with-content-security-policies/} &? & \\
-	Halo &18 & &18 &\url{https://halo.run/} &? &\url{https://halo.run/blog.html} \\
-	Atlassian Confluence &1,317 &1,299 &18 &\url{https://www.atlassian.com/} &? &\url{https://confluence.atlassian.com/doc/confluence-release-notes-327.html} \\
-	Boa &17 & &17 &\url{https://github.com/boa-dev/boa} &? &\url{https://github.com/boa-dev/boa/blob/main/CHANGELOG.md} \\
-	Immutable.js &14,166 &14,149 &17 &\url{https://immutable-js.com/} &? &\url{https://github.com/immutable-js/immutable-js/releases} \\
-	Fusion Ads &22 &8 &14 &\url{http://fusionads.net/} &? &\url{https://wpfusion.com/documentation/faq/changelog/} \\
-	InfernoJS &35 &21 &14 &\url{https://www.infernojs.org/} &? &\url{https://github.com/infernojs/inferno/releases} \\
-	Tessitura &13 & &13 &\url{https://www.tessituranetwork.com/} &? & \\
-	Yaws &53 &40 &13 &\url{http://yaws.hyber.org/} &? &\url{https://github.com/erlyaws/yaws/releases} \\
-	GX WebManager &80 &67 &13 &\url{https://www.gxsoftware.com/en/products/web-content-management.htm} &? & \\
-	wisyCMS &12 & &12 &\url{https://wisy.3we.de/home-15-de} &? &\url{https://wisy.3we.de/change-log-225-de} \\
-	SimpleHTTP &16 &4 &12 &\url{http://simple-http.com/} &? &\url{https://repo.maven.apache.org/maven2/com/simple-http/simple-http/} \\
-	ImpressPages &729 &717 &12 &\url{https://www.impresspages.org/} &? &\url{https://www.impresspages.org/blog2} \\
-	Public CMS &11 & &11 &\url{http://www.publiccms.com/} &? &\url{http://www.publiccms.com/download.html} \\
-	Virtuoso &14 &3 &11 &\url{https://virtuoso.openlinksw.com/} &? &\url{https://github.com/openlink/virtuoso-opensource/releases} \\
-	Bugzilla &18 &7 &11 &\url{https://www.bugzilla.org/} &? &\url{https://www.bugzilla.org/download/} \\
-	phpSQLiteCMS &10 & &10 &\url{https://phpsqlitecms.hoschek.com/} &? &\url{https://github.com/ilosuna/phpsqlitecms} \\
-	Blade &10 & &10 &\url{https://lets-blade.com/} &? & \\
-	LinkSmart &11 &2 &9 &\url{https://www.viglink.com/linksmart/} &? & \\
-	JAlbum &14 &5 &9 &\url{https://jalbum.net/en/} &? &\url{https://jalbum.net/en/software/release-notes} \\
-	uKnowva &18 &9 &9 &\url{https://uknowva.com/} &? &\url{https://docs.uknowva.com/release-notes} \\
-	Graffiti CMS &8 & &8 &\url{https://archive.codeplex.com/?p=graffiticms} &? &\url{https://github.com/motoyugota/GraffitiCMS/releases} \\
-	Saber &7 & &7 &\url{https://saber.land/} &? &\url{https://forcivity.com/solutions/applications/saber-component-pack-for-lightning/release-notes-saber/} \\
-	Kohana &7 & &7 &\url{http://kohanaframework.org/} &? &\url{https://github.com/kohana/kohana/releases} \\
-	phpMyAdmin &11 &4 &7 &\url{https://www.phpmyadmin.net/} &? &\url{https://www.phpmyadmin.net/downloads/} \\
-	SquirrelMail &96 &89 &7 &\url{https://squirrelmail.org/} &? &\url{https://www.squirrelmail.org/download.php} \\
-	Livefyre &505 &498 &7 &\url{https://business.adobe.com/products/experience-manager/sites/aem-sites.html} &? &\url{https://experienceleague.adobe.com/docs/livefyre/using/release-notes/c-rn.html?lang=en} \\
-	Exhibit &1,165 &1,158 &7 &\url{http://simile-widgets.org/exhibit/} &? &\url{https://github.com/simile-widgets/exhibit/tags} \\
-	mini\_httpd &6 & &6 &\url{http://acme.com/software/mini\_httpd/} &? &\url{http://acme.com/software/mini\_httpd/} \\
-	DirectAdmin &6 & &6 &\url{https://www.directadmin.com/} &? &\url{https://www.directadmin.com/versions.php} \\
-	CppCMS &6 & &6 &\url{http://cppcms.com/wikipp/en/page/main} &? &\url{http://cppcms.com/wikipp/en/page/releases} \\
-	BaseHTTP &6 & &6 & &? & \\
-	Artifactory Web Server &6 & &6 &\url{https://jfrog.com/open-source/\#os-arti} &? &\url{https://www.jfrog.com/confluence/display/JFROG/Artifactory+Release+Notes} \\
-	Gitea &28 &23 &5 &\url{https://gitea.io/en-us/} &? &\url{https://blog.gitea.io/} \\
-	Planet &640 &635 &5 &\url{http://planetplanet.org/} &? &\url{https://developers.planet.com/changelog/} \\
-	Blessing Skin &4 & &4 &\url{https://github.com/bs-community/blessing-skin-server} &? &\url{https://github.com/prinsss/blessing-skin-server/releases} \\
-	Indy &10 &6 &4 &\url{https://www.indyproject.org/} &? &\url{https://www.indyproject.org/documentation/} \\
-	Oracle Commerce &2,641 &2,637 &4 &\url{https://www.oracle.com/cx/} &? & \\
-	Django &28,506 &28,502 &4 &\url{https://djangoproject.com} &? &\url{https://docs.djangoproject.com/en/3.2/releases/} \\
-	Gogs &13 &10 &3 &\url{https://gogs.io/} &? &\url{https://github.com/gogs/gogs/releases} \\
-	ef.js &72 &69 &3 &\url{https://ef.js.org/\#!home} &? &\url{https://github.com/TheNeuronProject/ef.js/releases} \\
-	Snap &2 & &2 &\url{http://snapframework.com/} &? &\url{http://snapframework.com/blog} \\
-	Scenari &2 & &2 &\url{https://github.com/zoncoen/scenarigo} &? &\url{https://github.com/zoncoen/scenarigo/releases} \\
-	MochiWeb &2 & &2 &\url{https://github.com/mochi/mochiweb} &? &\url{https://github.com/mochi/mochiweb/releases} \\
-	Laterpay &2 & &2 &\url{https://www2.laterpay.net/} &? & \\
-	Jenkins &2 & &2 &\url{https://www.jenkins.io/} &? &\url{https://www.jenkins.io/changelog-stable/} \\
-	Koobi &4 &2 &2 &\url{http://dream4.de/cms} &? & \\
-	Analysys Ark &65 &63 &2 &\url{https://www.analysysdata.com/} &? & \\
-	OpenGrok &1 & &1 &\url{http://hub.opensolaris.org/bin/view/Project+opengrok/WebHome} &? &\url{https://github.com/oracle/opengrok/releases} \\
-	gitweb &1 & &1 &\url{http://git-scm.com/} &? &\url{https://github.com/yoannfleurydev/gitweb/releases} \\
-	gitlist &1 & &1 &\url{http://gitlist.org/} &? &\url{https://github.com/klaussilveira/gitlist/releases} \\
-	Cecil &1 & &1 &\url{https://cecil.app/} &? &\url{https://github.com/jbevain/cecil/releases} \\
-	Xitami &2 &1 &1 &\url{http://www.xitami.com/} &? &\url{https://imatix-legacy.github.io/xitami.com/download.htm} \\
-	FreeTextBox &3 &2 &1 & & & \\
-	Microsoft PowerPoint &12 &11 &1 &\url{https://www.microsoft.com/id-id/microsoft-365/powerpoint?legRedir=true&CorrelationId=9f3cb8b1-7d9b-4064-8cad-cbc7e6a111c1&rtc=1} &? &\url{https://docs.microsoft.com/en-us/officeupdates/current-channel} \\
-	git &105 &104 &1 &\url{http://git-scm.com/} &? &\url{https://mirrors.edge.kernel.org/pub/software/scm/git/} \\
-	Lua &258,294 &258,293 &1 &\url{http://www.lua.org/} &? &\url{https://www.lua.org/versions.html} \\
-	MediaElement.js &2 &2 & &\url{http://www.mediaelementjs.com} &? &\url{https://github.com/mediaelement/mediaelement/releases} \\
-	Raphael &2 &2 & &\url{https://dmitrybaranovskiy.github.io/raphael/} &? &\url{https://github.com/DmitryBaranovskiy/raphael/releases} \\
-	MediaWiki &5 &5 & &\url{https://www.mediawiki.org} &? &\url{https://www.mediawiki.org/wiki/Release\_notes} \\
-	Gatsby &4 &4 & &\url{https://www.gatsbyjs.org/} &3 &\url{https://github.com/gatsbyjs/gatsby\#contributing-to-gatsby-v1} \\
-	React &2 &2 & &\url{https://reactjs.org} &? &\url{https://reactjs.org/versions/} \\
-	Bootstrap &10 &10 & &\url{https://getbootstrap.com} &4 &\url{https://github.com/twbs/release} \\
-	Underscore.j 1.8.2 &1 &1 & & & & \\
-	UIKi &1 &1 & & & & \\
-	TYPO3CMS &1 &1 & &\url{https://typo3.org/} & & \\
-	Swiftlet &1 &1 & & & & \\
-	Pars Elecom Portal &1 &1 & &\url{http://parselecom.com/} & & \\
-	NivCMS &1 &1 & & & & \\
-	MooTool 1.4.5 &1 &1 & &\url{https://mootools.net/} & & \\
-	Moment.j 2.23.0 &1 &1 & & & & \\
-	\bottomrule
-	\caption{App Data}\label{tab: }
-\end{longtable}
+\begin{landscape}
+	\begin{longtable}{|p{0.1\linewidth}|r|r|r|p{0.2\linewidth}|p{0.1\linewidth}|p{0.35\linewidth}|}
+		
+		\hline
+		app &num sites &unversioned  &versioned  &website &min supported
+		&min supported version reference \\\hline
+		jQuery &10,003,030 &24,029 &9,979,001 &\url{https://jquery.com} &3 &\url{https://jquery.com/} \\\hline
+		WordPress &7,494,642 &2,603,276 &4,891,366 &\url{https://wordpress.org} &5.8 &\url{https://github.com/twbs/release} \\\hline
+		jQuery Migrate &3,597,289 &268,962 &3,328,327 &\url{https://github.com/jquery/jquery-migrate} &1.12 &\url{https://github.com/jquery/jquery-migrate} \\\hline
+		Font Awesome &3,827,039 &1,040,702 &2,786,337 &\url{https://fontawesome.com/} &5 &\url{https://fontawesome.com/6\#is-version-5-still-being-supported} \\\hline
+		jQuery UI &2,575,775 &33,127 &2,542,648 &\url{http://jqueryui.com} &1.13.0 &\url{https://jqueryui.com/} \\\hline
+		jQuery UI &2,575,775 &33,127 &2,542,648 &\url{http://jqueryui.com} &1.13.0 &\url{https://jqueryui.com/} \\\hline
+		Bootstrap &3,391,648 &868,637 &2,523,011 &\url{https://getbootstrap.com} &4 &\url{https://github.com/twbs/release} \\\hline
+		Bootstrap &3,391,648 &868,637 &2,523,011 &\url{https://getbootstrap.com} &4 &\url{https://github.com/twbs/release} \\\hline
+		PHP &5,977,790 &3,455,170 &2,522,620 &\url{http://php.net} &7.4 &\url{https://www.php.net/supported-versions.php} \\\hline
+		Nginx &7,230,612 &5,440,268 &1,790,344 &\url{http://nginx.org/en} &1.20 &\url{https://nginx.org/en/download.html} \\\hline
+		Modernizr &1,900,060 &231,481 &1,668,579 &\url{https://modernizr.com} &? &\url{https://github.com/Modernizr/Modernizr/releases} \\\hline
+		Yoast SEO &1,366,287 &49 &1,366,238 &\url{http://yoast.com} &? &\url{https://yoast.com/wordpress/plugins/seo/change-log-wordpress-seo/} \\\hline
+		Apache &4,067,380 &2,949,180 &1,118,200 &\url{http://apache.org} &2.4 &\url{https://httpd.apache.org} \\\hline
+		FancyBox &827,596 &72,541 &755,055 &\url{http://fancyapps.com/fancybox} &? &\url{https://github.com/fancyapps/fancybox/releases} \\\hline
+		IIS &962,466 &218,661 &743,805 &\url{http://www.iis.net} &8 &\url{https://support.microsoft.com/en-us/lifecycle/search?alpha=Windows\%20Server\%202012} \\\hline
+		WooCommerce &616,072 &75,796 &540,276 &\url{https://woocommerce.com} &? &\url{https://developer.woocommerce.com/releases/} \\\hline
+		Moment.js &555,640 &37,730 &517,910 &\url{https://momentjs.com} &? &\url{https://github.com/moment/moment/blob/develop/CHANGELOG.md} \\\hline
+		Lodash &517,688 &10,781 &506,907 &\url{http://www.lodash.com} &? &\url{https://github.com/lodash/lodash/releases} \\\hline
+		Underscore.js &540,820 &101,362 &439,458 &\url{http://underscorejs.org} &? &\url{http://underscorejs.org/} \\\hline
+		MediaElement.js &420,046 &33 &420,013 &\url{http://www.mediaelementjs.com} &? &\url{https://github.com/mediaelement/mediaelement/releases} \\\hline
+		MediaElement.js &420,046 &33 &420,013 &\url{http://www.mediaelementjs.com} &? &\url{https://github.com/mediaelement/mediaelement/releases} \\\hline
+		Microsoft ASP.NET &865,276 &457,910 &407,366 &\url{https://www.asp.net} &3.1.20 &\url{https://dotnet.microsoft.com/platform/support/policy/dotnet-core} \\\hline
+		Revslider &502,266 &97,735 &404,531 &\url{https://revolution.themepunch.com/} &? &\url{https://www.sliderrevolution.com/documentation/changelog/} \\\hline
+		RequireJS &334,538 &22,537 &312,001 &\url{http://requirejs.org} &? &\url{https://github.com/requirejs/requirejs/tags} \\\hline
+		OpenSSL &279,452 &46 &279,406 &\url{http://openssl.org} &1.1.1 &\url{https://www.openssl.org/policies/releasestrat.html} \\\hline
+		Typekit &253,890 &687 &253,203 &\url{http://typekit.com} &? &\url{https://www.drupal.org/project/typekit/releases} \\\hline
+		Hammer.js &302,093 &52,360 &249,733 &\url{https://hammerjs.github.io} &? &\url{https://hammerjs.github.io/changelog/} \\\hline
+		Google PageSpeed &225,920 &18 &225,902 &\url{http://developers.google.com/speed/pagespeed/mod} &? &\url{https://www.modpagespeed.com/doc/release\_notes} \\\hline
+		Handlebars &249,598 &32,220 &217,378 &\url{http://handlebarsjs.com} &? &\url{https://github.com/handlebars-lang/handlebars.js/blob/master/release-notes.md} \\\hline
+		YUI &201,973 &486 &201,487 &\url{http://yuilibrary.com} &? &\url{https://github.com/yui/yui3/releases} \\\hline
+		Drupal &256,421 &64,326 &192,095 &\url{https://drupal.org} &7 &\url{https://www.drupal.org/psa-2019-02-25} \\\hline
+		MooTools &190,400 &2,356 &188,044 &\url{https://mootools.net} &? &\url{https://mootools.net/blog/category/releases/page/1} \\\hline
+		ZURB Foundation &273,337 &90,398 &182,939 &\url{http://foundation.zurb.com} &? &\url{https://get.foundation/sites/docs/\#} \\\hline
+		Backbone.js &178,970 &2,540 &176,430 &\url{http://backbonejs.org} &? &\url{https://backbonejs.org/} \\\hline
+		All in One SEO Pack &170,116 &35 &170,081 &\url{https://wordpress.org/plugins/all-in-one-seo-pack/} &? &\url{https://aioseo.com/changelog/} \\\hline
+		Elementor &275,007 &110,287 &164,720 &\url{https://elementor.com} &? &\url{https://elementor.com/pro/changelog/} \\\hline
+		AngularJS &170,870 &8,261 &162,609 &\url{https://angularjs.org} &1.7 &\url{https://blog.angular.io/stable-angularjs-and-long-term-support=7e077635ee9c} \\\hline
+		Mustache &160,656 &1,263 &159,393 &\url{https://mustache.github.io} &? &\url{https://openbase.com/js/mustache/versions} \\\hline
+		Prototype &151,881 &8,485 &143,396 &\url{http://www.prototypejs.org} &? &\url{http://prototypejs.org/download/} \\\hline
+		Vue.js &249,087 &127,606 &121,481 &\url{https://vuejs.org} &2 &\url{https://forum.vuejs.org/t/vue-1-x-end-of-life-support/58143} \\\hline
+		React &501,584 &402,192 &99,392 &\url{https://reactjs.org} &? &\url{https://reactjs.org/versions/} \\\hline
+		React &501,584 &402,192 &99,392 &\url{https://reactjs.org} &? &\url{https://reactjs.org/versions/} \\\hline
+		jQuery Mobile &105,150 &6,933 &98,217 &\url{https://jquerymobile.com} &? &\url{https://jquerymobile.com/changelog/} \\\hline
+		Varnish &307,088 &215,982 &91,106 &\url{http://www.varnish-cache.org} &6.0.8 &\url{https://varnish-cache.org/releases/} \\\hline
+		VideoJS &139,619 &58,869 &80,750 &\url{http://videojs.com} &? &\url{https://github.com/videojs/Video.js/releases} \\\hline
+		Leaflet &79,227 &1,093 &78,134 &\url{http://leafletjs.com} &? &\url{https://github.com/Leaflet/Leaflet/releases} \\\hline
+		NextGEN Gallery &78,889 &799 &78,090 &\url{https://www.imagely.com/wordpress-gallery-plugin} &2 &\url{https://www.imagely.com/docs/shortcodes/} \\\hline
+		Dojo &83,516 &8,379 &75,137 &\url{https://dojotoolkit.org} &? &\url{https://dojotoolkit.org/reference-guide/1.9/releasenotes/index.html} \\\hline
+		Fingerprintjs &86,871 &16,625 &70,246 &\url{https://valve.github.io/fingerprintjs2/} &? &\url{https://github.com/fingerprintjs/fingerprintjs/releases} \\\hline
+		Gravity Forms &109,959 &42,565 &67,394 &\url{http://gravityforms.com} &? &\url{https://docs.gravityforms.com/gravityforms-change-log/} \\\hline
+		Slick &759,805 &693,556 &66,249 &\url{https://kenwheeler.github.io/slick} &? &\url{https://github.com/slick/slick/releases} \\\hline
+		Firebase &64,037 &851 &63,186 &\url{https://firebase.com} &? &\url{https://firebase.google.com/support/releases} \\\hline
+		Stripe &63,812 &6,400 &57,412 &\url{http://stripe.com} &? &\url{https://support.fivetran.com/hc/en-us/articles/360061749154-Stripe-Release-Notes} \\\hline
+		Magento &118,689 &66,799 &51,890 &\url{https://magento.com} &? &\url{https://devdocs.magento.com/recommendations/release-notes.html} \\\hline
+		WP-Statistics &50,635 & &50,635 &\url{https://wp-statistics.com} &? &\url{https://github.com/wp-statistics/wp-statistics/releases} \\\hline
+		OpenResty &258,293 &208,454 &49,839 &\url{http://openresty.org} &? &\url{https://openresty.org/en/changes.html} \\\hline
+		Angular &50,196 &1,230 &48,966 &\url{https://angular.io} &10 &\url{https://angular.io/guide/releases\#support-policy-and-schedule}\\\hline
+		W3 Total Cache &220,179 &172,179 &48,000 &\url{http://www.w3-edge.com/wordpress-plugins/w3-total-cache} &? &\url{https://github.com/szepeviktor/w3-total-cache-fixed/releases} \\\hline
+		Knockout.js &44,595 &5 &44,590 &\url{http://knockoutjs.com} &? &\url{https://github.com/knockout/knockout/releases} \\\hline
+		Raphael &37,091 &147 &36,944 &\url{https://dmitrybaranovskiy.github.io/raphael/} &? &\url{https://github.com/DmitryBaranovskiy/raphael/releases} \\\hline
+		Raphael &37,091 &147 &36,944 &\url{https://dmitrybaranovskiy.github.io/raphael/} &? &\url{https://github.com/DmitryBaranovskiy/raphael/releases} \\\hline
+		Apache Tomcat &46,424 &11,498 &34,926 &\url{http://tomcat.apache.org} &8.5 &\url{http://tomcat.apache.org/whichversion.html} \\\hline
+		mod\_ssl &33,928 &22 &33,906 &\url{http://modssl.org} &? &\url{http://www.modssl.org/} \\\hline
+		\url{script.aculo.us} &77,344 &45,988 &31,356 &\url{https://script.aculo.us} &? &\url{https://github.com/madrobby/scriptaculous/blob/v1.9.0/CHANGELOG} \\\hline
+		Flywheel &31,288 & &31,288 &\url{https://getflywheel.com/} &? &\url{https://docs.flywheel.io/hc/en-us/sections/360002865234-Release-Notes} \\\hline
+		SoundManager &31,075 &2,117 &28,958 &\url{http://www.schillmania.com/projects/soundmanager2} &? &\url{https://github.com/nicklockwood/SoundManager} \\\hline
+		Sentry &421,294 &392,442 &28,852 &\url{https://sentry.io/} &? &\url{https://docs.datafabric.hpe.com/62/EcosystemRN/SentryRN.html} \\\hline
+		TinyMCE &29,228 &747 &28,481 &\url{http://tinymce.com} &5.3 &\url{https://www.tiny.cloud/docs/general-configuration-guide/system-requirements/} \\\hline
+		Highcharts &27,438 &279 &27,159 &\url{https://www.highcharts.com} &? &\url{https://www.highcharts.com/blog/changelog/} \\\hline
+		Snap.svg &26,460 &75 &26,385 &\url{http://snapsvg.io/} &? &\url{https://github.com/adobe-webplatform/Snap.svg/blob/master/history.md} \\\hline
+		Gatsby &27,922 &1,552 &26,370 &\url{https://www.gatsbyjs.org/} &3 &\url{https://github.com/gatsbyjs/gatsby\#contributing-to-gatsby-v1} \\\hline
+		Gatsby &27,922 &1,552 &26,370 &\url{https://www.gatsbyjs.org/} &3 &\url{https://github.com/gatsbyjs/gatsby\#contributing-to-gatsby-v1} \\\hline
+		D3 &27,147 &1,184 &25,963 &\url{http://d3js.org} &? &\url{https://github.com/d3/d3/releases} \\\hline
+		MediaWiki &25,549 &246 &25,303 &\url{https://www.mediawiki.org} &? &\url{https://www.mediawiki.org/wiki/Release\_notes} \\\hline
+		MediaWiki &25,549 &246 &25,303 &\url{https://www.mediawiki.org} &? &\url{https://www.mediawiki.org/wiki/Release\_notes} \\\hline
+		CKEditor &47,426 &22,382 &25,044 &\url{http://ckeditor.com} &? &\url{https://ckeditor.com/ckeditor-4/download/releases/} \\\hline
+		XRegExp &24,799 &53 &24,746 &\url{http://xregexp.com} &? &\url{https://github.com/slevithan/xregexp/releases} \\\hline
+		Joomla &244,033 &220,989 &23,044 &\url{https://www.joomla.org} &3.10 &\url{https://docs.joomla.org/Joomla!\_CMS\_versions} \\\hline
+		Phusion Passenger &35,462 &12,634 &22,828 &\url{https://phusionpassenger.com} &? &\url{https://github.com/phusion/passenger/releases} \\\hline
+		Kendo UI &22,212 &778 &21,434 &\url{https://www.telerik.com/kendo-ui} &? &\url{https://www.telerik.com/support/whats-new/kendo-ui/release-history} \\\hline
+		Duda &22,241 &1,627 &20,614 &\url{https://www.duda.co/website-builder} &? & \\\hline
+		Ember.js &20,458 &32 &20,426 &\url{http://emberjs.com} &3.20 &\url{https://emberjs.com/releases/lts} \\\hline
+		FrontPage &21,073 &815 &20,258 &\url{http://office.microsoft.com/frontpage} &? &\url{https://microsoft.fandom.com/wiki/Microsoft\_FrontPage} \\\hline
+		Marionette.js &20,745 &1,452 &19,293 &\url{https://marionettejs.com/} &? &\url{https://github.com/marionettejs/backbone.marionette/releases} \\\hline
+		GoDaddy Website Builder &\#REF! & &18,616 &\url{https://id.godaddy.com/websites/website-builder} &? &\url{https://www.godaddy.com/garage/hubupdates/} \\\hline
+		MathJax &18,738 &336 &18,402 &\url{https://www.mathjax.org/} &? &\url{https://github.com/mathjax/MathJax/releases?after=2.7.8\#:~:text=dpvc\%20released\%20this\%20on\%20Sep\%204\%2C\%202019\%20After,techniques\%2C\%20including\%20Typescript\%2C\%20ES6\%20modules\%2C\%20Promises\%2C\%20and\%20more.} \\\hline
+		Shopware &16,687 &114 &16,573 &\url{https://www.shopware.com/en/} &? &\url{https://www.emizentech.com/blog/shopware-6-4-3-1-released.html\#:~:text=August\%2025\%2C\%202021\%202\%20Mins\%20Read\%20In\%20August\%2C,new\%20features.\%20It\%20requires\%20Shopware\%206.3.0.0\%20or\%20newer.} \\\hline
+		CodeMirror &16,677 &404 &16,273 &\url{https://codemirror.net/} &? &\url{https://github.com/felixhusse/codemirror-addon} \\\hline
+		DNN &20,994 &4,928 &16,066 &\url{http://dnnsoftware.com} &8.5 &\url{https://www.dnnsoftware.com/docs/developers/product-versions.html} \\\hline
+		mod\_dav &14,398 &5 &14,393 &\url{http://webdav.org/mod\_dav} &? &\url{http://webdav.org/mod\_dav/} \\\hline
+		Python &374,597 &360,531 &14,066 &\url{http://python.org} &3.6 &\url{https://www.python.org/downloads/} \\\hline
+		mod\_perl &13,220 &5 &13,215 &\url{http://perl.apache.org} &? &\url{https://perl.apache.org/download/} \\\hline
+		Algolia &20,096 &7,084 &13,012 &\url{http://www.algolia.com} &? &\url{https://github.com/algolia/algoliasearch-client-javascript/releases} \\\hline
+		Perl &17,085 &5,113 &11,972 &\url{http://perl.org} &5.32 &\url{http://www.cpan.org/src/} \\\hline
+		Microsoft SharePoint &14,419 &3,017 &11,402 &\url{https://www.microsoft.com/id-id/microsoft-365/sharepoint/collaboration?ms.officeurl=sharepoint&rtc=1} &? &\url{https://docs.microsoft.com/en-us/officeupdates/sharepoint-updates} \\\hline
+		Outbrain &11,349 &52 &11,297 &\url{https://www.outbrain.com} &? &\url{https://support.fivetran.com/hc/en-us/articles/1500003153781-Outbrain-Release-Notes} \\\hline
+		mod\_jk &11,308 &137 &11,171 &\url{http://tomcat.apache.org/tomcat-3.3-doc/mod\_jk-howto.html} &? &\url{https://archive.apache.org/dist/tomcat/tomcat-connectors/} \\\hline
+		Debian &189,721 &178,767 &10,954 &\url{https://debian.org} &? &\url{https://www.debian.org/releases/} \\\hline
+		EasyEngine &10,054 & &10,054 &\url{https://easyengine.io} &? &\url{https://github.com/EasyEngine/easyengine/releases} \\\hline
+		vBulletin &10,238 &1,050 &9,188 &\url{https://www.vbulletin.com/} &? &\url{https://enxf.net/resources/vbulletin-v5-5-6-connect-vbulletin-v5=connect-enxf-nulled.1178/updates} \\\hline
+		Sitefinity &9,121 &2 &9,119 &\url{https://www.progress.com/sitefinity-cms} &? &\url{https://www.progress.com/sitefinity-cms/release-notes\#:~:text=Sitefinity\%20CMS\%2013.0.7300\%20\%28Official,Release\%29\%20May\%2013\%2C\%202020.} \\\hline
+		three.js &9,540 &459 &9,081 &\url{https://threejs.org/} &? &\url{https://github.com/mrdoob/three.js/releases} \\\hline
+		Concrete5 &10,842 &2,100 &8,742 &\url{https://www.concretecms.com/} &? &\url{https://www.concretecms.com/about/blog/core-releases} \\\hline
+		Liferay &14,281 &5,690 &8,591 &\url{https://www.liferay.com/} &? &\url{https://github.com/liferay/liferay-portal/releases} \\\hline
+		JavaServer Pages &8,459 &18 &8,441 &\url{https://www.oracle.com/java/technologies/jspt.html} &? &\url{https://jcp.org/aboutJava/communityprocess/maintenance/jsr245/245-MR2\_1.html} \\\hline
+		Meteor &8,888 &460 &8,428 &\url{https://www.meteor.com/} &? &\url{https://docs.meteor.com/changelog.html} \\\hline
+		Java Servlet &10,267 &1,963 &8,304 &\url{https://www.oracle.com/java/technologies/java-servlet-tec.html} &? & \\\hline
+		PDF.js &11,055 &2,935 &8,120 &\url{https://mozilla.github.io/pdf.js/} &? &\url{https://github.com/mozilla/pdf.js/releases} \\\hline
+		mod\_wsgi &7,840 &2 &7,838 &\url{https://code.google.com/p/modwsgi} &? &\url{https://github.com/GrahamDumpleton/mod\_wsgi/releases} \\\hline
+		MyWebsite &7,789 & &7,789 &\url{https://www.ionos.com} &? & \\\hline
+		ExtJS &7,690 &374 &7,316 &\url{https://www.sencha.com} &? &\url{http://api.cenboomh.com/extjs/release-notes.html} \\\hline
+		SPIP &8,340 &1,161 &7,179 &\url{https://www.spip.net/en\_rubrique25.html} &4 &\url{https://www.spip.net/en\_article6499.html} \\\hline
+		Hugo &6,793 &16 &6,777 &\url{http://gohugo.io} &? &\url{https://github.com/gohugoio/hugo/releases} \\\hline
+		Braintree &7,280 &561 &6,719 &\url{https://www.braintreepayments.com/} &? &\url{https://www.drupal.org/project/commerce\_braintree/releases} \\\hline
+		Volusion &6,395 &4 &6,391 &\url{https://www.volusion.com/} &? &\url{https://www.volusion.com/v1-release-notes/index.html} \\\hline
+		Open Journal Systems &6,297 &7 &6,290 &\url{https://pkp.sfu.ca/ojs/} &? & \\\hline
+		Dynamicweb &6,165 & &6,165 &\url{https://www.dynamicweb.dk/} &? &\url{https://doc.dynamicweb.com/downloads/releases/release-notes/dw-9-10-release-notes} \\\hline
+		Chart.js &233,052 &227,016 &6,036 &\url{https://www.chartjs.org} &? &\url{https://github.com/chartjs/Chart.js/releases} \\\hline
+		Apache Traffic Server &13,233 &7,294 &5,939 &\url{http://trafficserver.apache.org/} &7.1 &\url{https://docs.trafficserver.apache.org/en/latest/release-notes/roadmap.en.html} \\\hline
+		Microsoft HTTPAPI &5,803 & &5,803 &\url{https://www.microsoft.com/id-id/} &? & \\\hline
+		Supersized &9,853 &4,055 &5,798 &\url{http://buildinternet.com/project/supersized} &? &\url{https://github.com/buildinternet/supersized} \\\hline
+		mod\_python &5,253 & &5,253 &\url{http://www.modpython.org} &? &\url{http://modpython.org/} \\\hline
+		Infusionsoft &4,814 &3 &4,811 &\url{https://keap.com/} &? &\url{https://help.infusionsoft.com/help/release-notes} \\\hline
+		gunicorn &4,593 &11 &4,582 &\url{https://gunicorn.org/} &? &\url{https://github.com/benoitc/gunicorn/releases} \\\hline
+		Mobirise &4,272 & &4,272 &\url{https://mobirise.com/} &? &\url{https://mobirise.com/history.html} \\\hline
+		WebSite X5 &4,261 & &4,261 &\url{https://www.websitex5.com/en/} &? &\url{https://www.websitex5.com/changelog/v2019.1/en.php?ed=&\_ga=2.8172977.285220766.1636086202-530522610.1634454942} \\\hline
+		Discourse &3,997 &14 &3,983 &\url{https://discourse.org} &? &\url{https://meta.discourse.org/c/releases/30} \\\hline
+		Next.js &55,570 &51,606 &3,964 &\url{https://nextjs.org} &? &\url{https://github.com/vercel/next.js/releases} \\\hline
+		\url{Socket.io} &37,349 &33,459 &3,890 &\url{https://socket.io} &? &\url{https://github.com/socketio/socket.io/releases} \\\hline
+		Apollo &3,751 &2 &3,749 &\url{https://www.apollographql.com} &? &\url{https://github.com/ApolloAuto/apollo/releases} \\\hline
+		Nette Framework &18,202 &14,464 &3,738 &\url{https://nette.org/} &? &\url{https://files.nette.org/releases/} \\\hline
+		OpenLayers &6,527 &2,912 &3,615 &\url{https://openlayers.org/} &? &\url{https://github.com/openlayers/openlayers/releases/} \\\hline
+		Jekyll &4,873 &1,511 &3,362 &\url{http://jekyllrb.com/} &? &\url{https://jekyllrb.com/news/releases/} \\\hline
+		WP Rocket &214,557 &211,230 &3,327 &\url{https://wp-rocket.me/} &? &\url{https://wp-rocket.me/changelog/} \\\hline
+		Microsoft Word &25,390 &22,079 &3,311 &\url{https://www.microsoft.com/id-id/microsoft-365/word?legRedir=true&CorrelationId=bfde8a81-96e3-403d-ab78=3c3e7b0c9e3d&rtc=1} &? &\url{https://docs.microsoft.com/en-us/officeupdates/current-channel} \\\hline
+		AMP Plugin &3,102 & &3,102 &\url{https://amp-wp.org/} &? &\url{https://amp-wp.org/category/amp-plugin/} \\\hline
+		NVD3 &3,189 &124 &3,065 &\url{https://nvd3.org/} &? &\url{https://github.com/novus/nvd3/releases} \\\hline
+		lighttpd &3,590 &654 &2,936 &\url{http://www.lighttpd.net/} &1.4.54 &\url{https://repology.org/project/lighttpd/versions} \\\hline
+		Plyr &27,608 &24,711 &2,897 &\url{https://plyr.io/} &? &\url{https://github.com/sampotts/plyr/blob/master/CHANGELOG.md} \\\hline
+		Ghost &2,927 &51 &2,876 &\url{https://ghost.org/} &? &\url{https://github.com/TryGhost/Ghost/releases} \\\hline
+		SMF &2,812 &2 &2,810 &\url{https://simplemachines.org/} &? &\url{https://github.com/SimpleMachines/SMF2.1/releases} \\\hline
+		Discuz! X &4,657 &1,986 &2,671 &\url{https://www.discuz.net/} &? &\url{https://gitee.com/Discuz/DiscuzX/releases} \\\hline
+		Google Maps &579,317 &576,804 &2,513 &\url{http://maps.google.com} &? &\url{https://developers.google.com/maps/documentation/javascript/releases} \\\hline
+		Welcart &2,693 &206 &2,487 &\url{https://www.welcart.com/} &? & \\\hline
+		Polymer &2,393 &23 &2,370 &\url{http://polymer-project.org} &? &\url{https://github.com/Polymer/polymer/releases} \\\hline
+		Atlassian Jira &2,103 &57 &2,046 &\url{https://www.atlassian.com/software/jira} &? &\url{https://marketplace.atlassian.com/apps/1213607/jira-software/version-history} \\\hline
+		Mura CMS &1,982 & &1,982 &\url{https://www.murasoftware.com/} &? &\url{https://docs.murasoftware.com/v10/release-notes/} \\\hline
+		JBoss Application Server &2,160 &230 &1,930 &\url{https://www.jboss.org/jbossas.html} &? &\url{https://jbossas.jboss.org/downloads/} \\\hline
+		jQuery-pjax &22,688 &20,786 &1,902 &\url{https://github.com/defunkt/jquery-pjax} &? &\url{https://github.com/defunkt/jquery-pjax/tags} \\\hline
+		Resin &1,875 & &1,875 &\url{https://caucho.com/} &? &\url{https://caucho.com/products/resin/download} \\\hline
+		Jetty &1,955 &117 &1,838 &\url{http://www.eclipse.org/jetty/} &9.4 &\url{https://www.eclipse.org/jetty/download.php} \\\hline
+		amCharts &6,021 &4,320 &1,701 &\url{http://amcharts.com} &4.0 &\url{https://www.amcharts.com/versions/} \\\hline
+		Hogan.js &16,334 &14,691 &1,643 &\url{https://twitter.github.io/hogan.js/} &? &\url{https://support.lumary.com/hc/en-us/articles/360023301851-Hogan-release-notes} \\\hline
+		mod\_fastcgi &4,049 &2,408 &1,641 &\url{http://www.fastcgi.com/mod\_fastcgi/docs/mod\_fastcgi.html} &? &\url{http://freshmeat.sourceforge.net/projects/mod\_fastcgi/releases} \\\hline
+		Oracle Application Server &1,616 &24 &1,592 &\url{https://www.oracle.com/middleware/technologies/internet-application=server.html} &? &\url{https://support.oracle.com/knowledge/Middleware/397022\_1.html} \\\hline
+		Material Design Lite &36,380 &34,867 &1,513 &\url{https://getmdl.io/} &? &\url{https://github.com/google/material-design-lite/releases} \\\hline
+		JBoss Web &1,505 & &1,505 &\url{https://jbossweb.jboss.org/} &? &\url{https://jbossas.jboss.org/downloads/} \\\hline
+		KineticJS &5,084 &3,614 &1,470 &\url{https://github.com/ericdrowell/KineticJS/} &? &\url{https://github.com/ericdrowell/KineticJS/releases} \\\hline
+		DreamWeaver &159,256 &157,813 &1,443 &\url{https://www.adobe.com/products/dreamweaver.html} &? &\url{https://helpx.adobe.com/dreamweaver/dreamweaver-releasenotes.html} \\\hline
+		Miva &1,490 &100 &1,390 &\url{https://www.miva.com/} &? &\url{https://www.miva.com/template-changes} \\\hline
+		Highstock &1,334 & &1,334 &\url{https://www.highcharts.com/blog/products/stock/} &? &\url{https://www.highcharts.com/blog/changelog/} \\\hline
+		JavaServer Faces &1,324 &4 &1,320 &\url{https://javaee.github.io/javaserverfaces-spec/} &? &\url{https://www.javatpoint.com/what-is-jsf} \\\hline
+		Flask &1,246 & &1,246 &\url{https://flask.palletsprojects.com/en/2.0.x/} &? &\url{https://github.com/pallets/flask/releases} \\\hline
+		Angular Material &10,281 &9,040 &1,241 &\url{https://material.angularjs.org/latest/} &? &\url{https://github.com/angular/material/blob/master/CHANGELOG.md} \\\hline
+		Zend &1,389 &171 &1,218 &\url{https://www.zend.com/} &? &\url{https://www.zend.com/release-notes/zend-server} \\\hline
+		Sensors Data &3,146 &1,932 &1,214 &\url{https://www.sensorsdata.cn/auto} &? & \\\hline
+		Hexo &1,378 &166 &1,212 &\url{https://hexo.io/} &? &\url{https://github.com/hexojs/hexo/releases} \\\hline
+		Outlook Web App &3,205 &2,091 &1,114 &\url{https://support.microsoft.com/en-us/outlook?ui=en-us&rs=en-us&ad=us} &? &\url{https://docs.microsoft.com/en-us/officeupdates/current-channel} \\\hline
+		hCaptcha &1,122 &21 &1,101 &\url{https://www.hcaptcha.com/} &? &\url{https://github.com/hCaptcha/hcaptcha-wordpress-plugin/releases} \\\hline
+		Adobe GoLive &1,913 &823 &1,090 &\url{https://www.adobe.com/products/golive} &? & \\\hline
+		Alpine.js &1,695 &613 &1,082 &\url{https://github.com/alpinejs/alpine} &? &\url{https://github.com/alpinejs/alpine/releases} \\\hline
+		Umbraco &1,368 &365 &1,003 &\url{https://umbraco.com/} &? &\url{https://umbraco.com/products/knowledge-center/versioning-and-release-cadence/} \\\hline
+		Neos Flow &977 &6 &971 &\url{https://flow.neos.io/} &? &\url{https://github.com/neos/flow-development-collection/releases} \\\hline
+		Bluefish &926 &17 &909 &\url{https://sourceforge.net/projects/bluefish/} &? &\url{https://bluefish.openoffice.nl/index.html} \\\hline
+		EPrints &849 &13 &836 &\url{https://www.eprints.org/uk/} &? &\url{https://wiki.eprints.org/w/Manual} \\\hline
+		Neos CMS &873 &39 &834 &\url{https://www.neos.io/} &4.3 &\url{https://www.neos.io/features/release-process.html} \\\hline
+		CodeIgniter &818 & &818 &\url{http://codeigniter.com} &? &\url{https://www.codeigniter.com/download\#:~:text=CodeIgniter\%20has\%20two\%20supported\%20versions\%3A\%20CodeIgniter\%204\%20\%28current\%29,is\%20ongoing\%2C\%20and\%20the\%20current\%20version\%20is\%20v4.1.4.} \\\hline
+		Ionic &2,203 &1,432 &771 &\url{https://ionicframework.com/} &? &\url{https://ionicframework.com/docs/reference/release-notes} \\\hline
+		HHVM &669 &10 &659 &\url{https://hhvm.com/} &4.102 &\url{https://docs.hhvm.com/hhvm/installation/release-schedule} \\\hline
+		RockRMS &657 & &657 &\url{https://www.rockrms.com/} &? &\url{https://www.rockrms.com/releasenotes?version} \\\hline
+		ADPLAN &1,003 &383 &620 &\url{https://adplan.gafcodes.com/} &? & \\\hline
+		GlassFish &1,676 &1,065 &611 &\url{https://javaee.github.io/glassfish/} &? &\url{https://glassfish.org/download} \\\hline
+		iWeb &565 &5 &560 &\url{https://www.apple.com/mac/} &? & \\\hline
+		Contenido &559 & &559 &\url{https://www.contenido.org/en} &? & \\\hline
+		Gridsome &558 & &558 &\url{https://gridsome.org/} &? &\url{https://gridsome.org/blog/} \\\hline
+		Koha &580 &26 &554 &\url{https://koha-community.org/} &? &\url{https://git.koha-community.org/Koha-community/koha-release-notes} \\\hline
+		Sulu &535 & &535 &\url{https://sulu.io/} &? &\url{https://sulu.io/know-how/blog} \\\hline
+		Plotly &521 & &521 &\url{https://plotly.com/javascript/} &? &\url{https://github.com/plotly/plotly.py/releases} \\\hline
+		Webdev &561 &49 &512 &\url{https://windev.com/webdev/index.html} &? &\url{https://web-develop.ca/index.php?board=48.0} \\\hline
+		Adyen &509 & &509 &\url{https://www.adyen.com/} &? &\url{https://docs.adyen.com/online-payments/release-notes} \\\hline
+		Oracle Web Cache &519 &10 &509 &\url{https://www.oracle.com/index.html} &? &\url{https://opensolution.org/download/quick-cms-and-quick-cms-ext-other.html} \\\hline
+		Chamilo &474 & &474 &\url{https://chamilo.org/en/} &? &\url{https://www.radiotallercepra.org/campus/documentation/changelog.html} \\\hline
+		Vaadin &592 &128 &464 &\url{https://vaadin.com/} &? &\url{https://vaadin.com/releases/} \\\hline
+		MkDocs &438 & &438 &\url{https://www.mkdocs.org/} &? &\url{https://www.mkdocs.org/about/release-notes/} \\\hline
+		GrowingIO &434 & &434 &\url{https://www.growingio.com/} &? &\url{https://docs.growingio.com/op/developer-manual/sdkintegrated/mp/gtouchsdk-releasenotes} \\\hline
+		Chevereto &402 &3 &399 &\url{https://chevereto.com/} &? &\url{https://releases.chevereto.com/3.X/3.20/3.20.12.html\#links} \\\hline
+		imperia CMS &450 &64 &386 &\url{https://www.pirobase-imperia.com/de/produkte/produktuebersicht/imperia-cms} &? &\url{http://imperiamucms.com/release-notes/} \\\hline
+		Contensis &330 & &330 &\url{https://www.contensis.com/} &? &\url{https://github.com/zengenti/contensis-react-base} \\\hline
+		Sarka-SPIP &329 &1 &328 &\url{http://www.sarka-spip.net/} &4.0 &\url{https://www.spip.net/en\_article6499.html} \\\hline
+		Phaser &329 &2 &327 &\url{https://phaser.io/} &? &\url{https://github.com/photonstorm/phaser/releases} \\\hline
+		GitBook &359 &32 &327 &\url{https://www.gitbook.com/} &? & \\\hline
+		govCMS &323 & &323 &\url{https://www.govcms.gov.au/} &? &\url{https://github.com/govCMS/govCMS8/releases} \\\hline
+		GeneXus &356 &38 &318 &\url{https://www.genexus.com/en/} &? &\url{https://www.genexus.com/en/developers/downloadcenter} \\\hline
+		Sphinx &3,010 &2,701 &309 &\url{https://www.sphinx-doc.org/en/master/} &? &\url{https://github.com/sphinxsearch/sphinx/releases} \\\hline
+		A-Frame &302 &12 &290 &\url{https://aframe.io/} &? &\url{https://github.com/aframevr/aframe/releases} \\\hline
+		Transifex &289 & &289 &\url{https://www.transifex.com/} &? &\url{https://github.com/transifex/transifex-client/releases} \\\hline
+		Ckan &301 &13 &288 &\url{https://ckan.org/} &? &\url{https://github.com/KSP-CKAN/CKAN/releases} \\\hline
+		TornadoServer &286 & &286 &\url{https://www.tornadoweb.org/en/stable/} &? &\url{https://www.tornadoweb.org/en/stable/releases.html} \\\hline
+		FlexCMP &293 &10 &283 &\url{https://www.flexcmp.com/dxp} &? & \\\hline
+		Catberry.js &280 &4 &276 &\url{https://catberry.github.io/} &? &\url{https://github.com/catberry/catberry/releases} \\\hline
+		Oracle Commerce Cloud &255 &2 &253 &\url{https://cloud.oracle.com/commerce-cloud} &? &\url{https://docs.adyen.com/plugins/oracle-commerce-cloud/release-notes} \\\hline
+		Akka HTTP &226 & &226 &\url{https://akka.io/} &? &\url{https://doc.akka.io/docs/akka-http/current/release-notes/index.html} \\\hline
+		X-Cart &1,065 &842 &223 &\url{https://www.x-cart.com/} &? &\url{https://devs.x-cart.com/changelog/} \\\hline
+		Typecho &227 &7 &220 &\url{http://typecho.org/} &? &\url{https://github.com/typecho/typecho/releases} \\\hline
+		OpenUI5 &219 & &219 &\url{https://openui5.org/} &? &\url{https://openui5.org/releases/} \\\hline
+		phpwind &344 &142 &202 &\url{https://www.phpwind.net/} &? & \\\hline
+		Highlight.js &35,637 &35,437 &200 &\url{https://highlightjs.org/} &? &\url{https://github.com/highlightjs/highlight.js/releases} \\\hline
+		CherryPy &194 &2 &192 &\url{https://www.cherrypy.org/} &? &\url{https://github.com/cherrypy/cherrypy/tags} \\\hline
+		CMSimple &254 &62 &192 &\url{https://www.cmsimple.org/en/} &? &\url{http://freshmeat.sourceforge.net/projects/cmsimple/releases} \\\hline
+		Kooboo CMS &247 &56 &191 &\url{https://www.kooboo.com/} &? &\url{https://github.com/Tsingbo-Kooboo/KoobooMvc5/releases} \\\hline
+		mod\_auth\_pam &197 &20 &177 &\url{http://pam.sourceforge.net/mod\_auth\_pam/} &? &\url{http://pam.sourceforge.net/mod\_auth\_pam/download.html} \\\hline
+		Coppermine &174 & &174 &\url{https://coppermine-gallery.net/} &? &\url{https://github.com/coppermine-gallery/cpg1.6.x/releases} \\\hline
+		Serendipity &162 &8 &154 &\url{https://docs.s9y.org/} &? &\url{https://github.com/s9y/Serendipity/releases} \\\hline
+		Elm &150 & &150 &\url{https://elm-lang.org/} &? &\url{https://github.com/elm/compiler/releases} \\\hline
+		MochiKit &171 &32 &139 &\url{https://mochi.github.io/mochikit/} &? &\url{https://mochi.github.io/mochikit/doc/html/MochiKit/index.html} \\\hline
+		FreeBSD &14,647 &14,517 &130 &\url{https://www.freebsd.org/} &12.2 &\url{https://www.freebsd.org/releases/} \\\hline
+		Quick.Cart &459 &335 &124 &\url{https://opensolution.org/home.html} &? &\url{https://opensolution.org/download/quick.cart-and-quick-cart-ext-other.html} \\\hline
+		Quick.CMS &443 &321 &122 &\url{https://opensolution.org/home.html} &? & \\\hline
+		thttpd &121 &5 &116 &\url{https://acme.com/software/thttpd/} &? &\url{https://www.acme.com/software/thttpd/} \\\hline
+		Dancer &114 & &114 &\url{https://perldancer.org/} &? & \\\hline
+		Danneo CMS &108 & &108 &\url{https://danneo.com/} &? & \\\hline
+		Cherokee &132 &26 &106 &\url{http://cherokee-project.com/} &? &\url{http://cherokee-project.com/downloads.html} \\\hline
+		MoinMoin &154 &50 &104 &\url{https://moinmo.in/} &? &\url{https://github.com/moinwiki/moin-1.9/blob/1.9.11/docs/CHANGES\#L13} \\\hline
+		Microsoft Publisher &97 &3 &94 &\url{https://www.microsoft.com/id-id/microsoft-365/publisher?legRedir=true&CorrelationId=1f1413ff-e9cc-4b09-b58f=3b46df35f0f7&rtc=1} &? &\url{https://en.wikipedia.org/wiki/Microsoft\_Publisher\#Release\_history} \\\hline
+		Kentico CMS &13,969 &13,877 &92 &\url{https://www.kentico.com//index.html} &? &\url{https://xperience.io/product/roadmap/version-history} \\\hline
+		Clipboard.js &89,517 &89,426 &91 &\url{https://clipboardjs.com/} &? &\url{https://github.com/zenorocha/clipboard.js/releases} \\\hline
+		JavaScript Infovis Toolkit &283 &197 &86 &\url{https://philogb.github.io/jit/} &? & \\\hline
+		WebGUI &84 & &84 &\url{http://www.webgui.org/} &? &\url{https://blog.webgui.org/} \\\hline
+		VuePress &84 & &84 &\url{https://vuepress.vuejs.org/} &? &\url{https://github.com/vuejs/vuepress/releases} \\\hline
+		GoJS &76 & &76 &\url{https://gojs.net/latest/index.html} &? &\url{https://github.com/NorthwoodsSoftware/GoJS/releases?after=v2.1.27} \\\hline
+		Wink &21,296 &21,222 &74 &\url{http://ww25.winktoolkit.org/?subid1=20211017-1942-127b-942c=c06d160ea89a} &? &\url{https://github.com/chamilo/chamilo-lms/releases} \\\hline
+		Trac &83 &16 &67 &\url{https://trac.edgewall.org/} &? &\url{https://trac.edgewall.org/wiki/TracDownload} \\\hline
+		IBM HTTP Server &793 &728 &65 &\url{https://www.ibm.com/cloud/websphere-application=server} &? &\url{https://www.ibm.com/docs/en/ibm-http-server} \\\hline
+		AOLserver &63 & &63 &\url{https://www.aol.com/} &? &\url{http://aolserver.sourceforge.net/category/releases/} \\\hline
+		Lift &61 & &61 &\url{https://liftweb.net/} &? &\url{https://liftweb.net/} \\\hline
+		Reveal.js &1,123 &1,064 &59 &\url{https://revealjs.com/} &? &\url{https://github.com/hakimel/reveal.js/releases} \\\hline
+		jComponent &56 & &56 &\url{https://componentator.com/} &? &\url{https://docs.totaljs.com/components/} \\\hline
+		Microsoft Excel &76 &20 &56 &\url{https://www.microsoft.com/id-id/microsoft-365/excel?legRedir=true&CorrelationId=c9040e26-c5d7-41a0-8a12=98f3b77df4a6&rtc=1} &? &\url{https://docs.microsoft.com/en-us/officeupdates/current-channel} \\\hline
+		ReDoc &53 & &53 &\url{https://github.com/Redocly/redoc} &? &\url{https://github.com/Redocly/redoc} \\\hline
+		Shopfa &52 & &52 &\url{https://shopfa.com/} &? & \\\hline
+		Aegea &50 & &50 &\url{https://blogengine.ru/} &? & \\\hline
+		Hiawatha &49 & &49 &\url{https://www.hiawatha-webserver.org/} &? &\url{https://www.hiawatha-webserver.org/about} \\\hline
+		Backdrop &716 &667 &49 &\url{https://backdropcms.org/} &? &\url{https://github.com/backdrop/backdrop/releases\#:~:text=The\%20Backdrop\%20community\%20is\%20proud\%20to\%20release\%20version,Migrate\%20to\%201.x-1.0.17\%20along\%20with\%20this\%20core\%20update.} \\\hline
+		decimal.js &2,793 &2,744 &49 &\url{https://mikemcl.github.io/decimal.js/} &? &\url{https://www.npmjs.com/package/decimal.js/v/3.0.0} \\\hline
+		Adobe RoboHelp &63 &15 &48 &\url{https://www.adobe.com/products/robohelp.html} &? &\url{https://helpx.adobe.com/robohelp/using/rh\_system\_requirements.html\#RoboHelp} \\\hline
+		Warp &46 & &46 &\url{https://www.stackage.org/package/warp} &? &\url{https://www.stackage.org/package/warp} \\\hline
+		AsciiDoc &51 &6 &45 &\url{http://www.methods.co.nz/asciidoc} &? &\url{https://github.com/asciidoctor/asciidoctor/releases} \\\hline
+		Koken &43 & &43 &\url{https://www.koken.me/} &? &\url{https://www.koken.me/} \\\hline
+		Atlassian Bitbucket &46 &3 &43 &\url{https://www.atlassian.com/software/bitbucket} &? &\url{https://developer.atlassian.com/server/bitbucket/reference/api-changelog/} \\\hline
+		MODX &8,319 &8,277 &42 &\url{https://modx.com/} &? &\url{https://modx.com/blog/category/release/} \\\hline
+		PHP-Fusion &408 &369 &39 &\url{https://www.php-fusion.co.uk/home.php} &? &\url{https://www.php-fusion.co.uk/infusions/downloads/downloads.php?type=recent} \\\hline
+		OroCommerce &58 &22 &36 &\url{https://oroinc.com/} &? &\url{https://github.com/oroinc/orocommerce-application/releases} \\\hline
+		Doxygen &49 &14 &35 &\url{https://www.doxygen.nl/index.html} &? &\url{https://www.doxygen.nl/manual/changelog.html} \\\hline
+		TwistedWeb &236 &202 &34 &\url{https://twistedmatrix.com/trac/wiki/TwistedWeb} &? &\url{https://pypi.org/project/Twisted/\#history} \\\hline
+		Invenio &33 & &33 &\url{https://invenio-software.org/} &? &\url{https://invenio-software.org/blog/} \\\hline
+		DokuWiki &1,361 &1,328 &33 &\url{https://www.dokuwiki.org/dokuwiki} &? &\url{https://www.dokuwiki.org/devel:releases\#releases} \\\hline
+		Roadiz CMS &50 &18 &32 &\url{https://www.roadiz.io/} &? &\url{https://github.com/roadiz/roadiz/releases} \\\hline
+		Semantic-ui &9,749 &9,717 &32 &\url{https://semantic-ui.com/} &? &\url{https://github.com/Semantic-Org/Semantic-UI/releases} \\\hline
+		Coaster CMS &30 & &30 &\url{https://www.coastercms.org/} &? &\url{https://www.coastercms.org/blog/} \\\hline
+		cgit &30 & &30 &\url{https://git.zx2c4.com/cgit} &? &\url{https://git.zx2c4.com/cgit} \\\hline
+		TiddlyWiki &36 &8 &28 &\url{https://tiddlywiki.com/} &? &\url{https://github.com/Jermolene/TiddlyWiki5/releases} \\\hline
+		otrs &72 &45 &27 &\url{https://otrs.com/} &? &\url{https://otrs.com/overview-release-notes=security-advisories/release-notes/} \\\hline
+		Open Classifieds &27 &2 &25 &\url{https://open-classifieds.com/} &? & \\\hline
+		Gallery &112 &87 &25 &\url{http://galleryproject.org/} &? &\url{http://galleryproject.org/} \\\hline
+		MobX &22,987 &22,963 &24 &\url{https://mobx.js.org/README.html} &? &\url{https://github.com/mobxjs/mobx/releases} \\\hline
+		Bokeh &78 &57 &21 &\url{https://bokeh.org/} &? &\url{https://docs.bokeh.org/en/latest/docs/releases.html\#release-2-4-0} \\\hline
+		AppDynamics &2,645 &2,624 &21 &\url{https://www.appdynamics.com/} &? &\url{https://docs.appdynamics.com/21.5/en/product-and-release-announcements/release-notes} \\\hline
+		BrowserCMS &20 & &20 &\url{http://browsercms.org/} &? & \\\hline
+		CoinHive &338 &318 &20 &\url{https://www.troyhunt.com/i-now-own-the-coinhive=domain-heres-how-im=fightingcryptojacking=anddoing-goodthings-with=contentsecurity=policies/} &? & \\\hline
+		Halo &18 & &18 &\url{https://halo.run/} &? &\url{https://halo.run/blog.html} \\\hline
+		Atlassian Confluence &1,317 &1,299 &18 &\url{https://www.atlassian.com/} &? &\url{https://confluence.atlassian.com/doc/confluence-release-notes-327.html} \\\hline
+		Boa &17 & &17 &\url{https://github.com/boa-dev/boa} &? &\url{https://github.com/boa-dev/boa/blob/main/CHANGELOG.md} \\\hline
+		Immutable.js &14,166 &14,149 &17 &\url{https://immutable-js.com/} &? &\url{https://github.com/immutable-js/immutable-js/releases} \\\hline
+		Fusion Ads &22 &8 &14 &\url{http://fusionads.net/} &? &\url{https://wpfusion.com/documentation/faq/changelog/} \\\hline
+		InfernoJS &35 &21 &14 &\url{https://www.infernojs.org/} &? &\url{https://github.com/infernojs/inferno/releases} \\\hline
+		Tessitura &13 & &13 &\url{https://www.tessituranetwork.com/} &? & \\\hline
+		Yaws &53 &40 &13 &\url{http://yaws.hyber.org/} &? &\url{https://github.com/erlyaws/yaws/releases} \\\hline
+		GX WebManager &80 &67 &13 &\url{https://www.gxsoftware.com/en/products/web-content-management.htm} &? & \\\hline
+		wisyCMS &12 & &12 &\url{https://wisy.3we.de/home-15-de} &? &\url{https://wisy.3we.de/change-log-225-de} \\\hline
+		SimpleHTTP &16 &4 &12 &\url{http://simple-http.com/} &? &\url{https://repo.maven.apache.org/maven2/com/simple-http/simple-http/} \\\hline
+		ImpressPages &729 &717 &12 &\url{https://www.impresspages.org/} &? &\url{https://www.impresspages.org/blog2} \\\hline
+		Public CMS &11 & &11 &\url{http://www.publiccms.com/} &? &\url{http://www.publiccms.com/download.html} \\\hline
+		Virtuoso &14 &3 &11 &\url{https://virtuoso.openlinksw.com/} &? &\url{https://github.com/openlink/virtuoso-opensource/releases} \\\hline
+		Bugzilla &18 &7 &11 &\url{https://www.bugzilla.org/} &? &\url{https://www.bugzilla.org/download/} \\\hline
+		phpSQLiteCMS &10 & &10 &\url{https://phpsqlitecms.hoschek.com/} &? &\url{https://github.com/ilosuna/phpsqlitecms} \\\hline
+		Blade &10 & &10 &\url{https://lets-blade.com/} &? & \\\hline
+		LinkSmart &11 &2 &9 &\url{https://www.viglink.com/linksmart/} &? & \\\hline
+		JAlbum &14 &5 &9 &\url{https://jalbum.net/en/} &? &\url{https://jalbum.net/en/software/release-notes} \\\hline
+		uKnowva &18 &9 &9 &\url{https://uknowva.com/} &? &\url{https://docs.uknowva.com/release-notes} \\\hline
+		Graffiti CMS &8 & &8 &\url{https://archive.codeplex.com/?p=graffiticms} &? &\url{https://github.com/motoyugota/GraffitiCMS/releases} \\\hline
+		Saber &7 & &7 &\url{https://saber.land/} &? &\url{https://forcivity.com/solutions/applications/saber-component-pack-for-lightning/release-notes-saber/} \\\hline
+		Kohana &7 & &7 &\url{http://kohanaframework.org/} &? &\url{https://github.com/kohana/kohana/releases} \\\hline
+		phpMyAdmin &11 &4 &7 &\url{https://www.phpmyadmin.net/} &? &\url{https://www.phpmyadmin.net/downloads/} \\\hline
+		SquirrelMail &96 &89 &7 &\url{https://squirrelmail.org/} &? &\url{https://www.squirrelmail.org/download.php} \\\hline
+		Livefyre &505 &498 &7 &\url{https://business.adobe.com/products/experience-manager/sites/aem-sites.html} &? &\url{https://experienceleague.adobe.com/docs/livefyre/using/release-notes/c-rn.html?lang=en} \\\hline
+		Exhibit &1,165 &1,158 &7 &\url{http://simile-widgets.org/exhibit/} &? &\url{https://github.com/simile-widgets/exhibit/tags} \\\hline
+		mini\_httpd &6 & &6 &\url{http://acme.com/software/mini\_httpd/} &? &\url{http://acme.com/software/mini\_httpd/} \\\hline
+		DirectAdmin &6 & &6 &\url{https://www.directadmin.com/} &? &\url{https://www.directadmin.com/versions.php} \\\hline
+		CppCMS &6 & &6 &\url{http://cppcms.com/wikipp/en/page/main} &? &\url{http://cppcms.com/wikipp/en/page/releases} \\\hline
+		BaseHTTP &6 & &6 & &? & \\\hline
+		Artifactory Web Server &6 & &6 &\url{https://jfrog.com/open-source/\#os-arti} &? &\url{https://www.jfrog.com/confluence/display/JFROG/Artifactory+Release+Notes} \\\hline
+		Gitea &28 &23 &5 &\url{https://gitea.io/en-us/} &? &\url{https://blog.gitea.io/} \\\hline
+		Planet &640 &635 &5 &\url{http://planetplanet.org/} &? &\url{https://developers.planet.com/changelog/} \\\hline
+		Blessing Skin &4 & &4 &\url{https://github.com/bs-community/blessing-skin-server} &? &\url{https://github.com/prinsss/blessing-skin-server/releases} \\\hline
+		Indy &10 &6 &4 &\url{https://www.indyproject.org/} &? &\url{https://www.indyproject.org/documentation/} \\\hline
+		Oracle Commerce &2,641 &2,637 &4 &\url{https://www.oracle.com/cx/} &? & \\\hline
+		Django &28,506 &28,502 &4 &\url{https://djangoproject.com} &? &\url{https://docs.djangoproject.com/en/3.2/releases/} \\\hline
+		Gogs &13 &10 &3 &\url{https://gogs.io/} &? &\url{https://github.com/gogs/gogs/releases} \\\hline
+		ef.js &72 &69 &3 &\url{https://ef.js.org/\#!home} &? &\url{https://github.com/TheNeuronProject/ef.js/releases} \\\hline
+		Snap &2 & &2 &\url{http://snapframework.com/} &? &\url{http://snapframework.com/blog} \\\hline
+		Scenari &2 & &2 &\url{https://github.com/zoncoen/scenarigo} &? &\url{https://github.com/zoncoen/scenarigo/releases} \\\hline
+		MochiWeb &2 & &2 &\url{https://github.com/mochi/mochiweb} &? &\url{https://github.com/mochi/mochiweb/releases} \\\hline
+		Laterpay &2 & &2 &\url{https://www2.laterpay.net/} &? & \\\hline
+		Jenkins &2 & &2 &\url{https://www.jenkins.io/} &? &\url{https://www.jenkins.io/changelog-stable/} \\\hline
+		Koobi &4 &2 &2 &\url{http://dream4.de/cms} &? & \\\hline
+		Analysys Ark &65 &63 &2 &\url{https://www.analysysdata.com/} &? & \\\hline
+		OpenGrok &1 & &1 &\url{http://hub.opensolaris.org/bin/view/Project+opengrok/WebHome} &? &\url{https://github.com/oracle/opengrok/releases} \\\hline
+		gitweb &1 & &1 &\url{http://git-scm.com/} &? &\url{https://github.com/yoannfleurydev/gitweb/releases} \\\hline
+		gitlist &1 & &1 &\url{http://gitlist.org/} &? &\url{https://github.com/klaussilveira/gitlist/releases} \\\hline
+		Cecil &1 & &1 &\url{https://cecil.app/} &? &\url{https://github.com/jbevain/cecil/releases} \\\hline
+		Xitami &2 &1 &1 &\url{http://www.xitami.com/} &? &\url{https://imatix-legacy.github.io/xitami.com/download.htm} \\\hline
+		FreeTextBox &3 &2 &1 & & & \\\hline
+		Microsoft PowerPoint &12 &11 &1 &\url{https://www.microsoft.com/id-id/microsoft-365/powerpoint?legRedir=true&CorrelationId=9f3cb8b1-7d9b-4064-8cad=cbc7e6a111c1&rtc=1} &? &\url{https://docs.microsoft.com/en-us/officeupdates/current-channel} \\\hline
+		git &105 &104 &1 &\url{http://git-scm.com/} &? &\url{https://mirrors.edge.kernel.org/pub/software/scm/git/} \\\hline
+		Lua &258,294 &258,293 &1 &\url{http://www.lua.org/} &? &\url{https://www.lua.org/versions.html} \\\hline
+		MediaElement.js &2 &2 & &\url{http://www.mediaelementjs.com} &? &\url{https://github.com/mediaelement/mediaelement/releases} \\\hline
+		Raphael &2 &2 & &\url{https://dmitrybaranovskiy.github.io/raphael/} &? &\url{https://github.com/DmitryBaranovskiy/raphael/releases} \\\hline
+		MediaWiki &5 &5 & &\url{https://www.mediawiki.org} &? &\url{https://www.mediawiki.org/wiki/Release\_notes} \\\hline
+		Gatsby &4 &4 & &\url{https://www.gatsbyjs.org/} &3 &\url{https://github.com/gatsbyjs/gatsby\#contributing-to-gatsby-v1} \\\hline
+		React &2 &2 & &\url{https://reactjs.org} &? &\url{https://reactjs.org/versions/} \\\hline
+		Bootstrap &10 &10 & &\url{https://getbootstrap.com} &4 &\url{https://github.com/twbs/release} \\\hline
+		Underscore.j 1.8.2 &1 &1 & & & & \\\hline
+		UIKi &1 &1 & & & & \\\hline
+		TYPO3CMS &1 &1 & &\url{https://typo3.org/} & & \\\hline
+		Swiftlet &1 &1 & & & & \\\hline
+		Pars Elecom Portal &1 &1 & &\url{http://parselecom.com/} & & \\\hline
+		NivCMS &1 &1 & & & & \\\hline
+		MooTool 1.4.5 &1 &1 & &\url{https://mootools.net/} & & \\\hline
+		Moment.j 2.23.0 &1 &1 & & & & \\\hline
+		\bottomrule
+		\caption{App Data}\label{tab: }
+	\end{longtable}
+\end{landscape}

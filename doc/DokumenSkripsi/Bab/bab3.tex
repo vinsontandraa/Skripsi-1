@@ -7,35 +7,35 @@ Dalam pengerjaan skripsi ini akan menggunakan teknologi bernama BigQuery. Di dal
 
 Berikut ini langkah-langkah dalam pembuatan dataset dan tabel:
 \begin{enumerate}
-	\item Membuka \href{https://console.cloud.google.com/getting-started}{Google Cloud Project Page}.
+	\item Membuka Google Cloud Project Page\footnote{https://console.cloud.google.com/getting-started}. Halaman yang akan ditampilkan dapat dilihat pada gambar \ref{fig:GCP}
 	\begin{figure}[H]
 		\centering  
 		\includegraphics[scale=0.45]{Gambar/open_GCP.PNG}  
 		\caption{Google Cloud Project Page} 
 		\label{fig:GCP} 
 	\end{figure}
-	\item Membuat atau memilih \textit{project} yang akan dikerjakan.
+	\item Membuat atau memilih \textit{project} yang akan dikerjakan. Halaman yang akan ditampilkan dapat dilihat pada gambar \ref{fig:create_or_open}
 	\begin{figure}[H]
 		\centering  
 		\includegraphics[scale=0.45]{Gambar/pilih_project.PNG}  
 		\caption{Create atau Open Project} 
 		\label{fig:create_or_open} 
 	\end{figure}
-	\item Membuka \textit{console} kemudian memilih BigQuery.
+	\item Membuka \textit{console} kemudian memilih BigQuery. Halaman yang akan ditampilkan dapat dilihat pada gambar \ref{fig:BQ}
 	\begin{figure}[H]
 		\centering  
 		\includegraphics[scale=0.45]{Gambar/console_BigQuery.PNG}  
 		\caption{Membuka BigQuery} 
 		\label{fig:BQ} 
 	\end{figure}
-	\item Pada tab explorer terdapat project kemudian pengguna harus menekan tombol titik tiga dan piliih \textit{create} dataset.
+	\item Pada tab explorer terdapat project kemudian pengguna harus menekan tombol titik tiga dan piliih \textit{create} dataset. Halaman yang akan ditampilkan dapat dilihat pada gambar \ref{fig:create_dataset}
 	\begin{figure}[H]
 		\centering  
 		\includegraphics[scale=0.45]{Gambar/create_dataset.PNG}  
 		\caption{Membuat Dataset Baru} 
-		\label{fig:creat_dataset} 
+		\label{fig:create_dataset} 
 	\end{figure}
-	\item Buka dataset, kemudian pilih menu \textit{create table}.
+	\item Buka dataset, kemudian pilih menu \textit{create table}. Halaman yang akan ditampilkan dapat dilihat pada gambar \ref{fig:create_table}
 	\begin{figure}[H]
 		\centering  
 		\includegraphics[scale=0.45]{Gambar/create_table.PNG}  
@@ -45,7 +45,7 @@ Berikut ini langkah-langkah dalam pembuatan dataset dan tabel:
 \end{enumerate}
 
 \section{Dataset Pada HTTP Archive}
-Di dalam HTTP Archive terdapat dataset yang dapat diambil menggunakan teknologi BigQuery, dataset tersebut adalah sebagai berikut:
+Di dalam HTTP Archive terdapat dataset yang dapat diambil menggunakan teknologi BigQuery. Dataset dari HTTP Archive masih kotor sehingga terdapat beberapa data yang ganda dan terdapat versi dari aplikasi yang tidak valid (hanya berisi karakter atau simbol). Dataset tersebut adalah sebagai berikut:
 \begin{enumerate}
 	\item almanac\\
 	Pada tabel ini tidak terdapat keterangan dan tidak berhubungan dengan skripsi ini.
@@ -233,8 +233,8 @@ Pada tabel ini tidak terdapat keterangan dan tidak berhubungan dengan skripsi in
 \label{langkah_query}
 Pada section ini akan dijelaskan tentang langkah-langkah \textit{query} yang dilakukan dalam memperoleh data dan analisis yang dilakukan. Data yang diambil adalah data percobaan sebanyak 10 data. Data yang diambil merupakan dataset dari tabel technologies 2020$\_$08$\_$01:
 
-\subsection{Mengumpulkan List Website}
-Langkah pertama yang dilakukan yaitu mengumpulkan website. Website yang dicari tidak berdasarkan berdasarkan \textit{rank} karena tidak tersedia pada dataset tersebut. Berikut adalah \textit{query} yang digunakan untuk mengumpulkan list website.
+\subsection{Mengumpulkan Daftar Website}
+Langkah pertama yang dilakukan yaitu mengumpulkan website. Website yang dicari tidak berdasarkan \textit{rank} karena tidak tersedia pada dataset tersebut. Berikut adalah \textit{query} yang digunakan untuk mengumpulkan daftar website.
 \begin{lstlisting}
 SELECT url
 FROM `httparchive.technologies.2020_08_01_*`
@@ -271,12 +271,12 @@ Pada \textit{query} diatas akan dilakukan pemilihan pada kolom url dengan menggu
 	10 & https://www.captainslanding.com/\\
 	\hline
 \end{tabular}
-\caption{Hasil Pengumpulan List Website}
+\caption{Hasil Pengumpulan Daftar Website}
 \label{table:contoh_langkah1}
 \end{table}
 
 \subsection{Mencari Aplikasi Yang Digunakan Website}
-Setiap website akan dicari aplikasi apa saja yang digunakan dalam pembangunan website tersebut dan versi dari aplikasi yang dipakainya. Berikut adalah \textit{query} yang digunakan.
+Setiap website akan dicari aplikasi apa saja yang digunakan dalam pembangunan website tersebut dari aplikasi yang dipakainya. Berikut adalah \textit{query} yang digunakan.
 \begin{lstlisting}
 SELECT url, app
 FROM `httparchive.technologies.2020_08_01_*`
