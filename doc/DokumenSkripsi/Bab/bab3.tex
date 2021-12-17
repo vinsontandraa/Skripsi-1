@@ -357,7 +357,7 @@ Pada \textit{query} diatas akan dibuat beberapa tabel baru yang bersifat sementa
 
 \begin{table}[H]
 \centering
-\begin{tabular}{|l|l|l|l|l|}
+\begin{tabular}{|l|l|r|r|r|}
 	\hline
 	\textbf{Row} & \textbf{app} & \textbf{num\_sites} & \textbf{versioned\_count} & \textbf{unversioned\_count}\\
 	\hline
@@ -384,6 +384,41 @@ Pada \textit{query} diatas akan dibuat beberapa tabel baru yang bersifat sementa
 \end{tabular}
 \caption{Hasil Pengelompokan Aplikasi Beserta Jumlah \textit{Versioned} Dan \textit{Unversioned}}
 \label{table:contoh_langkah3}
+\end{table}
+
+Pada \cite{pascal}, jumlah data yang digunakan lebih sedikit sehingga jumlah keseluruhan data juga akan berbeda. Terdapat beberapa aplikasi yang sama sehingga dapat dibandingkan datanya. Tabel pada \cite{pascal} dapat dilihat pada tabel \ref{table:contoh_tabel_paper}: 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{1cm}|wr{0.1\linewidth}|wr{0.11\linewidth}|wr{0.13\linewidth}|wr{0.1\linewidth}|p{3 cm}|wr{0.12\linewidth}|}
+	\hline
+	\textbf{Name} & \textbf{num-sites} & \multirow{2}{0.11\linewidth}{\textbf{avg-confidence}} & \multirow{2}{0.13\linewidth}{\textbf{num-unversioned}} & \multirow{2}{0.1\linewidth}{\textbf{num-versioned}} & \textbf{website} & \multirow{3}{0.12\linewidth}{\textbf{num-supported-version}}\\
+	&  &  &  &  &  &  \\
+	&  &  &  &  &  &  \\
+	\hline
+	jQuery & 1.011 & 99.70 & 14 & 997 & https://jquery.com & >=3 \\
+	\hline
+	Boot strap & 340 & 99.30 & 88 & 342 & https://getboot strap.com & >=4 \\
+	\hline
+	JQuery Migrate & 298 & 99.66 & 31 & 267 & https://github.com /jquery/jquery-migrate & ?\\
+	\hline
+	PHP & 591 & 99.83 & 348 & 245 & https://www.php .net & >=7.2 \\
+	\hline
+	Font Awesome & 400 & 99.50 & 160 & 240 & https://fontaweso me.com & >=5 \\
+	\hline
+	JQuery UI & 176 & 99.43 & 7 & 169 & https://jqueryui .com & ? \\
+	\hline
+	Word Press & 346 & 100.00 & 181 & 165 & https://wordpress .org & >=5.4.2 \\
+	\hline
+	Under score.js & 124 & 24.19 & 2 & 122 & https://underscore js.org & ? \\
+	\hline
+	Lodash & 125 & 59.20 & 3 & 122 & https://lodash.com & ? \\
+	\hline
+	
+	
+\end{tabular}
+\caption{Tabel Sepuluh Data Aplikasi Pada \cite{pascal}}
+\label{table:contoh_tabel_paper}
 \end{table}
 
 \subsection{Mencari Data Tentang Versi Aplikasi Yang Masih Didukung}
@@ -446,23 +481,23 @@ Data juga dibandingkan berdasarkan aplikasi tertentu. Data yang dihasilkan adala
 		\hline
 		\textbf{num\_sites} & \textbf{app} & \textbf{supported} & \textbf{unsupported} & \textbf{not\_versioned} & \textbf{non\_conclusive}\\
 		\hline
-		10003030 &jQuery &1604830 &8374171 &24029 &0 \\
+		10.003.030 &jQuery &1.604.830 &8.374.171 &24.029 &0 \\
 		\hline
-		8190668 &Google Analytics &0 &0 &8190668 &0 \\
+		8.190.668 &Google Analytics &0 &0 &8.190.668 &0 \\
 		\hline
-		7494642 &WordPress &350 &4891016 &2603276 &0 \\
+		7.494.642 &WordPress &350 &4.891.016 &2.603.276 &0 \\
 		\hline
-		7230612 &Nginx &652 &1789692 &5440268 &0 \\
+		7.230.612 &Nginx &652 &1.789.692 &5.440.268 &0 \\
 		\hline
-		5977790 &PHP &167095 &2355525 &3455170 &0 \\
+		5.977.790 &PHP &167.095 &2.355.525 &3.455.170 &0 \\
 		\hline
-		5481111 &Google Font API &0 &0 &5481111 &0 \\
+		5.481.111 &Google Font API &0 &0 &5.481.111 &0 \\
 		\hline
-		4529823 &Google Tag Manager &0 &0 &4529823 &0 \\
+		4.529.823 &Google Tag Manager &0 &0 &4.529.823 &0 \\
 		\hline
-		4067380 &Apache &764690 &353510 &2949180 &0 \\
+		4.067.380 &Apache &764.690 &353.510 &2.949.180 &0 \\
 		\hline
-		4047343 &MySQL &0 &0 &4047343 &0 \\
+		4.047.343 &MySQL &0 &0 &4.047.343 &0 \\
 		\hline
 	\end{tabular}
 	\caption{Hasil Perbandingan Aplikasi}

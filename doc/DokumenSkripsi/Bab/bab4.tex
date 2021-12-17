@@ -8,7 +8,7 @@ Pada section ini akan dijelaskan tentang langkah-langkah query yang dilakukan da
 \subsection{Mengumpulkan List Website}
 Langkah pertama yang dilakukan yaitu mengumpulkan website. Website yang dicari tidak berdasarkan berdasarkan \textit{rank} karena tidak tersedia pada dataset tersebut. Berikut adalah \textit{query} yang digunakan untuk mengumpulkan list website.
 \begin{lstlisting}
-	SELECT url
+	SEL
 	FROM `httparchive.technologies.2020_08_01_*`
 	ORDER BY url asc
 \end{lstlisting}
@@ -108,6 +108,20 @@ Apache dan Nginx merupakan dua web servers yang paling banyak digunakan. Pada du
 	\label{fig:data_sample_apache} 
 \end{figure}
 
+Pada \cite{pascal} terdapat chart dengan aplikasi yang sama sehingga data dapat dibandingkan dengan chart di atas. Chart pada \cite{pascal} dapat dilihat pada Gambar \ref{fig:data_sample_apache_p} dan Gambar \ref{fig:data_sample_nginx_p}.
+\begin{figure}[H]
+	\centering  
+	\includegraphics[scale=0.7]{Gambar/chart_pascal_apache.PNG}  
+	\caption{Aplikasi Apache dari \cite{pascal}} 
+	\label{fig:data_sample_apache_p} 
+\end{figure}
+\begin{figure}[H]
+	\centering  
+	\includegraphics[scale=0.7]{Gambar/chart_pascal_nginx.PNG}  
+	\caption{Aplikasi Apache dari \cite{pascal}} 
+	\label{fig:data_sample_nginx_p} 
+\end{figure}
+
 \subsection{PHP dan Python}
 PHP merupakan bahasa pemograman yang digunakan dalam pembuatan website. PHP manjadi bahasa pemograman yang paling banyak digunakan. Pada aplikasi PHP terdapat 3.455.170 aplikasi yang \textit{unversioned}. Versi pada aplikasi PHP yang paling banyak digunakan adalah versi 5.6.40 dengan jumlah 358.750.
 Python meruapakan bahasa pemograman tingkat tinggi dan berorientasi objek. Python adalah bahasa pemograman tingkat tinggi karena perintah atau kode program yang digunakan sudah mirip dengan bahasa manusia. Pada aplikasi Python terdapat 360.531 aplikasi yang \textit{unversioned}. Versi pada aplikasi Python yang paling banyak digunakan adalah versi 2.7.5 dengan jumlah 7.481. Berikut ini adalah chart yang dapat dilihat pada gambar \ref{fig:data_sample_php} dan \ref{fig:data_sample_python}:
@@ -125,6 +139,15 @@ Python meruapakan bahasa pemograman tingkat tinggi dan berorientasi objek. Pytho
 	\label{fig:data_sample_python} 
 \end{figure}
 
+Pada \cite{pascal} terdapat chart dengan aplikasi yang sama sehingga data dapat dibandingkan dengan chart di atas. Chart pada \cite{pascal} dapat dilihat pada Gambar \ref{fig:data_sample_php_p}.
+
+\begin{figure}[H]
+	\centering  
+	\includegraphics[scale=0.7]{Gambar/chart_pascal_php.PNG}  
+	\caption{Aplikasi PHP dari \cite{pascal}} 
+	\label{fig:data_sample_php_p} 
+\end{figure}
+
 \subsection{jQuery dan jQuery Migrate}
 jQuery dan jQuery Migrate merupakan \textit{javascipt libraries} yang paling banyak digunakan. jQuery berfungsi untuk membantu mengatur interaksi antara javascript dan html pada sisi \textit{client}. Pada aplikasi jQuery terdapat 24.029 aplikasi yang \textit{unversioned}. Versi pada aplikasi jQuery yang paling banyak digunakan adalah versi 1.12.4 dengan jumlah 3.603.522. jQuery Migrate berfungsi untuk membantu memulihkan API yang telah dihapus dan menunjukkan peringatan pada \textit{browser concole}. Pada aplikasi jQuery Migrate terdapat 268.962 aplikasi yang \textit{unversioned}. Versi pada aplikasi jQuery yang paling banyak digunakan adalah versi 1.4.1 dengan jumlah 2.935.408. Hasil chart dapat dilihat pada gambar \ref{fig:data_sample_jQuery} dan  \ref{fig:data_sample_jQuery_migrate}
 \begin{figure}[H]
@@ -139,4 +162,13 @@ jQuery dan jQuery Migrate merupakan \textit{javascipt libraries} yang paling ban
 	\includegraphics[scale=0.5]{Gambar/hasil_chart_jQuery_migrate.png}  
 	\caption{Aplikasi jQuery Migrate} 
 	\label{fig:data_sample_jQuery_migrate} 
+\end{figure}
+
+Pada \cite{pascal} terdapat chart dengan aplikasi yang sama sehingga data dapat dibandingkan dengan chart di atas. Chart pada \cite{pascal} dapat dilihat pada Gambar \ref{fig:data_sample_jQuery_p}.
+
+\begin{figure}[H]
+	\centering  
+	\includegraphics[scale=0.7]{Gambar/chart_pascal_jQuery.PNG}  
+	\caption{Aplikasi jQuery dari \cite{pascal}} 
+	\label{fig:data_sample_jQuery_p} 
 \end{figure}
