@@ -4,15 +4,16 @@
 Pada bab ini dijelaskan latar belakang, rumusan masalah, tujuan, batasan masalah, metodologi, dan sistematika pembahasan.
 \section{Latar Belakang}
 \label{sec:label}
-Di masa teknologi saat ini, banyak perusahaan yang menggunakan website sebagai tempat untuk mencari informasi. Terdapat banyak website yang menggunakan aplikasi yang sudah usang. HTTP Archive memiliki dataset penggunaan aplikasi suatu website yang dapat dilihat atau dianalisis menggunakan teknologi BigQuery. HTTP Archive memiliki dataset penggunaan aplikasi suatu website dari desktop dan mobile pada bulan Januari tahun 2016 sampai sekarang. Berdasarkan sumber pada web almanac \footnote{https://almanac.httparchive.org/en/2020/mobile-web}, dapat diambil kesimpulan bahwa website dibuka menggunakan browser di desktop dan mobile. Dataset yang digunakan berada pada label \textit{technologies} merupakan dataset desktop dan mobile dengan nama tabel 2020$\_$08$\_$01. Dataset pada desktop memiliki 61.203.638 baris dan pada mobile memiliki 67.452.994 baris. 
+Di masa teknologi saat ini, banyak perusahaan yang menggunakan \textit{website} sebagai tempat untuk mencari informasi. Terdapat banyak \textit{website} yang menggunakan aplikasi yang sudah usang. HTTP Archive memiliki dataset penggunaan aplikasi setiap \textit{website} dari \textit{desktop} dan \textit{mobile} pada bulan Januari tahun 2016 sampai sekarang yang dapat dilihat menggunakan teknologi BigQuery. Dataset pada HTTP Archive didapatkan dari Chrome User Experience Report (CrUX). CrUX merupakan public dataset dari user experience data pada jutaan website. Pengujian pada dataset tersebut dilakukan dengan menggunakan Chrome pada desktop dan android (mobile). 
+%Dataset yang digunakan berada pada label \textit{technologies} merupakan dataset \textit{desktop} dan \textit{mobile} dengan nama tabel 2020$\_$08$\_$01. Dataset pada \textit{desktop} memiliki 61.203.638 baris dan pada \textit{mobile} memiliki 67.452.994 baris. 
 
-HTTP Archive \footnote{https://github.com/HTTPArchive/httparchive.org/blob/main/docs/gettingstarted$\_$bigquery.md} adalah sebuah proyek yang bersifat \textit{open source} untuk melihat bagaimana website dibuat. Di dalam HTTP Archive terdapat data-data historis yang disediakan untuk menunjukkan bagaimana website terus berkembang dan proyek ini sering digunakan untuk penelitian. Didalam HTTP Archive terdapat dataset yang berisi jutaan web setiap bulan dan dapat dianalisis menggunakan teknologi BigQuery. BigQuery \cite{bqIntroduction} adalah salah satu produk dari Google yang berbasis \textit{cloud} dan dapat digunakan untuk menganalisis data tanpa harus memikirkan database. BigQuery dapat menjalankan \textit{query} dalam skala \textit{terabyte} dalam hitungan detik dan \textit{petabyte} dalam hitungan menit.
+HTTP Archive \footnote{https://github.com/HTTPArchive/httparchive.org/blob/main/docs/gettingstarted$\_$bigquery.md} adalah sebuah project yang bersifat \textit{open source} untuk melihat bagaimana \textit{website} dibuat. Di dalam HTTP Archive terdapat data-data historis yang disediakan untuk menunjukkan bagaimana \textit{website} terus berkembang dan project ini sering digunakan untuk penelitian. Didalam HTTP Archive terdapat dataset yang berisi jutaan web setiap bulan dan dapat dianalisis menggunakan teknologi BigQuery. BigQuery \cite{bqIntroduction} adalah salah satu produk dari Google yang berbasis \textit{cloud} dan dapat digunakan untuk menganalisis data tanpa harus memikirkan database. BigQuery dapat menjalankan \textit{query} dalam skala \textit{terabyte} dalam hitungan detik dan \textit{petabyte} dalam hitungan menit.
 
-Berdasarkan \cite{pascal}, dari 1.500 situs teratas menurut peringkat Alexa untuk pengunjung situs di Indonesia dan mengidentifikasi jenisnya aplikasi yang mereka gunakan beserta nomor versinya, lebih dari setengah atau 63\% aplikasi yang digunakan berhasil dibandingkan dengan skrip yang telah dibuat dan hasilnya aplikasi tidak lagi didukung oleh pengelolanya.
+Pada \cite{pascal} akan dilakukan pengujian tentang seberapa besar penggunaan aplikasi usang pada website di Indonesia. Data diambil dari website Alexa, dari 1.500 situs teratas menurut peringkat Alexa untuk pengunjung situs di Indonesia dan mengidentifikasi jenisnya aplikasi yang mereka pakai beserta nomor versinya, lebih dari setengah atau 63\% aplikasi yang digunakan berhasil dibandingkan dengan skrip yang telah dibuat dan hasilnya aplikasi tidak lagi didukung oleh pengelolanya.
 
-Beberapa aplikasi sudah menyediakan fitur untuk meng-\textit{update} ke versi yang paling baru tanpa harus menginstal ulang. Dalam kebanyakan kasus, versi aplikasi yang semakin baru sudah memperbaiki banyak kerentanan yang sudah diketahui. Beberapa aplikasi usang tidak memiliki pemberitahuan untuk meng-\textit{update} sehingga pengguna tidak mengetahui jika terdapat \textit{update}. Aplikasi yang baik biasanya memberikan update otomatis dan memberikan pesan yang efektif jika terjadi \textit{update}. 
+Beberapa aplikasi sudah menyediakan fitur untuk meng-\textit{update} ke versi yang paling baru tanpa harus menginstal ulang. Dalam kebanyakan kasus, versi aplikasi yang semakin baru sudah memperbaiki banyak kerentanan yang sudah diketahui. Beberapa aplikasi usang tidak memiliki pemberitahuan untuk meng-\textit{update} sehingga pengguna tidak mengetahui jika terdapat \textit{update}. Aplikasi yang baik biasanya memberikan \textit{update} otomatis dan memberikan pesan yang efektif jika terjadi \textit{update}. 
 
-Pada skripsi ini, akan dibuat sebuah penelitian untuk mengetahui seberapa besar penggunaan aplikasi usang pada seluruh website yang ada di dunia. Data dapat diambil dari HTTP Archive dengan melakukan \textit{query} pada BigQuery. Pada penelitian ini akan dilakukan perhitungan pada jumlah aplikasi yang sudah diberi versi dan belum diberi versi. Versi aplikasi yang dipakai setiap website juga akan dibandingkan dengan versi aplikasi yang masih didukung berdasarkan \textit{official website}-nya. Kemudian hasil tersebut akan ditampilkan dalam bentuk bar chart.
+Pada skripsi ini, akan dibuat sebuah replikasi dari \cite{pascal} tetapi dengan data yang lebih besar. Data dapat diambil dari HTTP Archive dengan melakukan \textit{query} pada BigQuery. Pada penelitian ini akan dilakukan perhitungan pada jumlah aplikasi yang sudah diberi versi dan belum diberi versi. Versi aplikasi yang dipakai setiap \textit{website} juga akan dibandingkan dengan versi aplikasi yang masih didukung berdasarkan \textit{official website}-nya. Kemudian hasil tersebut akan ditampilkan dalam bentuk \textit{bar chart}.
 
 
 \section{Rumusan Masalah}
@@ -20,8 +21,8 @@ Pada skripsi ini, akan dibuat sebuah penelitian untuk mengetahui seberapa besar 
 Berikut ini adalah rumusan masalah dari penelitian ini:
 \begin{enumerate}
 	\item Bagaimana cara membaca data dari HTTP Archive?
-	\item Bagaimana mengimplementasi proyek \cite{pascal} dengan menggunakan data yang lebih besar?
-	\item Berapa banyak website pada web almanac yang menggunakan aplikasi  yang masih didukung?
+	\item Bagaimana mereplikasi proyek \cite{pascal} dengan menggunakan data yang lebih besar?
+	\item Berapa banyak \textit{website} pada HTTP Archive yang menggunakan aplikasi  yang masih didukung?
 \end{enumerate}
 
 
@@ -30,15 +31,18 @@ Berikut ini adalah rumusan masalah dari penelitian ini:
 Berikut ini adalah tujuan dari penelitian ini:
 \begin{enumerate}
 	\item Membaca data dari HTTP Archive.
-	\item Mengimplementasi proyek \cite{pascal} dengan menggunakan data yang lebih besar.
-	\item Mencari jumlah website pada web almanac yang menggunakan aplikasi yang masih didukung.
+	\item Mereplikasi proyek \cite{pascal} dengan menggunakan data yang lebih besar.
+	\item Mencari jumlah \textit{website} pada HTTP Archive yang menggunakan aplikasi yang masih didukung.
 \end{enumerate}
 
 
 \section{Batasan Masalah}
 \label{sec:batasan}
-Penelitian ini dibuat dengan batasan - batasan berikut:
+Berikut ini adalah batasan masalah dari penelitian ini:
+\begin{enumerate}
+    \item Data yang digunakan adalah data pada bulan Agustus tahun 2020.
 
+\end{enumerate}
 
 \section{Metodologi}
 \label{sec:metlit}
@@ -46,11 +50,31 @@ Bagian-bagian pekerjaan skripsi ini adalah sebagai berikut:
 \begin{enumerate}
 	\item Mempelajari teori HTTP Archive.
 	\item Mempelajari teori BigQuery.
-	\item Mempelajari bagaimana suatu website dikatakan usang.
-	\item Menganalisis beberapa website yang dikatakan usang.
+	\item Mempelajari bagaimana suatu \textit{website} dikatakan usang.
+	\item Menganalisis beberapa \textit{website} yang dikatakan usang.
 	\item Menulis dokumen skripsi.
 \end{enumerate}
 
 
 \section{Sistematika Pembahasan}
 \label{sec:sispem}
+Laporan penelitian tersusun ke dalam enam bab secara sistematis sebagai berikut.
+\begin{itemize}
+    \item Bab 1 Pendahuluan\\
+    Berisi latar belakang, rumusan masalah, tujuan, batasan masalah, metodologi penelitian, dan sistematika pembahasan.
+   
+   \item Bab 2 Dasar Teori\\
+    Berisi teori BigQuery, teori HTTP Archive, teori \textit{library javascript}.
+   
+    \item Bab 3 Percobaan Awal\\
+    Berisi eksplorasi teknologi, penjelasan dataset yang digunakan, pengumpulan data secara terbatas.
+  
+    \item Bab 4 Penggalian Data\\
+    Berisi pengumpulan data yang besar, penjelasan tentang sample data pada aplikasi tertentu.
+    
+    \item Bab 5 Pembangunan Perangkat Lunak\\
+Berisi perancangan perangkat lunak yang dibangun, masukan dan keluaran dari perangkat lunak, masalah yang dihadapi ketika implementasi.
+   
+    \item Bab 6 Kesimpulan dan Saran\\
+    Berisi kesimpulan dari awal hingga akhir penelitian dan saran untuk penelitian berikutnya.
+    \end{itemize}

@@ -3,7 +3,7 @@
 \label{chap:teori}
 
 \section{BigQuery\cite{bqa, bqIntroduction}}
-Google memiliki salah satu produk yaitu BigQuery yang berbasis \textit{cloud} dan dapat digunakan untuk menganalisis data tanpa harus memikirkan database. BigQuery memaksimalkan fleksibelitas dengan memisahkan memisahkan mesin komputasi yang menganalisa data. BigQuery dapat digunakan sebagai tempat penyimpanan dan data tersebut dapat dianalisis. Data dalam BigQuery dimasukkan dalam sebuah dataset. Dataset berisikan tabel-tabel yang dapat dianalisis. Google meluncurkan BigQuery secara publik pada tahun 2012. Saat ini BigQuery sudah berkembang menjadi penyedia penyimpanan terstruktur berbasis \textit{cloud} yang dikelola dan dihosting. 
+Google memiliki salah satu produk yaitu BigQuery yang berbasis \textit{cloud} dan dapat digunakan untuk menganalisis data tanpa harus memikirkan database. BigQuery memaksimalkan fleksibelitas dengan memisahkan memisahkan mesin komputasi yang menganalisa data. BigQuery dapat digunakan sebagai tempat penyimpanan dan data tersebut dapat dianalisis. Data dalam BigQuery dimasukkan dalam sebuah dataset. Dataset berisikan tabel-tabel yang dapat dianalisis. Google meluncurkan BigQuery secara publik pada tahun 2012. Saat ini BigQuery sudah berkembang menjadi penyedia penyimpanan terstruktur berbasis \textit{cloud} yang dikelola dan di-\textit{hosting}. 
 
 \subsection{\textit{Cloud Storage System}}
 Selain sebagai tempat untuk menjalankan \textit{query} dari data, saat ini BigQuery juga merupakan tempat penyimpanan data terstruktur di \textit{cloud}. Data akan direplikasi ke beberapa lokasi yang berbeda secara geografis untuk meningkatkan ketersediaan dan ketahanan. Jika pusat data di Google pada suatu lokasi ditutup, data tetap dapat diakses tanpa terjadi gangguan. Data juga akan direplikasi dalam sebuah kluster agar tidak terjadi kehilangan data jika terjadi kegagalan perangkat keras. 
@@ -14,39 +14,39 @@ SQL adalah bahasa pemograman menghasilkan, memanipulasi, dan mengambil informasi
 \subsubsection{Query Clauses}
 Terdapat beberapa komponen atau klausa dari \textit{query} yang digunakan mengambil dan menghasilkan data dari database, seperti:
 \begin{itemize}
-	\item SELECT dan FROM\\
-	Fungsi dari klause SELECT adalah untuk menentukan kolom dari suatu tabel yang ditampilkan dalam \textit{query result}. Fungsi dari klause FROM adalah Mengidentifikasi tabel yang ingin diambil datanya. Dalam mengambil data dari database setidaknya minimal harus menggunakan dua klause ini. Klause ini memiliki syntax seperti:
-	\begin{verbatim}
-		SELECT coloumn1, coloumn2, ...
-		FROM table_name
-	\end{verbatim}
-	
-	\item WHERE\\
-	Fungsi dari klause WHERE adalah untuk membatasi jumlah baris dalam \textit{query result} berdasarkan kondisi tertentu. Klause WHERE digunakan jika terdapat beberapa kondisi yang ingin dicari dari database tersebut. Klause ini memiliki syntax seperti:
-	\begin{verbatim}
-		SELECT coloumn1, coloumn2, ...
-		FROM table_name
-		WHERE condition
-	\end{verbatim}
-	
-	\item GROUP BY\\
-	Fungsi dari kaluse GROUP BY adalah untuk mengelompokkan baris berdasarkan nilai kolom yang sama. Klause ini memiliki syntax seperti:
-	\begin{verbatim}
-		SELECT coloumn1, coloumn2, ...
-		FROM table_name
-		WHERE condition
-		GROUP BY column_name, ...
-	\end{verbatim}
-	
-	\item ORDER BY\\
-	Fungsi dari kaluse ORDER BY adalah untuk mengurutkan \textit{query result} berdasarkan satu atau lebih kolom. Pada saat menggunakan ORDER BY, akan ditambahkan dua fungsi yaitu ASC (\textit{Ascending}) dan DESC (\textit{Descending}). Klause ini memiliki syntax seperti:
-	\begin{verbatim}
-		SELECT coloumn1, coloumn2, ...
-		FROM table_name
-		WHERE condition
-		GROUP BY column_name, ...
-		ORDER BY column_name, ... ASC|DESC
-	\end{verbatim}
+    \item SELECT dan FROM\\
+    Fungsi dari klause SELECT adalah untuk menentukan kolom dari suatu tabel yang ditampilkan dalam \textit{query result}. Fungsi dari klause FROM adalah Mengidentifikasi tabel yang ingin diambil datanya. Dalam mengambil data dari database setidaknya minimal harus menggunakan dua klause ini. Klause ini memiliki \textit{syntax} seperti:
+    \begin{verbatim}
+    SELECT coloumn1, coloumn2, ...
+    FROM table_name
+    \end{verbatim}
+    
+    \item WHERE\\
+    Fungsi dari klause WHERE adalah untuk membatasi jumlah baris dalam \textit{query result} berdasarkan kondisi tertentu. Klause WHERE digunakan jika terdapat beberapa kondisi yang ingin dicari dari database tersebut. Klause ini memiliki \textit{syntax} seperti:
+    \begin{verbatim}
+    SELECT coloumn1, coloumn2, ...
+    FROM table_name
+    WHERE condition
+\end{verbatim}
+    
+    \item GROUP BY\\
+    Fungsi dari kaluse GROUP BY adalah untuk mengelompokkan baris berdasarkan nilai kolom yang sama. Klause ini memiliki \textit{syntax} seperti:
+    \begin{verbatim}
+    SELECT coloumn1, coloumn2, ...
+    FROM table_name
+    WHERE condition
+    GROUP BY column_name, ...
+\end{verbatim}
+    
+    \item ORDER BY\\
+    Fungsi dari kaluse ORDER BY adalah untuk mengurutkan \textit{query result} berdasarkan satu atau lebih kolom. Pada saat menggunakan ORDER BY, akan ditambahkan dua fungsi yaitu ASC (\textit{Ascending}) dan DESC (\textit{Descending}). Klause ini memiliki \textit{syntax} seperti:
+    \begin{verbatim}
+    SELECT coloumn1, coloumn2, ...
+    FROM table_name
+    WHERE condition
+    GROUP BY column_name, ...
+    ORDER BY column_name, ... ASC|DESC
+\end{verbatim}
 \end{itemize}
 
 
@@ -54,285 +54,269 @@ Terdapat beberapa komponen atau klausa dari \textit{query} yang digunakan mengam
 \subsubsection{Query Aggregation}
 Didalam \textit{query} juga terdapat beberapa fungsi agregat untuk melakukan operasi tertentu yaitu:
 \begin{itemize}
-	\item MAX()\\
-	Fungsi ini bertujuan untuk mengembalikan nilai maksimal dari atribut sebuah tabel. Fungsi MAX memiliki contoh \textit{syntax} seperti:
-	\begin{verbatim}
-		SELECT MAX(column_name)
-		FROM table_name
-		WHERE condition;
-	\end{verbatim}
-	
-	\item MIN()\\
-	Fungsi ini bertujuan untuk mengembalikan nilai minimum dari atribut sebuah tabel. Fungsi MIN memiliki contoh \textit{syntax} seperti:
-	\begin{verbatim}
-		SELECT MIN(column_name)
-		FROM table_name
-		WHERE condition;
-	\end{verbatim}
-	
-	\item AVG()\\
-	Fungsi ini bertujuan untuk mengembalikan nilai rata-rata dari atribut sebuah tabel. Fungsi AVG memiliki contoh \textit{syntax} seperti:
-	\begin{verbatim}
-		SELECT AVG(column_name)
-		FROM table_name
-		WHERE condition;
-	\end{verbatim}  
-	
-	\item COUNT()
-	Fungsi ini bertujuan untuk mengembalikan jumlah baris dari atribut sebuah tabel. Fungsi COUNT memiliki contoh \textit{syntax} seperti:
-	\begin{verbatim}
-		SELECT COUNT(column_name)
-		FROM table_name
-		WHERE condition;
-	\end{verbatim} 
-	
-	\item SUM()
-	Fungsi ini bertujuan untuk mengembalikan jumlah baris dari atribut sebuah tabel. Fungsi SUM memiliki contoh \textit{syntax} seperti:
-	\begin{verbatim}
-		SELECT SUM(column_name)
-		FROM table_name
-		WHERE condition;
-	\end{verbatim} 
+    \item MAX()\\
+    Fungsi ini bertujuan untuk mengembalikan nilai maksimal dari atribut sebuah tabel. Fungsi MAX memiliki contoh \textit{syntax} seperti:
+    \begin{verbatim}
+        SELECT MAX(column_name)
+        FROM table_name
+        WHERE condition;
+    \end{verbatim}
+    
+    \item MIN()\\
+    Fungsi ini bertujuan untuk mengembalikan nilai minimum dari atribut sebuah tabel. Fungsi MIN memiliki contoh \textit{syntax} seperti:
+    \begin{verbatim}
+        SELECT MIN(column_name)
+        FROM table_name
+        WHERE condition;
+    \end{verbatim}
+    
+    \item AVG()\\
+    Fungsi ini bertujuan untuk mengembalikan nilai rata-rata dari atribut sebuah tabel. Fungsi AVG memiliki contoh \textit{syntax} seperti:
+    \begin{verbatim}
+        SELECT AVG(column_name)
+        FROM table_name
+        WHERE condition;
+    \end{verbatim}  
+    
+    \item COUNT()
+     Fungsi ini bertujuan untuk mengembalikan jumlah baris dari atribut sebuah tabel. Fungsi COUNT memiliki contoh \textit{syntax} seperti:
+    \begin{verbatim}
+        SELECT COUNT(column_name)
+        FROM table_name
+        WHERE condition;
+    \end{verbatim} 
+    
+    \item SUM()
+     Fungsi ini bertujuan untuk mengembalikan jumlah baris dari atribut sebuah tabel. Fungsi SUM memiliki contoh \textit{syntax} seperti:
+    \begin{verbatim}
+        SELECT SUM(column_name)
+        FROM table_name
+        WHERE condition;
+    \end{verbatim} 
 \end{itemize}
 
 
 \subsubsection{Querying Multiple Tables}
-Karena database relasional di-\textit{design} dibentuk dengan mengamanatkan bahwa setiap entitas dibuat kedalam tabel yang terpisah, sehingga dibutuhkan mekanisme untuk menghubungkan beberapa tabel dalam \textit{query} yang sama. Mekanisme ini disebut dengan join. Terdapat beberapa jenis join sebagai berikut:
+Karena database relasional di-\textit{design} dibentuk dengan mengamanatkan bahwa setiap entitas dibuat kedalam tabel yang terpisah, sehingga dibutuhkan mekanisme untuk menghubungkan beberapa tabel dalam \textit{query} yang sama. Mekanisme ini disebut dengan JOIN. Terdapat beberapa jenis JOIN sebagai berikut:
 \begin{itemize}
-	\item LEFT OUTER JOIN \\
-	Kata kunci kiri menunjukkan bahwa tabel di sisi kiri klausa from bertanggung jawab untuk menentukan jumlah baris dalam kumpulan hasil, sedangkan tabel di sisi kanan digunakan untuk memberikan nilai kolom setiap kali ditemukan kecocokan. LEFT OUTER JOIN memiliki \textit{syntax} seperti:
-	\begin{verbatim}
-		SELECT column_name(s)
-		FROM table1
-		LEFT (OUTER) JOIN table2
-		ON table1.column_name = table2.column_name;
-	\end{verbatim}
-	
-	\item RIGHT OUTER JOIN \\
-	Kata kunci kiri menunjukkan bahwa tabel di sisi kanan klausa from bertanggung jawab untuk menentukan jumlah baris dalam kumpulan hasil, sedangkan tabel di sisi kiri digunakan untuk memberikan nilai kolom setiap kali ditemukan kecocokan. RIGHT OUTER JOIN memiliki \textit{syntax} seperti:
-	\begin{verbatim}
-		SELECT column_name(s)
-		FROM table1
-		RIGHT (OUTER) JOIN table2
-		ON table1.column_name = table2.column_name;
-	\end{verbatim}
-	
-	\item FULL OUTER JOIN \\
-	Full outer join merupakan gabungan dari LEFT OUTER JOIN dan RIGHT OUTER JOIN. FULL OUTER JOIN memiliki \textit{syntax} seperti:
-	\begin{verbatim}
-		SELECT column_name(s)
-		FROM table1
-		FULL OUTER JOIN table2
-		ON table1.column_name = table2.column_name
-		WHERE condition;
-	\end{verbatim}
-	
-	\item INNER JOIN \\
-	Inner join menghubungkan dua atau lebih tabel dengan hubungan antara dua kolom. INNER JOIN memiliki \textit{syntax} seperti:
-	\begin{verbatim}
-		SELECT column_name(s)
-		FROM table1
-		INNER JOIN table2
-		ON table1.column_name = table2.column_name;
-	\end{verbatim}
+    \item LEFT OUTER JOIN \\
+    Kata kunci kiri menunjukkan bahwa tabel di sisi kiri klausa from bertanggung jawab untuk menentukan jumlah baris dalam kumpulan hasil, sedangkan tabel di sisi kanan digunakan untuk memberikan nilai kolom setiap kali ditemukan kecocokan. LEFT OUTER JOIN memiliki \textit{syntax} seperti:
+    \begin{verbatim}
+        SELECT column_name(s)
+        FROM table1
+        LEFT (OUTER) JOIN table2
+        ON table1.column_name = table2.column_name;
+    \end{verbatim}
+    
+    \item RIGHT OUTER JOIN \\
+    Kata kunci kiri menunjukkan bahwa tabel di sisi kanan klausa from bertanggung jawab untuk menentukan jumlah baris dalam kumpulan hasil, sedangkan tabel di sisi kiri digunakan untuk memberikan nilai kolom setiap kali ditemukan kecocokan. RIGHT OUTER JOIN memiliki \textit{syntax} seperti:
+    \begin{verbatim}
+        SELECT column_name(s)
+        FROM table1
+        RIGHT (OUTER) JOIN table2
+        ON table1.column_name = table2.column_name;
+    \end{verbatim}
+    
+    \item FULL OUTER JOIN \\
+    Full outer join merupakan gabungan dari LEFT OUTER JOIN dan RIGHT OUTER JOIN. FULL OUTER JOIN memiliki \textit{syntax} seperti:
+    \begin{verbatim}
+        SELECT column_name(s)
+        FROM table1
+        FULL OUTER JOIN table2
+        ON table1.column_name = table2.column_name
+        WHERE condition;
+    \end{verbatim}
+    
+    \item INNER JOIN \\
+    Inner join menghubungkan dua atau lebih tabel dengan hubungan antara dua kolom. INNER JOIN memiliki \textit{syntax} seperti:
+    \begin{verbatim}
+        SELECT column_name(s)
+        FROM table1
+        INNER JOIN table2
+        ON table1.column_name = table2.column_name;
+    \end{verbatim}
 \end{itemize}
 
 \subsubsection{Subquery}
-\textit{Subquery} merupakan query yang yang terkandung dalam \textit{query} lain. Sebuah \textit{subquery} selalu diapit dalam tanda kurung, dan biasanya dieksekusi terlebih dahulu sebelum \textit{query} yang memuatnya. Tabel yang dikembalikan oleh \textit{subquery} menentukan bagaimana tabel tersebut dapat digunakan dan operator mana yang dapat digunakan oleh \textit{query} yang memuatnya untuk berinteraksi dengan tabel yang dikembalikan oleh \textit{subquery}. Ketika query yang memuat telah selesai dieksekusi, tabel yang dikembalikan oleh \textit{subquery} akan dibuang, membuat \textit{subquery} bertindak seperti tabel sementara dengan cakupan pernyataan. Salah satu \textit{syntax} pada \textit{subquery} adalah sebagai berikut:
+\textit{Subquery} merupakan \textit{query} yang yang terkandung dalam \textit{query} lain. Sebuah \textit{subquery} selalu diapit dalam tanda kurung, dan biasanya dieksekusi terlebih dahulu sebelum \textit{query} yang memuatnya. Tabel yang dikembalikan oleh \textit{subquery} menentukan bagaimana tabel tersebut dapat digunakan dan operator mana yang dapat digunakan oleh \textit{query} yang memuatnya untuk berinteraksi dengan tabel yang dikembalikan oleh \textit{subquery}. Ketika \textit{query} yang memuat telah selesai dieksekusi, tabel yang dikembalikan oleh \textit{subquery} akan dibuang, membuat \textit{subquery} bertindak seperti tabel sementara dengan cakupan pernyataan. Salah satu \textit{syntax} pada \textit{subquery} adalah sebagai berikut:
 \begin{verbatim}
-	SELECT column_name(s)
-	FROM (subquery)
+    SELECT column_name(s)
+    FROM (subquery)
 \end{verbatim}
 
+\section{Chrome User Experience Report (CrUX)}
+CrUX adalah sebuah dataset yang bersifat publik yang berisi data user experience dari jutaan website. Data ini berasal dari data yang dikumpulkan dari pengguna yang telah memilih untuk mengsinkronkan \textit{browsing history} mereka.  
 
 \section{HTTP Archive \cite{httparchiveAbout}}
-HTTP Archive adalah sebuah \textit{open-source project} yang melihat bagaimana website dibuat. HTTP Archive menyediakan data-data historis untuk melihat bagaimana website berkembang. HTTP Archive pertama sekali dimulai pada tahun 2010 oleh Steve Souders dan di-\textit{maintain} oleh Pat Meenan, Rick Viscomi, Paul Calvano, and Barry Pollard. HTTP Arhive memiliki keterbatasan seperti HTTP Archive hanya melihat halaman utama. Misalnya sebagian besar \textit{website} terdiri dari banyak halaman web terpisah. Karena batasan ini sehingga ada kemungkinan bahwa suatu halaman yang dianalisis tidak mewakili sebuah situs website. Orang yang menggunakan HTTP Archive adalah anggota komunitas web, para sarjana, dan pemimpin industri:
+HTTP Archive adalah sebuah \textit{open-source project} yang melihat bagaimana \textit{website} dibuat. HTTP Archive menyediakan data-data historis untuk melihat bagaimana \textit{website} berkembang. HTTP Archive pertama sekali dimulai pada tahun 2010 oleh Steve Souders dan di-\textit{maintain} oleh Pat Meenan, Rick Viscomi, Paul Calvano, and Barry Pollard. HTTP Arhive memiliki keterbatasan seperti HTTP Archive hanya melihat halaman utama. Misalnya sebagian besar \textit{website} terdiri dari banyak halaman web terpisah. Karena batasan ini sehingga ada kemungkinan bahwa suatu halaman yang dianalisis tidak mewakili sebuah situs \textit{website}. Data url HTTP Archive didapatkan menggunakan CrUX kemudian url dikirimkan ke WebPageTest setiap bulannya. Orang yang menggunakan HTTP Archive adalah anggota komunitas web, para sarjana, dan pemimpin industri:
 \begin{itemize}
-	\item Komunitas web menggunakan data ini untuk mempelajari lebih lanjut tentang keadaan web. Biasanya dapat dilihat pada blog, presentasi, atau media sosial. 
-	\item Para sarjana mengutip data ini untuk mendukung penelitian dalam publikasi besar seperti ACM dan IEEE.
-	\item Para pemimpin industri menggunakan data ini untuk mengkalibrasi alat mereka untuk secara akurat mewakili bagaimana web dibuat.
+    \item Komunitas web menggunakan data ini untuk mempelajari lebih lanjut tentang keadaan web. Biasanya dapat dilihat pada blog, presentasi, atau media sosial. 
+    \item Para sarjana mengutip data ini untuk mendukung penelitian dalam publikasi besar seperti ACM dan IEEE.
+    \item Para pemimpin industri menggunakan data ini untuk mengkalibrasi alat mereka untuk secara akurat mewakili bagaimana web dibuat.
 \end{itemize}
 
 
-\section{Web Almanac \cite{webalmanacMetho}}
-Web Almanac adalah sebuah projek yang dikelola oleh HTTP Archive. Misi web almanac adalah menggabungkan statistik mentah dan tren HTTP Archive dengan keahlian komunitas web. Semua metrik yang disediakan oleh web almanac dapat direproduksi secara publik menggunakan dataset di BigQuery. Kueri dapat ditelusuri dengan menggunakan semua bab di repositori GitHub web almanac yang dapat dilihat pada \footnote{https://github.com/HTTPArchive/almanac.httparchive.org/tree/main/sql/2020}: 
-\begin{enumerate}
-	\item Accessibility\\
-	Aksesibilitas web adalah tentang pencapaian fitur dan informasi serta memberikan akses lengkap ke semua aspek antarmuka bagi orang yang tidak memiliki akses. Sebuah produk digital atau situs web tidak lengkap jika tidak dapat digunakan oleh semua orang. 
-	\item Caching\\
-	Caching adalah teknik yang memungkinkan penggunaan kembali konten yang diunduh sebelumnya. Caching melibatkan sesuatu seperti server atau web browser untuk menyimpan konton dan menandainya agar dapat digunakan kembali.
-	\item Capabilities\\
-	Capabilties memberikan \textit{overview} tentang berbagai API web modern. Hal ini penting untuk menjaga web tetap relevan sebagai platform. 
-	\item CMS\\
-	Istilah CMS mengacu pada sistem yang memungkinkan individu dan organisasi untuk membuat, mengelola, dan mempublikasikan konten. CMS pada konton web adalah sistem yang bertujuan untuk membuat, mengelola, dan menerbitkan konten untuk dikonsumsi dan dialami melalui internet.
-	\item Compression\\
-	Menggunakan HTTP Compression membuat pemuatan situs lebih cepat dan menjamin pengalaman penggunaan yang lebih baik. Penggunaan compression yang efektif dapat mengurangi berat halaman dan meningkatkan kinerja web.
-	\item CSS\\
-	CSS adalah bahasa yang digunakan untuk membuat tampilan dan format pada web dan media lainnya.
-	\item Ecommerce\\
-	Ecommerce platform adalah perangkat lunak atau layanan yang memungkinkan untuk membuat dan mengoperasikan sebuah toko online.
-	\item Fonts\\
-	Fonts adalah bagian penting dalam sebuah situs web dan tipografi adalah seni menyajikan teks tersebut dengan cara yang menarik dan efektif secara visual. Dalam pembuatan tipografi yang baik dibutuhkan pemilihan font yang sesuai. Dalam hal ini akan ditunjukkan bagaimana font web digunakan dan bagaimanafont tersebut dioptimalkan. 
-	\item HTTP\\
-	HTTP adalah protokol lapisan aplikasi yang dirancang untuk mentransfer informasi antara perangkat jaringan dan berjalan di atas lapisan lain dari tumpukan protokol jaringan. Dalam web almanac akan mengulas bagaimana status penerapan HTTP/2 atau HTTP versi dua pada saat ini.
-	\item Jamstack\\
-	Jamstack adalah konsep arsitektur yang relatif baru yang dirancang untuk membuat web lebih cepat, lebih aman, dan lebih mudah untuk diskalakan. Dalam web almanac akan memperkirakan dan menganalisis pertumbuhan situs Jamstack, kinerja kerangka kerja Jamstack populer, serta analisis pengalaman pengguna nyata menggunakan metrik Core Web Vitals.
-	\item Javascript\\
-	JavaScript adalah bahasa pemograman yang digunakan untuk menentukan perilaku. 
-	\item Markup\\
-	HTML adalah dasar dari sebuah website yang akan ditampilkan ke-\textit{user}. Dalam web almanac mengacu pada kumpulan halaman \textit{mobile}.
-	\item Media\\
-	Pada web alamanac, media digunakan untuk menganalisa bagaimana menggunakan gambar dan video di web.
-	\item Mobile-web\\
-	Saat ini, mobile-web sudah menjadi cara utama banyak orang untuk mengakses website. Dalam mobile-web akan terlihat tren saat ini pada mobile-web.
-	\item Page-weight\\
-	Page-weight adalah salah satu metrik sederhana yang tersedia. Memuat sebuah halaman akan memberikan gambaran tentang ukuran dari \textit{resource} yang diambil atau di-\textit{request}.    \item Performance\\
-	Dalam web almanac, akan melihat data kinerja di dunia nyata yang disediakan oleh Laporan Pengalaman Pengguna Chrome (CrUX) melalui lensa perkembangan baru tersebut serta menganalisis beberapa metrik relevan lainnya.
-	\item Privacy\\
-	Web almanac memberikan gambaran umum tentang keadaan privasi saat ini di web. Hal ini bertujuan untuk meningkatkan akuntabilitas pemroses data dan transparansi mereka terhadap pengguna. Dalam hal ini, kami membahas prevalensi pelacakan online dengan berbagai teknik dan tingkat adopsi spanduk persetujuan cookie dan kebijakan privasi oleh situs web.
-	\item PWA\\
-	Dalam web almanac, kita akan melihat setiap komponen yang membuat PWA seperti apa adanya, dari perspektif berbasis data.
-	\item Resource-hints\\
-	
-	\item Security\\
-	Dalam web almanac, akan dilakukan menganalisis penerapan berbagai fitur keamanan secara mendalam dan dalam skala besar, kami mengumpulkan wawasan tentang berbagai cara pemilik situs web menerapkan mekanisme keamanan ini, didorong oleh insentif untuk melindungi penggunanya.
-	\item SEO\\
-	Dalam web almanac, untuk mengidentifikasi dan menilai elemen dan konfigurasi utama yang berperan dalam pengoptimalan pencarian organik situs web.
-	\item Third-parties\\
-	Web almanac meninjau prevalensi konten pihak ketiga dan bagaimana hal ini telah berubah sejak 2019.
-\end{enumerate}
+
+% \section{Web Almanac \cite{webalmanacMetho}}
+% Web Almanac adalah sebuah project yang dikelola oleh HTTP Archive. Misi web almanac adalah membuat gudang data untuk HTTP ARchive agar dapat diakses dengan mudah oleh komunitas web. Semua metrik yang disediakan oleh web almanac dapat direproduksi secara publik menggunakan dataset di BigQuery. Kueri dapat ditelusuri dengan menggunakan semua bab di repositori GitHub web almanac yang dapat dilihat pada \footnote{https://github.com/HTTPArchive/almanac.httparchive.org/tree/main/sql/2020}: 
+% \begin{enumerate}
+%     \item Accessibility\\
+%     Aksesibilitas web adalah tentang pencapaian fitur dan informasi serta memberikan akses lengkap ke semua aspek antarmuka bagi orang yang tidak memiliki akses. Sebuah produk digital atau situs web tidak lengkap jika tidak dapat digunakan oleh semua orang. 
+%     \item Caching\\
+%     Caching adalah teknik yang memungkinkan penggunaan kembali konten yang diunduh sebelumnya. Caching melibatkan sesuatu seperti server atau web browser untuk menyimpan konton dan menandainya agar dapat digunakan kembali.
+%     \item Capabilities\\
+%     Capabilties memberikan \textit{overview} tentang berbagai API web modern. Hal ini penting untuk menjaga web tetap relevan sebagai platform. 
+%     \item CMS\\
+%     Istilah CMS mengacu pada sistem yang memungkinkan individu dan organisasi untuk membuat, mengelola, dan mempublikasikan konten. CMS pada konton web adalah sistem yang bertujuan untuk membuat, mengelola, dan menerbitkan konten untuk dikonsumsi dan dialami melalui internet.
+%     \item Compression\\
+%     Menggunakan HTTP Compression membuat pemuatan situs lebih cepat dan menjamin pengalaman penggunaan yang lebih baik. Penggunaan compression yang efektif dapat mengurangi berat halaman dan meningkatkan kinerja web.
+%     \item CSS\\
+%     CSS adalah bahasa yang digunakan untuk membuat tampilan dan format pada web dan media lainnya.
+%     \item Ecommerce\\
+%     Ecommerce platform adalah perangkat lunak atau layanan yang memungkinkan untuk membuat dan mengoperasikan sebuah toko online.
+%     \item Fonts\\
+%     Fonts adalah bagian penting dalam sebuah situs web dan tipografi adalah seni menyajikan teks tersebut dengan cara yang menarik dan efektif secara visual. Dalam pembuatan tipografi yang baik dibutuhkan pemilihan font yang sesuai. Dalam hal ini akan ditunjukkan bagaimana font web digunakan dan bagaimanafont tersebut dioptimalkan. 
+%     \item HTTP\\
+%     HTTP adalah protokol lapisan aplikasi yang dirancang untuk mentransfer informasi antara perangkat jaringan dan berjalan di atas lapisan lain dari tumpukan protokol jaringan. Dalam web almanac akan mengulas bagaimana status penerapan HTTP/2 atau HTTP versi dua pada saat ini.
+%     \item Jamstack\\
+%     Jamstack adalah konsep arsitektur yang relatif baru yang dirancang untuk membuat web lebih cepat, lebih aman, dan lebih mudah untuk diskalakan. Dalam web almanac akan memperkirakan dan menganalisis pertumbuhan situs Jamstack, kinerja kerangka kerja Jamstack populer, serta analisis pengalaman pengguna nyata menggunakan metrik Core Web Vitals.
+%     \item Javascript\\
+%     JavaScript adalah bahasa pemograman yang digunakan untuk menentukan perilaku. 
+%     \item Markup\\
+%     HTML adalah dasar dari sebuah \textit{website} yang akan ditampilkan ke-\textit{user}. Dalam web almanac mengacu pada kumpulan halaman \textit{mobile}.
+%     \item Media\\
+%     Pada web alamanac, media digunakan untuk menganalisa bagaimana menggunakan gambar dan video di web.
+%     \item Mobile-web\\
+%     Saat ini, mobile-web sudah menjadi cara utama banyak orang untuk mengakses \textit{website}. Dalam mobile-web akan terlihat tren saat ini pada mobile-web.
+%     \item Page-weight\\
+%     Page-weight adalah salah satu metrik sederhana yang tersedia. Memuat sebuah halaman akan memberikan gambaran tentang ukuran dari \textit{resource} yang diambil atau di-\textit{request}.    \item Performance\\
+%     Dalam web almanac, akan melihat data kinerja di dunia nyata yang disediakan oleh Laporan Pengalaman Pengguna Chrome (CrUX) melalui lensa perkembangan baru tersebut serta menganalisis beberapa metrik relevan lainnya.
+%     \item Privacy\\
+%     Web almanac memberikan gambaran umum tentang keadaan privasi saat ini di web. Hal ini bertujuan untuk meningkatkan akuntabilitas pemroses data dan transparansi mereka terhadap pengguna. Dalam hal ini, kami membahas prevalensi pelacakan online dengan berbagai teknik dan tingkat adopsi spanduk persetujuan cookie dan kebijakan privasi oleh situs web.
+%     \item PWA\\
+%     Dalam web almanac, kita akan melihat setiap komponen yang membuat PWA seperti apa adanya, dari perspektif berbasis data.
+%     \item Resource-hints\\
+%     % Dalam web almanac, \textit{resource hints} berguna untuk mendefinisikan hubungan dns-prefetch, preconnect, prefetch, dan prerender dari \textit{HTML Link Element}. 
+%     \item Security\\
+%     Dalam web almanac, akan dilakukan menganalisis penerapan berbagai fitur keamanan secara mendalam dan dalam skala besar, kami mengumpulkan wawasan tentang berbagai cara pemilik situs web menerapkan mekanisme keamanan ini, didorong oleh insentif untuk melindungi penggunanya.
+%     \item SEO\\
+%     Dalam web almanac, untuk mengidentifikasi dan menilai elemen dan konfigurasi utama yang berperan dalam pengoptimalan pencarian organik situs web.
+%     \item Third-parties\\
+%     Web almanac meninjau prevalensi konten pihak ketiga dan bagaimana hal ini telah berubah sejak 2019.
+% \end{enumerate}
 
 
 
-\section{OSEMN Framework}
-OSEMN merupakan data science framework yang memberikan langkah-langkah pengerjaan proyek.\footnote{https://towardsdatascience.com/5-steps-of-a-data-science-project-lifecycle-26c50372b492}
-\subsection{Obtain Data}
-Obatain data berarti mengumpulkan data dari berbagai sumber. Langkah ini adalah langkah pertama. Mengumpulkan data sangat penting karena dalam melakukan sebuah proyek harus memiliki data. Data dapat didapat dengan meng-query dari database.
-
-\subsection{Scrub Data}
-Pada proses scrubbing data, data yang dikumpulkan tersebut akan dibersihkan atau difilter. Jika menggunakan data yang tidak difilter maka akan mempengaruhi keakuratan hasil akhir. Scrubbing data bisa saja merupakan ekstraksi data dan bertukar nilai.
-
-\subsection{Explore Data}
-Pada explore data, akan dilakukan pengecekan terhadap tipe dari data. Kemudian data-data tersebut akan dikumpulkan dan dibandingkan sehingga mendapat kesimpulan dari data yang ingin dicari. 
-
-\subsection{Model Data}
-Model data adalah pembuatan hasil akhir dari data yang diselidiki. Tujuan dari model data adalah mengelompokan data untuk memahami logika di balik cluster tersebut. 
-
-\subsection{Interpreting Data}
-Interpreting data mengacu pada penyajian data, penyampaian hasil agar dapat menunjukkan kesimpulan. Hasil-hasil yang ditunjukkan dapat berupa grafik-garfik agar dapat dijelaskan secara jelas dan aplikatif.
-
-
-
-
-\section{Pengukuran Aplikasi Usang Pada Beberapa Website Populer Di Indonesia\cite{pascal}}
+\section{Pengukuran Aplikasi Usang Pada Beberapa \textit{website} Populer Di Indonesia\cite{pascal}}
 Pada bagian ini akan dijelaskan tentang research method dan hasil keseluruhan dari \cite{pascal}.
+
 \subsection{\textit{Research Method}}
 \begin{enumerate}
-	\item Memilih list website yang populer\\
-	Memilih website paling populer dilakukan dengan mengambil daftar dari website teratas dari Alexa dengan negara tertentu.
-	\item Mengidentifikasi aplikasi yang dipakai website\\
-	Untuk setiap website akan dilakukan pengidentifikasian nomor versi yang dipakai. Hal ini dibantu dengan menggunakan \textit{third party} yaitu Wappalyzer. 
-	\item Mengelompokkan berdasarkan nama aplikasi dan ambil versi yang didukung\\
-	Untuk melihat nomor versi yang masih didukung akan dilakukan pencarian di website resmi dari setiap aplikasi. Terdapat beberapa website yang tidak dapat ditampilkan versinya, sehingga suatu website dapat didefinisikan didukung jika memenuhi kondisi sebagai beikut:
-	\begin{itemize}
-		\item Versi aplikasi yang didukung dapat dilihat secara eksplisit di dalam website.
-		\item Dokumen untuk versi aplikasi tersebut masih tersedia.
-		\item Aplikasi secara langsung memberikan pernyataan untuk versi yang masih didukung.
-	\end{itemize}
-	
-	\item Membandingkan versi yang dipakai aplikasi saat ini dengan versi aplikasi yang didukung dapat dilihat pada gambar \ref{fig:apr}\\
-	Buka kembali setiap aplikasi kemudian menggunakan Wappalyzer untuk membandingkan versi aplikasi yang dipakai dengan versi aplikasi yang masih didukung. Klasifikasikan setiap aplikasi di setiap situs web menjadi salah satu dari berikut ini:
-	\begin{itemize}
-		\item \textit{Not-versioned} berarti aplikasi yang terdeteksi oleh Wappalyzer tidak memiliki informasi versi sehingga tidak dapat dibandingkan.
-		\item Non-konklusif dapat berarti salah satu dari dua:
-		\begin{itemize}
-			\item Dapat mengambil nomor versi yang digunakan dalam aplikasi, tetapi kami tidak dapat menentukan apakah versi tersebut masih didukung atau tidak oleh pengelola.
-			\item Versi yang didukung untuk aplikasi tertentu tidak diketahui.
-		\end{itemize}
-		\item Tidak didukung berarti dapat disimpulkan bahwa aplikasi yang digunakan menggunakan nomor versi yang tidak didukung oleh pengelola.
-		\item Didukung berarti dapat disimpulkan bahwa aplikasi yang digunakan menggunakan nomor versi masih didukung oleh pengelola.
-	\end{itemize}
-	\begin{figure}[H]
-		\centering  
-		\includegraphics[scale=0.9]{Gambar/compare_version.PNG}  
-		\caption{\textit{ Algorithm to compare current version versus supported versions}} 
-		\label{fig:apr} 
-	\end{figure}
+    \item Memilih list \textit{website} yang populer\\
+    Memilih \textit{website} paling populer dilakukan dengan mengambil daftar dari \textit{website} teratas dari Alexa dengan negara tertentu.
+    \item Mengidentifikasi aplikasi yang dipakai \textit{website}\\
+    Untuk setiap \textit{website} akan dilakukan pengidentifikasian nomor versi yang dipakai. Hal ini dibantu dengan menggunakan \textit{third party} yaitu Wappalyzer. 
+    \item Mengelompokkan berdasarkan nama aplikasi dan ambil versi yang didukung\\
+    Untuk melihat nomor versi yang masih didukung akan dilakukan pencarian di \textit{website} resmi dari setiap aplikasi. Terdapat beberapa \textit{website} yang tidak dapat ditampilkan versinya, sehingga suatu \textit{website} dapat didefinisikan didukung jika memenuhi kondisi sebagai beikut:
+    \begin{itemize}
+        \item Versi aplikasi yang didukung dapat dilihat secara eksplisit di dalam \textit{website}.
+        \item Dokumen untuk versi aplikasi tersebut masih tersedia.
+        \item Aplikasi secara langsung memberikan pernyataan untuk versi yang masih didukung.
+    \end{itemize}
+    
+    \item Membandingkan versi yang dipakai aplikasi saat ini dengan versi aplikasi yang didukung dapat dilihat pada gambar \ref{fig:apr}\\
+    Buka kembali setiap aplikasi kemudian menggunakan Wappalyzer untuk membandingkan versi aplikasi yang dipakai dengan versi aplikasi yang masih didukung. Klasifikasikan setiap aplikasi di setiap situs web menjadi salah satu dari berikut ini:
+    \begin{itemize}
+        \item \textit{Not-versioned} berarti aplikasi yang terdeteksi oleh Wappalyzer tidak memiliki informasi versi sehingga tidak dapat dibandingkan.
+        \item Non-konklusif dapat berarti salah satu dari dua:
+        \begin{itemize}
+            \item Dapat mengambil nomor versi yang digunakan dalam aplikasi, tetapi kami tidak dapat menentukan apakah versi tersebut masih didukung atau tidak oleh pengelola.
+            \item Versi yang didukung untuk aplikasi tertentu tidak diketahui.
+        \end{itemize}
+        \item Tidak didukung berarti dapat disimpulkan bahwa aplikasi yang digunakan menggunakan nomor versi yang tidak didukung oleh pengelola.
+        \item Didukung berarti dapat disimpulkan bahwa aplikasi yang digunakan menggunakan nomor versi masih didukung oleh pengelola.
+    \end{itemize}
+    \begin{figure}[H]
+	\centering  
+	\includegraphics[scale=0.9]{Gambar/compare_version.PNG}  
+	\caption{\textit{ Algorithm to compare current version versus supported versions}} 
+	\label{fig:apr} 
+\end{figure}
 \end{enumerate}
 
 
 \subsection{\textit{Hasil Keseluruhan}}
 Pada paper\cite{pascal}, dari 1.500 URL yang dideteksi oleh Wappalyzer, hanya 1.439 URL yang berhasil diidentifikasi. Dari 1.500 URL terebut ditemukan total 12.762 aplikasi yang dapat dilihat pada tabel \ref{table:apr}
 \begin{table}[h!]
-	\centering
-	\begin{tabular}{lrr} 
-		\hline
-		\textbf{Result} & \textbf{Application count} & \textbf{Percentage}\\
-		\hline
-		Not-versioned & 8,980 & 70.37\\
-		Non-conclusive & 1,409 & 11.04\\
-		Unsupported & 1,508 & 11.82\\
-		Supported & 865 & 6.78\\
-		\hline
-		Total & 12,762 & 100.00\\
-		\hline
-		
-	\end{tabular}
-	\caption{Overall application count for measurement result}
-	\label{table:apr}
+\centering
+\begin{tabular}{lrr} 
+ \hline
+ \textbf{Result} & \textbf{Application count} & \textbf{Percentage}\\
+ \hline
+ Not-versioned & 8,980 & 70.37\\
+ Non-conclusive & 1,409 & 11.04\\
+ Unsupported & 1,508 & 11.82\\
+ Supported & 865 & 6.78\\
+ \hline
+ Total & 12,762 & 100.00\\
+ \hline
+
+\end{tabular}
+\caption{Overall application count for measurement result}
+\label{table:apr}
 \end{table}
 
 \section{ReactJS}
 ReactJS merupakan \textit{library} yang disediakan JavaScript untuk membuat \textit{interface}. ReactJS dibuat oleh Facebook. Berikut ini contoh sintaks pada ReactJS:
 \begin{lstlisting}
-	class HelloMessage extends React.Component {
-		render() {
-			return (
-			<div>
-			Hello {this.props.name}
-			</div>
-			);
-		}
-	}
-	
-	ReactDOM.render(
-	<HelloMessage name="World" />,
-	document.getElementById('hello-example')
-	);
+    class HelloMessage extends React.Component {
+  render() {
+    return (
+      <div>
+        Hello {this.props.name}
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <HelloMessage name="World" />,
+  document.getElementById('hello-example')
+);
 \end{lstlisting}
 
 \subsection{\textit{Node Package Manager}}
-Node Package Manager (NPM) adalah \textit{software registry} yang digunakan untuk meminjam atau membagikan \textit{software library} \cite{npmAbout}. NPM terdiri dari tiga komponen penting, yaitu:
+Node \textit{Package} Manager (NPM) adalah \textit{software registry} yang digunakan untuk meminjam atau membagikan \textit{software library} \cite{npmAbout}. NPM terdiri dari tiga komponen penting, yaitu:
 \begin{itemize}
-	\item NPM website.
-	\item NPM CLI ( \textit{Command Line Interface}). 
-	\item NPM \textit{Registry}.
+    \item NPM \textit{website}.
+    \item NPM CLI ( \textit{Command Line Interface}). 
+    \item NPM \textit{Registry}.
 \end{itemize}
 
 Beberapa kegunaan dari menggunakan NPM adalah:
 \begin{itemize}
-	\item Membagikan kode kepada pengguna NPM lainnya dimanapun.
-	\item Men\textit{-download software library}
-	\item Menjalankan pack\textit{}age tanpa harus meng-\textit{install} npx
+    \item Membagikan kode kepada pengguna NPM lainnya dimanapun.
+    \item Men\textit{-download software library}
+    \item Menjalankan pack\textit{}age tanpa harus meng-\textit{install} npx
 \end{itemize}
 
 \subsection{NPM CLI}
 NPM merupakan \textit{package manager} untuk \textit{Node JavaScript}. NPM menempatkan modul sehingga dapat ditemukan oleh \textit{node}. Selain itu NPM juga dapat mengelola \textit{dependency conflicts.} NPM digunakan untuk menginstall dan mengembangkan \textit{node program.}. Dalam penulisan NPM dapat dilakukan didalam CLI \textit{(Command Line Interface)}. NPM memiliki tiga komponen penting dalam penulisan perintah CLI, komponen tersebut seperti:
 \begin{verbatim}
-	npm <command> [args]
+    npm <command> [args]
 \end{verbatim}
 
 \subsection{NPX}
-NPX merupakan \textit{execute NPM package binaries.}. NPX digunakan untuk menjalan \textit{command} yang dimiliki NPM. NPX mengeksekusi file \textit{binary} dari \textit{package} \textit{Node.js}, baik yang sudah terinstal maupun yang belum. Pembuatan project react dapat dilakukan dengan menggunakan sintaks:
-\begin{verbatim}
-	npx create-react-app my-app
-	cd my-app
-	npm start
-\end{verbatim}
+NPX merupakan \textit{execute NPM package binaries}. NPX digunakan untuk menjalan \textit{command} yang dimiliki NPM. NPX mengeksekusi file \textit{binary} dari \textit{package} \textit{Node.js}, baik yang sudah terinstal maupun yang belum. Pembuatan \textit{project} react dapat dilakukan dengan menggunakan sintaks:
+    \begin{verbatim}
+        npx create-react-app my-app
+        cd my-app
+        npm start
+    \end{verbatim}
 
 \section{JSON}
 JSON (JavaScript Object Notation) merupakan format penulisan data yang mudah untuk dibaca manusia maupun mesin. JSON adalah format teks yang bersifat \textit{language independent} tetapi menggunakan konvensi yang akrab bagi programmer C, Java, JavaScript, Perl, Python, dan banyak lainnya. Properti ini menjadikan JSON sebagai bahasa pertukaran data yang ideal. Terdapat dua struktur dalam JSON:
 \begin{itemize}
-	\item Kumpulan pasangan nilai yang akan dibuat menjadi sebuah objek, \textit{hash table}, dan lainnya.
-	\item Daftar nilai yang diurutkan, seperti array, vektor, dan lainnya.
+    \item Kumpulan pasangan nilai yang akan dibuat menjadi sebuah objek, \textit{hash table}, dan lainnya.
+    \item Daftar nilai yang diurutkan, seperti array, vektor, dan lainnya.
 \end{itemize}
