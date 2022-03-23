@@ -210,7 +210,11 @@ HTTP Archive adalah sebuah \textit{open-source project} yang melihat bagaimana \
 \section{Pengukuran Aplikasi Usang Pada Beberapa \textit{website} Populer Di Indonesia\cite{pascal}}
 Pada bagian ini akan dijelaskan tentang research method dan hasil keseluruhan dari \cite{pascal}.
 
+\subsection{Penjelasan Pada Jurnal \textit{Measuring Unsupported Applications in Indonesia Popular Websites}\cite{pascal}}
+Pada jurnal ini menjelaskan bahwa dalam bidang keamanan komputer, terdapat berbagai jenis metode dalam menyerang kerentanan pada sebuah sistem. Pengelola sistem yang sudah terkena dampak harus memperbarui sistemnya. Penelitian ini mengusulkan metode untuk melakukan pengukuran website tentang seberapa banyak penggunaan aplikasi yang tidak didukung. Pada penelitian ini dibataskan pada mendeteksi versi aplikasi yang digunakan dan bukan jenis patch kerentanan lainnya.
+
 \subsection{\textit{Research Method}}
+Terdapat empat langkah dalam metodologi ini yaitu:
 \begin{enumerate}
     \item Memilih list \textit{website} yang populer\\
     Memilih \textit{website} paling populer dilakukan dengan mengambil daftar dari \textit{website} teratas dari Alexa dengan negara tertentu.
@@ -246,7 +250,7 @@ Pada bagian ini akan dijelaskan tentang research method dan hasil keseluruhan da
 
 
 \subsection{\textit{Hasil Keseluruhan}}
-Pada paper\cite{pascal}, dari 1.500 URL yang dideteksi oleh Wappalyzer, hanya 1.439 URL yang berhasil diidentifikasi. Dari 1.500 URL terebut ditemukan total 12.762 aplikasi yang dapat dilihat pada tabel \ref{table:apr}
+Pada jurnal\cite{pascal}, dari 1.500 URL yang dideteksi oleh Wappalyzer, hanya 1.439 URL yang berhasil diidentifikasi. Dari 1.500 URL terebut ditemukan total 12.762 aplikasi yang dapat dilihat pada tabel \ref{table:apr}
 \begin{table}[h!]
 \centering
 \begin{tabular}{lrr} 
@@ -264,6 +268,97 @@ Pada paper\cite{pascal}, dari 1.500 URL yang dideteksi oleh Wappalyzer, hanya 1.
 \end{tabular}
 \caption{Overall application count for measurement result}
 \label{table:apr}
+\end{table}
+
+Tabel \ref{table:first-ten} adalah daftar sepuluh website yang paling popular. Dari daftar tersebut terlihat banyak sekali website yang menggunakan aplikasi yang tidak ada informasi versinya. Tetapi untuk yang ada informasi versinya, terdapat beberapa aplikasi yang sudah tidak didukung. Beberapa aplikasi yang sudah tidak didukung dari sepuluh website tersebut adalah Bootstrap, Font Awesome, jQuery, dan PHP. Pada tabel \ref{table:n-result} terdapat 1,500 website yang dipisahkan setiap 150 website yang diurutkan berdasarkan rank website tersebut. Untuk setiap baris pada tabel tersebut akan dihitung website yang menggunakan n aplikasi yang sudah tidak didukung. 
+\begin{table}[H]
+	\centering
+	\begin{tabular}{rlcccc} 
+		\hline
+		\textbf{rank} & \textbf{domain name} & \textbf{not-versioned} & \textbf{non-conclusive} & \textbf{unsupported} & \textbf{supported}\\
+		\hline
+		1 & okezone.com & 7&0&1&1\\
+		\hline
+		2 & google.com & 1&0&0&0\\
+		\hline
+		3 & tribunnews.com & 11&2&2&0\\
+		\hline
+		4 & youtube.com & 1&1&0&0\\
+		\hline
+		5 & grid.id & 11&1&2&1\\
+		\hline
+		6 & detik.com & 8&3&0&0\\
+		\hline
+		7 & kompas.com & 10&2&1&0\\
+		\hline
+		8 & sindonews.com & 4&1&1&0\\
+		\hline
+		9 & tokopedia.com & 5&0&0&0\\
+		\hline
+		10 & liputan6.com & 11&1&1&0\\
+		\hline
+\end{tabular}
+\caption{First ten result of measurement}
+\label{table:first-ten}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{rccccc} 
+		\hline
+		\textbf{rank} & \textbf{r=0} & \textbf{r=1} & \textbf{r=2} & \textbf{r=3} & \textbf{r=4}\\
+			\hline
+			1-150 & 56 & 58&26&9&1\\
+			\hline
+			151-300 & 52 & 55&29&12&2\\
+			\hline
+			301-450 & 59 & 43&32&10&6\\
+			\hline
+			451-600 & 56 & 48&22&21&3\\
+			\hline
+			601-750 & 59 & 58&22&10&1\\
+			\hline
+			751-900 & 68 & 44&25&8&5\\
+			\hline
+			901-1,050 & 65 & 42&30&10&3\\
+			\hline
+			1,051-1200 & 56 & 46&34&10&4\\
+			\hline
+			1201-1,350 & 50 & 57&31&11&1\\
+			\hline
+			1,350-1,500 & 62 & 46&29&11	&2\\
+			\hline
+		\end{tabular}
+		\caption{Number of unsupported applications grouped by website rank}
+		\label{table:n-result}
+	\end{table}
+
+Pada tabel \ref{table:most-used}, terdapat beberapa aplikasi yang banyak digunakan. Beberapa aplikasi tersebut diambil dari 1.500 \textit{website} teratas dan memfilter aplikasi yang versinya tidak dapat diidentifikasi di salah satu dari 1.500 \textit{website} teratas.
+\begin{table}[H]
+	\centering
+	\begin{tabular}{rlcccc} 
+		\hline
+		\textbf{numsites} & \textbf{name} & \textbf{supported} & \textbf{unsupported} & \textbf{non-conclusive} & \textbf{not-versioned}\\
+		\hline
+		1,011 & jQuery & 260&737&0&14\\
+		\hline
+		591 & PHP & 118&127&0&346\\
+		\hline
+		478 & Nginx & 5&116&0&357\\
+		\hline
+		430 & Bootstrap & 114&228&0&88\\
+		\hline
+		400 & Font Awesome & 70&157&13&160\\
+		\hline
+		346 & WordPress & 118&41&6&181\\
+		\hline
+		298 & jQuery Migrate & 0&0&267&31\\
+		\hline
+		237 & Apache & 79&10&2&146	\\
+		\hline
+	\end{tabular}
+	\caption{Top applications used}
+	\label{table:most-used}
 \end{table}
 
 \section{ReactJS}
