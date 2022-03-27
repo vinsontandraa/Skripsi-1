@@ -15,14 +15,14 @@ SQL adalah bahasa pemograman menghasilkan, memanipulasi, dan mengambil informasi
 Terdapat beberapa komponen atau klausa dari \textit{query} yang digunakan mengambil dan menghasilkan data dari database, seperti:
 \begin{itemize}
     \item SELECT dan FROM\\
-    Fungsi dari klause SELECT adalah untuk menentukan kolom dari suatu tabel yang ditampilkan dalam \textit{query result}. Fungsi dari klause FROM adalah Mengidentifikasi tabel yang ingin diambil datanya. Dalam mengambil data dari database setidaknya minimal harus menggunakan dua klause ini. Klause ini memiliki \textit{syntax} seperti:
+    Fungsi dari klausa SELECT adalah untuk menentukan kolom dari suatu tabel yang ditampilkan dalam \textit{query result}. Fungsi dari klausa FROM adalah Mengidentifikasi tabel yang ingin diambil datanya. Dalam mengambil data dari database setidaknya minimal harus menggunakan dua klausa ini. Klausa ini memiliki \textit{syntax} seperti:
     \begin{verbatim}
     SELECT coloumn1, coloumn2, ...
     FROM table_name
     \end{verbatim}
     
     \item WHERE\\
-    Fungsi dari klause WHERE adalah untuk membatasi jumlah baris dalam \textit{query result} berdasarkan kondisi tertentu. Klause WHERE digunakan jika terdapat beberapa kondisi yang ingin dicari dari database tersebut. Klause ini memiliki \textit{syntax} seperti:
+    Fungsi dari klausa WHERE adalah untuk membatasi jumlah baris dalam \textit{query result} berdasarkan kondisi tertentu. Klausa WHERE digunakan jika terdapat beberapa kondisi yang ingin dicari dari database tersebut. Klausa ini memiliki \textit{syntax} seperti:
     \begin{verbatim}
     SELECT coloumn1, coloumn2, ...
     FROM table_name
@@ -30,7 +30,7 @@ Terdapat beberapa komponen atau klausa dari \textit{query} yang digunakan mengam
 \end{verbatim}
     
     \item GROUP BY\\
-    Fungsi dari kaluse GROUP BY adalah untuk mengelompokkan baris berdasarkan nilai kolom yang sama. Klause ini memiliki \textit{syntax} seperti:
+    Fungsi dari klausa GROUP BY adalah untuk mengelompokkan baris berdasarkan nilai kolom yang sama. Klausa ini memiliki \textit{syntax} seperti:
     \begin{verbatim}
     SELECT coloumn1, coloumn2, ...
     FROM table_name
@@ -39,7 +39,7 @@ Terdapat beberapa komponen atau klausa dari \textit{query} yang digunakan mengam
 \end{verbatim}
     
     \item ORDER BY\\
-    Fungsi dari kaluse ORDER BY adalah untuk mengurutkan \textit{query result} berdasarkan satu atau lebih kolom. Pada saat menggunakan ORDER BY, akan ditambahkan dua fungsi yaitu ASC (\textit{Ascending}) dan DESC (\textit{Descending}). Klause ini memiliki \textit{syntax} seperti:
+    Fungsi dari klausa ORDER BY adalah untuk mengurutkan \textit{query result} berdasarkan satu atau lebih kolom. Pada saat menggunakan ORDER BY, akan ditambahkan dua fungsi yaitu ASC (\textit{Ascending}) dan DESC (\textit{Descending}). Klausa ini memiliki \textit{syntax} seperti:
     \begin{verbatim}
     SELECT coloumn1, coloumn2, ...
     FROM table_name
@@ -145,7 +145,13 @@ Karena database relasional di-\textit{design} dibentuk dengan mengamanatkan bahw
 \end{verbatim}
 
 \section{Chrome User Experience Report (CrUX)}
-CrUX adalah sebuah dataset yang bersifat publik yang berisi data user experience dari jutaan website. Data ini berasal dari data yang dikumpulkan dari pengguna yang telah memilih untuk mengsinkronkan \textit{browsing history} mereka.  
+CrUX adalah sebuah dataset yang bersifat publik yang berisi data user experience dari jutaan website. Data ini berasal dari data yang dikumpulkan dari pengguna yang telah memilih untuk mengsinkronkan \textit{browsing history} mereka. Data yang dihasilkan tersedia melalui:
+\begin{enumerate}
+	\item PageSpeed Insights
+	\item Public Google BigQuery Project
+	\item CrUX Dashboardd on Data Studio 
+\end{enumerate} 
+
 
 \section{HTTP Archive \cite{httparchiveAbout}}
 HTTP Archive adalah sebuah \textit{open-source project} yang melihat bagaimana \textit{website} dibuat. HTTP Archive menyediakan data-data historis untuk melihat bagaimana \textit{website} berkembang. HTTP Archive pertama sekali dimulai pada tahun 2010 oleh Steve Souders dan di-\textit{maintain} oleh Pat Meenan, Rick Viscomi, Paul Calvano, and Barry Pollard. HTTP Arhive memiliki keterbatasan seperti HTTP Archive hanya melihat halaman utama. Misalnya sebagian besar \textit{website} terdiri dari banyak halaman web terpisah. Karena batasan ini sehingga ada kemungkinan bahwa suatu halaman yang dianalisis tidak mewakili sebuah situs \textit{website}. Data url HTTP Archive didapatkan menggunakan CrUX kemudian url dikirimkan ke WebPageTest setiap bulannya. Orang yang menggunakan HTTP Archive adalah anggota komunitas web, para sarjana, dan pemimpin industri:
@@ -208,9 +214,7 @@ HTTP Archive adalah sebuah \textit{open-source project} yang melihat bagaimana \
 
 
 \section{Pengukuran Aplikasi Usang Pada Beberapa \textit{website} Populer Di Indonesia\cite{pascal}}
-Pada bagian ini akan dijelaskan tentang research method dan hasil keseluruhan dari \cite{pascal}.
 
-\subsection{Penjelasan Pada Jurnal \textit{Measuring Unsupported Applications in Indonesia Popular Websites}\cite{pascal}}
 Pada jurnal ini menjelaskan bahwa dalam bidang keamanan komputer, terdapat berbagai jenis metode dalam menyerang kerentanan pada sebuah sistem. Pengelola sistem yang sudah terkena dampak harus memperbarui sistemnya. Penelitian ini mengusulkan metode untuk melakukan pengukuran website tentang seberapa banyak penggunaan aplikasi yang tidak didukung. Pada penelitian ini dibataskan pada mendeteksi versi aplikasi yang digunakan dan bukan jenis patch kerentanan lainnya.
 
 \subsection{\textit{Research Method}}
@@ -243,7 +247,7 @@ Terdapat empat langkah dalam metodologi ini yaitu:
     \begin{figure}[H]
 	\centering  
 	\includegraphics[scale=0.9]{Gambar/compare_version.PNG}  
-	\caption{\textit{ Algorithm to compare current version versus supported versions}} 
+	\caption{\textit{ Algorithm to compare current version versus supported versions Algoritma untuk membandingkan versi yang dipakai dengan versi yang masih didukung}} 
 	\label{fig:apr} 
 \end{figure}
 \end{enumerate}
@@ -266,7 +270,7 @@ Pada jurnal\cite{pascal}, dari 1.500 URL yang dideteksi oleh Wappalyzer, hanya 1
  \hline
 
 \end{tabular}
-\caption{Overall application count for measurement result}
+\caption{Overall application count for measurement result Jumlah keseluruhan aplikasi berdasarkan hasil pengukuran}
 \label{table:apr}
 \end{table}
 
@@ -298,7 +302,7 @@ Tabel \ref{table:first-ten} adalah daftar sepuluh website yang paling popular. D
 		10 & liputan6.com & 11&1&1&0\\
 		\hline
 \end{tabular}
-\caption{First ten result of measurement}
+\caption{First ten result of measurement Sepuluh Hasil Pengukuran}
 \label{table:first-ten}
 \end{table}
 
@@ -329,7 +333,7 @@ Tabel \ref{table:first-ten} adalah daftar sepuluh website yang paling popular. D
 			1,350-1,500 & 62 & 46&29&11	&2\\
 			\hline
 		\end{tabular}
-		\caption{Number of unsupported applications grouped by website rank}
+		\caption{Number of unsupported applications grouped by website rank Jumlah aplikasi yang tidak didukung berdasarkan rank website}
 		\label{table:n-result}
 	\end{table}
 
@@ -357,7 +361,7 @@ Pada tabel \ref{table:most-used}, terdapat beberapa aplikasi yang banyak digunak
 		237 & Apache & 79&10&2&146	\\
 		\hline
 	\end{tabular}
-	\caption{Top applications used}
+	\caption{Top applications used Aplikasi yang Banyak Digunakan}
 	\label{table:most-used}
 \end{table}
 
