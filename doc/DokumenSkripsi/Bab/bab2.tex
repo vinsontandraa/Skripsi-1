@@ -144,22 +144,21 @@ Karena database relasional di-\textit{design} dibentuk dengan mengamanatkan bahw
     FROM (subquery)
 \end{verbatim}
 
-\section{Chrome User Experience Report (CrUX)}
+\section{HTTP Archive \cite{httparchiveAbout}}
+HTTP Archive adalah sebuah \textit{open-source project} yang melihat bagaimana \textit{website} dibuat. HTTP Archive menyediakan data-data historis untuk melihat bagaimana \textit{website} berkembang. HTTP Archive pertama sekali dimulai pada tahun 2010 oleh Steve Souders dan di-\textit{maintain} oleh Pat Meenan, Rick Viscomi, Paul Calvano, and Barry Pollard. HTTP Arhive memiliki keterbatasan seperti HTTP Archive hanya melihat halaman utama. Misalnya sebagian besar \textit{website} terdiri dari banyak halaman web terpisah. Karena batasan ini sehingga ada kemungkinan bahwa suatu halaman yang dianalisis tidak mewakili sebuah situs \textit{website}. Data url HTTP Archive didapatkan menggunakan CrUX kemudian url dikirimkan ke WebPageTest setiap bulannya. 
 CrUX adalah sebuah dataset yang bersifat publik yang berisi data user experience dari jutaan website. Data ini berasal dari data yang dikumpulkan dari pengguna yang telah memilih untuk mengsinkronkan \textit{browsing history} mereka. Data yang dihasilkan tersedia melalui:
 \begin{enumerate}
 	\item PageSpeed Insights
 	\item Public Google BigQuery Project
 	\item CrUX Dashboardd on Data Studio 
 \end{enumerate} 
-
-
-\section{HTTP Archive \cite{httparchiveAbout}}
-HTTP Archive adalah sebuah \textit{open-source project} yang melihat bagaimana \textit{website} dibuat. HTTP Archive menyediakan data-data historis untuk melihat bagaimana \textit{website} berkembang. HTTP Archive pertama sekali dimulai pada tahun 2010 oleh Steve Souders dan di-\textit{maintain} oleh Pat Meenan, Rick Viscomi, Paul Calvano, and Barry Pollard. HTTP Arhive memiliki keterbatasan seperti HTTP Archive hanya melihat halaman utama. Misalnya sebagian besar \textit{website} terdiri dari banyak halaman web terpisah. Karena batasan ini sehingga ada kemungkinan bahwa suatu halaman yang dianalisis tidak mewakili sebuah situs \textit{website}. Data url HTTP Archive didapatkan menggunakan CrUX kemudian url dikirimkan ke WebPageTest setiap bulannya. Orang yang menggunakan HTTP Archive adalah anggota komunitas web, para sarjana, dan pemimpin industri:
+Orang yang menggunakan HTTP Archive adalah anggota komunitas web, para sarjana, dan pemimpin industri:
 \begin{itemize}
     \item Komunitas web menggunakan data ini untuk mempelajari lebih lanjut tentang keadaan web. Biasanya dapat dilihat pada blog, presentasi, atau media sosial. 
     \item Para sarjana mengutip data ini untuk mendukung penelitian dalam publikasi besar seperti ACM dan IEEE.
     \item Para pemimpin industri menggunakan data ini untuk mengkalibrasi alat mereka untuk secara akurat mewakili bagaimana web dibuat.
 \end{itemize}
+Di dalam HTTP Archive terdapat dataset yang dapat diambil menggunakan teknologi BigQuery. Dataset dari HTTP Archive masih kotor sehingga terdapat beberapa data yang ganda dan terdapat versi dari aplikasi yang tidak dapat ditentukan (hanya berisi karakter atau simbol).
 
 
 
