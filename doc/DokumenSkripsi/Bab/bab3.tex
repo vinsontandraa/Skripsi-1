@@ -45,6 +45,44 @@ Berikut ini langkah-langkah dalam pembuatan dataset dan tabel:
 \end{enumerate}
 
 \section{Dataset Pada HTTP Archive}
+Dataset pada HTTP Archive yang digunakan pada skripsi ini adalah sebagai berikut:
+\begin{enumerate}
+	\item technologies
+	Pada tabel technologies terdapat beberapa kolom seperti url, category, app, dan info. Url adalah alamat dari sebuah website. Contoh dari dataset dapat dilihat pada tabel \ref{table:ct_tech_desktop} 
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|l|l|p{3cm}|p{3cm}|l|}
+			\hline
+			\textbf{Row} & \textbf{url} & \textbf{category} & app & info\\
+			\hline
+			1 & https://www.3-king.com/ & Analytics & Google Analytics & \\
+			\hline
+			2 & https://www.fleabites.net/ & Miscellaneous & Twitter Emoji (Twemoji) & \\
+			\hline
+			3 & http://www.elcarnicero.cl/ & Widgets & OWL Carousel & \\
+			\hline
+			4 & https://thankyou.ws/ & Analytics & Google Analytics & \\
+			\hline
+			5 & https://rogerwaters.com/ & Reverse proxies & Nginx & \\
+			\hline
+			6 & http://www.palaciodaslampadas.com.br/ & JavaScript libraries & jQuery & 2.1.1\\
+			\hline
+			7 & https://copenhagencamping.dk/ & CMS & WordPress & \\
+			\hline
+			8 & https://eachat.ma/ & Ecommerce & WooCommerce & 4.3.0\\
+			\hline
+			9 & https://advokat-bondarchuk.ru/ & Blogs & WordPress & \\
+			\hline
+			10 & https://passport.rsl.ru/ & JavaScript libraries & jQuery & 1.7.1\\
+			\hline
+		\end{tabular}
+		\caption{Technologies Desktop Data Sample}
+		\label{table:ct_tech_desktop}
+	\end{table}
+	
+	
+	
+\end{enumerate}
 Di dalam HTTP Archive terdapat dataset yang dapat diambil menggunakan teknologi BigQuery. Dataset dari HTTP Archive masih kotor sehingga terdapat beberapa data yang ganda dan terdapat versi dari aplikasi yang tidak valid (hanya berisi karakter atau simbol). Dataset tersebut adalah sebagai berikut:
 \begin{enumerate}
 	\item almanac\\
