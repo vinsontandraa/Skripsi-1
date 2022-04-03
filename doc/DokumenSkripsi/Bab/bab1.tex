@@ -7,9 +7,9 @@ Pada bab ini dijelaskan latar belakang, rumusan masalah, tujuan, batasan masalah
 Di masa teknologi saat ini, banyak perusahaan yang menggunakan \textit{website} sebagai tempat untuk mencari informasi. Terdapat banyak \textit{website} yang menggunakan aplikasi yang sudah usang. HTTP Archive memiliki dataset penggunaan aplikasi setiap \textit{website} dari \textit{desktop} dan \textit{mobile} pada bulan Januari tahun 2016 sampai sekarang yang dapat dilihat menggunakan teknologi BigQuery. Dataset pada HTTP Archive didapatkan dari Chrome User Experience Report (CrUX). CrUX merupakan public dataset dari user experience data pada jutaan website. Pengujian pada dataset tersebut dilakukan dengan menggunakan Chrome pada desktop dan android (mobile). 
 %Dataset yang digunakan berada pada label \textit{technologies} merupakan dataset \textit{desktop} dan \textit{mobile} dengan nama tabel 2020$\_$08$\_$01. Dataset pada \textit{desktop} memiliki 61.203.638 baris dan pada \textit{mobile} memiliki 67.452.994 baris. 
 
-HTTP Archive \footnote{https://github.com/HTTPArchive/httparchive.org/blob/main/docs/gettingstarted$\_$bigquery.md} adalah sebuah project yang bersifat \textit{open source} untuk melihat bagaimana \textit{website} dibuat. Di dalam HTTP Archive terdapat data-data historis yang disediakan untuk menunjukkan bagaimana \textit{website} terus berkembang dan project ini sering digunakan untuk penelitian. Didalam HTTP Archive terdapat dataset yang berisi jutaan web setiap bulan dan dapat dianalisis menggunakan teknologi BigQuery. BigQuery \cite{bqIntroduction} adalah salah satu produk dari Google yang berbasis \textit{cloud} dan dapat digunakan untuk menganalisis data tanpa harus memikirkan database. BigQuery dapat menjalankan \textit{query} dalam skala \textit{terabyte} dalam hitungan detik dan \textit{petabyte} dalam hitungan menit.
+HTTP Archive \footnote{https://github.com/HTTPArchive/httparchive.org/blob/main/docs/gettingstarted$\_$bigquery.md} adalah sebuah \textit{project} yang bersifat \textit{open source} untuk melihat bagaimana \textit{website} dibuat. Di dalam HTTP Archive terdapat data-data historis yang disediakan untuk menunjukkan bagaimana \textit{website} terus berkembang dan project ini sering digunakan untuk penelitian. Didalam HTTP Archive terdapat dataset yang berisi jutaan web setiap bulan dan dapat dianalisis menggunakan teknologi BigQuery. BigQuery \cite{bqIntroduction} adalah salah satu produk dari Google yang berbasis \textit{cloud} dan dapat digunakan untuk menganalisis data tanpa harus memikirkan database. BigQuery dapat menjalankan \textit{query} dalam skala \textit{terabyte} dalam hitungan detik dan \textit{petabyte} dalam hitungan menit.
 
-Pada \cite{pascal} akan dilakukan pengujian tentang seberapa besar penggunaan aplikasi usang pada website di Indonesia. Data diambil dari website Alexa, dari 1.500 situs teratas menurut peringkat Alexa untuk pengunjung situs di Indonesia dan mengidentifikasi jenisnya aplikasi yang mereka pakai beserta nomor versinya, lebih dari setengah atau 63\% aplikasi yang digunakan berhasil dibandingkan dengan skrip yang telah dibuat dan hasilnya aplikasi tidak lagi didukung oleh pengelolanya.
+Pada \cite{pascal} akan dilakukan penelitian tentang seberapa besar penggunaan aplikasi usang pada website di Indonesia. Data diambil dari website Alexa, dari 1.500 situs teratas menurut peringkat Alexa untuk pengunjung situs di Indonesia dan mengidentifikasi jenisnya aplikasi yang mereka pakai beserta nomor versinya, lebih dari setengah atau 63\% aplikasi yang digunakan berhasil dibandingkan dengan skrip yang telah dibuat dan hasilnya aplikasi tidak lagi didukung oleh pengelolanya.
 
 Beberapa aplikasi sudah menyediakan fitur untuk meng-\textit{update} ke versi yang paling baru tanpa harus menginstal ulang. Dalam kebanyakan kasus, versi aplikasi yang semakin baru sudah memperbaiki banyak kerentanan yang sudah diketahui. Beberapa aplikasi usang tidak memiliki pemberitahuan untuk meng-\textit{update} sehingga pengguna tidak mengetahui jika terdapat \textit{update}. Aplikasi yang baik biasanya memberikan \textit{update} otomatis dan memberikan pesan yang efektif jika terjadi \textit{update}. 
 
@@ -20,7 +20,7 @@ Pada skripsi ini, akan dibuat sebuah replikasi dari \cite{pascal} tetapi dengan 
 \label{sec:rumusan}
 Berikut ini adalah rumusan masalah dari penelitian ini:
 \begin{enumerate}
-	\item Bagaimana cara membaca data dari HTTP Archive?
+	\item Bagaimana cara mendapatkan data dari HTTP Archive?
 	\item Bagaimana mereplikasi proyek \cite{pascal} dengan menggunakan data yang lebih besar?
 	\item Berapa banyak \textit{website} pada HTTP Archive yang menggunakan aplikasi  yang masih didukung?
 \end{enumerate}
@@ -30,7 +30,7 @@ Berikut ini adalah rumusan masalah dari penelitian ini:
 \label{sec:tujuan}
 Berikut ini adalah tujuan dari penelitian ini:
 \begin{enumerate}
-	\item Membaca data dari HTTP Archive.
+	\item Mendapatkan data dari HTTP Archive.
 	\item Mereplikasi proyek \cite{pascal} dengan menggunakan data yang lebih besar.
 	\item Mencari jumlah \textit{website} pada HTTP Archive yang menggunakan aplikasi yang masih didukung.
 \end{enumerate}
