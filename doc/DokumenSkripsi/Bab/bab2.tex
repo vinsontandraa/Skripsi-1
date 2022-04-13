@@ -402,23 +402,55 @@ Pada tabel \ref{table:most-used}, terdapat beberapa aplikasi yang banyak digunak
 \end{table}
 
 \section{ReactJS}
-ReactJS merupakan \textit{library} yang disediakan JavaScript untuk membuat \textit{interface}. ReactJS dibuat oleh Facebook. Berikut ini contoh sintaks pada ReactJS:
-\begin{lstlisting}
-    class HelloMessage extends React.Component {
-  render() {
-    return (
-      <div>
-        Hello {this.props.name}
-      </div>
-    );
-  }
-}
+ReactJS merupakan \textit{library} yang disediakan JavaScript untuk membuat \textit{interface}. ReactJS dibuat oleh Facebook. 
+%Berikut ini contoh sintaks pada ReactJS:
+%\begin{lstlisting}
+%    class HelloMessage extends React.Component {
+%  render() {
+%    return (
+%      <div>
+%        Hello {this.props.name}
+%      </div>
+%    );
+%  }
+%}
+%
+%ReactDOM.render(
+%  <HelloMessage name="World" />,
+%  document.getElementById('hello-example')
+%);
+%\end{lstlisting}
 
-ReactDOM.render(
-  <HelloMessage name="World" />,
-  document.getElementById('hello-example')
-);
+\subsection{JSX}
+JSX adalah sebuah ekstensi Javascript yang dapat mengikutsertakan HTML dalam Javascript. JSX akan menghasilkan "elemen" React. 
+\subsubsection{Menyatukan Ekspresi dalam JSX}
+Berikut ini adalah contoh penggunaan JSX:
+\begin{lstlisting}
+	const name = 'Budi';
+	const element = <h1>Halo, {name}</h1>;
+	
+	ReactDOM.render(
+	element,
+	document.getElementById('root')
+	);
 \end{lstlisting}
+Pada contoh diatas, variabel name akan dibungkus dengan menggunakan tanda kurung kurawal. Semua ekspresi Javascript valid dalam tanda kurung kurawal di JSX. 
+\subsubsection{JSX Adalah Ekspresi Juga}
+
+
+\subsection{Components and Props}
+Komponen mempermudah untuk memisahkan antarmuka menjadi bagian tersendiri dan dapat digunakan kembali. Secara konsep, komponen menyerupai fungsi Javascript. Komponen dapat menerima beberapa props (masukan) dan mengembalikan elemen React yang mendeskripsikan apa yang seharusnya tampil dilayar. 
+\subsubsection{Fungsi dan Komponen Kelas}
+Cara yang paling sederhana untuk mendefinisikan sebuah komponen adalah dengan menuliskan sebuah fungsi Javascript
+\begin{lstlisting}
+	function Welcome(props) {
+		return <h1>Halo, {props.name}</h1>;
+	}
+\end{lstlisting}
+Fungsi diatas adalah contoh komponen React yang sah karena menerima sebuah props tunggal atau argumen objek dengan data dan kembalian sebuah elemen React. 
+
+\subsubsection{Merender Sebuah Komponen}
+
 
 \subsection{\textit{Node Package Manager}}
 Node \textit{Package} Manager (NPM) adalah \textit{software registry} yang digunakan untuk meminjam atau membagikan \textit{software library} \cite{npmAbout}. NPM terdiri dari tiga komponen penting, yaitu:
