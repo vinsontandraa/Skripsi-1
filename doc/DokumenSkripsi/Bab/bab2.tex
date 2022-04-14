@@ -435,8 +435,23 @@ Berikut ini adalah contoh penggunaan JSX:
 	);
 \end{lstlisting}
 Pada contoh diatas, variabel name akan dibungkus dengan menggunakan tanda kurung kurawal. Semua ekspresi Javascript valid dalam tanda kurung kurawal di JSX. 
-\subsubsection{JSX Adalah Ekspresi Juga}
+\subsubsection{Menspesifikasikan Elemen Anak dengan JSX}
+Jika tag bersifat kosong atau tidak memiliki elemen anak, penulis dapat menutup tag-nya secara langsung dengan />, seperti pada potongan kode dibawah ini.
+\begin{lstlisting}
+	const element = <img src={user.avatarUrl} />;
+\end{lstlisting}
+Didalam tag JSX memungkinkan untuk memiliki elemen anak, yang dapat dilihat pada potongan kode dibawah ini.
+\begin{lstlisting}
+	const element = (
+	<div>
+	<h1>Halo!</h1>
+	<h2>Senang melihatmu di sini.</h2>
+	</div>
+	);
+\end{lstlisting}
 
+%\subsection{Merender Elemen}
+%Sebuah elemen menggambarkan hal yang ingin ditampilkan pada layar. 
 
 \subsection{Components and Props}
 Komponen mempermudah untuk memisahkan antarmuka menjadi bagian tersendiri dan dapat digunakan kembali. Secara konsep, komponen menyerupai fungsi Javascript. Komponen dapat menerima beberapa props (masukan) dan mengembalikan elemen React yang mendeskripsikan apa yang seharusnya tampil dilayar. 
@@ -450,6 +465,75 @@ Cara yang paling sederhana untuk mendefinisikan sebuah komponen adalah dengan me
 Fungsi diatas adalah contoh komponen React yang sah karena menerima sebuah props tunggal atau argumen objek dengan data dan kembalian sebuah elemen React. 
 
 \subsubsection{Merender Sebuah Komponen}
+Didalam React Elemen dapat mewakili komponen yang didefinisikan oleh penulis. Seperti pada kode dibawah.
+\begin{lstlisting}
+	const element = <Welcome name="Sara" />;
+\end{lstlisting}
+Ketika React melihat sebuah elemen mewakili sebuah komponen yang dibuat oleh penulis, komponen akan mengoper atribut JSX ke dalam komponen ini sebagai objek tunggal. Objek ini disebut sebagai props. Kode dibawah ini akan menghasilkan "Halo Sara" pada halaman.
+\begin{lstlisting}
+	function Welcome(props) {
+		return <h1>Halo, {props.name}</h1>;
+	}
+	
+	const element = <Welcome name="Sara" />;
+	ReactDOM.render(
+	element,
+	document.getElementById('root')
+	);
+\end{lstlisting} 
+
+\subsubsection{Menyusun Komponen}
+Komponen dapat merujuk ke komponen lain pada keluarannya. Hal ini memungkinkan kita untuk membuat abstraksi dari komponen yang sama untuk tingkat detail. Seperti membuat sebuah tombol, sebuah form, sebuah tampilan, sebuah dialog. Dalam aplikasi React, semua itu dinyatakan dalam bentuk komponen. Sebagai contoh penulis dapat membuat sebuah komponen App yang mencetak Welcome berkali-kali.
+\begin{lstlisting}
+	function Welcome(props) {
+		return <h1>Halo, {props.name}</h1>;
+	}
+	
+	function App() {
+		return (
+		<div>
+		<Welcome name="Sara" />
+		<Welcome name="Cahal" />
+		<Welcome name="Edite" />
+		</div>
+		);
+	}
+\end{lstlisting}
+
+%\subsection{State dan Lifecycle}
+%\subsection{Penanganan Event}
+\subsection{Render Bersyarat}
+Render bersyarat pada React memiliki fungsi yang sama dengan operator bersyarat pada Javascript. Pada Javascript operator if atau operator bersyarat digunakan untuk merepresentasikan elemen pada state tertentu, kemudian React akan memperbarui UI pada state tersebut.
+
+Contoh nya seperti dua komponen berikut ini:
+\begin{lstlisting}
+	function UserGreeting(props) {
+		return <h1>Welcome back!</h1>;
+	}
+	
+	function GuestGreeting(props) {
+		return <h1>Please sign up.</h1>;
+	}
+\end{lstlisting}
+Komponen diatas akan digunakan untuk melakukan Greetings berdasarkan pada apakah user sudah melakukan login:
+\begin{lstlisting}
+	function Greeting(props) {
+		const isLoggedIn = props.isLoggedIn;
+		if (isLoggedIn) {
+			return <UserGreeting />;
+		}
+		return <GuestGreeting />;
+	}
+	
+	ReactDOM.render(
+	// Try changing to isLoggedIn={true}:
+	<Greeting isLoggedIn={false} />,
+	document.getElementById('root')
+	);
+\end{lstlisting} 
+
+\subsection{List dan Keys}
+
 
 
 \subsection{\textit{Node Package Manager}}
