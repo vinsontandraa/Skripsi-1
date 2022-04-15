@@ -533,7 +533,57 @@ Komponen diatas akan digunakan untuk melakukan Greetings berdasarkan pada apakah
 \end{lstlisting} 
 
 \subsection{List dan Keys}
+Javascript dapat menggunakan fungsi map() untuk mengambil array numbers dan menggandakan angkanya. Map() akan mengembalikan nilai dalam bentuk array yang baru kemudian akan disimpan dalam sebuah variabel doubled.
+Berikut ini adalah contoh kodenya:
+\begin{lstlisting}
+	const numbers = [1, 2, 3, 4, 5];
+	const doubled = numbers.map((number) => number * 2);
+	console.log(doubled);
+\end{lstlisting}
+Kode diatas akan mengembalikan nilai [2, 4, 6, 8, 10] ke dalam konsol. Pada React, mengubah array ke dalam list elemen kurang lebih sama.
+\subsubsection{Daftar Komponen Dasar}
+Biasanya penulis me-render list dalam sebuah komponen. 
 
+%\subsection{Form}
+%Elemen form HTML bekerja sedikit berbeda dari elemen DOM lainnya di React, karena elemen form secara natural menyimpan beberapa state internal. Sebagai contoh, form ini pada HTML biasa menerima nama tunggal:
+%\begin{lstlisting}
+%	<form>
+%	<label>
+%	Name:
+%	<input type="text" name="name" />
+%	</label>
+%	<input type="submit" value="Submit" />
+%	</form>
+%\end{lstlisting}
+%Form ini memiliki perilaku dasar dari form HTML biasa yakni menuju ke laman baru ketika user mengirim form tersebut. Jika Anda menginginkan perilaku seperti ini di React, ini sebenarnya dapat bekerja. Namun di banyak kasus, akan lebih mudah untuk memiliki sebuah fungsi JavaScript yang menangani sebuah submisi dari sebuah form dan memiliki akses terhadap data yang dimasukkan pengguna ke dalam form. Cara standar untuk mencapai hal ini adalah dengan teknik yang disebut ”controlled component“.
+%\subsubsection{Controlled Component}
+
+%\subsection{Memindahkan State Ke Atas}
+
+%\subsection{Komposisi Dan Perwarisan}
+
+\subsection{Hooks}
+Hooks merupakan fitur dari React 16.8. Dengan hooks, penulis dapat menggunakan state dan fitur React yang lain tanpa perlu menulis sebuah kelas baru.
+\subsubsection{Hook State}
+Berikut adalah contoh kode untuk membuat perhitungan yang jika mengklik tombol, maka nilai akan bertambah.
+\begin{lstlisting}
+	import React, { useState } from 'react';
+	
+	function Example() {
+		// Deklarasi sebuah variabel state baru, dimana akan dinamakan "count"
+		const [count, setCount] = useState(0);
+		
+		return (
+		<div>
+		<p>Anda klik sebanyak {count} kali</p>
+		<button onClick={() => setCount(count + 1)}>
+		Klik saya
+		</button>
+		</div>
+		);
+	}
+\end{lstlisting}
+UseState merupakan hook. 
 
 
 \subsection{\textit{Node Package Manager}}
