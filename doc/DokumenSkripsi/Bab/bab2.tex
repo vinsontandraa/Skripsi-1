@@ -583,7 +583,22 @@ Berikut adalah contoh kode untuk membuat perhitungan yang jika mengklik tombol, 
 		);
 	}
 \end{lstlisting}
-UseState merupakan hook. 
+UseState merupakan hook. Komponen memanggil useState dipanggil suatu komponen untuk membuat sebuah state lokal. UseState memberikan hal, yaitu: nilai saat ini dan fungsi untuk memperbarui nilai. Satu-satunya argumen pada useState adalah nilai awal state. Pada kode diatas nilai awal dari state adalah nol karena penghitungnya dimulai dari nol. State tidak harus berupa objek. Argumen nilai awal state hanya digunakan pada saat render pertama. Ketika ingin menampilkan jumlah count saat ini, penulis dapat melakukan this.state.count:
+\begin{lstlisting}
+	    <p>Anda menekan sebanyak {count} kali</p>
+\end{lstlisting}
+%Tambahkan lagi
+
+\subsection{Effect Hook}
+\subsection{Rules of Hooks}
+Didalam menggunakan hooks penulis harus dua aturan yaitu:
+\begin{enumerate}
+	\item Hanya Panggil Hooks di Tingkat Atas\\
+	\item Hanya Panggil Hooks dari Fungsi-Fungsi React\\
+	
+\end{enumerate}
+
+
 
 
 \subsection{\textit{Node Package Manager}}

@@ -8,7 +8,7 @@ Pada section ini akan dijelaskan tentang langkah-langkah query yang dilakukan da
 \subsection{Mengumpulkan List Website}
 Langkah pertama yang dilakukan yaitu mengumpulkan website. Website yang dicari tidak berdasarkan berdasarkan \textit{rank} karena tidak tersedia pada dataset tersebut. Berikut adalah \textit{query} yang digunakan untuk mengumpulkan list website.
 \begin{lstlisting}
-	SEL
+	SELECT url
 	FROM `httparchive.technologies.2020_08_01_*`
 	ORDER BY url asc
 \end{lstlisting}
