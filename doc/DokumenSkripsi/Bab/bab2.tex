@@ -562,45 +562,6 @@ Biasanya penulis me-render list dalam sebuah komponen.
 
 %\subsection{Komposisi Dan Perwarisan}
 
-\subsection{Hooks}
-Hooks merupakan fitur dari React 16.8. Dengan hooks, penulis dapat menggunakan state dan fitur React yang lain tanpa perlu menulis sebuah kelas baru.
-\subsubsection{Hook State}
-Berikut adalah contoh kode untuk membuat perhitungan yang jika mengklik tombol, maka nilai akan bertambah.
-\begin{lstlisting}
-	import React, { useState } from 'react';
-	
-	function Example() {
-		// Deklarasi sebuah variabel state baru, dimana akan dinamakan "count"
-		const [count, setCount] = useState(0);
-		
-		return (
-		<div>
-		<p>Anda klik sebanyak {count} kali</p>
-		<button onClick={() => setCount(count + 1)}>
-		Klik saya
-		</button>
-		</div>
-		);
-	}
-\end{lstlisting}
-UseState merupakan hook. Komponen memanggil useState dipanggil suatu komponen untuk membuat sebuah state lokal. UseState memberikan hal, yaitu: nilai saat ini dan fungsi untuk memperbarui nilai. Satu-satunya argumen pada useState adalah nilai awal state. Pada kode diatas nilai awal dari state adalah nol karena penghitungnya dimulai dari nol. State tidak harus berupa objek. Argumen nilai awal state hanya digunakan pada saat render pertama. Ketika ingin menampilkan jumlah count saat ini, penulis dapat melakukan this.state.count:
-\begin{lstlisting}
-	    <p>Anda menekan sebanyak {count} kali</p>
-\end{lstlisting}
-%Tambahkan lagi
-
-\subsection{Effect Hook}
-\subsection{Rules of Hooks}
-Didalam menggunakan hooks penulis harus dua aturan yaitu:
-\begin{enumerate}
-	\item Hanya Panggil Hooks di Tingkat Atas\\
-	\item Hanya Panggil Hooks dari Fungsi-Fungsi React\\
-	
-\end{enumerate}
-
-
-
-
 \subsection{\textit{Node Package Manager}}
 Node \textit{Package} Manager (NPM) adalah \textit{software registry} yang digunakan untuk meminjam atau membagikan \textit{software library} \cite{npmAbout}. NPM terdiri dari tiga komponen penting, yaitu:
 \begin{itemize}
