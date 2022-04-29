@@ -500,8 +500,8 @@ Komponen dapat merujuk ke komponen lain pada keluarannya. Hal ini memungkinkan k
 	}
 \end{lstlisting}
 
-%\subsection{State dan Lifecycle}
-%\subsection{Penanganan Event}
+\subsection{State dan Lifecycle}
+\subsection{Penanganan Event}
 \subsection{Render Bersyarat}
 Render bersyarat pada React memiliki fungsi yang sama dengan operator bersyarat pada Javascript. Pada Javascript operator if atau operator bersyarat digunakan untuk merepresentasikan elemen pada state tertentu, kemudian React akan memperbarui UI pada state tersebut.
 
@@ -544,23 +544,24 @@ Kode diatas akan mengembalikan nilai [2, 4, 6, 8, 10] ke dalam konsol. Pada Reac
 \subsubsection{Daftar Komponen Dasar}
 Biasanya penulis me-render list dalam sebuah komponen. 
 
-%\subsection{Form}
-%Elemen form HTML bekerja sedikit berbeda dari elemen DOM lainnya di React, karena elemen form secara natural menyimpan beberapa state internal. Sebagai contoh, form ini pada HTML biasa menerima nama tunggal:
-%\begin{lstlisting}
-%	<form>
-%	<label>
-%	Name:
-%	<input type="text" name="name" />
-%	</label>
-%	<input type="submit" value="Submit" />
-%	</form>
-%\end{lstlisting}
-%Form ini memiliki perilaku dasar dari form HTML biasa yakni menuju ke laman baru ketika user mengirim form tersebut. Jika Anda menginginkan perilaku seperti ini di React, ini sebenarnya dapat bekerja. Namun di banyak kasus, akan lebih mudah untuk memiliki sebuah fungsi JavaScript yang menangani sebuah submisi dari sebuah form dan memiliki akses terhadap data yang dimasukkan pengguna ke dalam form. Cara standar untuk mencapai hal ini adalah dengan teknik yang disebut ”controlled component“.
-%\subsubsection{Controlled Component}
+\subsection{Form}
+Elemen form HTML bekerja sedikit berbeda dari elemen DOM lainnya di React, karena elemen form secara natural menyimpan beberapa state internal. Sebagai contoh, form ini pada HTML biasa menerima nama tunggal:
+\begin{lstlisting}
+	<form>
+	<label>
+	Name:
+	<input type="text" name="name" />
+	</label>
+	<input type="submit" value="Submit" />
+	</form>
+\end{lstlisting}
+Form ini memiliki perilaku dasar dari form HTML biasa yakni menuju ke laman baru ketika user mengirim form tersebut. Jika Anda menginginkan perilaku seperti ini di React, ini sebenarnya dapat bekerja. Namun di banyak kasus, akan lebih mudah untuk memiliki sebuah fungsi JavaScript yang menangani sebuah submisi dari sebuah form dan memiliki akses terhadap data yang dimasukkan pengguna ke dalam form. Cara standar untuk mencapai hal ini adalah dengan teknik yang disebut ”controlled component“.
+\subsubsection{Controlled Component}
 
-%\subsection{Memindahkan State Ke Atas}
 
-%\subsection{Komposisi Dan Perwarisan}
+\subsection{Memindahkan State Ke Atas}
+
+\subsection{Komposisi Dan Perwarisan}
 
 \subsection{\textit{Node Package Manager}}
 Node \textit{Package} Manager (NPM) adalah \textit{software registry} yang digunakan untuk meminjam atau membagikan \textit{software library} \cite{npmAbout}. NPM terdiri dari tiga komponen penting, yaitu:
