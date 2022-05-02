@@ -450,8 +450,35 @@ Didalam tag JSX memungkinkan untuk memiliki elemen anak, yang dapat dilihat pada
 	);
 \end{lstlisting}
 
-%\subsection{Merender Elemen}
-%Sebuah elemen menggambarkan hal yang ingin ditampilkan pada layar. 
+\subsection{Merender Elemen}
+Sebuah elemen menggambarkan hal yang ingin ditampilkan pada layar. Tidak seperti elemen DOM, elemen React merupakan objek biasa dan mudah dibuat. React DOM mangatur pembaruan DOM agar sesuai dengan elemen React.
+\subsubsection{Me-render Elemen Kedalam DOM}
+Aplikasi yang dibuat dengan React biasanya memiliki satu node DOM akar. Jika mengintegrasikan React ke dalam aplikasi yang sudah ada, penulis dapat memiliki node DOM akar yang terisolasi sebanyak yang Anda inginkan.
+\begin{lstlisting}
+	<div id="root"></div>
+\end{lstlisting}
+Potongan kode diatas disebut sebagai node DOM aka karena semua yang berada didalamnya akan diatur oleh React DOM.
+\begin{lstlisting}
+	const element = <h1>Hello, world</h1>;
+	ReactDOM.render(element, document.getElementById('root'));
+\end{lstlisting}
+Pada kode diatas, elemen dan root dimasukkan kedalam ReactDOM.render() agar elemen tersebut dapat dirender.
+\subsubsection{Memperbarui Elemen yang Di-render}
+Elemen React bersifat \textit{immutable} sehingga setelah elemen dibuat, penulis tidak dapat mengubah nilai dari elemen atau attributnya. Satu-satunya cara untuk memperbarui antarmukanya adalah dengan membuat elemen baru atau menggunakan ReactDOM.render()
+\begin{lstlisting}
+	function tick() {
+		const element = (
+		<div>
+		<h1>Hello, world!</h1>
+		<h2>It is {new Date().toLocaleTimeString()}.</h2>
+		</div>
+		);
+		ReactDOM.render(element, document.getElementById('root'));
+	}
+	
+	setInterval(tick, 1000);
+\end{lstlisting}
+Pada kode diatas ReactDOM.render() membuat \textit{callback} setiap detik.
 
 \subsection{Components and Props}
 Komponen mempermudah untuk memisahkan antarmuka menjadi bagian tersendiri dan dapat digunakan kembali. Secara konsep, komponen menyerupai fungsi Javascript. Komponen dapat menerima beberapa props (masukan) dan mengembalikan elemen React yang mendeskripsikan apa yang seharusnya tampil dilayar. 
@@ -500,7 +527,9 @@ Komponen dapat merujuk ke komponen lain pada keluarannya. Hal ini memungkinkan k
 	}
 \end{lstlisting}
 
-\subsection{State dan Lifecycle}
+%\subsection{State dan Lifecycle}
+
+
 \subsection{Penanganan Event}
 \subsection{Render Bersyarat}
 Render bersyarat pada React memiliki fungsi yang sama dengan operator bersyarat pada Javascript. Pada Javascript operator if atau operator bersyarat digunakan untuk merepresentasikan elemen pada state tertentu, kemudian React akan memperbarui UI pada state tersebut.

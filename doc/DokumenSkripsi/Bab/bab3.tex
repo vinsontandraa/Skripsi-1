@@ -42,6 +42,12 @@ Berikut ini adalah langkah untuk mendapatkan dataset tersebut:
 	
 	
 	\item Data HTTP Archive dapat dilihat pada dashboard BigQuery.
+	\begin{figure}[H]
+		\centering  
+		\includegraphics[scale=0.35]{Gambar/BG-Dashboard.PNG}  
+		\caption{Data Terlihat Pada Dashboard} 
+		\label{fig:BQ-Dashboard} 
+	\end{figure}
 \end{enumerate}
 
 Di dalam BigQuery, terdapat salah satu fitur yang akan digunakan yaitu membuat dataset baru. Dataset bisa saja diambil dari public dataset maupun membuat sendiri dataset tersbut. Dataset berisi tabel-tabel yang akan dianalisis. Tabel-tabel tersebut dapat dibuat secara manual maupun di-\textit{upload}.
@@ -171,7 +177,7 @@ Pada \textit{query} diatas akan dilakukan pemilihan pada kolom url dengan menggu
 \subsection{Mencari Aplikasi Yang Digunakan Website}
 Setiap website akan dicari aplikasi apa saja yang digunakan dalam pembangunan website tersebut dari aplikasi yang dipakainya. Berikut adalah \textit{query} yang digunakan.
 \begin{lstlisting}
-SELECT url, app
+SELECT DISTINCT url, app
 FROM `httparchive.technologies.2020_08_01_*`
 ORDER BY url asc
 LIMIT 10
@@ -195,15 +201,20 @@ Pada \textit{query} diatas akan dilakukan pemilihan pada kolom url dan app denga
 	\hline
 	5 & http://0-1.ru/ & YouTube\\
 	\hline
-	6 & http://0-1.ru/ & Microsoft ASP.NET\\
+	6 & http://0-1.ru/ & Windows Server\\
 	\hline
-	7 & http://0-1.ru/ & YouTube\\
+	7 & 	
+	http://0-10-10.cocolog-nifty.com/  & 	
+	Nginx \\
 	\hline
-	8 & http://0-1.ru/ & Yandex.Metrika\\
+	8 & 	
+	http://0-10-10.cocolog-nifty.com/  & Twitter\\
 	\hline
-	9 & http://0-1.ru/ & Windows Server\\
+	9 & 	
+	http://0-10-10.cocolog-nifty.com/  & jQuery\\
 	\hline
-	10 & http://0-1.ru/ & Windows Server\\
+	10 & 	
+	http://0-10-10.cocolog-nifty.com/  & Osano\\
 	\hline
 \end{tabular}
 \caption{Contoh Aplikasi Yang Digunakan Website}
