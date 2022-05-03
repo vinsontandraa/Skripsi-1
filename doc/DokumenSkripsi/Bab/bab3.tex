@@ -329,7 +329,45 @@ Pada \cite{pascal}, jumlah data yang digunakan lebih sedikit sehingga jumlah kes
 Sebelum menentukan suatau aplikasi usang atau tidak, kita harus mencari versi dari setiap aplikasi secara manual. Versi setiap aplikasi dapat dilihat di-\textit{official documentation} dari setiap aplikasi. Hasil pencarian dari aplikasi yang masih didukung dapat dilihat pada tabel \ref{lamp:A}. 
 
 \subsection{Melakukan Perbandingan Antara Versi Aplikasi Yang Masih Dipakai Sekarang Dengan Versi Aplikasi Yang Masih Didukung}
-Setelah mendapatkan data versi minimal dari setiap aplikasi, data tersebut akan dibandingkan dengan versi aplikasi yang dipakai \textit{url}. \textit{Supported} adalah versi aplikasi dari yang dipakai \textit{url} masih mendukung atau diatas atau sama dengan versi yang didukung didokumen. \textit{unsupported} adalah versi aplikasi dari yang dipakai url sudah tidak mendukung atau dibawah versi yang didukung didokumen. \textit{not\_versioned} adalah versi aplikasi dari url tidak ditampilkan. \textit{non\_conclusive} adalah versi aplikasi tidak dapat ditentukan. Berikut ini adalah hasil sepuluh data yang dapat dilihat pada tabel \ref{table:contoh_langkah5.1}. Data diambil berdasarkan banyak aplikasi yang dipakai oleh url tertentu. 
+Setelah mendapatkan data versi minimal dari setiap aplikasi, data tersebut akan dibandingkan dengan versi aplikasi yang dipakai \textit{url}. \textit{Supported} adalah versi aplikasi dari yang dipakai \textit{url} masih mendukung atau diatas atau sama dengan versi yang didukung didokumen. \textit{unsupported} adalah versi aplikasi dari yang dipakai url sudah tidak mendukung atau dibawah versi yang didukung didokumen. \textit{not\_versioned} adalah versi aplikasi dari url tidak ditampilkan. \textit{non\_conclusive} adalah versi aplikasi tidak dapat ditentukan. 
+\begin{lstlisting}
+	CREATE TEMP FUNCTION normaizedSemanticVersion(semanticVersion STRING) 
+	AS ((
+	SELECT STRING_AGG(
+	IF(isDigit, REPEAT('0', 100 - LENGTH(chars)) || chars, chars), '' ORDER BY grp 
+	) || '..zzzzzzzzzzzzzz' 
+	FROM (
+	SELECT grp, isDigit, STRING_AGG(char, '' ORDER BY OFFSET) chars,
+	FROM (
+	SELECT OFFSET, char, isDigit,
+	COUNTIF(NOT isDigit) OVER(ORDER BY OFFSET) AS grp
+	FROM UNNEST(SPLIT(semanticVersion, '')) AS char WITH OFFSET, 
+	UNNEST([char IN ('1','2','3','4','5','6','7','8','9','0')]) isDigit
+	)
+	GROUP BY grp, isDigit
+	)));
+	CREATE TEMP FUNCTION compareSemanticVersions(
+	normSemanticVersion1 STRING, 
+	normSemanticVersion2 STRING) 
+	AS ((
+	SELECT CASE 
+	WHEN info < min_supported THEN 'UNSUPPORTED'
+	ELSE 'SUPPORTED'
+	END
+	FROM UNNEST([STRUCT(
+	normaizedSemanticVersion(normSemanticVersion1) AS info, 
+	normaizedSemanticVersion(normSemanticVersion2) AS min_supported
+	)])
+	));
+	WITH test AS (
+	SELECT url, app, info, min_supported	
+	FROM `skripsi2-327310.skripsi.TOP_10_url`
+	)
+	SELECT url, app, info, min_supported, if(info = '', "NOT VERSIONED",if(min_supported = '?','NON CONCLUSIVE',compareSemanticVersions(info, min_supported)) ) as  result
+	FROM test 
+	ORDER BY url
+\end{lstlisting}
+Berikut ini adalah hasil sepuluh data yang dapat dilihat pada tabel \ref{table:contoh_langkah5.1}. Data diambil berdasarkan banyak aplikasi yang dipakai oleh url tertentu. 
 \begin{table}[H]
 \centering
 \begin{tabular}{|l|r|r|r|r|}
@@ -410,10 +448,10 @@ Data juga dibandingkan berdasarkan aplikasi tertentu. Data yang dihasilkan adala
 
 
 \section{Hasil Sample Data Dengan Beberapa Aplikasi}
-Diambil 29 data sample dengan aplikasi dan nomor versinya. Pada gambar \ref{fig:data_sample_res} aplikasi Lodash dengan versi 4.7.15 memiliki jumlah 265.552 kali dipakai oleh website.
+Diambil satu data sample dengan aplikasi dan nomor versinya. Data sample tersebut merupakan data Apache . Data dapat dilihat pada gambar \ref{fig:data_sample_res}.
 \begin{figure}[H]
 \centering  
-\includegraphics[scale=0.5]{Gambar/hasil_chart_all.PNG}  
+\includegraphics[scale=0.4]{Gambar/apache.PNG}  
 \caption{Data Sample Jumlah Aplikasi Dengan Versi yang Dipakai} 
 \label{fig:data_sample_res} 
 \end{figure}
