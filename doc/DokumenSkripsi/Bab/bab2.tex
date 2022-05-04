@@ -435,7 +435,17 @@ Berikut ini adalah contoh penggunaan JSX:
 	);
 \end{lstlisting}
 Pada contoh diatas, variabel name akan dibungkus dengan menggunakan tanda kurung kurawal. Semua ekspresi Javascript valid dalam tanda kurung kurawal di JSX. 
-\subsubsection{Menspesifikasikan Elemen Anak dengan JSX}
+\subsubsection{Mengspesifikasikan Atribut Dengan JSX}
+Penulis dapat menggunakan tanda petik untuk mengspesifikasikan string literal sebagai atribut:
+\begin{lstlisting}
+	const element = <a href="https://www.reactjs.org"> link </a>;
+\end{lstlisting}
+ Penulis juga dapat menggunakan kurung kurawal untuk mengspesifikasikan ekspresi Javascript di dalam atribut:
+ \begin{lstlisting}
+ 	const element = <img src={user.avatarUrl}></img>;
+ \end{lstlisting}
+
+\subsubsection{Mengspesifikasikan Elemen Anak dengan JSX}
 Jika tag bersifat kosong atau tidak memiliki elemen anak, penulis dapat menutup tag-nya secara langsung dengan />, seperti pada potongan kode dibawah ini.
 \begin{lstlisting}
 	const element = <img src={user.avatarUrl} />;
@@ -457,7 +467,7 @@ Aplikasi yang dibuat dengan React biasanya memiliki satu node DOM akar. Jika men
 \begin{lstlisting}
 	<div id="root"></div>
 \end{lstlisting}
-Potongan kode diatas disebut sebagai node DOM aka karena semua yang berada didalamnya akan diatur oleh React DOM.
+Potongan kode diatas disebut sebagai node DOM akar karena semua yang berada didalamnya akan diatur oleh React DOM.
 \begin{lstlisting}
 	const element = <h1>Hello, world</h1>;
 	ReactDOM.render(element, document.getElementById('root'));
@@ -531,6 +541,54 @@ Komponen dapat merujuk ke komponen lain pada keluarannya. Hal ini memungkinkan k
 
 
 \subsection{Penanganan Event}
+Menangani events dengan elemen React sangat mirip seperti menangani sebuah events pada elemen DOM. Ada beberapa perbedaan sintaks:
+\begin{itemize}
+	\item Events pada React biasanya ditulis dalam bentuk camelCase, bukan lowercase.
+	\item Dengan JSX Anda dapat mengoper function sebagai event handler, bukan sebagai string.
+\end{itemize}
+Berikut ini adalah contoh sintaks pada HTML:
+\begin{lstlisting}
+	<button onclick="activateLasers()">
+	Aktivasi Laser
+	</button>
+\end{lstlisting}
+Sintaks HTML memiliki sedikit perbedaan dengan sintaks pada React. Berikut ini adalah contoh sintaks pada React:
+\begin{lstlisting}
+	<button onClick={activateLasers}>
+	Aktivasi Laser
+	</button>
+\end{lstlisting} 
+Perbedaan lainnya adalah penulis tidak dapat mengembalikan nilai false untuk mencegah behaviorbawaan React. Penulis harus menggunakan preventDefault. Sebagai contoh, pada HTML untuk mencegah agar link bawaan membuka halaman baru, penulis dapat menulis seperti ini:  
+\begin{lstlisting}
+	<a href="#" onclick="console.log('The link was clicked.'); return false">
+	Click me
+	</a>
+\end{lstlisting}
+Sedangkan pada React, contoh tersebut dapat ditulis sebagai berikut:
+\begin{lstlisting}
+	function ActionLink() {
+		function handleClick(e) {
+			e.preventDefault();
+			console.log('Tautan diklik.');
+		}
+		
+		return (
+		<a href="#" onClick={handleClick}>
+		Klik Saya
+		</a>
+		);
+	}
+\end{lstlisting}
+Pada kode diatas e merupakan event tiruan. React mendefinisikan event tiruan ini berdasarkan W3C spec\footnote{https://www.w3.org/TR/DOM-Level-3-Events/}, jadi Anda tidak perlu khawatir akan kesesuaian antar lintas browser. Event dalam React tidak bekerja secara sama dengan event native dari $\_$browser.
+\subsubsection{Mengoper Argumen Kedalam Penanganan Event}
+Di dalam perulangan, umumnya Anda ingin mengoper sebuah parameter ekstra kedalam penanganan event. Sebagai contoh, jika id sama dengan ID baris, maka salah satu dari kedua contoh berikut dapat dijalankan:
+\begin{lstlisting}
+	<button onClick={(e) => this.deleteRow(id, e)}>Delete Row</button>
+	<button onClick={this.deleteRow.bind(this, id)}>Delete Row</button>
+\end{lstlisting}
+Dua baris di atas memiliki arti yang sama, masing-masing menggunakan arrow functions dan Function.prototype.bind.
+Arrow function adalah sebuah cara alternatif untuk mendefinisikan fungsi dari fungsi tradisional. Cara ini bersifat terbatas dan tidak dapat digunakan dalam setiap kondisi. Sedangkan metode bind() adalah sebuah metode yang membuat sebuah fungsi yang ketika dipanggil, kata kunci this akan berubah menjadi nilai yang diberikan.
+
 \subsection{Render Bersyarat}
 Render bersyarat pada React memiliki fungsi yang sama dengan operator bersyarat pada Javascript. Pada Javascript operator if atau operator bersyarat digunakan untuk merepresentasikan elemen pada state tertentu, kemudian React akan memperbarui UI pada state tersebut.
 
@@ -570,8 +628,88 @@ Berikut ini adalah contoh kodenya:
 	console.log(doubled);
 \end{lstlisting}
 Kode diatas akan mengembalikan nilai [2, 4, 6, 8, 10] ke dalam konsol. Pada React, mengubah array ke dalam list elemen kurang lebih sama.
+\subsubsection{Me-render Banyak Komponen}
+Penulis dapat membangun koleksi dari beberapa elemen dan menyertakannya dalam JSX  menggunakan tanda kurung kurawal. 
+\begin{lstlisting}
+	const numbers = [1, 2, 3, 4, 5];
+	const listItems = numbers.map((number) =>
+	<li>{number}</li>
+	);
+\end{lstlisting}
+Pada kode diatas, akan dilakukan perulangan pada numbers yang berisi array dengan mengunakan fungsi map(). Hasil yang akan dikeluarkan adalah sebuah elemen <li> untuk setiap item yang kemudian akan dimasukkan kedalam variabel listItem. 
+\begin{lstlisting}
+	ReactDOM.render(
+	<ul>{listItems}</ul>,
+	document.getElementById('root')
+	);
+\end{lstlisting}
+Kemudian dengan menggunakan kode diatas, array listItem tersebut dapat dimasukkan kedalam elemen <ul> dan akan me-render-nya kedalam DOM.
+
 \subsubsection{Daftar Komponen Dasar}
-Biasanya penulis me-render list dalam sebuah komponen. 
+Penulis dapat me-refaktor contoh sebelumnya ke dalam sebuah komponen yang menerima array numbers dan mengeluarkan sebuah list elemen yang tidak berurutan.
+\begin{lstlisting}
+	function NumberList(props) {
+		const numbers = props.numbers;
+		const listItems = numbers.map((number) =>
+		<li>{number}</li>
+		);
+		return (
+		<ul>{listItems}</ul>
+		);
+	}
+	
+	const numbers = [1, 2, 3, 4, 5];
+	ReactDOM.render(
+	<NumberList numbers={numbers} />,
+	document.getElementById('root')
+	);
+\end{lstlisting}
+Ketika penulis menjalankan kode ini, penulis akan mendapatkan peringatan bahwa key harus disediakan untuk item di dalam list. Sebuah ”key” adalah atribut string spesial yang perlu disertakan dalam pembuatan list elemen. Penulis harus sertakan key ke dalam list item pada numbers.map() dan memperbaiki masalah key yang hilang.
+\begin{lstlisting}
+	function NumberList(props) {
+		const numbers = props.numbers;
+		const listItems = numbers.map((number) =>
+		<li key={number.toString()}>
+		{number}
+		</li>
+		);
+		return (
+		<ul>{listItems}</ul>
+		);
+	}
+	
+	const numbers = [1, 2, 3, 4, 5];
+	ReactDOM.render(
+	<NumberList numbers={numbers} />,
+	document.getElementById('root')
+	);
+\end{lstlisting}
+\subsubsection{Key}
+Key membantu React untuk mengidentifikasi item mana yang telah diubah, ditambahkan, atau dihilangkan. Key harus diberikan di dalam elemen yang terdapat di dalam sebuah array untuk memberikan elemen tersebut identitas yang stabil:
+\begin{lstlisting}
+	const numbers = [1, 2, 3, 4, 5];
+	const listItems = numbers.map((number) =>
+	<li key={number.toString()}>
+	{number}
+	</li>
+	);
+\end{lstlisting}
+Cara terbaik untuk menentukan key yang akan digunakan adalah menggunakan string unik untuk mengidentifikasikan item. Biasanya menggunakan ID dari data sebagai key:
+\begin{lstlisting}
+	const todoItems = todos.map((todo) =>
+	<li key={todo.id}>
+	{todo.text}
+	</li>
+	);
+\end{lstlisting}
+Ketika tidak memiliki ID yang stabil untuk me-render item, penulis dapat menggunakan indeks dari item sebagai key untuk pilihan terakhir:
+\begin{lstlisting}
+	const todoItems = todos.map((todo, index) =>
+	<li key={index}>
+	{todo.text}
+	</li>
+	);
+\end{lstlisting}
 
 \subsection{Form}
 Elemen form HTML bekerja sedikit berbeda dari elemen DOM lainnya di React, karena elemen form secara natural menyimpan beberapa state internal. Sebagai contoh, form ini pada HTML biasa menerima nama tunggal:
@@ -586,7 +724,7 @@ Elemen form HTML bekerja sedikit berbeda dari elemen DOM lainnya di React, karen
 \end{lstlisting}
 Form ini memiliki perilaku dasar dari form HTML biasa yakni menuju ke laman baru ketika user mengirim form tersebut. Jika Anda menginginkan perilaku seperti ini di React, ini sebenarnya dapat bekerja. Namun di banyak kasus, akan lebih mudah untuk memiliki sebuah fungsi JavaScript yang menangani sebuah submisi dari sebuah form dan memiliki akses terhadap data yang dimasukkan pengguna ke dalam form. Cara standar untuk mencapai hal ini adalah dengan teknik yang disebut ”controlled component“.
 \subsubsection{Controlled Component}
-
+Elemen form pada HTML seperti <input>, <select>, dan <textarea> biasanya menyimpan state mereka sendiri dan memperbaruinya berdasarkan masukkan dari pengguna. Pada React, state yang dapat berubah akan disimpan dalam sebuah prop atau komponen dan hanya dapat diubah dengan menggunakan setState(). 
 
 \subsection{Memindahkan State Ke Atas}
 
