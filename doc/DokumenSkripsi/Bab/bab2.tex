@@ -725,10 +725,49 @@ Elemen form HTML bekerja sedikit berbeda dari elemen DOM lainnya di React, karen
 Form ini memiliki perilaku dasar dari form HTML biasa yakni menuju ke laman baru ketika user mengirim form tersebut. Jika Anda menginginkan perilaku seperti ini di React, ini sebenarnya dapat bekerja. Namun di banyak kasus, akan lebih mudah untuk memiliki sebuah fungsi JavaScript yang menangani sebuah submisi dari sebuah form dan memiliki akses terhadap data yang dimasukkan pengguna ke dalam form. Cara standar untuk mencapai hal ini adalah dengan teknik yang disebut ”controlled component“.
 \subsubsection{Controlled Component}
 Elemen form pada HTML seperti <input>, <select>, dan <textarea> biasanya menyimpan state mereka sendiri dan memperbaruinya berdasarkan masukkan dari pengguna. Pada React, state yang dapat berubah akan disimpan dalam sebuah prop atau komponen dan hanya dapat diubah dengan menggunakan setState(). 
+komponen React yang me-render sebuah form juga mengontrol hal yang terjadi dalam form tersebut pada masukan pengguna selanjutnya. Sebuah elemen masukan form yang nilainya dikontrol oleh React melalui cara seperti ini disebut sebagai ”controlled component“.
+\begin{lstlisting}
+	class NameForm extends React.Component {
+		constructor(props) {
+			super(props);
+			this.state = {value: ''};
+			
+			this.handleChange = this.handleChange.bind(this);
+			this.handleSubmit = this.handleSubmit.bind(this);
+		}
+		
+		handleChange(event) {
+			this.setState({value: event.target.value});
+		}
+		
+		handleSubmit(event) {
+			alert('A name was submitted: ' + this.state.value);
+			event.preventDefault();
+		}
+		
+		render() {
+			return (
+			<form onSubmit={this.handleSubmit}>
+			<label>
+			Name:
+			<input type="text" value={this.state.value} onChange={this.handleChange} />
+			</label>
+			<input type="submit" value="Submit" />
+			</form>
+			);
+		}
+	}
+\end{lstlisting}
+Dengan sebuah controlled component, nilai input akan selalu didorong oleh state di React. Meskipun menulis kode yang lebih banyak, tetapi juga bisa mengoper nilai ini ke elemen antarmuka lain, atau me-reset nilai tersebut dari event handler lain.
+\subsubsection{Mengendalikan Nilai Kosong}
+Menentukan nilai prop pada controlled component mencegah pengguna mengubah masukan. Jika sudah menetepkan nilai value tetapi masukan masih dapat diubah, mungkin nilai value yang ditetapkan bersifat undefined atau null.
 
-\subsection{Memindahkan State Ke Atas}
 
-\subsection{Komposisi Dan Perwarisan}
+%\subsection{Memindahkan State Ke Atas}
+
+
+%\subsection{Komposisi Dan Perwarisan}
+
 
 \subsection{\textit{Node Package Manager}}
 Node \textit{Package} Manager (NPM) adalah \textit{software registry} yang digunakan untuk meminjam atau membagikan \textit{software library} \cite{npmAbout}. NPM terdiri dari tiga komponen penting, yaitu:
