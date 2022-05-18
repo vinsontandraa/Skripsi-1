@@ -1,35 +1,29 @@
 \chapter{Pembangunan Perangkat Lunak}
 \label{chap:pembangunan PL}
-Pada bab ini akan dijelaskan tentang implementasi perngkat lunak, masalah yang dihadapi pada saat implementasi.
+Pada bab ini akan dijelaskan tentang implementasi perngkat lunak.
 \section{Implementasi Perangkat Lunak}
-Perangkat lunak dibuat sesuai dengan data pada Bab \ref{chap:percobaan_awal} dan \ref{chap:penggalian data}. Implementasi perangkat lunak ini menggunakan bahasa pemograman JavaScript. Pada skripsi ini akan digunakan beberapa library seperti: RactJS dan ChartJS. Terdapat beberapa folder yang dipisahkan seperti folder json berguna untuk menyimpan file-file json dalam pembuatan chart dan folder tabel berguna untuk . Selain itu terdapat App.js sebagai tempat semua code dituliskan.
+Perangkat lunak dibuat sesuai dengan data pada Bab \ref{chap:percobaan_awal} dan \ref{chap:penggalian data}. Implementasi perangkat lunak ini menggunakan bahasa pemograman JavaScript. Pada skripsi ini akan digunakan beberapa library seperti: RactJS dan ChartJS. Terdapat beberapa folder yang dipisahkan seperti folder data berguna untuk menyimpan file-file data dalam pembuatan chart, folder components untuk menyimpan file-file yang dapat digunakan beberapa kali atau \textit{reuseable}. Selain itu terdapat App.js sebagai tempat semua code dituliskan.
 
-\subsection{Folder JSON}
-Pada folder ini akan berisikan data-data yang dibutuhkan dalam pembuatan chart dalam bentuk json. Pada setiap file json tersebut terdapat label, kemudia didalam label terdapat array of object dengan data app, info, jumlah. App merupakan aplikasi yang aplikasi yang dipakai, info merupakan informasi versi yang dipakai aplikasi, dan jumlah merupakan jumlah url yang menggunakan aplikasi dengan versi tertentu.
+\subsection{Folder Data}
+Pada folder ini akan berisikan data-data yang dibutuhkan dalam pembuatan chart. Pada setiap file  tersebut terdapat label, kemudian didalamnya terdapat array of object dengan variabel app, info, jumlah, dan result. App merupakan aplikasi yang aplikasi yang dipakai, info merupakan informasi versi yang dipakai aplikasi, jumlah merupakan jumlah url yang menggunakan aplikasi dengan versi tertentu, dan result merupakan hasil dari versi aplikasi tertentu atau masih didukung atau tidak.
 
-\subsection{Folder Tabel}
-Pada folder ini akan berisikan folder json dan kelas untuk membuat tabel. 
-\subsubsection{Folder JSON}
-pada folder json terdapat array of object dengan data info dan result. Info merupakan informasi versi dan result merupakan pernyataan yang menyatakan versi tersebut masih didukung atau tidak. 
-\subsubsection{Kelas PaginationTable.js}
-Kelas ini berfungsi untuk membuat tabel-tabel yang memiliki data yang banyak. Pada kelas ini data akan dibagi kebeberapa halaman sehingga data yang ditampilkan tidak terlalu panjang. Kode program dapat dilihat pada lampiran \ref{Pagination Table}. Berikut ini adalah penjelasan singkat dari setiap function:
-\begin{itemize}
-	\item Function Table(\{ columns, data \})\\
-	Function Table(\{ columns, data \}) berfungsi sebagai template dalam pembuatan tabel yang menggunakan paginasi.
-	\item Function PaginationTable(\{data,name\})\\
-	Function PaginationTable(\{data,name\}) berfungsi untuk menginisiasi kolom yang terdapat pada sebuah tabel.
-\end{itemize}
-\subsubsection{Kelas BasicTable.js}
-Kelas ini berfungsi untuk membuat tabel-tabel yang memiliki data yang kecil. Kode program dapat dilihat pada lampiran \ref{Basic Table}. Pada kelas BasicTable terdapat function BasicTable(\{ columns, data \}) yang berfungsi sebagai template dalam pembuatan tabel tanpa menggunakan paginasi.
+\subsection{Folder Components}
+Pada folder ini akan berisikan folder tabel dan folder untuk membuat chart. 
+\subsubsection{Folder Tabel}
+Pada folder ini berisikan sebuah kelas untuk membuat tabel bernama BasicTable.js
+\subsubsection{BasicTable.js}
+Pada kelas ini terdapat sebuah fungsi bernama BasicTable({data, title}). Fungsi ini digunakan untuk membuat tabel.
+
+
 
 
 \subsection{Kelas App.js}
 App.js merupakan sebuah kelas utama yang dibuat untuk menampilkan data-data. Data-data yang sudah dikumpulkan akan dipanggil oleh kelas App.js. Kode program dari setiap function dapat dilihat pada lampiran \ref{App}. Berikut ini adalah penjelasan singkat dari setiap function: 
 \begin{itemize}
-	\item Function colornginx()\\
-	Function colornginx() yang berfungsi untuk mengubah warna chart pada aplikasi Nginx. Pada fungsi ini dilakukan secara manual yaitu melakukan perulangan sebanyak jumlah datanya. Warna akan dibedakan berdasarkan jumlah aplikasi yang sudah tidak didukung.
+	\item Function color(arr)\\
+	Function color(arr) yang berfungsi untuk mengubah warna chart pada aplikasi. Fungsi ini akan melakukan perulangan sebanyak jumlah datanya. Warna akan dibedakan berdasarkan result. Jika result dari aplikasi masih didukung, maka warna yang akan ditampilkan adalah warna biru, jika result dari aplikasi sudah tidak didukung, maka warna yang akan ditampilkan adalah warna merah
 	\item Function App()\\
-	Function App() berfungsi untuk memetakan dan menampilkan data. Data diambil dari JSON yang sudah dibuat, kemudian data JSON tersebut akan dipetakan kedalam sebuah variabel fieldNameMapper. Hasil pemetaan tersebut dipush kedalam sebuah array. Kemudian data ditampilkan dengan Bar Chart. Pada fungsi ini juga memanggil komponen BasicTable  dan PaginationTable. Input juga didapat dari file JSON yang sudah dibuat pada folder table. Pada komponen ini, akan dikeluarkan tabel-tabel yang berisi versi dan result (\textit{supported} atau \textit{unsupported}) dari setiap aplikasi. 
+	Function App() berfungsi untuk memetakan dan menampilkan data. Data tersebut akan dipetakan sehingga membentuk sebuah chart. Kemudian pada fungsi ini akan mengembalikan komponen-komponen yang sudah dibuat berdasarkan parameter yang dimasukkan. 
 \end{itemize}
 
 

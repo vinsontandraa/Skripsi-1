@@ -366,8 +366,8 @@ Setelah mendapatkan data versi minimal dari setiap aplikasi, data tersebut akan 
 	CREATE TEMP FUNCTION normaizedSemanticVersion(semanticVersion STRING) 
 	AS ((
 	SELECT STRING_AGG(
-	IF(isDigit, REPEAT('0', 100 - LENGTH(chars)) || chars, chars), '' ORDER BY grp 
-	) || '..zzzzzzzzzzzzzz' 
+	IF(isDigit, REPEAT('0', 100 - LENGTH(chars)) || chars, chars) ORDER BY grp 
+	)
 	FROM (
 	SELECT grp, isDigit, STRING_AGG(char, '' ORDER BY OFFSET) chars,
 	FROM (
@@ -393,12 +393,14 @@ Setelah mendapatkan data versi minimal dari setiap aplikasi, data tersebut akan 
 	));
 	WITH test AS (
 	SELECT url, app, info, min_supported	
-	FROM `skripsi2-327310.skripsi.TOP_10_url`
+	FROM `httparchive-bigquery-346414.Step.app_min_supported_and_info`
 	)
 	SELECT url, app, info, min_supported, if(info = '', "NOT VERSIONED",if(min_supported = '?','NON CONCLUSIVE',compareSemanticVersions(info, min_supported)) ) as  result
 	FROM test 
 	ORDER BY url
 \end{lstlisting}
+
+
 Berikut ini adalah hasil sepuluh data yang dapat dilihat pada tabel \ref{table:contoh_langkah5.1}. Data diambil berdasarkan banyak aplikasi yang dipakai oleh url tertentu. 
 \begin{table}[H]
 \centering
