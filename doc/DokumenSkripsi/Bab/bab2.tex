@@ -762,6 +762,10 @@ Dengan sebuah controlled component, nilai input akan selalu didorong oleh state 
 \subsubsection{Mengendalikan Nilai Kosong}
 Menentukan nilai prop pada controlled component mencegah pengguna mengubah masukan. Jika sudah menetepkan nilai value tetapi masukan masih dapat diubah, mungkin nilai value yang ditetapkan bersifat undefined atau null.
 
+\subsection{Hooks}
+Hooks merupakan sebuah fungsi yang memungkinkan penulis untuk mengaitkan state dan fitur-fitur lifecycle react dari function component.
+
+
 
 %\subsection{Memindahkan State Ke Atas}
 
@@ -810,3 +814,21 @@ JSON (JavaScript Object Notation) merupakan format penulisan data yang mudah unt
     \item Kumpulan pasangan nilai yang akan dibuat menjadi sebuah objek, \textit{hash table}, dan lainnya.
     \item Daftar nilai yang diurutkan, seperti array, vektor, dan lainnya.
 \end{itemize}
+
+\section{Express.js}
+\textit{Express.js} adalah sebuah framework sebuah aplikasi web untuk Node.js. Untuk menginstal Express.js dapat dilakukan dengan melakukan sintaks:
+\begin{verbatim}
+	npm install express --save
+\end{verbatim}
+Ketika menjalankan sintaks diatas, maka secara otomatis menambahkan library express.js yang akan disimpan pada folder package.json.
+\subsubsection{Routing}
+Routing adalah sebuah proses dari perangkat lunak dalam merespon beberapa endpoint. Dalam mendefinisikan routing menggunakan express.js terdapat struktur perintah sebagai berikut:
+\begin{verbatim}
+	app.METHOD(PATH, HANDLER)
+\end{verbatim} 
+Contoh perintah dalam membuat route pada Express.js adalah:
+\begin{lstlisting}
+	app.get('/', (req, res) => {
+		res.send('hello world')
+	})
+\end{lstlisting}
