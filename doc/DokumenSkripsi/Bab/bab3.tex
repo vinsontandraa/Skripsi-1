@@ -123,6 +123,9 @@ Skripsi ini akan membuat tabel baru agar tidak melakukan query yang sama berulan
 	\end{figure}
 \end{enumerate}
 
+Didalam BigQuery 
+
+
 \section{Dataset yang Digunakan pada HTTP Archive}
 Dataset pada HTTP Archive yang digunakan pada skripsi ini adalah sebagai berikut:
 \begin{enumerate}
@@ -289,7 +292,7 @@ ON (tabelName.app = num.app)
 LIMIT 10
 \end{lstlisting}
 
-Pada \textit{query} diatas akan dibuat beberapa tabel baru yang bersifat sementara. Pada tabel tersebut akan dilakukan pemilihan pada kolom app dengan menggunakan perintah SELECT dan menggunakan DISTINCT agar app yang ditampilkan hanya keluar satu kali. Data diambil dari project httparchive dataset \textit{technologies} tabel 2020\_08\_01\_* dengan menggunakan perintah FROM. Kemudian tabel akan digabungkan dengan tabel lain. Kolom lain berisikan jumlah aplikasi yang memiliki versi, jumlah aplikasi yang tidak memiliki versi, dan jumlah situs yang menggunakan aplikasi tertentu. Kemudian dengan menggunakan perintah SELECT, akan dipanggil beberapa variabel dari setiap kolom dari setiap tabel. Kolom yang diambil berupa: app, jumlah situs yang dipakai aplikasi (num\_sites), jumlah aplikasi yang memiliki versi (versioned\_count), dan jumlah aplikasi yang tidak memiliki versi (unversioned\_count). Kolom akan dibatasi sebanyak 10 baris dengan menggunakan perintah LIMIT. Sepuluh contoh hasil keluaran dari \textit{query} diatas dapat dilihat pada tabel \ref{table:contoh_langkah3}:
+Pada \textit{query} diatas akan dibuat beberapa tabel baru yang bersifat sementara. Pada baris ke tiga dan empat, query akan mengembalikan tabel yang berisi semua app yang ada pada tabel menggunakan perintah SELECT dan menggunakan DISTINCT agar app yang ditampilkan hanya keluar satu kali. Data diambil dari project httparchive dataset \textit{technologies} tabel 2020\_08\_01\_* dengan menggunakan perintah FROM. Kemudian pada baris ke delapan sampai sebalas, query akan mengembalikan tabel yang berisi app dan jumlah app yang memiliki info tidak kosong atau memiliki informasi versi. Pada baris tujuh belas sampai dua puluh, query akan mengembalikan tabel yang berisi app dan jumlah ap yang tidak memiliki informasi versi. Pada baris dua puluh enam sampai dengan baris dua puluh delapan, query akan mengembalikan tabel app, jumlah url yang menggunakan app tersebut. Kemudian semua tabel tersebut akan digabungkan dengan perintah LEFT JOIN. Kemudian dengan menggunakan perintah SELECT, akan dipanggil beberapa variabel dari setiap kolom dari setiap tabel. Kolom yang diambil berupa: app, jumlah situs yang dipakai aplikasi (num\_sites), jumlah aplikasi yang memiliki versi (versioned\_count), dan jumlah aplikasi yang tidak memiliki versi (unversioned\_count). Kolom akan dibatasi sebanyak 10 baris dengan menggunakan perintah LIMIT. Sepuluh contoh hasil keluaran dari \textit{query} diatas dapat dilihat pada tabel \ref{table:contoh_langkah3}:
 
 \begin{table}[H]
 \centering
@@ -392,13 +395,15 @@ Setelah mendapatkan data versi minimal dari setiap aplikasi, data tersebut akan 
 	)])
 	));
 	WITH test AS (
-	SELECT url, app, info, min_supported	
-	FROM `httparchive-bigquery-346414.Step.app_min_supported_and_info`
+	SELECT url, category, app, if (array_length(split(info , ".")) > 2, split(info , ".")[offset(0)] || "." || split(info , ".")[offset(1)], info)  as info, min_supported	
+	FROM `httparchive-bigquery-346414.app_min_supported_and_info.app_min_supported_and_info`
+	where info != "\\"
 	)
-	SELECT url, app, info, min_supported, if(info = '', "NOT VERSIONED",if(min_supported = '?','NON CONCLUSIVE',compareSemanticVersions(info, min_supported)) ) as  result
+	SELECT url, category, app, info, min_supported, if(info = '', "NOT VERSIONED",if(min_supported = '?','NON CONCLUSIVE',compareSemanticVersions(info, min_supported)) ) as  result
 	FROM test 
 	ORDER BY url
 \end{lstlisting}
+Pada awalnya akan dibuat sebuah fungsi dengan nama normaizedSemanticVersion(semanticVersion STRING). Kemudian pada baru ke dua sampai baris ke 
 
 
 Berikut ini adalah hasil sepuluh data yang dapat dilihat pada tabel \ref{table:contoh_langkah5.1}. Data diambil berdasarkan banyak aplikasi yang dipakai oleh url tertentu. 
@@ -437,19 +442,19 @@ Berikut ini adalah hasil sepuluh data yang dapat dilihat pada tabel \ref{table:c
 \label{table:contoh_langkah5.1}
 \end{table}
 
-Data juga dikelompokkan berdasarkan \textit{category} yang memiliki aplikasi yang \textit{unsupported}. Kemudian \textit{category} tersebut dihitung kembali dan dikelompokkan berdasarkan jumlah aplikasi yang \textit{unsupport}-nya. Hasil dapat dilihat pada tabel \ref{table:contoh_langkah5.2}.
-\begin{table}[H]
-\centering
-\begin{tabular}{|r|r|r|r|r|}
-	\hline
-	\textbf{n=0} & \textbf{n=1} & \textbf{n=2} & \textbf{n=3} & \textbf{n>=4}\\
-	\hline
-	2 & 1 & 0 & 0 & 58\\
-	\hline
-\end{tabular}
-\caption{Jumlah Category Dengan Aplikasi Unsupported}
-\label{table:contoh_langkah5.2}
-\end{table}
+%Data juga dikelompokkan berdasarkan \textit{category} yang memiliki aplikasi yang \textit{unsupported}. Kemudian \textit{category} tersebut dihitung kembali dan dikelompokkan berdasarkan jumlah aplikasi yang \textit{unsupport}-nya. Hasil dapat dilihat pada tabel \ref{table:contoh_langkah5.2}.
+%\begin{table}[H]
+%\centering
+%\begin{tabular}{|r|r|r|r|r|}
+%	\hline
+%	\textbf{n=0} & \textbf{n=1} & \textbf{n=2} & \textbf{n=3} & \textbf{n>=4}\\
+%	\hline
+%	2 & 1 & 0 & 0 & 58\\
+%	\hline
+%\end{tabular}
+%\caption{Jumlah Category Dengan Aplikasi Unsupported}
+%\label{table:contoh_langkah5.2}
+%\end{table}
 
 Data juga dibandingkan berdasarkan aplikasi tertentu. Data yang dihasilkan adalah num\_sites atau jumlah url yang menggunakan aplikasi tertentu, app, supported atau aplikasi yang masih didukung, unsupported atau aplikasi yang sudah tidak didukung, not\_versioned atau aplikasi yang tidak diberi informasi versi, dan non\_conclusive atau versi aplikasi tidak dapat ditentukan. Hasil dari data dapat dilihat pada tabel \ref{table:contoh_langkah5.3}.
 \begin{adjustwidth}{-2.5 cm}{-2.5 cm}\centering\begin{threeparttable}[!htb]

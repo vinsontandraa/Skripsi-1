@@ -78,7 +78,7 @@ Didalam \textit{query} juga terdapat beberapa fungsi agregat untuk melakukan ope
         WHERE condition;
     \end{verbatim}  
     
-    \item COUNT()
+    \item COUNT()\\
      Fungsi ini bertujuan untuk mengembalikan jumlah baris dari atribut sebuah tabel. Fungsi COUNT memiliki contoh \textit{syntax} seperti:
     \begin{verbatim}
         SELECT COUNT(column_name)
@@ -86,13 +86,19 @@ Didalam \textit{query} juga terdapat beberapa fungsi agregat untuk melakukan ope
         WHERE condition;
     \end{verbatim} 
     
-    \item SUM()
+    \item SUM()\\
      Fungsi ini bertujuan untuk mengembalikan jumlah baris dari atribut sebuah tabel. Fungsi SUM memiliki contoh \textit{syntax} seperti:
     \begin{verbatim}
         SELECT SUM(column_name)
         FROM table_name
         WHERE condition;
     \end{verbatim} 
+
+	\item STRING$\_$AGG()\\
+	Fungsi ini mengambil semua ekspresi dari baris dan menggabungkannya menjadi satu string. Nilai ekspresi secara implisit dikonversi ke tipe string dan kemudian digabungkan. Fungsi STRING$\_$AGG memiliki contoh \textit{syntax} seperti:
+	\begin{verbatim}
+		STRING_AGG ( expression, separator ) [ <order_clause> ]
+	\end{verbatim}
 \end{itemize}
 
 
@@ -100,7 +106,7 @@ Didalam \textit{query} juga terdapat beberapa fungsi agregat untuk melakukan ope
 Karena database relasional di-\textit{design} dibentuk dengan mengamanatkan bahwa setiap entitas dibuat kedalam tabel yang terpisah, sehingga dibutuhkan mekanisme untuk menghubungkan beberapa tabel dalam \textit{query} yang sama. Mekanisme ini disebut dengan JOIN. Terdapat beberapa jenis JOIN sebagai berikut:
 \begin{itemize}
     \item LEFT OUTER JOIN \\
-    Kata kunci kiri menunjukkan bahwa tabel di sisi kiri klausa from bertanggung jawab untuk menentukan jumlah baris dalam kumpulan hasil, sedangkan tabel di sisi kanan digunakan untuk memberikan nilai kolom setiap kali ditemukan kecocokan. LEFT OUTER JOIN memiliki \textit{syntax} seperti:
+    Kata kunci LEFT menunjukkan bahwa tabel di sisi kiri klausa FROM bertanggung jawab untuk menentukan jumlah baris dalam kumpulan hasil, sedangkan tabel di sisi kanan digunakan untuk memberikan nilai kolom setiap kali ditemukan kecocokan. LEFT OUTER JOIN memiliki \textit{syntax} seperti:
     \begin{verbatim}
         SELECT column_name(s)
         FROM table1
@@ -109,7 +115,7 @@ Karena database relasional di-\textit{design} dibentuk dengan mengamanatkan bahw
     \end{verbatim}
     
     \item RIGHT OUTER JOIN \\
-    Kata kunci kiri menunjukkan bahwa tabel di sisi kanan klausa from bertanggung jawab untuk menentukan jumlah baris dalam kumpulan hasil, sedangkan tabel di sisi kiri digunakan untuk memberikan nilai kolom setiap kali ditemukan kecocokan. RIGHT OUTER JOIN memiliki \textit{syntax} seperti:
+    Kata kunci RIGHT menunjukkan bahwa tabel di sisi kanan klausa FROM bertanggung jawab untuk menentukan jumlah baris dalam kumpulan hasil, sedangkan tabel di sisi kiri digunakan untuk memberikan nilai kolom setiap kali ditemukan kecocokan. RIGHT OUTER JOIN memiliki \textit{syntax} seperti:
     \begin{verbatim}
         SELECT column_name(s)
         FROM table1
@@ -138,10 +144,44 @@ Karena database relasional di-\textit{design} dibentuk dengan mengamanatkan bahw
 \end{itemize}
 
 \subsubsection{Subquery}
-\textit{Subquery} merupakan \textit{query} yang yang terkandung dalam \textit{query} lain. Sebuah \textit{subquery} selalu diapit dalam tanda kurung, dan biasanya dieksekusi terlebih dahulu sebelum \textit{query} yang memuatnya. Tabel yang dikembalikan oleh \textit{subquery} menentukan bagaimana tabel tersebut dapat digunakan dan operator mana yang dapat digunakan oleh \textit{query} yang memuatnya untuk berinteraksi dengan tabel yang dikembalikan oleh \textit{subquery}. Ketika \textit{query} yang memuat telah selesai dieksekusi, tabel yang dikembalikan oleh \textit{subquery} akan dibuang, membuat \textit{subquery} bertindak seperti tabel sementara dengan cakupan pernyataan. Salah satu \textit{syntax} pada \textit{subquery} adalah sebagai berikut:
+\textit{Subquery} merupakan \textit{query} yang terkandung dalam \textit{query} lain. Sebuah \textit{subquery} selalu diapit dalam tanda kurung, dan biasanya dieksekusi terlebih dahulu sebelum \textit{query} yang memuatnya. Tabel yang dikembalikan oleh \textit{subquery} menentukan bagaimana tabel tersebut dapat digunakan dan operator mana yang dapat digunakan oleh \textit{query} yang memuatnya untuk berinteraksi dengan tabel yang dikembalikan oleh \textit{subquery}. Ketika \textit{query} yang memuat telah selesai dieksekusi, tabel yang dikembalikan oleh \textit{subquery} akan dibuang, membuat \textit{subquery} bertindak seperti tabel sementara dengan cakupan pernyataan. Salah satu \textit{syntax} pada \textit{subquery} adalah sebagai berikut:
 \begin{verbatim}
     SELECT column_name(s)
     FROM (subquery)
+\end{verbatim}
+
+\subsection{REPEAT()}
+Fungsi REPEAT() digunakan untuk mengulang string sebanyak jumlah yang dimasukkan. Fungsi REPEAT() akan mengembalikan string. Contoh dari \textit{syntax} REPEAT() yaitu:
+\begin{verbatim}
+	REPEAT(string, number)
+\end{verbatim}
+
+\subsection{COUNTIF()}
+Fungsi COUNTIF() mengembalikan jumlah ekspresi yang bernilai true. Karena ekspresi harus berupa boolean, sehingga bentuk COUNTIF(DISTINCT ...) tidak didukung. Contoh \textit{syntax} COUNTIF() yaitu:
+\begin{verbatim}
+	COUNTIF(
+	expression
+	)
+	[ OVER over_clause ]
+\end{verbatim}
+
+\subsection{UNNEST()}
+Operator UNNEST digunakan untuk mengkonversi ARRAY menjadi sekumpulan baris. UNNEST mengambil ARRAY dan mengembalikan tabel dengan satu baris untuk setiap elemen dalam ARRAY. 
+
+\subsection{SPLIT()}
+Fungsi SPLIT() digunakan untuk membagi nilai menggunakan argumen pembatas. Untuk string memiliki default pembatas yaitu tanda koma, sedangkan bytes harus ditentukan sendiri pembatasnya. Fungsi SPLIT() akan mengembalikan nilai ARRAY. Contoh \textit{syntax} fungsi SPLIT() yaitu:
+\begin{verbatim}
+	SPLIT(value[, delimiter])
+\end{verbatim}
+
+\subsection{CASE}
+CASE akan mengevaluasi setiap klausa WHEN yang secara berurut dan mengembalikan nilai dengan kondisi benar. Jika tidak terdapat klausa WHEN yang memiliki kondisi yang benar, maka nilai dari klausa ELSE yang akan dikembalikan. Contoh \textit{syntax} CASE yaitu:
+\begin{verbatim}
+	CASE
+	WHEN condition THEN result
+	[ ... ]
+	[ ELSE else_result ]
+	END
 \end{verbatim}
 
 \section{HTTP Archive \cite{httparchiveAbout}}
@@ -153,12 +193,12 @@ CrUX adalah sebuah dataset yang bersifat publik yang berisi data user experience
 	\item CrUX Dashboard on Data Studio 
 \end{enumerate} 
 Orang yang menggunakan HTTP Archive adalah anggota komunitas web, para sarjana, dan pemimpin industri:
-\begin{itemize}
+\begin{enumerate}
     \item Komunitas web menggunakan data ini untuk mempelajari lebih lanjut tentang keadaan web. Biasanya dapat dilihat pada blog, presentasi, atau media sosial. 
     \item Para sarjana mengutip data ini untuk mendukung penelitian dalam publikasi besar seperti ACM dan IEEE.
     \item Para pemimpin industri menggunakan data ini untuk mengkalibrasi alat mereka untuk secara akurat mewakili bagaimana web dibuat.
-\end{itemize}
-Di dalam HTTP Archive terdapat dataset yang dapat diambil menggunakan teknologi BigQuery. Dataset dari HTTP Archive masih kotor sehingga terdapat beberapa data yang ganda dan terdapat versi dari aplikasi yang tidak dapat ditentukan (hanya berisi karakter atau simbol). Dataset tersebut adalah sebagai berikut:
+\end{enumerate}
+Di dalam HTTP Archive terdapat dataset yang dapat diambil menggunakan teknologi BigQuery. Dataset tersebut adalah sebagai berikut:
 \begin{enumerate}
 	\item almanac\\
 	Tabel ini tidak digunakan dalam pengerjaan skripsi ini.
@@ -400,6 +440,47 @@ Pada tabel \ref{table:most-used}, terdapat beberapa aplikasi yang banyak digunak
 	\caption{Aplikasi yang Banyak Digunakan}
 	\label{table:most-used}
 \end{table}
+
+\section{Node.js \cite{Nodejs:01:about}}
+\label{sec:nodejs}
+\textit{Node.js} adalah sebuah \textit{asynchronous event-driven JavaScript runtime}. Node.js memungkinkan untuk menjalankan perintah JavaScript dari sisi server. Contoh \textit{syntax} pada Node.js yaitu:
+\begin{lstlisting}
+	const http = require('http');
+	
+	const hostname = '127.0.0.1';
+	const port = 3000;
+	
+	const server = http.createServer((req, res) => {
+		res.statusCode = 200;
+		res.setHeader('Content-Type', 'text/plain');
+		res.end('Hello World');
+	});
+	
+	server.listen(port, hostname, () => {
+		console.log(`Server running at http://${hostname}:${port}/`);
+	});
+\end{lstlisting}
+
+\subsection{\textit{Node Package Manager}}
+Node \textit{Package} Manager (NPM) adalah \textit{software registry} yang digunakan untuk meminjam atau membagikan \textit{software library} \cite{npmAbout}. NPM terdiri dari tiga komponen penting, yaitu:
+\begin{itemize}
+	\item NPM \textit{website}.
+	\item NPM CLI ( \textit{Command Line Interface}). 
+	\item NPM \textit{Registry}.
+\end{itemize}
+
+Beberapa kegunaan dari menggunakan NPM adalah:
+\begin{itemize}
+	\item Membagikan kode kepada pengguna NPM lainnya dimanapun.
+	\item Men-\textit{download software library}
+	\item Menjalankan pack\textit{}age tanpa harus meng-\textit{install} npx
+\end{itemize}
+
+\subsection{NPM CLI}
+NPM merupakan \textit{package manager} untuk \textit{Node JavaScript}. NPM menempatkan modul sehingga dapat ditemukan oleh \textit{node}. Selain itu NPM juga dapat mengelola \textit{dependency conflicts.} NPM digunakan untuk menginstall dan mengembangkan \textit{node program.}. Dalam penulisan NPM dapat dilakukan didalam CLI \textit{(Command Line Interface)}. NPM memiliki tiga komponen penting dalam penulisan perintah CLI, komponen tersebut seperti:
+\begin{verbatim}
+	npm <command> [args]
+\end{verbatim}
 
 \section{ReactJS\cite{reactjsConcept}}
 ReactJS merupakan \textit{library} yang disediakan JavaScript untuk membuat \textit{interface}. ReactJS dibuat oleh Facebook. 
@@ -762,37 +843,84 @@ Dengan sebuah controlled component, nilai input akan selalu didorong oleh state 
 \subsubsection{Mengendalikan Nilai Kosong}
 Menentukan nilai prop pada controlled component mencegah pengguna mengubah masukan. Jika sudah menetepkan nilai value tetapi masukan masih dapat diubah, mungkin nilai value yang ditetapkan bersifat undefined atau null.
 
-\subsection{Hooks}
-Hooks merupakan sebuah fungsi yang memungkinkan penulis untuk mengaitkan state dan fitur-fitur lifecycle react dari function component.
-
-
-
 %\subsection{Memindahkan State Ke Atas}
 
 
 %\subsection{Komposisi Dan Perwarisan}
 
 
-\subsection{\textit{Node Package Manager}}
-Node \textit{Package} Manager (NPM) adalah \textit{software registry} yang digunakan untuk meminjam atau membagikan \textit{software library} \cite{npmAbout}. NPM terdiri dari tiga komponen penting, yaitu:
-\begin{itemize}
-    \item NPM \textit{website}.
-    \item NPM CLI ( \textit{Command Line Interface}). 
-    \item NPM \textit{Registry}.
-\end{itemize}
-
-Beberapa kegunaan dari menggunakan NPM adalah:
-\begin{itemize}
-    \item Membagikan kode kepada pengguna NPM lainnya dimanapun.
-    \item Men\textit{-download software library}
-    \item Menjalankan pack\textit{}age tanpa harus meng-\textit{install} npx
-\end{itemize}
-
-\subsection{NPM CLI}
-NPM merupakan \textit{package manager} untuk \textit{Node JavaScript}. NPM menempatkan modul sehingga dapat ditemukan oleh \textit{node}. Selain itu NPM juga dapat mengelola \textit{dependency conflicts.} NPM digunakan untuk menginstall dan mengembangkan \textit{node program.}. Dalam penulisan NPM dapat dilakukan didalam CLI \textit{(Command Line Interface)}. NPM memiliki tiga komponen penting dalam penulisan perintah CLI, komponen tersebut seperti:
+\subsection{Hooks}
+Hooks merupakan sebuah fungsi yang memungkinkan penulis untuk mengaitkan \textit{state} dan fitur-fitur \textit{lifecycle} react dari \textit{function component}.
+\subsubsection{UseState}
+UseState adalah sebuah hook yang memungkinkan penulis untuk menambahkan \textit{react state} ke \textit{function components}. Cara untuk menggunakan useState adalah dengan meng-\textit{import} useState hook dari react dengan menggunakan sintak:
 \begin{verbatim}
-    npm <command> [args]
+	import React, { useState } from 'react';
+	
+	function Example() {
+		// ...
+	}
 \end{verbatim}
+Berikut ini adalah beberapa informasi mengenai useState:
+\begin{itemize}
+	\item Mendeklarasi Sebuah State Variabel\\
+	Di dalam sebuah kelas, dalam menginisialisasikan variabel dalam state biasanya menggunakan this.state. 
+	\begin{lstlisting}
+		class Example extends React.Component {
+			constructor(props) {
+				super(props);
+				this.state = {
+					count: 0
+				};
+			}
+		\end{lstlisting}
+	Di dalam sebuah component function tidak terdapat this, sehingga tidak dapat menetapkan variabel atau membaca this.state. Melainkan menggunakan useState hook didalam komponen.
+	\begin{lstlisting}
+		import React, { useState } from 'react';
+		
+		function Example() {
+			// Declare a new state variable, which we'll call "count"
+			const [count, setCount] = useState(0);
+		\end{lstlisting}
+	
+	\item Membaca State\\
+	Ketika ingin menampilkan count saat ini dalam kelas, dapat menggunakan kode this.state.count seperti:
+	\begin{verbatim}
+		  <p>You clicked {this.state.count} times</p>
+	\end{verbatim}
+	Sedangkan didalam \textit{function}, dapat menggunakan count secara langsung:
+	\begin{verbatim}
+		  <p>You clicked {count} times</p>
+	\end{verbatim}
+	
+	\item Meng-\textit{update} State\\
+	Ketika ingin meng-update count, dapat menggunakan kode this.setState() seperti:
+	\begin{verbatim}
+		<button onClick={() => this.setState({ count: this.state.count + 1 })}>
+		Click me
+		</button>
+	\end{verbatim}
+	Sedangkan dalam sebuah fungsi, terdapat variabel setCount dan count sehingga tidak membutuhkan this:
+	\begin{verbatim}
+		<button onClick={() => setCount(count + 1)}>
+		Click me
+		</button>
+	\end{verbatim}
+\end{itemize}
+
+
+
+\subsubsection{UseEffect}
+
+
+\subsubsection{Rules of Hooks}
+Hooks adalah fungsi JavaScript, tetapi terdapat dua aturan yang perlu diikuti keteika ingin menggunakannya:
+\begin{enumerate}
+	\item Hanya Panggil Hooks di Tingkat Atas\\
+	Jangan memanggil hooks dari dalam loops, condition, atau nested functions. Dengan mengikuti aturan ini, menyebabkan react ddapat menyimpan state dari hooks dengan benar diantara banyak panggilan useState dan useEffect.
+	
+	\item Hanya Panggil Hooks dari Fungsi React\\
+	Jangan memanggil hooks dari fungsi-fungsi JavaScript biasa. Dengan mengikuti aturan ini, dapat dengan yakin bahwa semua logika stateful didalam sebuah komponen terlihat jelas dari kodenya.
+\end{enumerate}
 
 \subsection{NPX}
 NPX merupakan \textit{execute NPM package binaries}. NPX digunakan untuk menjalan \textit{command} yang dimiliki NPM. NPX mengeksekusi file \textit{binary} dari \textit{package} \textit{Node.js}, baik yang sudah terinstal maupun yang belum. Pembuatan \textit{project} react dapat dilakukan dengan menggunakan sintaks:
