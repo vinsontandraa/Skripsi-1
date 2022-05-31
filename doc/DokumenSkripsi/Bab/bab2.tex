@@ -15,7 +15,7 @@ SQL adalah bahasa pemograman menghasilkan, memanipulasi, dan mengambil informasi
 Terdapat beberapa komponen atau klausa dari \textit{query} yang digunakan mengambil dan menghasilkan data dari database, seperti:
 \begin{itemize}
     \item SELECT dan FROM\\
-    Fungsi dari klausa SELECT adalah untuk menentukan kolom dari suatu tabel yang ditampilkan dalam \textit{query result}. Fungsi dari klausa FROM adalah Mengidentifikasi tabel yang ingin diambil datanya. Dalam mengambil data dari database setidaknya minimal harus menggunakan dua klausa ini. Klausa ini memiliki \textit{syntax} seperti:
+    Fungsi dari klausa SELECT adalah untuk menentukan kolom dari suatu tabel yang ditampilkan dalam \textit{query result}. Fungsi dari klausa FROM adalah mengidentifikasi tabel yang ingin diambil datanya. Dalam mengambil data dari database setidaknya minimal harus menggunakan dua klausa ini. Klausa ini memiliki \textit{syntax} seperti:
     \begin{verbatim}
     SELECT coloumn1, coloumn2, ...
     FROM table_name
@@ -55,7 +55,7 @@ Terdapat beberapa komponen atau klausa dari \textit{query} yang digunakan mengam
 Didalam \textit{query} juga terdapat beberapa fungsi agregat untuk melakukan operasi tertentu yaitu:
 \begin{itemize}
     \item MAX()\\
-    Fungsi ini bertujuan untuk mengembalikan nilai maksimal dari atribut sebuah tabel. Fungsi MAX memiliki contoh \textit{syntax} seperti:
+    Fungsi ini bertujuan untuk mengembalikan nilai maksimal dari kolom sebuah tabel. Fungsi MAX memiliki contoh \textit{syntax} seperti:
     \begin{verbatim}
         SELECT MAX(column_name)
         FROM table_name
@@ -63,7 +63,7 @@ Didalam \textit{query} juga terdapat beberapa fungsi agregat untuk melakukan ope
     \end{verbatim}
     
     \item MIN()\\
-    Fungsi ini bertujuan untuk mengembalikan nilai minimum dari atribut sebuah tabel. Fungsi MIN memiliki contoh \textit{syntax} seperti:
+    Fungsi ini bertujuan untuk mengembalikan nilai minimum dari kolom sebuah tabel. Fungsi MIN memiliki contoh \textit{syntax} seperti:
     \begin{verbatim}
         SELECT MIN(column_name)
         FROM table_name
@@ -71,7 +71,7 @@ Didalam \textit{query} juga terdapat beberapa fungsi agregat untuk melakukan ope
     \end{verbatim}
     
     \item AVG()\\
-    Fungsi ini bertujuan untuk mengembalikan nilai rata-rata dari atribut sebuah tabel. Fungsi AVG memiliki contoh \textit{syntax} seperti:
+    Fungsi ini bertujuan untuk mengembalikan nilai rata-rata dari kolom sebuah tabel. Fungsi AVG memiliki contoh \textit{syntax} seperti:
     \begin{verbatim}
         SELECT AVG(column_name)
         FROM table_name
@@ -79,7 +79,7 @@ Didalam \textit{query} juga terdapat beberapa fungsi agregat untuk melakukan ope
     \end{verbatim}  
     
     \item COUNT()\\
-     Fungsi ini bertujuan untuk mengembalikan jumlah baris dari atribut sebuah tabel. Fungsi COUNT memiliki contoh \textit{syntax} seperti:
+     Fungsi ini bertujuan untuk mengembalikan jumlah baris dari kolom sebuah tabel. Fungsi COUNT memiliki contoh \textit{syntax} seperti:
     \begin{verbatim}
         SELECT COUNT(column_name)
         FROM table_name
@@ -87,7 +87,7 @@ Didalam \textit{query} juga terdapat beberapa fungsi agregat untuk melakukan ope
     \end{verbatim} 
     
     \item SUM()\\
-     Fungsi ini bertujuan untuk mengembalikan jumlah baris dari atribut sebuah tabel. Fungsi SUM memiliki contoh \textit{syntax} seperti:
+     Fungsi ini bertujuan untuk mengembalikan jumlah baris dari kolom sebuah tabel. Fungsi SUM memiliki contoh \textit{syntax} seperti:
     \begin{verbatim}
         SELECT SUM(column_name)
         FROM table_name
@@ -150,13 +150,13 @@ Karena database relasional di-\textit{design} dibentuk dengan mengamanatkan bahw
     FROM (subquery)
 \end{verbatim}
 
-\subsection{REPEAT()}
+\subsubsection{REPEAT()}
 Fungsi REPEAT() digunakan untuk mengulang string sebanyak jumlah yang dimasukkan. Fungsi REPEAT() akan mengembalikan string. Contoh dari \textit{syntax} REPEAT() yaitu:
 \begin{verbatim}
 	REPEAT(string, number)
 \end{verbatim}
 
-\subsection{COUNTIF()}
+\subsubsection{COUNTIF()}
 Fungsi COUNTIF() mengembalikan jumlah ekspresi yang bernilai true. Karena ekspresi harus berupa boolean, sehingga bentuk COUNTIF(DISTINCT ...) tidak didukung. Contoh \textit{syntax} COUNTIF() yaitu:
 \begin{verbatim}
 	COUNTIF(
@@ -165,16 +165,16 @@ Fungsi COUNTIF() mengembalikan jumlah ekspresi yang bernilai true. Karena ekspre
 	[ OVER over_clause ]
 \end{verbatim}
 
-\subsection{UNNEST()}
+\subsubsection{UNNEST()}
 Operator UNNEST digunakan untuk mengkonversi ARRAY menjadi sekumpulan baris. UNNEST mengambil ARRAY dan mengembalikan tabel dengan satu baris untuk setiap elemen dalam ARRAY. 
 
-\subsection{SPLIT()}
+\subsubsection{SPLIT()}
 Fungsi SPLIT() digunakan untuk membagi nilai menggunakan argumen pembatas. Untuk string memiliki default pembatas yaitu tanda koma, sedangkan bytes harus ditentukan sendiri pembatasnya. Fungsi SPLIT() akan mengembalikan nilai ARRAY. Contoh \textit{syntax} fungsi SPLIT() yaitu:
 \begin{verbatim}
 	SPLIT(value[, delimiter])
 \end{verbatim}
 
-\subsection{CASE}
+\subsubsection{CASE}
 CASE akan mengevaluasi setiap klausa WHEN yang secara berurut dan mengembalikan nilai dengan kondisi benar. Jika tidak terdapat klausa WHEN yang memiliki kondisi yang benar, maka nilai dari klausa ELSE yang akan dikembalikan. Contoh \textit{syntax} CASE yaitu:
 \begin{verbatim}
 	CASE
@@ -186,7 +186,7 @@ CASE akan mengevaluasi setiap klausa WHEN yang secara berurut dan mengembalikan 
 
 \section{HTTP Archive \cite{httparchiveAbout}}
 HTTP Archive adalah sebuah \textit{open-source project} yang melihat bagaimana \textit{website} dibuat. HTTP Archive menyediakan data-data historis untuk melihat bagaimana \textit{website} berkembang. HTTP Archive pertama sekali dimulai pada tahun 2010 oleh Steve Souders dan di-\textit{maintain} oleh Pat Meenan, Rick Viscomi, Paul Calvano, and Barry Pollard. Data url HTTP Archive didapatkan menggunakan CrUX kemudian url dikirimkan ke WebPageTest setiap bulannya. 
-CrUX adalah sebuah dataset yang bersifat publik yang berisi data user experience dari jutaan website. Data ini berasal dari data yang dikumpulkan dari pengguna yang telah memilih untuk mengsinkronkan \textit{browsing history} mereka. Data yang dihasilkan tersedia melalui:
+CrUX adalah sebuah dataset yang bersifat publik yang berisi data user experience dari jutaan website. Data ini berasal dari data yang dikumpulkan dari pengguna yang telah memilih untuk mengsinkronkan \textit{browsing history}. Data yang dihasilkan tersedia melalui:
 \begin{enumerate}
 	\item PageSpeed Insights
 	\item Public Google BigQuery Project
@@ -227,7 +227,7 @@ Di dalam HTTP Archive terdapat dataset yang dapat diambil menggunakan teknologi 
 	\item summary$\_$requests\\
 	Tabel ini tidak digunakan dalam pengerjaan skripsi ini.
 	\item technologies\\
-	Dataset pada technologies berisi tabel-tabel dari bulan Januari tahun 2016 sampai dengan sekarang yang terdiri dari website pada desktop dan mobile. Dataset bulan Agustus tahun 2020 baris pada desktop memiliki 61.203.638 baris 
+	Dataset pada technologies berisi tabel-tabel dari bulan Januari tahun 2016 sampai dengan sekarang yang terdiri dari website pada desktop dan mobile. Dataset bulan Agustus tahun 2020 pada desktop memiliki 61.203.638 baris 
 	 %Contoh data dapat dilihat pada tabel \ref{table:ct_tech_desktop} 
 	 dan pada mobile memiliki 67.452.994 baris. 
 	 %Contoh data dapat dilihat pada tabel \ref{table:ct_tech_mobile}. Masing-masing terdiri dari 4 kolom yaitu \textit{url}, \textit{category}, \textit{app}, \textit{info}. Pada kolom \textit{URL (Uniform Resource Locator)} merupakan nama-nama domain, \textit{category} merupakan jenis aplikasi yang digunakan pada website tersebut, \textit{app} merupakan aplikasi yang digunakan website tersebut, \textit{info} merupakan informasi tambahan dari aplikasi. 
@@ -936,12 +936,12 @@ ChartJS adalah sebuah open-source library JavaScript yang digunakan untuk visual
 	npm i react-chartjs-2 chart.js
 \end{verbatim}
 
-\section{JSON}
-JSON (JavaScript Object Notation) merupakan format penulisan data yang mudah untuk dibaca manusia maupun mesin. JSON adalah format teks yang bersifat \textit{language independent} tetapi menggunakan konvensi yang akrab bagi programmer C, Java, JavaScript, Perl, Python, dan banyak lainnya. Properti ini menjadikan JSON sebagai bahasa pertukaran data yang ideal. Terdapat dua struktur dalam JSON:
-\begin{itemize}
-    \item Kumpulan pasangan nilai yang akan dibuat menjadi sebuah objek, \textit{hash table}, dan lainnya.
-    \item Daftar nilai yang diurutkan, seperti array, vektor, dan lainnya.
-\end{itemize}
+%\section{JSON}
+%JSON (JavaScript Object Notation) merupakan format penulisan data yang mudah untuk dibaca manusia maupun mesin. JSON adalah format teks yang bersifat \textit{language independent} tetapi menggunakan konvensi yang akrab bagi programmer C, Java, JavaScript, Perl, Python, dan banyak lainnya. Properti ini menjadikan JSON sebagai bahasa pertukaran data yang ideal. Terdapat dua struktur dalam JSON:
+%\begin{itemize}
+%    \item Kumpulan pasangan nilai yang akan dibuat menjadi sebuah objek, \textit{hash table}, dan lainnya.
+%    \item Daftar nilai yang diurutkan, seperti array, vektor, dan lainnya.
+%\end{itemize}
 
 \section{Express.js}
 \textit{Express.js} adalah sebuah framework sebuah aplikasi web untuk Node.js. Untuk menginstal Express.js dapat dilakukan dengan melakukan sintaks:

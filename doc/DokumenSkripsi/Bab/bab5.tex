@@ -2,34 +2,110 @@
 \label{chap:pembangunan PL}
 Pada bab ini akan dijelaskan tentang implementasi perngkat lunak.
 \section{Implementasi Perangkat Lunak}
-Perangkat lunak dibuat sesuai dengan data pada Bab \ref{chap:percobaan_awal} dan \ref{chap:penggalian data}. Implementasi perangkat lunak ini menggunakan bahasa pemograman JavaScript. Pada skripsi ini akan digunakan beberapa library seperti: RactJS dan ChartJS. Terdapat beberapa folder yang dipisahkan seperti folder data berguna untuk menyimpan file-file data dalam pembuatan chart, folder components untuk menyimpan file-file yang dapat digunakan beberapa kali atau \textit{reuseable}. Selain itu terdapat App.js sebagai tempat semua code dituliskan.
-
-\subsection{Folder Data}
-Pada folder ini akan berisikan data-data yang dibutuhkan dalam pembuatan chart. Pada setiap file  tersebut terdapat label, kemudian didalamnya terdapat array of object dengan variabel app, info, jumlah, dan result. App merupakan aplikasi yang aplikasi yang dipakai, info merupakan informasi versi yang dipakai aplikasi, jumlah merupakan jumlah url yang menggunakan aplikasi dengan versi tertentu, dan result merupakan hasil dari versi aplikasi tertentu atau masih didukung atau tidak.
-
-\subsection{Folder Components}
-Pada folder ini akan berisikan folder tabel dan folder untuk membuat chart. 
-\subsubsection{Folder Tabel}
-Pada folder ini berisikan sebuah kelas untuk membuat tabel bernama BasicTable.js
-\subsubsection{BasicTable.js}
-Pada kelas ini terdapat sebuah fungsi bernama BasicTable({data, title}). Fungsi ini digunakan untuk membuat tabel.
-
-
-
-
-\subsection{Kelas App.js}
-App.js merupakan sebuah kelas utama yang dibuat untuk menampilkan data-data. Data-data yang sudah dikumpulkan akan dipanggil oleh kelas App.js. Kode program dari setiap function dapat dilihat pada lampiran \ref{App}. Berikut ini adalah penjelasan singkat dari setiap function: 
+Perangkat lunak dibuat sesuai dengan data pada Bab \ref{chap:percobaan_awal} dan \ref{chap:penggalian data}. Dalam skripsi ini terdapat 3 bagian yaitu:
 \begin{itemize}
-	\item Function color(arr)\\
-	Function color(arr) yang berfungsi untuk mengubah warna chart pada aplikasi. Fungsi ini akan melakukan perulangan sebanyak jumlah datanya. Warna akan dibedakan berdasarkan result. Jika result dari aplikasi masih didukung, maka warna yang akan ditampilkan adalah warna biru, jika result dari aplikasi sudah tidak didukung, maka warna yang akan ditampilkan adalah warna merah
-	\item Function App()\\
-	Function App() berfungsi untuk memetakan dan menampilkan data. Data tersebut akan dipetakan sehingga membentuk sebuah chart. Kemudian pada fungsi ini akan mengembalikan komponen-komponen yang sudah dibuat berdasarkan parameter yang dimasukkan. 
+	\item BigQuery\\
+	Bagian ini adalah representasi dari data. Pada BigQuery akan dilakukan beberapa query untuk mendapatkan data yang diinginkan. Kemudian hasil-hasil dari query tersebut disimpan dalam sebuah dataset.
+	\item React.js\\
+	Bagian ini merupakan bagian tampilan atau web-client. Pada bagian ini bertujuan untuk menampilkan hasil data atau visualisasi data.
+	\item Node.js\\
+	Bagian ini adalah sebuah penghubung antara data dari BigQuery dan web-client.
 \end{itemize}
 
+\subsection{BigQuery}
+Bagian ini adalah representasi dari data. Pada BigQuery akan dilakukan beberapa query untuk mendapatkan data yang diinginkan. Kemudian hasil-hasil dari query tersebut disimpan dalam sebuah dataset.
+\begin{lstlisting}
+	CREATE TEMP FUNCTION normaizedSemanticVersion(semanticVersion STRING) 
+	AS ((
+	SELECT STRING_AGG(
+	IF(isDigit, REPEAT('0', 100 - LENGTH(chars)) || chars, chars) ORDER BY grp 
+	)
+	FROM (
+	SELECT grp, isDigit, STRING_AGG(char, '' ORDER BY OFFSET) chars,
+	FROM (
+	SELECT OFFSET, char, isDigit,
+	COUNTIF(NOT isDigit) OVER(ORDER BY OFFSET) AS grp
+	FROM UNNEST(SPLIT(semanticVersion, '')) AS char WITH OFFSET, 
+	UNNEST([char IN ('1','2','3','4','5','6','7','8','9','0')]) isDigit
+	)
+	GROUP BY grp, isDigit
+	)));
+	CREATE TEMP FUNCTION compareSemanticVersions(
+	normSemanticVersion1 STRING, 
+	normSemanticVersion2 STRING) 
+	AS ((
+	SELECT CASE 
+	WHEN info < min_supported THEN 'UNSUPPORTED'
+	ELSE 'SUPPORTED'
+	END
+	FROM UNNEST([STRUCT(
+	normaizedSemanticVersion(normSemanticVersion1) AS info, 
+	normaizedSemanticVersion(normSemanticVersion2) AS min_supported
+	)])
+	));
+	WITH test AS (
+	SELECT url, category, app, if (array_length(split(info , ".")) > 2, split(info , ".")[offset(0)] || "." || split(info , ".")[offset(1)], info)  as info, min_supported	
+	FROM `httparchive-bigquery-346414.app_min_supported_and_info.app_min_supported_and_info`
+	where info != "\\"
+	)
+	SELECT url, category, app, info, min_supported, if(info = '', "NOT VERSIONED",if(min_supported = '?','NON CONCLUSIVE',compareSemanticVersions(info, min_supported)) ) as  result
+	FROM test 
+	
+	ORDER BY url
+\end{lstlisting}
+
+Pada query ini 
+\begin{itemize}
+	\item  asdfasdfasd\\
+	Pada query ini akan mengembalikan 
+	\begin{lstlisting}
+		SELECT OFFSET, char, isDigit,
+		COUNTIF(NOT isDigit) OVER(ORDER BY OFFSET) AS grp
+		FROM UNNEST(SPLIT(semanticVersion, '')) AS char WITH OFFSET, 
+		UNNEST([char IN ('1','2','3','4','5','6','7','8','9','0')]) isDigit
+	\end{lstlisting}
+	
+	
+\end{itemize}
+
+\subsection{React.js}
+Bagian ini merupakan bagian tampilan atau web-client. Pada bagian ini bertujuan untuk menampilkan hasil data atau visualisasi data.
+
+\subsection{Node.js}
+Bagian ini adalah sebuah penghubung antara data dari BigQuery dan web-client.
 
 
 
 
 
-
-
+%Terdapat beberapa folder yang dipisahkan seperti folder data berguna untuk menyimpan file-file data dalam pembuatan chart, folder components untuk menyimpan file-file yang dapat digunakan beberapa kali atau \textit{reuseable}. Selain itu terdapat App.js sebagai tempat semua code dituliskan.
+%
+%\subsection{Folder Data}
+%Pada folder ini akan berisikan data-data yang dibutuhkan dalam pembuatan chart. Pada setiap file  tersebut terdapat label, kemudian didalamnya terdapat array of object dengan variabel app, info, jumlah, dan result. App merupakan aplikasi yang aplikasi yang dipakai, info merupakan informasi versi yang dipakai aplikasi, jumlah merupakan jumlah url yang menggunakan aplikasi dengan versi tertentu, dan result merupakan hasil dari versi aplikasi tertentu atau masih didukung atau tidak.
+%
+%\subsection{Folder Components}
+%Pada folder ini akan berisikan folder tabel dan folder untuk membuat chart. 
+%\subsubsection{Folder Tabel}
+%Pada folder ini berisikan sebuah kelas untuk membuat tabel bernama BasicTable.js
+%\subsubsection{BasicTable.js}
+%Pada kelas ini terdapat sebuah fungsi bernama BasicTable({data, title}). Fungsi ini digunakan untuk membuat tabel.
+%
+%
+%
+%
+%\subsection{Kelas App.js}
+%App.js merupakan sebuah kelas utama yang dibuat untuk menampilkan data-data. Data-data yang sudah dikumpulkan akan dipanggil oleh kelas App.js. Kode program dari setiap function dapat dilihat pada lampiran \ref{App}. Berikut ini adalah penjelasan singkat dari setiap function: 
+%\begin{itemize}
+%	\item Function color(arr)\\
+%	Function color(arr) yang berfungsi untuk mengubah warna chart pada aplikasi. Fungsi ini akan melakukan perulangan sebanyak jumlah datanya. Warna akan dibedakan berdasarkan result. Jika result dari aplikasi masih didukung, maka warna yang akan ditampilkan adalah warna biru, jika result dari aplikasi sudah tidak didukung, maka warna yang akan ditampilkan adalah warna merah
+%	\item Function App()\\
+%	Function App() berfungsi untuk memetakan dan menampilkan data. Data tersebut akan dipetakan sehingga membentuk sebuah chart. Kemudian pada fungsi ini akan mengembalikan komponen-komponen yang sudah dibuat berdasarkan parameter yang dimasukkan. 
+%\end{itemize}
+%
+%
+%
+%
+%
+%
+%
+%
