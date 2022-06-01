@@ -14,6 +14,13 @@ Perangkat lunak dibuat sesuai dengan data pada Bab \ref{chap:percobaan_awal} dan
 
 \subsection{BigQuery}
 Bagian ini adalah representasi dari data. Pada BigQuery akan dilakukan beberapa query untuk mendapatkan data yang diinginkan. Kemudian hasil-hasil dari query tersebut disimpan dalam sebuah dataset.
+
+
+
+\subsubsection{Minimal Supported Data}
+Minimal supported data didapatkan dengan mencari sendiri informasi versi dari setiap aplikasi berdasarkan dokumen resminya. Kemudian data-data tersebut akan dimasukkan kedalam excel dan didownload sebagai csv. Data-data csv tersebut akan di-upload menggunakan fitur yang ada pada BigQuery dan akan terbentuk tabel yang berisi csv tersebut. Tabel dari excel tersebut dapat dilihat pada lampiran\ref{lamp:A}
+
+\subsubsection{Version Compare}
 \begin{lstlisting}
 	CREATE TEMP FUNCTION normaizedSemanticVersion(semanticVersion STRING) 
 	AS ((
@@ -54,26 +61,189 @@ Bagian ini adalah representasi dari data. Pada BigQuery akan dilakukan beberapa 
 	ORDER BY url
 \end{lstlisting}
 
-Pada query ini 
-\begin{itemize}
-	\item  asdfasdfasd\\
-	Pada query ini akan mengembalikan 
+Pada query diatas adalah query yang dilakukan untuk melakukan version compare. Berikut ini adalah beberapa step atau query yang dilakukan untuk membuat version compare tersebut:
+\begin{enumerate}
+	\item Normalisasi pada Versi\\
+	Pada bagian ini query digunakan untuk menormalisasikan digit dari setiap informasi versi sehingga dapat di bandingkan. Berikut ini adalah query yang digunakan:
+	\begin{itemize}
+		\item  Mengecek Digit Dari Versi
+		\begin{lstlisting}
+			CREATE TEMP FUNCTION normaizedSemanticVersion(semanticVersion STRING) 
+			AS ((
+			SELECT OFFSET, char, isDigit,
+			COUNTIF(NOT isDigit) OVER(ORDER BY OFFSET) AS grp
+			FROM UNNEST(SPLIT(semanticVersion, '')) AS char WITH OFFSET, 
+			UNNEST([char IN ('1','2','3','4','5','6','7','8','9','0')]) isDigit
+			));
+		\end{lstlisting}
+		Pada query ini akan mengembalikan offset atau index yang dimulai dari nol, char sebagai input atau parameter berupa informasi versi, isDigit adalah setiap angka dari setiap input, dan jumlah boolean yang bernilai false jika input berupa angka. 
+		
+		\item Memotong Setiap Char Dari Version
+		\begin{lstlisting}
+			CREATE TEMP FUNCTION normaizedSemanticVersion(semanticVersion STRING) 
+			AS ((
+			SELECT grp, isDigit, STRING_AGG(char, '' ORDER BY OFFSET) chars,
+			FROM (
+			SELECT OFFSET, char, isDigit,
+			COUNTIF(NOT isDigit) OVER(ORDER BY OFFSET) AS grp
+			FROM UNNEST(SPLIT(semanticVersion, '')) AS char WITH OFFSET, 
+			UNNEST([char IN ('1','2','3','4','5','6','7','8','9','0')]) isDigit
+			)));
+			GROUP BY grp, isDigit
+		\end{lstlisting}
+		Pada query ini akan mengembalikan jumlah boolean yang bernilai false, boolean yang menandakan apakah input merupakan digit atau bukan, dan input yang dibagi-bagi dalam bentuk string.
+		
+		\item Normalisasi Informasi Versi
+		\begin{lstlisting}
+			CREATE TEMP FUNCTION normaizedSemanticVersion(semanticVersion STRING) 
+			AS ((
+			SELECT STRING_AGG(
+			IF(isDigit, REPEAT('0', 100 - LENGTH(chars)) || chars, chars) ORDER BY grp 
+			)
+			FROM (
+			SELECT grp, isDigit, STRING_AGG(char, '' ORDER BY OFFSET) chars,
+			FROM (
+			SELECT OFFSET, char, isDigit,
+			COUNTIF(NOT isDigit) OVER(ORDER BY OFFSET) AS grp
+			FROM UNNEST(SPLIT(semanticVersion, '')) AS char WITH OFFSET, 
+			UNNEST([char IN ('1','2','3','4','5','6','7','8','9','0')]) isDigit
+			)
+			GROUP BY grp, isDigit
+			)));
+		\end{lstlisting}
+		Pada query ini akan menghasilkan informasi versi yang sudah dinormalisasikan dengan membuat panjang dari setiap versi sama yang dipisahkan oleh isDigit.
+		
+	\end{itemize}
+
+	
+	\item Version Compare \\
+	Pada bagian ini akan dibuat sebuah fungsi yang digunakan untuk membuat version compare dari informasi versi dari tabel yang sudah dibuat. Berikut ini adalah query-nya:
+	\begin{itemize}
+		\item Membuat Fungsi Untuk Membandingkan Versi
+		\begin{lstlisting}
+			CREATE TEMP FUNCTION compareSemanticVersions(
+			normSemanticVersion1 STRING, 
+			normSemanticVersion2 STRING) 
+			AS ((
+			SELECT CASE 
+			WHEN info < min_supported THEN 'UNSUPPORTED'
+			ELSE 'SUPPORTED'
+			END
+			FROM UNNEST([STRUCT(
+			normaizedSemanticVersion(normSemanticVersion1) AS info, 
+			normaizedSemanticVersion(normSemanticVersion2) AS min_supported
+			)])
+			));
+		\end{lstlisting}
+		Pada query ini akan menghasilkan UNSUPPORTED jika info atau informasi versi lebih kecil daripada minimal supported yang sudah ditentukan dan akan mengembalikan SUPPORTED jika info atau informasi versi lebih besar daripada minimal supported yang sudah ditentukan.
+	\end{itemize}
+		
+
+	\item Membuat Tabel Sementara\\
+	Pada bagian ini akan dibuat sebuah tabel sementara yang beguna membuat group untuk menunjukkan versi yang dihasilkan hanya versi major dan versi minor.
 	\begin{lstlisting}
-		SELECT OFFSET, char, isDigit,
-		COUNTIF(NOT isDigit) OVER(ORDER BY OFFSET) AS grp
-		FROM UNNEST(SPLIT(semanticVersion, '')) AS char WITH OFFSET, 
-		UNNEST([char IN ('1','2','3','4','5','6','7','8','9','0')]) isDigit
+		WITH test AS (
+		SELECT url, category, app, if (array_length(split(info , ".")) > 2, split(info , ".")[offset(0)] || "." || split(info , ".")[offset(1)], info)  as info, min_supported	
+		FROM `httparchive-bigquery-346414.app_min_supported_and_info.app_min_supported_and_info`
+		where info != "\\"
+		)
 	\end{lstlisting}
+	Pada query ini akan membuat tabel sementara yag mengembalikan url, kategori dari aplikasi, aplikasi yang dipakai, informasi versi dari aplikasi, dan minimal supported dari aplikasi yang sudah ditentukan. Pada bagian informasi versi sudah dilakukan group sehingga yang dihasilkan hanya major version dan minor version. 
 	
 	
-\end{itemize}
+	\item Menampilkan Semua Hasil
+	Pada bagian ini untuk menampilkan tabel hasil akhir dari query yang dilakukan.
+	\begin{lstlisting}
+		SELECT url, category, app, info, min_supported, if(info = '', "NOT VERSIONED",if(min_supported = '?','NON CONCLUSIVE',compareSemanticVersions(info, min_supported)) ) as  result
+		FROM test 
+		ORDER BY url
+	\end{lstlisting}
+Pada query ini akan mengembalikan url, kategori dari aplikasi, aplikasi yang dipakai, informasi versi, minimal supported, dan hasil atau result dari query yang menunjukkan jika aplikasi tersebut SUPPORTED atau UNSUPPORTED.
+\end{enumerate}
+
 
 \subsection{React.js}
 Bagian ini merupakan bagian tampilan atau web-client. Pada bagian ini bertujuan untuk menampilkan hasil data atau visualisasi data.
 
 \subsection{Node.js}
-Bagian ini adalah sebuah penghubung antara data dari BigQuery dan web-client.
+Bagian ini adalah sebuah penghubung antara data dari BigQuery dan web-client. Terdapat tiga bagian utama dalam perangkat lunak yang dibuat yaitu:
+\begin{enumerate}
+	\item Features\\
+	Bagian ini merupakan sebuah folder yang berisi media untuk berkomunikasi dengan BigQuery. Dalam Features terdapat kelas GetApplication.js. Kelas GetApplication.js memiliki beberapa function untuk mendapatkan data dari BigQuery Berikut ini adalah contoh kode dalam kelas GetApplication.js:
+	\begin{lstlisting}
+		const {BigQuery} = require('@google-cloud/bigquery');
+		const options = {
+			keyFilename: 'gsm-bigquery-credentials.json',
+			projectId: 'httparchive-bigquery-346414',
+		};
+		const bigquery = new BigQuery(options)
+		
+		
+		async function getApplications(app = "Apache") {
+			const getAppSql = `select app, info, count(app) as jumlah, result from httparchive-bigquery-346414.app_result.app_result where app = "${app}"  and (result != "NON CONCLUSIVE" and result != "NOT VERSIONED")
+			group by app, info, result order by info ASC`
+			const options = {
+				query: getAppSql,
+				location: 'US',
+			};
+			const [job] = await bigquery.createQueryJob(options);
+			const [rows] = await job.getQueryResults();
+			return rows.filter(item => !item.info.includes("\\"));
+		}
+		
+		async function getApplicationsType(limit = 5 , offset = 1) {
+			const getAppSql = `select app from httparchive-bigquery-346414.Step.app_result where info != '' group by app  limit ${limit} offset ${offset}`
+			const options = {
+				query: getAppSql,
+				location: 'US',
+			};
+			const [job] = await bigquery.createQueryJob(options);
+			const [rows] = await job.getQueryResults();
+			return rows;
+		}
+		
+		async function getApplicationsUrl(limit = 10, offset = 1) {
+			const getAppSql = `select * from \`httparchive-bigquery-346414.URL_Result.url_result\` limit ${limit} offset ${offset} `
+			
+			const options = {
+				query: getAppSql,
+				location: 'US',
+			};
+			const [job] = await bigquery.createQueryJob(options);
+			const [rows] = await job.getQueryResults();
+			return rows;
+		}
+		
+		async function getPopularTech(limit = 10, offset = 1) {
+			const getAppSql = `select * from \`httparchive-bigquery-346414.numsite_app_result_count.numsite_app_result_count\` limit ${limit} offset ${offset} `
+			
+			const options = {
+				query: getAppSql,
+				location: 'US',
+			};
+			const [job] = await bigquery.createQueryJob(options);
+			const [rows] = await job.getQueryResults();
+			return rows;
+		}
+		
+		module.exports = {getApplications, getApplicationsType, getApplicationsUrl, getPopularTech}
+	\end{lstlisting}
+	Berikut ini adalah penjelasan setiap fungsi:
+	\begin{itemize}
+		\item function getApplications(app = "Apache")\\
+		Pada fungsi ini akan memanggil app, info, jumlah app, result. Pada fungsi terdapat parameter untuk menentukan app yang ingin ditampilkan. Data tidak akan menampilkan result yang UNVERSIONED dan NON CONCLUSIVE.
+		\item function getApplicationType(limit = 5, offset = 1)\\
+		
+		\item function getApplicationsUrl(limit = 10, offset = 1)\\
+		
+		\item function getPopularTech(limit = 10, offset = 1)\\
+		
+		
+	\end{itemize}
 
+	\item Router
+	\item Controller
+\end{enumerate}
 
 
 

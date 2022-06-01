@@ -359,7 +359,7 @@ Pada \cite{pascal}, jumlah data yang digunakan lebih sedikit sehingga jumlah kes
 \end{table}
 
 \subsection{Mencari Data Tentang Versi Aplikasi Yang Masih Didukung}
-Sebelum menentukan suatau aplikasi usang atau tidak, kita harus mencari versi dari setiap aplikasi secara manual. Versi setiap aplikasi dapat dilihat di-\textit{official documentation} dari setiap aplikasi. Hasil pencarian dari aplikasi yang masih didukung dapat dilihat pada tabel \ref{lamp:A}. 
+Sebelum menentukan suatu aplikasi usang atau tidak, kita harus mencari versi dari setiap aplikasi secara manual. Versi setiap aplikasi dapat dilihat di-\textit{official documentation} dari setiap aplikasi. Hasil pencarian dari aplikasi yang masih didukung dapat dilihat pada tabel \ref{lamp:A}. 
 
 \subsection{Melakukan Perbandingan Antara Versi Aplikasi Yang Masih Dipakai Sekarang Dengan Versi Aplikasi Yang Masih Didukung}
 Setelah mendapatkan data versi minimal dari setiap aplikasi, data tersebut akan dibandingkan dengan versi aplikasi yang dipakai \textit{url}. \textit{Supported} adalah versi aplikasi dari yang dipakai \textit{url} masih mendukung atau diatas atau sama dengan versi yang didukung didokumen. \textit{unsupported} adalah versi aplikasi dari yang dipakai url sudah tidak mendukung atau dibawah versi yang didukung didokumen. \textit{not\_versioned} adalah versi aplikasi dari url tidak ditampilkan. \textit{non\_conclusive} adalah versi aplikasi tidak dapat ditentukan. 
@@ -401,10 +401,10 @@ Setelah mendapatkan data versi minimal dari setiap aplikasi, data tersebut akan 
 	FROM test 
 	ORDER BY url
 \end{lstlisting}
-Pada awalnya akan dibuat sebuah fungsi dengan nama normaizedSemanticVersion(semanticVersion STRING). Kemudian pada baru ke dua sampai baris ke 
+Pada awalnya akan dibuat sebuah fungsi dengan nama normaizedSemanticVersion(semanticVersion STRING), dan compareSemanticVersions(normSemanticVersion1 STRING, normSemanticVersion2 STRING). Kemudian pada baris 29 sampai dengan 33, akan dibuat sebuah tabel sementara untuk membuat group versi aplikasi yang dipisahkan berdasarkan titik.
 
 
-Berikut ini adalah hasil sepuluh data yang dapat dilihat pada tabel \ref{table:contoh_langkah5.1}. Data diambil berdasarkan banyak aplikasi yang dipakai oleh url tertentu. 
+Setelah melakukan version compare tersebut, data diteliti dan berikut ini adalah hasil sepuluh data yang dapat dilihat pada tabel \ref{table:contoh_langkah5.1}. Data diambil berdasarkan banyak aplikasi yang dipakai oleh url tertentu. 
 \begin{table}[H]
 \centering
 \begin{tabular}{|l|r|r|r|r|}
@@ -485,11 +485,11 @@ Data juga dibandingkan berdasarkan aplikasi tertentu. Data yang dihasilkan adala
 
 
 \section{Hasil Sample Data Dengan Beberapa Aplikasi}
-Diambil satu data sample dengan aplikasi dan nomor versinya. Data sample tersebut merupakan data Apache . Data dapat dilihat pada gambar \ref{fig:data_sample_res}.
+Diambil satu data sample dengan aplikasi dan informasi versinya. Data sample tersebut merupakan data Apache. Data dapat dilihat pada gambar \ref{fig:data_sample_res}.
 \begin{figure}[H]
 \centering  
-\includegraphics[scale=0.4]{Gambar/apache.PNG}  
+\includegraphics[scale=0.7]{Gambar/apache.PNG}  
 \caption{Data Sample Jumlah Aplikasi Dengan Versi yang Dipakai} 
 \label{fig:data_sample_res} 
 \end{figure}
-Pada data \ref{fig:data_sample_res} terdapat bagian bawah yang menunjukkan informasi versi dari aplikasi dan bagian kiri merupakan jumlah url yang menggunakan aplikasi. Chart yang berwarna merah adalah chart yang menunjukkan versi aplikasi tersebut sudah tidak didukung. Chart yang berwarna biru menunjukkan versi aplikasi terseubt masih didukung. Sedangkan warna hijau menandakan versi aplikasi tidak dapat ditentukan.
+Pada data \ref{fig:data_sample_res} terdapat bagian bawah yang menunjukkan informasi versi dari aplikasi dan bagian kiri merupakan jumlah url yang menggunakan aplikasi. Chart yang berwarna merah adalah chart yang menunjukkan versi aplikasi tersebut sudah tidak didukung. Chart yang berwarna biru menunjukkan versi aplikasi tersebut masih didukung.
