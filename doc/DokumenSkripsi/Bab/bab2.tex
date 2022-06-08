@@ -908,8 +908,33 @@ Berikut ini adalah beberapa informasi mengenai useState:
 \end{itemize}
 
 
-%
-%\subsubsection{UseEffect}
+
+\subsubsection{UseEffect}
+Dalam react terdapat istilah seperti side-effects. Disebut side-effects karena dapat mempengaruhi komponen lain dan tidak dapat dilakukan pada saat proses render.
+UseEffect menambahkan kemampuan untuk melakukan side-effects dari sebuah function component. Hook ini memiliki fungsi yang sama dengan componentDidMount, componentDidUpdate, dan componentWillUnmount pada kelas react, tetapi sudah disatukan menjadi satu API. 
+\begin{lstlisting}
+	import React, { useState, useEffect } from 'react';
+	
+	function Example() {
+		const [count, setCount] = useState(0);
+		
+		// Sama seperti componentDidMount dan componentDidUpdate:
+		useEffect(() => {
+			// Memperbarui judul dokumen menggunakan API browser
+			document.title = `Anda klik sebanyak ${count} kali`;
+		});
+		
+		return (
+		<div>
+		<p>Anda klik sebanyak {count} kali</p>
+		<button onClick={() => setCount(count + 1)}>
+		Klik saya
+		</button>
+		</div>
+		);
+	}
+\end{lstlisting} 
+Pada kode diatas, React diperintah untuk menjalankan fungsi efek setelah membersihkan perubahan dari DOM. Efek dideklarasikan didalam komponen untuk mendapatkan akses pada props dan state dari komponen tersebut.
 
 
 \subsubsection{Rules of Hooks}

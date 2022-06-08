@@ -15,11 +15,55 @@ Perangkat lunak dibuat sesuai dengan data pada Bab \ref{chap:percobaan_awal} dan
 \subsection{BigQuery}
 Bagian ini adalah representasi dari data. Pada BigQuery akan dilakukan beberapa query untuk mendapatkan data yang diinginkan. Kemudian hasil-hasil dari query tersebut disimpan dalam sebuah dataset.
 
-
-
 \subsubsection{Minimal Supported Data}
 Minimal supported data didapatkan dengan mencari sendiri informasi versi dari setiap aplikasi berdasarkan dokumen resminya. Kemudian data-data tersebut akan dimasukkan kedalam excel dan didownload sebagai csv. Data-data csv tersebut akan di-upload menggunakan fitur yang ada pada BigQuery dan akan terbentuk tabel yang berisi csv tersebut. Tabel dari excel tersebut dapat dilihat pada lampiran\ref{lamp:A}
 
+\subsubsection{Menyatukan Tabel Informasi Versi dan Minimal Supported}
+\begin{lstlisting}
+	select jumlah.url, app1.category, app1.app, app1.info, sup.min_supported
+	from(
+	select url,  count(app) as jumlah
+	from `httparchive.technologies.2020_08_01_*`
+	group by url
+	order by jumlah desc
+	) as jumlah
+	
+	join 
+	
+	(select url, category, app, info
+	from `httparchive.technologies.2020_08_01_*`
+	) as app1
+	on jumlah.url = app1.url
+	
+	
+	join 
+	
+	(select distinct app, min_supported
+	from `httparchive-bigquery-346414.Step.min_supported_app`) as sup
+	on app1.app = sup.app
+	
+	order by jumlah.jumlah desc
+\end{lstlisting}
+Pada bagian ini terdapat beberapa query yang disatukan sehingga membentuk suatu tabel yang menyatukan informasi versi yang dipakai aplikasi dengan minimal supported.
+\begin{itemize}
+	\item Mencari url dan jumlah app yang dipakai url tersebut.
+	\begin{lstlisting}
+		select url,  count(app) as jumlah
+		from `httparchive.technologies.2020_08_01_*`
+		group by url
+		order by jumlah desc
+	\end{lstlisting}
+	\item Mencari url, kategori, app, informasi versi.
+	\begin{lstlisting}
+		select url, category, app, info
+		from `httparchive.technologies.2020_08_01_*`
+	\end{lstlisting}
+	\item Mencari app dan minimal supported
+	\begin{lstlisting}
+		select distinct app, min_supported
+		from `httparchive-bigquery-346414.Step.min_supported_app`
+	\end{lstlisting}
+\end{itemize}
 \subsubsection{Version Compare}
 \begin{lstlisting}
 	CREATE TEMP FUNCTION normaizedSemanticVersion(semanticVersion STRING) 
@@ -68,55 +112,112 @@ Pada query diatas adalah query yang dilakukan untuk melakukan version compare. B
 	\begin{itemize}
 		\item  Mengecek Digit Dari Versi
 		\begin{lstlisting}
-			CREATE TEMP FUNCTION normaizedSemanticVersion(semanticVersion STRING) 
-			AS ((
 			SELECT OFFSET, char, isDigit,
 			COUNTIF(NOT isDigit) OVER(ORDER BY OFFSET) AS grp
-			FROM UNNEST(SPLIT(semanticVersion, '')) AS char WITH OFFSET, 
+			FROM UNNEST(SPLIT('3.14', '')) AS char WITH OFFSET, 
 			UNNEST([char IN ('1','2','3','4','5','6','7','8','9','0')]) isDigit
-			));
 		\end{lstlisting}
 		Pada query ini akan mengembalikan offset atau index yang dimulai dari nol, char sebagai input atau parameter berupa informasi versi, isDigit adalah setiap angka dari setiap input, dan jumlah boolean yang bernilai false jika input berupa angka. 
 		
+		Berikut ini adalah hasil dari query diatas:
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{|l|l|l|l|}
+				\hline
+				\textbf{OFFSET} & \textbf{char} & \textbf{isDigit} & \textbf{grp}\\
+				\hline
+				0 & 3 & true & 0\\
+				\hline
+				1 & . & false & 1\\
+				\hline
+				2 & 1 & true & 1\\
+				\hline
+				3 & 4 & true & 1\\
+				\hline
+			\end{tabular}
+%			\caption{Contoh Aplikasi Yang Digunakan Website}
+			\label{table:compare_version_step_1}
+		\end{table}
+		
 		\item Memotong Setiap Char Dari Version
 		\begin{lstlisting}
-			CREATE TEMP FUNCTION normaizedSemanticVersion(semanticVersion STRING) 
-			AS ((
 			SELECT grp, isDigit, STRING_AGG(char, '' ORDER BY OFFSET) chars,
 			FROM (
 			SELECT OFFSET, char, isDigit,
 			COUNTIF(NOT isDigit) OVER(ORDER BY OFFSET) AS grp
-			FROM UNNEST(SPLIT(semanticVersion, '')) AS char WITH OFFSET, 
+			FROM UNNEST(SPLIT('3.14', '')) AS char WITH OFFSET, 
 			UNNEST([char IN ('1','2','3','4','5','6','7','8','9','0')]) isDigit
-			)));
+			)
 			GROUP BY grp, isDigit
 		\end{lstlisting}
 		Pada query ini akan mengembalikan jumlah boolean yang bernilai false, boolean yang menandakan apakah input merupakan digit atau bukan, dan input yang dibagi-bagi dalam bentuk string.
 		
+		Berikut ini adalah hasil dari query diatas:
+			\begin{table}[H]
+			\centering
+			\begin{tabular}{|l|l|l|}
+				\hline
+				\textbf{grp} & \textbf{isDigit} & \textbf{chars}\\
+				\hline
+				0 & true & 3\\
+				\hline
+				1 & false & .\\
+				\hline
+				1 & true & 14\\
+				\hline
+			\end{tabular}
+			%			\caption{Contoh Aplikasi Yang Digunakan Website}
+			\label{table:compare_version_step_2}
+		\end{table}
+		
 		\item Normalisasi Informasi Versi
 		\begin{lstlisting}
-			CREATE TEMP FUNCTION normaizedSemanticVersion(semanticVersion STRING) 
-			AS ((
-			SELECT STRING_AGG(
-			IF(isDigit, REPEAT('0', 100 - LENGTH(chars)) || chars, chars) ORDER BY grp 
-			)
-			FROM (
-			SELECT grp, isDigit, STRING_AGG(char, '' ORDER BY OFFSET) chars,
-			FROM (
-			SELECT OFFSET, char, isDigit,
-			COUNTIF(NOT isDigit) OVER(ORDER BY OFFSET) AS grp
-			FROM UNNEST(SPLIT(semanticVersion, '')) AS char WITH OFFSET, 
-			UNNEST([char IN ('1','2','3','4','5','6','7','8','9','0')]) isDigit
-			)
-			GROUP BY grp, isDigit
-			)));
+		CREATE TEMP FUNCTION normaizedSemanticVersion(semanticVersion STRING) 
+		AS ((
+		SELECT STRING_AGG(
+		IF(isDigit, REPEAT('0', 100 - LENGTH(chars)) || chars, chars) ORDER BY grp 
+		)
+		FROM (
+		SELECT grp, isDigit, STRING_AGG(char, '' ORDER BY OFFSET) chars,
+		FROM (
+		SELECT OFFSET, char, isDigit,
+		COUNTIF(NOT isDigit) OVER(ORDER BY OFFSET) AS grp
+		FROM UNNEST(SPLIT(semanticVersion, '')) AS char WITH OFFSET, 
+		UNNEST([char IN ('1','2','3','4','5','6','7','8','9','0')]) isDigit
+		)
+		GROUP BY grp, isDigit
+		)));
 		\end{lstlisting}
 		Pada query ini akan menghasilkan informasi versi yang sudah dinormalisasikan dengan membuat panjang dari setiap versi sama yang dipisahkan oleh isDigit.
 		
+		Berikut ini adalah hasil dari query diatas dengan menggunakan parameter "3.14":
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{|l|p{8cm}|}
+				\hline
+				\textbf{Row} & \textbf{f0$\_$}\\
+				\hline
+				1 & 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003,.,0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000014\\
+				\hline
+			\end{tabular}
+			%			\caption{Contoh Aplikasi Yang Digunakan Website}
+			\label{table:compare_version_step_3}
+		\end{table}
+	\begin{adjustwidth}{-2.5 cm}{-2.5 cm}\centering\begin{threeparttable}[!htb]
+			\begin{tabular}{|l|p{7cm}|}
+			\hline
+			\textbf{Row} & \textbf{f0$\_$}\\
+			\hline
+			1 & 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003,.,0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000014\\
+			\hline
+			\end{tabular}
+			%		\caption{Hasil Perbandingan Aplikasi}
+			\label{table:result}
+	\end{threeparttable}\end{adjustwidth}
 	\end{itemize}
 
 	
-	\item Version Compare \\
+	\item Version Compare Function\\
 	Pada bagian ini akan dibuat sebuah fungsi yang digunakan untuk membuat version compare dari informasi versi dari tabel yang sudah dibuat. Berikut ini adalah query-nya:
 	\begin{itemize}
 		\item Membuat Fungsi Untuk Membandingkan Versi
@@ -160,12 +261,368 @@ Pada query diatas adalah query yang dilakukan untuk melakukan version compare. B
 	\end{lstlisting}
 Pada query ini akan mengembalikan url, kategori dari aplikasi, aplikasi yang dipakai, informasi versi, minimal supported, dan hasil atau result dari query yang menunjukkan jika aplikasi tersebut SUPPORTED atau UNSUPPORTED.
 \end{enumerate}
+Ketika semua query disatukan, berikut adalah 10 contoh hasilnya:
+
+\begin{adjustwidth}{-2.5 cm}{-2.5 cm}\centering\begin{threeparttable}[!htb]
+		\begin{tabular}{|p{2cm}|l|l|l|l|l|}
+			\hline
+			\textbf{url} & \textbf{category} & \textbf{app} & \textbf{info}  & \textbf{min sup}  & \textbf{result}\\
+			\hline
+			http://0-1.ru/ & Analytics & Yandex.Metrika & & null & NOT VERSIONED\\
+			\hline
+			http://0-1.ru/ & Web Frameworks & Microsoft ASP.NET
+			& & 3.1.20 & NOT VERSIONED\\
+			\hline
+			http://0-1.ru/ & Video Players & YouTube & & null & NOT VERSIONED\\
+			\hline
+			http://0-1.ru/ & Web servers & IIS & 6.0 & 8 &  UNSUPPOERTED\\
+			\hline
+			http://0-1.ru/ & Operating systems & Windows Server & & null & NOT VERSIONED\\
+			\hline
+			http://0-1.ru/ & Analytics & Liveinternet & & null & NOT VERSIONED\\
+			\hline
+			http://0-10-10.cocolog-nifty.com/
+			& Tag managers & Google Tag Manager
+			& & null & NOT VERSIONED\\
+			\hline
+			http://0-10-10.cocolog-nifty.com/
+			& Reverse proxies
+			& Nginx & 1.15 & 1.20 & UNSUPPORTED\\
+			\hline
+			http://0-10-10.cocolog-nifty.com/
+			& Web servers & Nginx & 1.15 & 1.20 &  UNSUPPORTED\\
+			\hline
+			http://0-10-10.cocolog-nifty.com/
+			& JavaScript libraries
+			& jQuery & 1.11 & 3 & UNSUPPORTED\\
+			\hline
+		\end{tabular}
+%		\caption{Hasil Perbandingan Aplikasi}
+		\label{table:result}
+\end{threeparttable}\end{adjustwidth}
 
 
 \subsection{React.js}
-Bagian ini merupakan bagian tampilan atau web-client. Pada bagian ini bertujuan untuk menampilkan hasil data atau visualisasi data.
+Bagian ini merupakan bagian tampilan atau web-client. Pada bagian ini bertujuan untuk menampilkan hasil data atau visualisasi data. Terdapat beberapa file dalam perangkat lunak ini, yaitu:
+\begin{itemize}
+	\item Components\\
+	Didalam foler components terdapat beberapa fungsi yaitu:
+	\begin{itemize}
+		\item AppUrl.js\\
+			Pada fungsi ini digunakan untuk membuat tabel yang menampilkan url dengan jumlah dari setiap result (\textit{supported, unsupported, not versioned, dan non conclusive}). Berikut ini adalah kode yang digunakan:
+			\begin{lstlisting}
+				import React, { useEffect, useState } from "react";
+				
+				const MAX = 10;
+				
+				export default function AppUrl() {
+					const [step, setStep] = useState(0);
+					const [data, setData] = useState([]);
+					const [isLoading, setIsLoading] = useState(true);
+					function getUrlData() {
+						setIsLoading(true);
+						fetch(`http://localhost:3000/get/app/url?limit=${MAX}&offset=${step}`)
+						.then((res) => res.json())
+						.then((data) => {
+							setData(data);
+							setIsLoading(false);
+						});
+					}
+					useEffect(() => {
+						getUrlData();
+					}, [step]);
+					return (
+					<div className="container">
+					<h2 className="title">App Url</h2>
+					{data[0] && (
+						<>
+						<table className="table">
+						<thead>
+						<tr>
+						<th>No</th>
+						{Object.keys(data[0]).map((val) => (
+							<th>{val}</th>
+							))}
+						</tr>
+						</thead>
+						<tbody>
+						{data.map((val, index) => (
+							<tr key={index}>
+							<td>{index + 1 + MAX * step}</td>
+							{Object.values(val).map((val) => (
+								<td>{val}</td>
+								))}
+							</tr>
+							))}
+						</tbody>
+						</table>
+						<div className="action">
+						<button
+						onClick={() => setStep((prev) => prev - 1)}
+						disabled={step <= 0 || isLoading}
+						>
+						Prev
+						</button>
+						<button
+						onClick={() => setStep((prev) => prev + 1)}
+						disabled={isLoading}
+						>
+						Next
+						</button>
+						</div>
+						</>
+						)}
+					</div>
+					);
+				}
+				
+			\end{lstlisting}
+		\item List.js\\
+			Pada fungsi ini digunakan untuk membuat tabel yang berisi list dari app. Berikut adalah kode yang digunakan:
+			\begin{lstlisting}
+				import React, { useEffect, useState } from "react";
+				import { CategoryScale } from "chart.js";
+				import { Bar } from "react-chartjs-2";
+				import Chart from "chart.js/auto";
+				
+				const MAX = 10;
+				
+				export default function List() {
+					const [step, setStep] = useState(0);
+					const [data, setData] = useState([]);
+					const [isLoading, setIsLoading] = useState(true);
+					const [selectedData, setSelectedDate] = useState();
+					
+					function color(arr) {
+						let temp = [];
+						for (let i = 0; i < arr.length; i++) {
+							const dataType = arr[i].result;
+							switch (dataType) {
+								case "SUPPORTED":
+								temp.push("blue");
+								break;
+								case "UNSUPPORTED":
+								temp.push("red");
+								break;
+								default:
+								temp.push("green");
+							}
+						}
+						return temp;
+					}
+					useEffect(() => {
+						Chart.register(CategoryScale);
+					}, []);
+					
+					function getListData(page) {
+						setIsLoading(true);
+						fetch(`http://localhost:3000/get/app/type?limit=${MAX}&offset=${page}`)
+						.then((res) => res.json())
+						.then((data) => {
+							setData(data);
+							setIsLoading(false);
+						});
+					}
+					
+					function getData(name) {
+						fetch(`http://localhost:3000/get/app/name/${name}`)
+						.then((res) => res.json())
+						.then((data) => {
+							setSelectedDate({
+								name,
+								data: {
+									labels: data.map((val) => String(val.info)),
+									datasets: [
+									{
+										label: name,
+										data: data.map((val) => String(val.jumlah)),
+										backgroundColor: color(data),
+									},
+									],
+								},
+							});
+						});
+					}
+					
+					useEffect(() => {
+						getListData(step);
+					}, [step]);
+					return (
+					<div className="container">
+					<h2 className="title">List APP</h2>
+					{data[0] && (
+						<>
+						<table className="table table-hover">
+						<thead>
+						<tr>
+						<th className="no">No</th>
+						<th>Name</th>
+						<th className="action-head"></th>
+						</tr>
+						</thead>
+						<tbody>
+						{data.map((val, index) => (
+							<tr key={index} onClick={() => getData(val.app)}>
+							<th cla>{index + 1 + MAX * step}</th>
+							<td>{val.app}</td>
+							<td>View</td>
+							</tr>
+							))}
+						</tbody>
+						</table>
+						<div className="action">
+						<button
+						onClick={() => setStep((prev) => prev - 1)}
+						disabled={step <= 0 || isLoading}
+						>
+						Prev
+						</button>
+						<button
+						onClick={() => setStep((prev) => prev + 1)}
+						disabled={isLoading}
+						>
+						Next
+						</button>
+						</div>
+						</>
+						)}
+					
+					{selectedData && (
+						<div className="selected">
+						<h3 className="title">{selectedData.name}</h3>
+						<Bar data={selectedData.data} />
+						</div>
+						)}
+					</div>
+					);
+				}
+				
+			\end{lstlisting}
+		\item Popular.js\\
+			Pada fungsi ini digunakan untuk membuat tabel yang berisi app yang popular berdasarkan jumlah url yang menggunakan app tersebut. Berikut ini adalah kode yang digunakan:
+			\begin{lstlisting}
+				import React, { useEffect, useState } from "react";
+				
+				const MAX = 10;
+				
+				export default function Popular() {
+					const [step, setStep] = useState(0);
+					const [data, setData] = useState([]);
+					const [isLoading, setIsLoading] = useState(true);
+					function getPopularData() {
+						setIsLoading(true);
+						fetch(`http://localhost:3000/get/app/popular?limit=${MAX}&offset=${step}`)
+						.then((res) => res.json())
+						.then((data) => {
+							setData(data);
+							setIsLoading(false);
+						});
+					}
+					useEffect(() => {
+						getPopularData();
+					}, [step]);
+					return (
+					<div className="container">
+					<h2 className="title">Popular</h2>
+					{data[0] && (
+						<>
+						<table className="table">
+						<thead>
+						<tr>
+						<th>No</th>
+						{Object.keys(data[0]).map((val) => (
+							<th>{val}</th>
+							))}
+						</tr>
+						</thead>
+						<tbody>
+						{data.map((val, index) => (
+							<tr key={index}>
+							<td>{index + 1 + MAX * step}</td>
+							{Object.values(val).map((val) => (
+								<td>{val}</td>
+								))}
+							</tr>
+							))}
+						</tbody>
+						</table>
+						<div className="action">
+						<button
+						onClick={() => setStep((prev) => prev - 1)}
+						disabled={step <= 0 || isLoading}
+						>
+						Prev
+						</button>
+						<button
+						onClick={() => setStep((prev) => prev + 1)}
+						disabled={isLoading}
+						>
+						Next
+						</button>
+						</div>
+						</>
+						)}
+					</div>
+					);
+				}
+				
+			\end{lstlisting}
+		\item Navbar.js\\
+			Pada fungsi ini digunakan untuk membuat header yang merujuk ke tabel pada AppUrl.js dan tabel pada Popular.js. Berikut adalah kode yang digunakan:
+			\begin{lstlisting}
+				import React from "react";
+				import { Link } from "react-router-dom";
+				
+				export default function Navbar() {
+					return (
+					<ul className="menu">
+					<li className="item">
+					<a href="/">List</a>
+					</li>
+					<li className="item">
+					<a href="/app-url">App Url</a>
+					</li>
+					<li className="item">
+					<a href="/popular">Popular</a>
+					</li>
+					</ul>
+					);
+				}
+				
+			\end{lstlisting}
+		
+	\end{itemize}
+	
+	\item App.js\\
+	Dalam fungsi ini akan memanggil components yang dibuat untuk ditampilkan. Berikut ini adalah kode pada App.js:
+	\begin{lstlisting}
+		import * as React from "react";
+		import Navbar from "./components/Navbar";
+		import { BrowserRouter, Routes, Route } from "react-router-dom";
+		import List from "./components/List";
+		import Popular from "./components/Popular";
+		import AppUrl from "./components/AppUrl";
+		
+		function App() {
+			return (
+			<main className="app">
+			<Navbar />
+			<BrowserRouter>
+			<Routes>
+			<Route path="/" element={<List />} />
+			<Route path="/app-url" element={<AppUrl />} />
+			<Route path="/popular" element={<Popular />} />
+			</Routes>
+			</BrowserRouter>
+			</main>
+			);
+		}
+		
+		export default App;
+	\end{lstlisting}
+\end{itemize}
 
-\subsection{Node.js}
+`\subsection{Node.js}
 Bagian ini adalah sebuah penghubung antara data dari BigQuery dan web-client. Terdapat tiga bagian utama dalam perangkat lunak yang dibuat yaitu:
 \begin{enumerate}
 	\item Features\\
@@ -231,18 +688,110 @@ Bagian ini adalah sebuah penghubung antara data dari BigQuery dan web-client. Te
 	Berikut ini adalah penjelasan setiap fungsi:
 	\begin{itemize}
 		\item function getApplications(app = "Apache")\\
-		Pada fungsi ini akan memanggil app, info, jumlah app, result. Pada fungsi terdapat parameter untuk menentukan app yang ingin ditampilkan. Data tidak akan menampilkan result yang UNVERSIONED dan NON CONCLUSIVE.
+		Pada fungsi ini akan mengembalikan app, info, jumlah app, result. Pada fungsi terdapat parameter untuk menentukan app yang ingin ditampilkan. Data tidak akan menampilkan result yang UNVERSIONED dan NON CONCLUSIVE.
+		
 		\item function getApplicationType(limit = 5, offset = 1)\\
+		Pada fungsi ini akan mengembalikan semua app. Pada fungsi ini terdapat parameter limit untuk membatasi data dan offset sebagai index data.
 		
 		\item function getApplicationsUrl(limit = 10, offset = 1)\\
+		Pada fungsi ini akan mengembalikan semua isi tabel. Pada fungsi ini terdapat parameter limit untuk membatasi data dan offset sebagai index data.
 		
 		\item function getPopularTech(limit = 10, offset = 1)\\
-		
+		Pada fungsi ini akan mengembalikan semua isi tabel. Pada fungsi ini terdapat parameter limit untuk membatasi data dan offset sebagai index data.
 		
 	\end{itemize}
 
 	\item Router
-	\item Controller
+	Bagian ini berfungsi sebagai penghubung antara backend logic dengan web-client. Berikut ini adalah contoh kodenya:
+	\begin{lstlisting}
+		const express = require('express')
+		const {GetPopularTech} = require("./Controllers/GetPopularTech");
+		const {GetAppRecap} = require("./Controllers/GetRecap");
+		const {GetAppType} = require("./Controllers/GetType");
+		const {GetAppByName} = require("./Controllers/GetApplications");
+		const cors = require('cors')
+		const app = express()
+		const port = 3000
+		app.use(cors())
+		app.get('/get/app/name/:name', GetAppByName())
+		app.get('/get/app/type', GetAppType())
+		app.get('/get/app/url', GetAppRecap())
+		app.get('/get/app/popular', GetPopularTech())
+		app.listen(port, () => {
+			console.log(`Listening at http://localhost:${port}`)
+		})
+	\end{lstlisting}
+	
+	
+	\item Controllers
+	Bagian ini berfungsi untuk mengimpentasikan \textit{feature} berdasarkan \textit{use case} yang di berikan.
+	Berikut ini adalah kode yang digunakan:
+	\begin{itemize}
+		\item GetApplications.js
+		\begin{lstlisting}
+			const {getApplications} = require("../Features/GetApplications");
+			const GetAppByName = () => {
+				return (req, res) => {
+					const {name} = req.params
+					getApplications(name).then((rows) => {
+						res.send(rows);
+					}).catch((e) => {
+						res.send(e.message)
+					});
+				};
+			}
+			module.exports = {GetAppByName}
+		\end{lstlisting}
+	
+		\item GetPopularTech.js
+		\begin{lstlisting}
+			const {getPopularTech} = require("../Features/GetApplications");
+			const GetPopularTech = () => {
+				return (req, res) => {
+					const {limit, offset} = req.query
+					getPopularTech(limit, offset).then((rows) => {
+						res.send(rows);
+					}).catch((e) => {
+						res.send(e.message)
+					});
+				};
+			}
+			module.exports = {GetPopularTech}
+		\end{lstlisting}
+	
+		\item GetRecap.js
+		\begin{lstlisting}
+			const {getApplicationsUrl} = require("../Features/GetApplications");
+			const GetAppRecap = () => {
+				return (req, res) => {
+					const {limit, offset} = req.query
+					getApplicationsUrl(limit, offset).then((rows) => {
+						res.send(rows);
+					}).catch((e) => {
+						res.send(e.message)
+					});
+				};
+			}
+			module.exports = {GetAppRecap}
+		\end{lstlisting}
+		
+		\item GetType.js
+		\begin{lstlisting}
+			const {getApplicationsType} = require("../Features/GetApplications");
+			const GetAppType = () => {
+				return (req, res) => {
+					const {limit, offset} = req.query
+					getApplicationsType(limit , offset).then((rows) => {
+						res.send(rows);
+					}).catch((e) => {
+						res.send(e.message)
+					});
+				};
+			}
+			module.exports = {GetAppType}
+		\end{lstlisting}
+	
+	\end{itemize}
 \end{enumerate}
 
 
