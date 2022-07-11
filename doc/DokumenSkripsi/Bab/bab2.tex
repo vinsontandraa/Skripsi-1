@@ -2,27 +2,27 @@
 \chapter{Landasan Teori}
 \label{chap:teori}
 
-\section{BigQuery\cite{bqa, bqIntroduction}}
-Google memiliki salah satu produk yaitu BigQuery yang berbasis \textit{cloud} dan dapat digunakan untuk menganalisis data tanpa harus memikirkan database. BigQuery memaksimalkan fleksibelitas dengan memisahkan memisahkan mesin komputasi yang menganalisa data. BigQuery dapat digunakan sebagai tempat penyimpanan dan data tersebut dapat dianalisis. Data dalam BigQuery dimasukkan dalam sebuah dataset. Dataset berisikan tabel-tabel yang dapat dianalisis. Google meluncurkan BigQuery secara publik pada tahun 2012. Saat ini BigQuery sudah berkembang menjadi penyedia penyimpanan terstruktur berbasis \textit{cloud} yang dikelola dan di-\textit{hosting}. 
+\section{BigQuery}
+Google memiliki salah satu produk yaitu BigQuery yang berbasis \textit{cloud} dan dapat digunakan untuk menganalisis data\cite{bqa, bqIntroduction}. BigQuery memaksimalkan fleksibelitas dengan memisahkan memisahkan mesin komputasi yang menganalisa data. BigQuery dapat digunakan sebagai tempat penyimpanan data dan data tersebut dapat dianalisis. Data dalam BigQuery dimasukkan dalam sebuah \textit{dataset}. \textit{Dataset} berisikan tabel-tabel yang dapat dianalisis. Google meluncurkan BigQuery secara publik pada tahun 2012. Saat ini BigQuery sudah berkembang menjadi penyedia penyimpanan terstruktur berbasis \textit{cloud} yang dikelola dan di-\textit{hosting}. 
 
 \subsection{\textit{Cloud Storage System}}
-Selain sebagai tempat untuk menjalankan \textit{query} dari data, saat ini BigQuery juga merupakan tempat penyimpanan data terstruktur di \textit{cloud}. Data akan direplikasi ke beberapa lokasi yang berbeda secara geografis untuk meningkatkan ketersediaan dan ketahanan. Jika pusat data di Google pada suatu lokasi ditutup, data tetap dapat diakses tanpa terjadi gangguan. Data juga akan direplikasi dalam sebuah kluster agar tidak terjadi kehilangan data jika terjadi kegagalan perangkat keras. 
+Selain sebagai tempat untuk menjalankan \textit{query} dari data, saat ini BigQuery juga merupakan tempat penyimpanan data terstruktur di \textit{cloud}. Data direplikasi ke beberapa lokasi yang berbeda secara geografis untuk meningkatkan ketersediaan dan ketahanan. Jika pusat data di Google pada suatu lokasi ditutup, data tetap dapat diakses tanpa terjadi gangguan. Data juga direplikasi dalam sebuah kluster agar tidak terjadi kehilangan data jika terjadi kegagalan perangkat keras. 
 
 \subsection{\textit{SQL (Structured Query Language) \cite{book:22611}}}
-SQL adalah bahasa pemograman menghasilkan, memanipulasi, dan mengambil informasi dari database relasional. BigQuery mendukung dua jenis gaya SQL yaitu \textit{Standard SQL} dan \textit{Legacy SQL} \footnote{https://cloud.google.com/bigquery/docs/reference/standard-sql/enabling-standard-sql}. Mengambil informasi dari database relasional harus menggunakan \textit{query}. \textit{Query} merupakan \textit{syntax} atau perintah yang digunakan untuk mengambil dan menghasilkan data dari database.
+SQL adalah bahasa pemograman menghasilkan, memanipulasi, dan mengambil informasi dari \textit{database} relasional. Salah satu \textit{syntax} \textit{sql} yang didukung BigQuery adalah \textit{Standard SQL}. \textit{Standard SQL} mengambil informasi dari \textit{database} dengan menggunakan \textit{query} \footnote{https://cloud.google.com/bigquery/docs/reference/standard-sql/enabling-standard-sql}. Mengambil informasi dari \textit{database} relasional harus menggunakan \textit{query}. \textit{Query} merupakan \textit{syntax} atau perintah yang digunakan untuk mengambil dan menghasilkan data dari \textit{database}.
 
 \subsubsection{Query Clauses}
-Terdapat beberapa komponen atau klausa dari \textit{query} yang digunakan mengambil dan menghasilkan data dari database, seperti:
+Terdapat beberapa komponen atau klausa dari \textit{query} yang digunakan mengambil dan menghasilkan data dari \textit{database}, seperti:
 \begin{itemize}
     \item SELECT dan FROM\\
-    Fungsi dari klausa SELECT adalah untuk menentukan kolom dari suatu tabel yang ditampilkan dalam \textit{query result}. Fungsi dari klausa FROM adalah mengidentifikasi tabel yang ingin diambil datanya. Dalam mengambil data dari database setidaknya minimal harus menggunakan dua klausa ini. Klausa ini memiliki \textit{syntax} seperti:
+    Fungsi dari klausa SELECT adalah untuk menentukan kolom dari suatu tabel yang ditampilkan dalam \textit{query result}. Fungsi dari klausa FROM adalah mengidentifikasi tabel yang ingin diambil datanya. Dalam mengambil data dari \textit{database} setidaknya minimal harus menggunakan dua klausa ini. Klausa ini memiliki \textit{syntax} seperti:
     \begin{verbatim}
     SELECT coloumn1, coloumn2, ...
     FROM table_name
     \end{verbatim}
     
     \item WHERE\\
-    Fungsi dari klausa WHERE adalah untuk membatasi jumlah baris dalam \textit{query result} berdasarkan kondisi tertentu. Klausa WHERE digunakan jika terdapat beberapa kondisi yang ingin dicari dari database tersebut. Klausa ini memiliki \textit{syntax} seperti:
+    Fungsi dari klausa WHERE adalah untuk membatasi jumlah baris dalam \textit{query result} berdasarkan kondisi tertentu. Klausa WHERE digunakan jika terdapat beberapa kondisi yang ingin dicari dari \textit{database} tersebut. Klausa ini memiliki \textit{syntax} seperti:
     \begin{verbatim}
     SELECT coloumn1, coloumn2, ...
     FROM table_name
@@ -39,7 +39,7 @@ Terdapat beberapa komponen atau klausa dari \textit{query} yang digunakan mengam
 \end{verbatim}
     
     \item ORDER BY\\
-    Fungsi dari klausa ORDER BY adalah untuk mengurutkan \textit{query result} berdasarkan satu atau lebih kolom. Pada saat menggunakan ORDER BY, akan ditambahkan dua fungsi yaitu ASC (\textit{Ascending}) dan DESC (\textit{Descending}). Klausa ini memiliki \textit{syntax} seperti:
+    Fungsi dari klausa ORDER BY adalah untuk mengurutkan \textit{query result} berdasarkan satu atau lebih kolom. Pada saat menggunakan ORDER BY, ditambahkan dua fungsi yaitu ASC (\textit{Ascending}) dan DESC (\textit{Descending}). Klausa ini memiliki \textit{syntax} seperti:
     \begin{verbatim}
     SELECT coloumn1, coloumn2, ...
     FROM table_name
@@ -87,7 +87,7 @@ Didalam \textit{query} juga terdapat beberapa fungsi agregat untuk melakukan ope
     \end{verbatim} 
     
     \item SUM()\\
-     Fungsi ini bertujuan untuk mengembalikan jumlah baris dari kolom sebuah tabel. Fungsi SUM memiliki contoh \textit{syntax} seperti:
+     Fungsi ini bertujuan untuk mengembalikan menjumlahkan data setiap baris dari kolom sebuah tabel. Fungsi SUM memiliki contoh \textit{syntax} seperti:
     \begin{verbatim}
         SELECT SUM(column_name)
         FROM table_name
@@ -95,7 +95,7 @@ Didalam \textit{query} juga terdapat beberapa fungsi agregat untuk melakukan ope
     \end{verbatim} 
 
 	\item STRING$\_$AGG()\\
-	Fungsi ini mengambil semua ekspresi dari baris dan menggabungkannya menjadi satu string. Nilai ekspresi secara implisit dikonversi ke tipe string dan kemudian digabungkan. Fungsi STRING$\_$AGG memiliki contoh \textit{syntax} seperti:
+	Fungsi ini mengambil semua ekspresi dari baris dan menggabungkannya menjadi satu \textit{string}. Nilai ekspresi secara implisit dikonversi ke tipe \textit{string} dan kemudian digabungkan. Fungsi STRING$\_$AGG memiliki contoh \textit{syntax} seperti:
 	\begin{verbatim}
 		STRING_AGG ( expression, separator ) [ <order_clause> ]
 	\end{verbatim}
@@ -103,7 +103,7 @@ Didalam \textit{query} juga terdapat beberapa fungsi agregat untuk melakukan ope
 
 
 \subsubsection{Querying Multiple Tables}
-Karena database relasional di-\textit{design} dibentuk dengan mengamanatkan bahwa setiap entitas dibuat kedalam tabel yang terpisah, sehingga dibutuhkan mekanisme untuk menghubungkan beberapa tabel dalam \textit{query} yang sama. Mekanisme ini disebut dengan JOIN. Terdapat beberapa jenis JOIN sebagai berikut:
+Karena \textit{database} relasional di-\textit{design} dibentuk dengan mengamanatkan bahwa setiap entitas dibuat kedalam tabel yang terpisah, sehingga dibutuhkan mekanisme untuk menghubungkan beberapa tabel dalam \textit{query} yang sama. Mekanisme ini disebut dengan JOIN. Terdapat beberapa jenis JOIN sebagai berikut:
 \begin{itemize}
     \item LEFT OUTER JOIN \\
     Kata kunci LEFT menunjukkan bahwa tabel di sisi kiri klausa FROM bertanggung jawab untuk menentukan jumlah baris dalam kumpulan hasil, sedangkan tabel di sisi kanan digunakan untuk memberikan nilai kolom setiap kali ditemukan kecocokan. LEFT OUTER JOIN memiliki \textit{syntax} seperti:
@@ -124,7 +124,7 @@ Karena database relasional di-\textit{design} dibentuk dengan mengamanatkan bahw
     \end{verbatim}
     
     \item FULL OUTER JOIN \\
-    Full outer join merupakan gabungan dari LEFT OUTER JOIN dan RIGHT OUTER JOIN. FULL OUTER JOIN memiliki \textit{syntax} seperti:
+    FULL OUTER JOIN merupakan gabungan dari LEFT OUTER JOIN dan RIGHT OUTER JOIN. FULL OUTER JOIN memiliki \textit{syntax} seperti:
     \begin{verbatim}
         SELECT column_name(s)
         FROM table1
@@ -134,7 +134,7 @@ Karena database relasional di-\textit{design} dibentuk dengan mengamanatkan bahw
     \end{verbatim}
     
     \item INNER JOIN \\
-    Inner join menghubungkan dua atau lebih tabel dengan hubungan antara dua kolom. INNER JOIN memiliki \textit{syntax} seperti:
+    INNER JOIN menghubungkan dua atau lebih tabel dengan hubungan antara dua kolom. INNER JOIN memiliki \textit{syntax} seperti:
     \begin{verbatim}
         SELECT column_name(s)
         FROM table1
@@ -144,20 +144,20 @@ Karena database relasional di-\textit{design} dibentuk dengan mengamanatkan bahw
 \end{itemize}
 
 \subsubsection{Subquery}
-\textit{Subquery} merupakan \textit{query} yang terkandung dalam \textit{query} lain. Sebuah \textit{subquery} selalu diapit dalam tanda kurung, dan biasanya dieksekusi terlebih dahulu sebelum \textit{query} yang memuatnya. Tabel yang dikembalikan oleh \textit{subquery} menentukan bagaimana tabel tersebut dapat digunakan dan operator mana yang dapat digunakan oleh \textit{query} yang memuatnya untuk berinteraksi dengan tabel yang dikembalikan oleh \textit{subquery}. Ketika \textit{query} yang memuat telah selesai dieksekusi, tabel yang dikembalikan oleh \textit{subquery} akan dibuang, membuat \textit{subquery} bertindak seperti tabel sementara dengan cakupan pernyataan. Salah satu \textit{syntax} pada \textit{subquery} adalah sebagai berikut:
+\textit{Subquery} merupakan \textit{query} yang terkandung dalam \textit{query} lain. Sebuah \textit{subquery} selalu diapit dalam tanda kurung, dan biasanya dieksekusi terlebih dahulu sebelum \textit{query} yang memuatnya. Tabel yang dikembalikan oleh \textit{subquery} menentukan bagaimana tabel tersebut dapat digunakan dan operator mana yang dapat digunakan oleh \textit{query} yang memuatnya untuk berinteraksi dengan tabel yang dikembalikan oleh \textit{subquery}. Ketika \textit{query} yang memuat telah selesai dieksekusi, tabel yang dikembalikan oleh \textit{subquery} dibuang, membuat \textit{subquery} bertindak seperti tabel sementara dengan cakupan pernyataan. Salah satu \textit{syntax} pada \textit{subquery} adalah sebagai berikut:
 \begin{verbatim}
     SELECT column_name(s)
     FROM (subquery)
 \end{verbatim}
 
 \subsubsection{REPEAT()}
-Fungsi REPEAT() digunakan untuk mengulang string sebanyak jumlah yang dimasukkan. Fungsi REPEAT() akan mengembalikan string. Contoh dari \textit{syntax} REPEAT() yaitu:
+Fungsi REPEAT() digunakan untuk mengulang \textit{string} sebanyak jumlah yang dimasukkan. Fungsi REPEAT() mengembalikan \textit{string}. Contoh dari \textit{syntax} REPEAT() yaitu:
 \begin{verbatim}
 	REPEAT(string, number)
 \end{verbatim}
 
 \subsubsection{COUNTIF()}
-Fungsi COUNTIF() mengembalikan jumlah ekspresi yang bernilai true. Karena ekspresi harus berupa boolean, sehingga bentuk COUNTIF(DISTINCT ...) tidak didukung. Contoh \textit{syntax} COUNTIF() yaitu:
+Fungsi COUNTIF() mengembalikan jumlah ekspresi yang bernilai \textit{true}. Karena ekspresi harus berupa \textit{boolean}, sehingga bentuk COUNTIF(DISTINCT ...) tidak didukung. Contoh \textit{syntax} COUNTIF() yaitu:
 \begin{verbatim}
 	COUNTIF(
 	expression
@@ -169,13 +169,13 @@ Fungsi COUNTIF() mengembalikan jumlah ekspresi yang bernilai true. Karena ekspre
 Operator UNNEST digunakan untuk mengkonversi ARRAY menjadi sekumpulan baris. UNNEST mengambil ARRAY dan mengembalikan tabel dengan satu baris untuk setiap elemen dalam ARRAY. 
 
 \subsubsection{SPLIT()}
-Fungsi SPLIT() digunakan untuk membagi nilai menggunakan argumen pembatas. Untuk string memiliki default pembatas yaitu tanda koma, sedangkan bytes harus ditentukan sendiri pembatasnya. Fungsi SPLIT() akan mengembalikan nilai ARRAY. Contoh \textit{syntax} fungsi SPLIT() yaitu:
+Fungsi SPLIT() digunakan untuk membagi nilai menggunakan argumen pembatas. Untuk string memiliki default pembatas yaitu tanda koma, sedangkan bytes harus ditentukan sendiri pembatasnya. Fungsi SPLIT() mengembalikan nilai ARRAY. Contoh \textit{syntax} fungsi SPLIT() yaitu:
 \begin{verbatim}
 	SPLIT(value[, delimiter])
 \end{verbatim}
 
 \subsubsection{CASE}
-CASE akan mengevaluasi setiap klausa WHEN yang secara berurut dan mengembalikan nilai dengan kondisi benar. Jika tidak terdapat klausa WHEN yang memiliki kondisi yang benar, maka nilai dari klausa ELSE yang akan dikembalikan. Contoh \textit{syntax} CASE yaitu:
+CASE mengevaluasi setiap klausa WHEN yang secara berurut dan mengembalikan nilai dengan kondisi benar. Jika tidak terdapat klausa WHEN yang memiliki kondisi yang benar, maka nilai dari klausa ELSE yang dikembalikan. Contoh \textit{syntax} CASE yaitu:
 \begin{verbatim}
 	CASE
 	WHEN condition THEN result
@@ -184,58 +184,23 @@ CASE akan mengevaluasi setiap klausa WHEN yang secara berurut dan mengembalikan 
 	END
 \end{verbatim}
 
-\section{HTTP Archive \cite{httparchiveAbout}}
-HTTP Archive adalah sebuah \textit{open-source project} yang melihat bagaimana \textit{website} dibuat. HTTP Archive menyediakan data-data historis untuk melihat bagaimana \textit{website} berkembang. HTTP Archive pertama sekali dimulai pada tahun 2010 oleh Steve Souders dan di-\textit{maintain} oleh Pat Meenan, Rick Viscomi, Paul Calvano, and Barry Pollard. Data url HTTP Archive didapatkan menggunakan CrUX kemudian url dikirimkan ke WebPageTest setiap bulannya. 
-CrUX adalah sebuah dataset yang bersifat publik yang berisi data user experience dari jutaan website. Data ini berasal dari data yang dikumpulkan dari pengguna yang telah memilih untuk mengsinkronkan \textit{browsing history}. Data yang dihasilkan tersedia melalui:
+\section{HTTPArchive}
+HTTPArchive adalah sebuah \textit{open-source project} yang melihat bagaimana \textit{website} dibuat. HTTPArchive menyediakan data-data historis untuk melihat bagaimana \textit{website} berkembang. HTTPArchive pertama sekali dimulai pada tahun 2010 oleh Steve Souders dan di-\textit{maintain} oleh Pat Meenan, Rick Viscomi, Paul Calvano, and Barry Pollard. Data url HTTPArchive didapatkan menggunakan CrUX (\textit{Chrome User Experience Report}) kemudian url dikirimkan ke WebPageTest setiap bulannya\cite{httparchiveAbout}.
+CrUX adalah sebuah dataset yang bersifat publik yang berisi data \textit{user experience} dari jutaan \textit{website}. Data ini berasal dari data yang dikumpulkan dari pengguna yang telah memilih untuk mengsinkronkan \textit{browsing history}. Data yang dihasilkan tersedia melalui:
 \begin{enumerate}
 	\item PageSpeed Insights
 	\item Public Google BigQuery Project
 	\item CrUX Dashboard on Data Studio 
 \end{enumerate} 
-Orang yang menggunakan HTTP Archive adalah anggota komunitas web, para sarjana, dan pemimpin industri:
+Orang yang menggunakan HTTPArchive adalah anggota komunitas web, para sarjana, dan pemimpin industri:
 \begin{enumerate}
     \item Komunitas web menggunakan data ini untuk mempelajari lebih lanjut tentang keadaan web. Biasanya dapat dilihat pada blog, presentasi, atau media sosial. 
     \item Para sarjana mengutip data ini untuk mendukung penelitian dalam publikasi besar seperti ACM dan IEEE.
     \item Para pemimpin industri menggunakan data ini untuk mengkalibrasi alat mereka untuk secara akurat mewakili bagaimana web dibuat.
 \end{enumerate}
-Di dalam HTTP Archive terdapat dataset yang dapat diambil menggunakan teknologi BigQuery. Dataset tersebut adalah sebagai berikut:
-\begin{enumerate}
-	\item almanac\\
-	Tabel ini tidak digunakan dalam pengerjaan skripsi ini.
-	\item blink$\_$feature\\
-	Tabel ini tidak digunakan dalam pengerjaan skripsi ini.
-	\item core$\_$web$\_$vitals\\
-	Tabel ini tidak digunakan dalam pengerjaan skripsi ini.
-	\item latest\\
-	Tabel ini tidak digunakan dalam pengerjaan skripsi ini.
-	\item lighthouse\\
-	Tabel ini tidak digunakan dalam pengerjaan skripsi ini.
-	\item pages\\
-	Tabel ini tidak digunakan dalam pengerjaan skripsi ini.
-	\item requests\\
-	Tabel ini tidak digunakan dalam pengerjaan skripsi ini.
-	\item response$\_$bodies\\
-	Tabel ini tidak digunakan dalam pengerjaan skripsi ini.
-	\item sample$\_$data\\
-	Tabel ini tidak digunakan dalam pengerjaan skripsi ini.
-	\item sample$\_$data$\_$2020\\
-	Tabel ini tidak digunakan dalam pengerjaan skripsi ini.
-	\item scratchspace\\
-	Tabel ini tidak digunakan dalam pengerjaan skripsi ini.
-	\item summary$\_$pages\\
-	Tabel ini tidak digunakan dalam pengerjaan skripsi ini.
-	\item summary$\_$requests\\
-	Tabel ini tidak digunakan dalam pengerjaan skripsi ini.
-	\item technologies\\
-	Dataset pada technologies berisi tabel-tabel dari bulan Januari tahun 2016 sampai dengan sekarang yang terdiri dari website pada desktop dan mobile. Dataset bulan Agustus tahun 2020 pada desktop memiliki 61.203.638 baris 
-	 %Contoh data dapat dilihat pada tabel \ref{table:ct_tech_desktop} 
-	 dan pada mobile memiliki 67.452.994 baris. 
-	 %Contoh data dapat dilihat pada tabel \ref{table:ct_tech_mobile}. Masing-masing terdiri dari 4 kolom yaitu \textit{url}, \textit{category}, \textit{app}, \textit{info}. Pada kolom \textit{URL (Uniform Resource Locator)} merupakan nama-nama domain, \textit{category} merupakan jenis aplikasi yang digunakan pada website tersebut, \textit{app} merupakan aplikasi yang digunakan website tersebut, \textit{info} merupakan informasi tambahan dari aplikasi. 
-	\item urls\\
-	Tabel ini tidak digunakan dalam pengerjaan skripsi ini.
-	\item wappalyzer\\
-	Tabel ini tidak digunakan dalam pengerjaan skripsi ini.
-\end{enumerate}
+Di dalam HTTPArchive terdapat \textit{dataset} yang dapat diambil menggunakan teknologi BigQuery. Salah satu \textit{dataset} yang dapat diambil adalah dataset \textit{technologies}.
+	\textit{Dataset} pada \textit{technologies} berisi tabel-tabel dari bulan Januari tahun 2016 sampai dengan sekarang yang terdiri dari \textit{website} pada \textit{desktop} dan \textit{mobile}. \textit{Dataset} bulan Agustus tahun 2020 pada \textit{desktop} memiliki 61.203.638 baris 
+	 dan pada \textit{mobile} memiliki 67.452.994 baris. 
 
 
 
@@ -291,17 +256,17 @@ Di dalam HTTP Archive terdapat dataset yang dapat diambil menggunakan teknologi 
 
 \section{Pengukuran Aplikasi Usang Pada Beberapa \textit{Website} Populer Di Indonesia\cite{pascal}}
 
-Pada jurnal ini menjelaskan bahwa dalam bidang keamanan komputer, terdapat berbagai jenis metode dalam menyerang kerentanan pada sebuah sistem. Pengelola sistem yang sudah terkena dampak harus memperbarui sistemnya. Penelitian ini mengusulkan metode untuk melakukan pengukuran website tentang seberapa banyak penggunaan aplikasi yang tidak didukung. Pada penelitian ini dibataskan pada mendeteksi versi aplikasi yang digunakan.
+Pada jurnal ini menjelaskan bahwa dalam bidang keamanan komputer, terdapat berbagai jenis metode dalam menyerang kerentanan pada sebuah sistem. Pengelola sistem yang sudah terkena dampak harus memperbarui sistemnya. Penelitian ini mengusulkan metode untuk melakukan pengukuran \textit{website} tentang seberapa banyak penggunaan aplikasi yang tidak didukung. Pada penelitian ini dibataskan pada mendeteksi versi aplikasi yang digunakan.
 
 \subsection{\textit{Research Method}}
-Terdapat empat langkah dalam meelakukan penelitian ini, yaitu:
+Terdapat empat langkah dalam melakukan penelitian ini, yaitu:
 \begin{enumerate}
-    \item Memilih list \textit{website} yang populer\\
+    \item Memilih \textit{list} \textit{website} yang populer\\
     Memilih \textit{website} paling populer dilakukan dengan mengambil daftar dari \textit{website} teratas dari Alexa dengan negara tertentu.
     \item Mengidentifikasi aplikasi yang dipakai \textit{website}\\
-    Untuk setiap \textit{website} akan dilakukan pengidentifikasian nomor versi yang dipakai. Hal ini dibantu dengan menggunakan \textit{third party} yaitu Wappalyzer. 
+    Untuk setiap \textit{website} dilakukan pengidentifikasian nomor versi yang dipakai. Hal ini dibantu dengan menggunakan \textit{third party} yaitu Wappalyzer. 
     \item Mengelompokkan berdasarkan nama aplikasi dan ambil versi yang didukung\\
-    Untuk melihat nomor versi yang masih didukung akan dilakukan pencarian di \textit{website} resmi dari setiap aplikasi. Terdapat beberapa \textit{website} yang tidak dapat ditampilkan versinya, sehingga suatu \textit{website} dapat didefinisikan didukung jika memenuhi kondisi sebagai beikut:
+    Untuk melihat nomor versi yang masih didukung dilakukan pencarian di \textit{website} resmi dari setiap aplikasi. Terdapat beberapa \textit{website} yang tidak dapat ditampilkan versinya, sehingga suatu \textit{website} dapat didefinisikan didukung jika memenuhi kondisi sebagai beikut:
     \begin{itemize}
         \item Versi aplikasi yang didukung dapat dilihat secara eksplisit di dalam \textit{website}.
         \item Dokumen untuk versi aplikasi tersebut masih tersedia.
@@ -314,7 +279,7 @@ Terdapat empat langkah dalam meelakukan penelitian ini, yaitu:
         \item \textit{Not-versioned} berarti aplikasi yang terdeteksi oleh Wappalyzer tidak memiliki informasi versi sehingga tidak dapat dibandingkan.
         \item Non-konklusif dapat berarti salah satu dari dua:
         \begin{itemize}
-            \item Dapat mengambil nomor versi yang digunakan dalam aplikasi, tetapi kami tidak dapat menentukan apakah versi tersebut masih didukung atau tidak oleh pengelola.
+            \item Dapat mengambil nomor versi yang digunakan dalam aplikasi, tetapi tidak dapat menentukan apakah versi tersebut masih didukung atau tidak oleh pengelola.
             \item Versi yang didukung untuk aplikasi tertentu tidak diketahui.
         \end{itemize}
         \item Tidak didukung berarti dapat disimpulkan bahwa aplikasi yang digunakan menggunakan nomor versi yang tidak didukung oleh pengelola.
@@ -350,7 +315,7 @@ Pada jurnal\cite{pascal}, dari 1.500 URL yang dideteksi oleh Wappalyzer, hanya 1
 \label{table:apr}
 \end{table}
 
-Tabel \ref{table:first-ten} adalah daftar sepuluh website yang paling popular. Dari daftar tersebut terlihat banyak sekali website yang menggunakan aplikasi yang tidak ada informasi versinya. Tetapi untuk yang ada informasi versinya, terdapat beberapa aplikasi yang sudah tidak didukung. Beberapa aplikasi yang sudah tidak didukung dari sepuluh website tersebut adalah Bootstrap, Font Awesome, jQuery, dan PHP. Pada tabel \ref{table:n-result} terdapat 1,500 website yang dipisahkan setiap 150 website yang diurutkan berdasarkan rank website tersebut. Untuk setiap baris pada tabel tersebut akan dihitung website yang menggunakan n aplikasi yang sudah tidak didukung. 
+Tabel \ref{table:first-ten} adalah daftar sepuluh website yang paling popular. Dari daftar tersebut terlihat banyak sekali website yang menggunakan aplikasi yang tidak ada informasi versinya. Tetapi untuk yang ada informasi versinya, terdapat beberapa aplikasi yang sudah tidak didukung. Beberapa aplikasi yang sudah tidak didukung dari sepuluh \textit{website} tersebut adalah Bootstrap, Font Awesome, jQuery, dan PHP. Pada tabel \ref{table:n-result} terdapat 1,500 \textit{website} yang dipisahkan setiap 150 \textit{website} yang diurutkan berdasarkan \textit{rank} \textit{website} tersebut. Untuk setiap baris pada tabel tersebut dihitung \textit{website} yang menggunakan n aplikasi yang sudah tidak didukung. 
 \begin{table}[H]
 	\centering
 	\begin{tabular}{rlcccc} 
@@ -413,7 +378,7 @@ Tabel \ref{table:first-ten} adalah daftar sepuluh website yang paling popular. D
 		\label{table:n-result}
 	\end{table}
 
-Pada tabel \ref{table:most-used}, terdapat beberapa aplikasi yang banyak digunakan. Beberapa aplikasi tersebut diambil dari 1.500 \textit{website} teratas dan memfilter aplikasi yang versinya tidak dapat diidentifikasi di salah satu dari 1.500 \textit{website} teratas.
+Pada tabel \ref{table:most-used}, terdapat beberapa aplikasi yang banyak digunakan. Beberapa aplikasi tersebut diambil dari 1.500 \textit{website} teratas dan mem-\textit{filter} aplikasi yang versinya tidak dapat diidentifikasi di salah satu dari 1.500 \textit{website} teratas.
 \begin{table}[H]
 	\centering
 	\begin{tabular}{rlcccc} 
@@ -441,9 +406,9 @@ Pada tabel \ref{table:most-used}, terdapat beberapa aplikasi yang banyak digunak
 	\label{table:most-used}
 \end{table}
 
-\section{Node.js \cite{Nodejs:01:about}}
+\section{Node.js}
 \label{sec:nodejs}
-\textit{Node.js} adalah sebuah \textit{asynchronous event-driven JavaScript runtime}. Node.js memungkinkan untuk menjalankan perintah JavaScript dari sisi server. Contoh \textit{syntax} pada Node.js yaitu:
+\textit{Node.js} adalah sebuah \textit{asynchronous event-driven JavaScript runtime}. Node.js memungkinkan untuk menjalankan perintah JavaScript dari sisi server\cite{Nodejs:01:about}. Contoh \textit{syntax} pada Node.js yaitu:
 \begin{lstlisting}
 	const http = require('http');
 	
@@ -477,33 +442,15 @@ Beberapa kegunaan dari menggunakan NPM adalah:
 \end{itemize}
 
 \subsection{NPM CLI}
-NPM merupakan \textit{package manager} untuk \textit{Node JavaScript}. NPM menempatkan modul sehingga dapat ditemukan oleh \textit{node}. Selain itu NPM juga dapat mengelola \textit{dependency conflicts.} NPM digunakan untuk menginstall dan mengembangkan \textit{node program.}. Dalam penulisan NPM dapat dilakukan didalam CLI \textit{(Command Line Interface)}. NPM memiliki tiga komponen penting dalam penulisan perintah CLI, komponen tersebut seperti:
+NPM merupakan \textit{package manager} untuk \textit{Node JavaScript}. NPM menempatkan modul sehingga dapat ditemukan oleh \textit{node}. Selain itu NPM juga dapat mengelola \textit{dependency conflicts.} NPM digunakan untuk menginstall dan mengembangkan \textit{node program}. Dalam penulisan NPM dapat dilakukan didalam CLI \textit{(Command Line Interface)}. NPM memiliki tiga komponen penting dalam penulisan perintah CLI, komponen tersebut seperti:
 \begin{verbatim}
 	npm <command> [args]
 \end{verbatim}
 
-\section{ReactJS\cite{reactjsConcept}}
-ReactJS merupakan \textit{library} yang disediakan JavaScript untuk membuat \textit{interface}. ReactJS dibuat oleh Facebook. 
-%Berikut ini contoh sintaks pada ReactJS:
-%\begin{lstlisting}
-%    class HelloMessage extends React.Component {
-%  render() {
-%    return (
-%      <div>
-%        Hello {this.props.name}
-%      </div>
-%    );
-%  }
-%}
-%
-%ReactDOM.render(
-%  <HelloMessage name="World" />,
-%  document.getElementById('hello-example')
-%);
-%\end{lstlisting}
-
+\section{ReactJS}
+ReactJS merupakan \textit{library} yang disediakan JavaScript untuk membuat \textit{interface}. ReactJS dibuat oleh Facebook\cite{reactjsConcept}. 
 \subsection{JSX}
-JSX adalah sebuah ekstensi Javascript yang dapat mengikutsertakan HTML dalam Javascript. JSX akan menghasilkan elemen React. 
+JSX adalah sebuah ekstensi Javascript yang dapat mengikutsertakan HTML dalam Javascript. JSX menghasilkan elemen React. 
 \subsubsection{Menyatukan Ekspresi dalam JSX}
 Berikut ini adalah contoh penggunaan JSX:
 \begin{lstlisting}
@@ -515,9 +462,9 @@ Berikut ini adalah contoh penggunaan JSX:
 	document.getElementById('root')
 	);
 \end{lstlisting}
-Pada contoh diatas, variabel name akan dibungkus dengan menggunakan tanda kurung kurawal. Semua ekspresi Javascript valid dalam tanda kurung kurawal di JSX. 
+Pada contoh diatas, variabel \textit{name} dibungkus dengan menggunakan tanda kurung kurawal. Semua ekspresi Javascript valid dalam tanda kurung kurawal di JSX. 
 \subsubsection{Mengspesifikasikan Atribut Dengan JSX}
-Penulis dapat menggunakan tanda petik untuk mengspesifikasikan string literal sebagai atribut:
+Penulis dapat menggunakan tanda petik untuk mengspesifikasikan \textit{string literal} sebagai atribut:
 \begin{lstlisting}
 	const element = <a href="https://www.reactjs.org"> link </a>;
 \end{lstlisting}
@@ -526,8 +473,8 @@ Penulis dapat menggunakan tanda petik untuk mengspesifikasikan string literal se
  	const element = <img src={user.avatarUrl}></img>;
  \end{lstlisting}
 
-\subsubsection{Mengspesifikasikan Elemen Anak dengan JSX}
-Jika tag bersifat kosong atau tidak memiliki elemen anak, penulis dapat menutup tag-nya secara langsung dengan />, seperti pada potongan kode dibawah ini.
+\subsubsection{Menspesifikasikan Elemen Anak dengan JSX}
+Jika \textit{tag} bersifat kosong atau tidak memiliki elemen anak, penulis dapat menutup \textit{tag}-nya secara langsung dengan />, seperti pada potongan kode dibawah ini.
 \begin{lstlisting}
 	const element = <img src={user.avatarUrl} />;
 \end{lstlisting}
@@ -541,21 +488,21 @@ Didalam tag JSX memungkinkan untuk memiliki elemen anak, yang dapat dilihat pada
 	);
 \end{lstlisting}
 
-\subsection{Merender Elemen}
+\subsection{Melakukan \textit{Render} Elemen}
 Sebuah elemen menggambarkan hal yang ingin ditampilkan pada layar. Tidak seperti elemen DOM, elemen React merupakan objek biasa dan mudah dibuat. React DOM mangatur pembaruan DOM agar sesuai dengan elemen React.
-\subsubsection{Me-render Elemen Kedalam DOM}
+\subsubsection{Melakukan \textit{Render} Elemen Kedalam DOM}
 Aplikasi yang dibuat dengan React biasanya memiliki satu node DOM akar. Jika mengintegrasikan React ke dalam aplikasi yang sudah ada, penulis dapat memiliki node DOM akar yang terisolasi sebanyak yang Anda inginkan.
 \begin{lstlisting}
 	<div id="root"></div>
 \end{lstlisting}
-Potongan kode diatas disebut sebagai node DOM akar karena semua yang berada didalamnya akan diatur oleh React DOM.
+Potongan kode diatas disebut sebagai node DOM akar karena semua yang berada didalamnya diatur oleh React DOM.
 \begin{lstlisting}
 	const element = <h1>Hello, world</h1>;
 	ReactDOM.render(element, document.getElementById('root'));
 \end{lstlisting}
 Pada kode diatas, elemen dan root dimasukkan kedalam ReactDOM.render() agar elemen tersebut dapat dirender.
-\subsubsection{Memperbarui Elemen yang Di-render}
-Elemen React bersifat \textit{immutable} sehingga setelah elemen dibuat, penulis tidak dapat mengubah nilai dari elemen atau attributnya. Satu-satunya cara untuk memperbarui antarmukanya adalah dengan membuat elemen baru atau menggunakan ReactDOM.render()
+\subsubsection{Memperbarui Elemen yang Di \textit{Render}}
+Elemen React bersifat \textit{immutable} sehingga setelah elemen dibuat, penulis tidak dapat mengubah nilai dari elemen atau atributnya. Satu-satunya cara untuk memperbarui antarmukanya adalah dengan membuat elemen baru atau menggunakan ReactDOM.render()
 \begin{lstlisting}
 	function tick() {
 		const element = (
@@ -571,8 +518,8 @@ Elemen React bersifat \textit{immutable} sehingga setelah elemen dibuat, penulis
 \end{lstlisting}
 Pada kode diatas ReactDOM.render() membuat \textit{callback} setiap detik.
 
-\subsection{Components and Props}
-Komponen mempermudah untuk memisahkan antarmuka menjadi bagian tersendiri dan dapat digunakan kembali. Secara konsep, komponen menyerupai fungsi Javascript. Komponen dapat menerima beberapa props (masukan) dan mengembalikan elemen React yang mendeskripsikan apa yang seharusnya tampil dilayar. 
+\subsection{\textit{Components and Props}}
+Komponen mempermudah untuk memisahkan antarmuka menjadi bagian tersendiri dan dapat digunakan kembali. Secara konsep, komponen menyerupai fungsi Javascript. Komponen dapat menerima beberapa \textit{props} (masukan) dan mengembalikan elemen React yang mendeskripsikan apa yang seharusnya tampil dilayar. 
 \subsubsection{Fungsi dan Komponen Kelas}
 Cara yang paling sederhana untuk mendefinisikan sebuah komponen adalah dengan menuliskan sebuah fungsi Javascript
 \begin{lstlisting}
@@ -580,14 +527,14 @@ Cara yang paling sederhana untuk mendefinisikan sebuah komponen adalah dengan me
 		return <h1>Halo, {props.name}</h1>;
 	}
 \end{lstlisting}
-Fungsi diatas adalah contoh komponen React yang sah karena menerima sebuah props tunggal atau argumen objek dengan data dan kembalian sebuah elemen React. 
+Fungsi diatas adalah contoh komponen React yang sah karena menerima sebuah \textit{props} tunggal atau argumen objek dengan data dan kembalian sebuah elemen React. 
 
-\subsubsection{Merender Sebuah Komponen}
+\subsubsection{Melakukan \textit{Render} pada Sebuah Komponen}
 Didalam React Elemen dapat mewakili komponen yang didefinisikan oleh penulis. Seperti pada kode dibawah.
 \begin{lstlisting}
 	const element = <Welcome name="Sara" />;
 \end{lstlisting}
-Ketika React melihat sebuah elemen mewakili sebuah komponen yang dibuat oleh penulis, komponen akan mengoper atribut JSX ke dalam komponen ini sebagai objek tunggal. Objek ini disebut sebagai props. Kode dibawah ini akan menghasilkan "Halo Sara" pada halaman.
+Ketika React melihat sebuah elemen mewakili sebuah komponen yang dibuat oleh penulis, komponen mengoper atribut JSX ke dalam komponen ini sebagai objek tunggal. Objek ini disebut sebagai \textit{props}. Kode dibawah ini menghasilkan "Halo Sara" pada halaman.
 \begin{lstlisting}
 	function Welcome(props) {
 		return <h1>Halo, {props.name}</h1>;
@@ -601,7 +548,7 @@ Ketika React melihat sebuah elemen mewakili sebuah komponen yang dibuat oleh pen
 \end{lstlisting} 
 
 \subsubsection{Menyusun Komponen}
-Komponen dapat merujuk ke komponen lain pada keluarannya. Hal ini memungkinkan kita untuk membuat abstraksi dari komponen yang sama untuk tingkat detail. Seperti membuat sebuah tombol, sebuah form, sebuah tampilan, sebuah dialog. Dalam aplikasi React, semua itu dinyatakan dalam bentuk komponen. Sebagai contoh penulis dapat membuat sebuah komponen App yang mencetak Welcome berkali-kali.
+Komponen dapat merujuk ke komponen lain pada keluarannya. Hal ini memungkinkan kita untuk membuat abstraksi dari komponen yang sama untuk tingkat \textit{detail}. Seperti membuat sebuah tombol, sebuah \textit{form}, sebuah tampilan, sebuah \textit{dialog}. Dalam aplikasi React, semua itu dinyatakan dalam bentuk komponen. Sebagai contoh penulis dapat membuat sebuah komponen \textit{App} yang mencetak Welcome berkali-kali.
 \begin{lstlisting}
 	function Welcome(props) {
 		return <h1>Halo, {props.name}</h1>;
@@ -622,7 +569,7 @@ Komponen dapat merujuk ke komponen lain pada keluarannya. Hal ini memungkinkan k
 
 
 \subsection{Penanganan Event}
-Menangani events dengan elemen React sangat mirip seperti menangani sebuah events pada elemen DOM. Ada beberapa perbedaan sintaks:
+Menangani \textit{events} dengan elemen React sangat mirip seperti menangani sebuah \textit{events} pada elemen DOM. Ada beberapa perbedaan sintaks:
 \begin{itemize}
 	\item Events pada React biasanya ditulis dalam bentuk camelCase, bukan lowercase.
 	\item Dengan JSX Anda dapat mengoper function sebagai event handler, bukan sebagai string.
@@ -639,7 +586,7 @@ Sintaks HTML memiliki sedikit perbedaan dengan sintaks pada React. Berikut ini a
 	Aktivasi Laser
 	</button>
 \end{lstlisting} 
-Perbedaan lainnya adalah penulis tidak dapat mengembalikan nilai false untuk mencegah behaviorbawaan React. Penulis harus menggunakan preventDefault. Sebagai contoh, pada HTML untuk mencegah agar link bawaan membuka halaman baru, penulis dapat menulis seperti ini:  
+Perbedaan lainnya adalah penulis tidak dapat mengembalikan nilai \textit{false} untuk mencegah \textit{behavior} bawaan React. Penulis harus menggunakan \textit{preventDefault}. Sebagai contoh, pada HTML untuk mencegah agar link bawaan membuka halaman baru, penulis dapat menulis seperti ini:  
 \begin{lstlisting}
 	<a href="#" onclick="console.log('The link was clicked.'); return false">
 	Click me
@@ -660,18 +607,18 @@ Sedangkan pada React, contoh tersebut dapat ditulis sebagai berikut:
 		);
 	}
 \end{lstlisting}
-Pada kode diatas e merupakan event tiruan. React mendefinisikan event tiruan ini berdasarkan W3C spec\footnote{https://www.w3.org/TR/DOM-Level-3-Events/}, jadi Anda tidak perlu khawatir akan kesesuaian antar lintas browser. Event dalam React tidak bekerja secara sama dengan event native dari $\_$browser.
-\subsubsection{Mengoper Argumen Kedalam Penanganan Event}
-Di dalam perulangan, umumnya Anda ingin mengoper sebuah parameter ekstra kedalam penanganan event. Sebagai contoh, jika id sama dengan ID baris, maka salah satu dari kedua contoh berikut dapat dijalankan:
+Pada kode diatas e merupakan \textit{event} tiruan. React mendefinisikan \textit{event} tiruan ini berdasarkan W3C \textit{spec}\footnote{https://www.w3.org/TR/DOM-Level-3-Events/}, jadi tidak perlu khawatir kesesuaian antar lintas \textit{browser}. \textit{Event} dalam React tidak bekerja secara sama dengan \textit{event native} dari $\_$\textit{browser}.
+\subsubsection{Mengoper Argumen Kedalam Penanganan \textit{Event}}
+Di dalam perulangan, umumnya ketika ingin mengoper sebuah parameter ekstra kedalam penanganan \textit{event}. Sebagai contoh, jika id sama dengan id baris, maka salah satu dari kedua contoh berikut dapat dijalankan:
 \begin{lstlisting}
 	<button onClick={(e) => this.deleteRow(id, e)}>Delete Row</button>
 	<button onClick={this.deleteRow.bind(this, id)}>Delete Row</button>
 \end{lstlisting}
-Dua baris di atas memiliki arti yang sama, masing-masing menggunakan arrow functions dan Function.prototype.bind.
-Arrow function adalah sebuah cara alternatif untuk mendefinisikan fungsi dari fungsi tradisional. Cara ini bersifat terbatas dan tidak dapat digunakan dalam setiap kondisi. Sedangkan metode bind() adalah sebuah metode yang membuat sebuah fungsi yang ketika dipanggil, kata kunci this akan berubah menjadi nilai yang diberikan.
+Dua baris di atas memiliki arti yang sama, masing-masing menggunakan \textit{arrow functions} dan \textit{Function.prototype.bind}.
+\textit{Arrow function} adalah sebuah cara alternatif untuk mendefinisikan fungsi dari fungsi tradisional. Cara ini bersifat terbatas dan tidak dapat digunakan dalam setiap kondisi. Sedangkan metode \textit{bind}() adalah sebuah metode yang membuat sebuah fungsi yang ketika dipanggil, kata kunci \textit{this} berubah menjadi nilai yang diberikan.
 
-\subsection{Render Bersyarat}
-Render bersyarat pada React memiliki fungsi yang sama dengan operator bersyarat pada Javascript. Pada Javascript operator if atau operator bersyarat digunakan untuk merepresentasikan elemen pada state tertentu, kemudian React akan memperbarui UI pada state tersebut.
+\subsection{\textit{Render} Bersyarat}
+\textit{Render} bersyarat pada React memiliki fungsi yang sama dengan operator bersyarat pada Javascript. Pada Javascript operator \textit{if} atau operator bersyarat digunakan untuk merepresentasikan elemen pada \textit{state} tertentu, kemudian React memperbarui UI pada \textit{state} tersebut.
 
 Contoh nya seperti dua komponen berikut ini:
 \begin{lstlisting}
@@ -683,7 +630,7 @@ Contoh nya seperti dua komponen berikut ini:
 		return <h1>Please sign up.</h1>;
 	}
 \end{lstlisting}
-Komponen diatas akan digunakan untuk melakukan Greetings berdasarkan pada apakah user sudah melakukan login:
+Komponen diatas digunakan untuk melakukan \textit{Greetings} berdasarkan pada apakah \textit{user} sudah melakukan login:
 \begin{lstlisting}
 	function Greeting(props) {
 		const isLoggedIn = props.isLoggedIn;
@@ -700,16 +647,16 @@ Komponen diatas akan digunakan untuk melakukan Greetings berdasarkan pada apakah
 	);
 \end{lstlisting} 
 
-\subsection{List dan Keys}
-Javascript dapat menggunakan fungsi map() untuk mengambil array numbers dan menggandakan angkanya. Map() akan mengembalikan nilai dalam bentuk array yang baru kemudian akan disimpan dalam sebuah variabel doubled.
+\subsection{\textit{List} dan \textit{Keys}}
+Javascript dapat menggunakan fungsi \textit{map}() untuk mengambil array numbers dan menggandakan angkanya. \textit{Map}() mengembalikan nilai dalam bentuk \textit{array} yang baru kemudian disimpan dalam sebuah variabel doubled.
 Berikut ini adalah contoh kodenya:
 \begin{lstlisting}
 	const numbers = [1, 2, 3, 4, 5];
 	const doubled = numbers.map((number) => number * 2);
 	console.log(doubled);
 \end{lstlisting}
-Kode diatas akan mengembalikan nilai [2, 4, 6, 8, 10] ke dalam konsol. Pada React, mengubah array ke dalam list elemen kurang lebih sama.
-\subsubsection{Me-render Banyak Komponen}
+Kode diatas mengembalikan nilai [2, 4, 6, 8, 10] ke dalam konsol. Pada React, mengubah \textit{array} ke dalam \textit{list} elemen kurang lebih sama.
+\subsubsection{Melakukan Render pada Banyak Komponen}
 Penulis dapat membangun koleksi dari beberapa elemen dan menyertakannya dalam JSX  menggunakan tanda kurung kurawal. 
 \begin{lstlisting}
 	const numbers = [1, 2, 3, 4, 5];
@@ -717,17 +664,17 @@ Penulis dapat membangun koleksi dari beberapa elemen dan menyertakannya dalam JS
 	<li>{number}</li>
 	);
 \end{lstlisting}
-Pada kode diatas, akan dilakukan perulangan pada numbers yang berisi array dengan mengunakan fungsi map(). Hasil yang akan dikeluarkan adalah sebuah elemen <li> untuk setiap item yang kemudian akan dimasukkan kedalam variabel listItem. 
+Pada kode diatas, dilakukan perulangan pada numbers yang berisi \textit{array} dengan mengunakan fungsi \textit{map}(). Hasil yang dikeluarkan adalah sebuah elemen <li> untuk setiap \textit{item} yang kemudian dimasukkan kedalam variabel \textit{listItem}. 
 \begin{lstlisting}
 	ReactDOM.render(
 	<ul>{listItems}</ul>,
 	document.getElementById('root')
 	);
 \end{lstlisting}
-Kemudian dengan menggunakan kode diatas, array listItem tersebut dapat dimasukkan kedalam elemen <ul> dan akan me-render-nya kedalam DOM.
+Kemudian dengan menggunakan kode diatas, \textit{array listItem} tersebut dapat dimasukkan kedalam elemen <ul> dan me-\textit{render}-nya kedalam DOM.
 
 \subsubsection{Daftar Komponen Dasar}
-Penulis dapat me-refaktor contoh sebelumnya ke dalam sebuah komponen yang menerima array numbers dan mengeluarkan sebuah list elemen yang tidak berurutan.
+	Penulis dapat me-\textit{refaktor} contoh sebelumnya ke dalam sebuah komponen yang menerima \textit{array numbers} dan mengeluarkan sebuah \textit{list} elemen yang tidak berurutan.
 \begin{lstlisting}
 	function NumberList(props) {
 		const numbers = props.numbers;
@@ -745,7 +692,7 @@ Penulis dapat me-refaktor contoh sebelumnya ke dalam sebuah komponen yang meneri
 	document.getElementById('root')
 	);
 \end{lstlisting}
-Ketika penulis menjalankan kode ini, penulis akan mendapatkan peringatan bahwa key harus disediakan untuk item di dalam list. Sebuah ”key” adalah atribut string spesial yang perlu disertakan dalam pembuatan list elemen. Penulis harus sertakan key ke dalam list item pada numbers.map() dan memperbaiki masalah key yang hilang.
+Ketika penulis menjalankan kode ini, penulis mendapatkan peringatan bahwa \textit{key} harus disediakan untuk \textit{item} di dalam \textit{list}. Sebuah ”\textit{key}” adalah atribut \textit{string} spesial yang perlu disertakan dalam pembuatan \textit{list} elemen. Penulis harus sertakan \textit{key} ke dalam \textit{list} item pada \textit{numbers.map}() dan memperbaiki masalah \textit{key} yang hilang.
 \begin{lstlisting}
 	function NumberList(props) {
 		const numbers = props.numbers;
@@ -766,7 +713,7 @@ Ketika penulis menjalankan kode ini, penulis akan mendapatkan peringatan bahwa k
 	);
 \end{lstlisting}
 \subsubsection{Key}
-Key membantu React untuk mengidentifikasi item mana yang telah diubah, ditambahkan, atau dihilangkan. Key harus diberikan di dalam elemen yang terdapat di dalam sebuah array untuk memberikan elemen tersebut identitas yang stabil:
+\textit{Key} membantu React untuk mengidentifikasi \textit{item} mana yang telah diubah, ditambahkan, atau dihilangkan. \textit{Key} harus diberikan di dalam elemen yang terdapat di dalam sebuah \textit{array} untuk memberikan elemen tersebut identitas yang stabil:
 \begin{lstlisting}
 	const numbers = [1, 2, 3, 4, 5];
 	const listItems = numbers.map((number) =>
@@ -775,7 +722,7 @@ Key membantu React untuk mengidentifikasi item mana yang telah diubah, ditambahk
 	</li>
 	);
 \end{lstlisting}
-Cara terbaik untuk menentukan key yang akan digunakan adalah menggunakan string unik untuk mengidentifikasikan item. Biasanya menggunakan ID dari data sebagai key:
+Cara terbaik untuk menentukan \textit{key} yang digunakan adalah menggunakan \textit{string} unik untuk mengidentifikasikan \textit{item}. Biasanya menggunakan ID dari data sebagai \textit{key}:
 \begin{lstlisting}
 	const todoItems = todos.map((todo) =>
 	<li key={todo.id}>
@@ -783,7 +730,7 @@ Cara terbaik untuk menentukan key yang akan digunakan adalah menggunakan string 
 	</li>
 	);
 \end{lstlisting}
-Ketika tidak memiliki ID yang stabil untuk me-render item, penulis dapat menggunakan indeks dari item sebagai key untuk pilihan terakhir:
+Ketika tidak memiliki ID yang stabil untuk me-\textit{render item}, penulis dapat menggunakan indeks dari item sebagai \textit{key} untuk pilihan terakhir:
 \begin{lstlisting}
 	const todoItems = todos.map((todo, index) =>
 	<li key={index}>
@@ -793,7 +740,7 @@ Ketika tidak memiliki ID yang stabil untuk me-render item, penulis dapat menggun
 \end{lstlisting}
 
 \subsection{Form}
-Elemen form HTML bekerja sedikit berbeda dari elemen DOM lainnya di React, karena elemen form secara natural menyimpan beberapa state internal. Sebagai contoh, form ini pada HTML biasa menerima nama tunggal:
+Elemen form HTML bekerja sedikit berbeda dari elemen DOM lainnya di React, karena elemen form secara natural menyimpan beberapa \textit{state internal}. Sebagai contoh, \textit{form} ini pada HTML biasa menerima nama tunggal:
 \begin{lstlisting}
 	<form>
 	<label>
@@ -803,10 +750,10 @@ Elemen form HTML bekerja sedikit berbeda dari elemen DOM lainnya di React, karen
 	<input type="submit" value="Submit" />
 	</form>
 \end{lstlisting}
-Form ini memiliki perilaku dasar dari form HTML biasa yakni menuju ke laman baru ketika user mengirim form tersebut. Jika Anda menginginkan perilaku seperti ini di React, ini sebenarnya dapat bekerja. Namun di banyak kasus, akan lebih mudah untuk memiliki sebuah fungsi JavaScript yang menangani sebuah submisi dari sebuah form dan memiliki akses terhadap data yang dimasukkan pengguna ke dalam form. Cara standar untuk mencapai hal ini adalah dengan teknik yang disebut ”controlled component“.
-\subsubsection{Controlled Component}
-Elemen form pada HTML seperti <input>, <select>, dan <textarea> biasanya menyimpan state mereka sendiri dan memperbaruinya berdasarkan masukkan dari pengguna. Pada React, state yang dapat berubah akan disimpan dalam sebuah prop atau komponen dan hanya dapat diubah dengan menggunakan setState(). 
-komponen React yang me-render sebuah form juga mengontrol hal yang terjadi dalam form tersebut pada masukan pengguna selanjutnya. Sebuah elemen masukan form yang nilainya dikontrol oleh React melalui cara seperti ini disebut sebagai ”controlled component“.
+\textit{Form} ini memiliki perilaku dasar dari \textit{form} HTML biasa yakni menuju ke halaman baru ketika \textit{user} mengirim \textit{form} tersebut. Jika menginginkan perilaku seperti ini di React, ini sebenarnya dapat bekerja. Namun di banyak kasus, lebih mudah untuk memiliki sebuah fungsi JavaScript yang menangani sebuah submisi dari sebuah \textit{form} dan memiliki akses terhadap data yang dimasukkan pengguna ke dalam \textit{form}. Cara standar untuk mencapai hal ini adalah dengan teknik yang disebut ”\textit{controlled component}“.
+\subsubsection{\textit{Controlled Component}}
+Elemen \textit{form} pada HTML seperti <input>, <select>, dan <textarea> biasanya menyimpan \textit{state} mereka sendiri dan memperbaruinya berdasarkan masukkan dari pengguna. Pada React, \textit{state} yang dapat berubah disimpan dalam sebuah \textit{prop} atau komponen dan hanya dapat diubah dengan menggunakan \textit{setState}(). 
+komponen React yang me-\textit{render} sebuah \textit{form} juga mengontrol hal yang terjadi dalam \textit{form} tersebut pada masukan pengguna selanjutnya. Sebuah elemen masukan \textit{form} yang nilainya dikontrol oleh React melalui cara seperti ini disebut sebagai ”\textit{controlled component}“.
 \begin{lstlisting}
 	class NameForm extends React.Component {
 		constructor(props) {
@@ -839,9 +786,9 @@ komponen React yang me-render sebuah form juga mengontrol hal yang terjadi dalam
 		}
 	}
 \end{lstlisting}
-Dengan sebuah controlled component, nilai input akan selalu didorong oleh state di React. Meskipun menulis kode yang lebih banyak, tetapi juga bisa mengoper nilai ini ke elemen antarmuka lain, atau me-reset nilai tersebut dari event handler lain.
+Dengan sebuah \textit{controlled component}, nilai input selalu didorong oleh \textit{state} di React. Meskipun menulis kode yang lebih banyak, tetapi juga bisa mengoper nilai ini ke elemen antarmuka lain, atau me-\textit{reset} nilai tersebut dari \textit{event handler} lain.
 \subsubsection{Mengendalikan Nilai Kosong}
-Menentukan nilai prop pada controlled component mencegah pengguna mengubah masukan. Jika sudah menetepkan nilai value tetapi masukan masih dapat diubah, mungkin nilai value yang ditetapkan bersifat undefined atau null.
+Menentukan nilai \textit{prop} pada \textit{controlled component} mencegah pengguna mengubah masukan. Jika sudah menetepkan nilai \textit{value} tetapi masukan masih dapat diubah, mungkin nilai \textit{value} yang ditetapkan bersifat \textit{undefined} atau \textit{null}.
 
 %\subsection{Memindahkan State Ke Atas}
 
@@ -850,9 +797,9 @@ Menentukan nilai prop pada controlled component mencegah pengguna mengubah masuk
 
 
 \subsection{Hooks}
-Hooks merupakan sebuah fungsi yang memungkinkan penulis untuk mengaitkan \textit{state} dan fitur-fitur \textit{lifecycle} react dari \textit{function component}.
+\textit{Hooks} merupakan sebuah fungsi yang memungkinkan penulis untuk mengaitkan \textit{state} dan fitur-fitur \textit{lifecycle} react dari \textit{function component}.
 \subsubsection{UseState}
-UseState adalah sebuah hook yang memungkinkan penulis untuk menambahkan \textit{react state} ke \textit{function components}. Cara untuk menggunakan useState adalah dengan meng-\textit{import} useState hook dari react dengan menggunakan sintak:
+\textit{UseState} adalah sebuah \textit{hook} yang memungkinkan penulis untuk menambahkan \textit{react state} ke \textit{function components}. Cara untuk menggunakan \textit{useState} adalah dengan meng-\textit{import} \textit{useState hook} dari react dengan menggunakan sintak:
 \begin{verbatim}
 	import React, { useState } from 'react';
 	
@@ -860,10 +807,10 @@ UseState adalah sebuah hook yang memungkinkan penulis untuk menambahkan \textit{
 		// ...
 	}
 \end{verbatim}
-Berikut ini adalah beberapa informasi mengenai useState:
+Berikut ini adalah beberapa informasi mengenai \textit{useState}:
 \begin{itemize}
-	\item Mendeklarasi Sebuah State Variabel\\
-	Di dalam sebuah kelas, dalam menginisialisasikan variabel dalam state biasanya menggunakan this.state. 
+	\item Mendeklarasi Sebuah \textit{State Variabel}\\
+	Di dalam sebuah kelas, dalam menginisialisasikan variabel dalam \textit{state} biasanya menggunakan this.state. 
 	\begin{lstlisting}
 		class Example extends React.Component {
 			constructor(props) {
@@ -873,7 +820,7 @@ Berikut ini adalah beberapa informasi mengenai useState:
 				};
 			}
 		\end{lstlisting}
-	Di dalam sebuah component function tidak terdapat this, sehingga tidak dapat menetapkan variabel atau membaca this.state. Melainkan menggunakan useState hook didalam komponen.
+	Di dalam sebuah \textit{component function} tidak terdapat this, sehingga tidak dapat menetapkan variabel atau membaca this.state. Melainkan menggunakan \textit{useState hook} didalam komponen.
 	\begin{lstlisting}
 		import React, { useState } from 'react';
 		
@@ -882,8 +829,8 @@ Berikut ini adalah beberapa informasi mengenai useState:
 			const [count, setCount] = useState(0);
 		\end{lstlisting}
 	
-	\item Membaca State\\
-	Ketika ingin menampilkan count saat ini dalam kelas, dapat menggunakan kode this.state.count seperti:
+	\item Membaca \textit{State}\\
+	Ketika ingin menampilkan \textit{count} saat ini dalam kelas, dapat menggunakan kode this.state.count seperti:
 	\begin{verbatim}
 		  <p>You clicked {this.state.count} times</p>
 	\end{verbatim}
@@ -893,13 +840,13 @@ Berikut ini adalah beberapa informasi mengenai useState:
 	\end{verbatim}
 	
 	\item Meng-\textit{update} State\\
-	Ketika ingin meng-update count, dapat menggunakan kode this.setState() seperti:
+	Ketika ingin meng-\textit{update} \textit{count}, dapat menggunakan kode this.setState() seperti:
 	\begin{verbatim}
 		<button onClick={() => this.setState({ count: this.state.count + 1 })}>
 		Click me
 		</button>
 	\end{verbatim}
-	Sedangkan dalam sebuah fungsi, terdapat variabel setCount dan count sehingga tidak membutuhkan this:
+	Sedangkan dalam sebuah fungsi, terdapat variabel \textit{setCount} dan \textit{count} sehingga tidak membutuhkan this:
 	\begin{verbatim}
 		<button onClick={() => setCount(count + 1)}>
 		Click me
@@ -910,8 +857,8 @@ Berikut ini adalah beberapa informasi mengenai useState:
 
 
 \subsubsection{UseEffect}
-Dalam react terdapat istilah seperti side-effects. Disebut side-effects karena dapat mempengaruhi komponen lain dan tidak dapat dilakukan pada saat proses render.
-UseEffect menambahkan kemampuan untuk melakukan side-effects dari sebuah function component. Hook ini memiliki fungsi yang sama dengan componentDidMount, componentDidUpdate, dan componentWillUnmount pada kelas react, tetapi sudah disatukan menjadi satu API. 
+Dalam react terdapat istilah seperti \textit{side-effects}. Disebut \textit{side-effects} karena dapat mempengaruhi komponen lain dan tidak dapat dilakukan pada saat proses \textit{render}.
+\textit{UseEffect} menambahkan kemampuan untuk melakukan \textit{side-effects} dari sebuah \textit{function component}. \textit{Hook} ini memiliki fungsi yang sama dengan \textit{componentDidMount}, \textit{componentDidUpdate}, dan \textit{componentWillUnmount} pada kelas react, tetapi sudah disatukan menjadi satu API. 
 \begin{lstlisting}
 	import React, { useState, useEffect } from 'react';
 	
@@ -934,21 +881,21 @@ UseEffect menambahkan kemampuan untuk melakukan side-effects dari sebuah functio
 		);
 	}
 \end{lstlisting} 
-Pada kode diatas, React diperintah untuk menjalankan fungsi efek setelah membersihkan perubahan dari DOM. Efek dideklarasikan didalam komponen untuk mendapatkan akses pada props dan state dari komponen tersebut.
+Pada kode diatas, React diperintah untuk menjalankan fungsi efek setelah membersihkan perubahan dari DOM. Efek dideklarasikan didalam komponen untuk mendapatkan akses pada \textit{props} dan \textit{state} dari komponen tersebut.
 
 
 \subsubsection{Rules of Hooks}
-Hooks adalah fungsi JavaScript, tetapi terdapat dua aturan yang perlu diikuti keteika ingin menggunakannya:
+\textit{Hooks} adalah fungsi JavaScript, tetapi terdapat dua aturan yang perlu diikuti keteika ingin menggunakannya:
 \begin{enumerate}
-	\item Hanya Panggil Hooks di Tingkat Atas\\
-	Jangan memanggil hooks dari dalam loops, condition, atau nested functions. Dengan mengikuti aturan ini, menyebabkan react ddapat menyimpan state dari hooks dengan benar diantara banyak panggilan useState dan useEffect.
+	\item Hanya Panggil \textit{Hooks} di Tingkat Atas\\
+	Jangan memanggil \textit{hooks} dari dalam \textit{loops}, \textit{condition}, atau \textit{nested functions}. Dengan mengikuti aturan ini, menyebabkan react ddapat menyimpan \textit{state} dari \textit{hooks} dengan benar diantara banyak panggilan \textit{useState} dan \textit{useEffect}.
 	
-	\item Hanya Panggil Hooks dari Fungsi React\\
-	Jangan memanggil hooks dari fungsi-fungsi JavaScript biasa. Dengan mengikuti aturan ini, dapat dengan yakin bahwa semua logika stateful didalam sebuah komponen terlihat jelas dari kodenya.
+	\item Hanya Panggil \textit{Hooks} dari Fungsi React\\
+	Jangan memanggil \textit{hooks} dari fungsi-fungsi JavaScript biasa. Dengan mengikuti aturan ini, dapat dengan yakin bahwa semua logika stateful didalam sebuah komponen terlihat jelas dari kodenya.
 \end{enumerate}
 
 \subsection{NPX}
-NPX merupakan \textit{execute NPM package binaries}. NPX digunakan untuk menjalan \textit{command} yang dimiliki NPM. NPX mengeksekusi file \textit{binary} dari \textit{package} \textit{Node.js}, baik yang sudah terinstal maupun yang belum. Pembuatan \textit{project} react dapat dilakukan dengan menggunakan sintaks:
+NPX merupakan \textit{execute NPM package binaries}. NPX digunakan untuk menjalan \textit{command} yang dimiliki NPM. NPX mengeksekusi \textit{file} \textit{binary} dari \textit{package} \textit{Node.js}, baik yang sudah terinstal maupun yang belum. Pembuatan \textit{project} react dapat dilakukan dengan menggunakan sintaks:
     \begin{verbatim}
         npx create-react-app my-app
         cd my-app
@@ -956,7 +903,7 @@ NPX merupakan \textit{execute NPM package binaries}. NPX digunakan untuk menjala
     \end{verbatim}
 
 \section{ChartJS}
-ChartJS adalah sebuah open-source library JavaScript yang digunakan untuk visualisasi data. Tipe-tipe chart yang didukung oleh ChartJS adalah bar, line, area, pie, bubble, radar, polar, mix, dan scatter. Pada skripsi ini tipe chart yang digunakan adalah bar chart. Untuk menginstall library ChartJS dapat dilakukan dengan menggunakan sintaks:
+ChartJS adalah sebuah \textit{open-source library} JavaScript yang digunakan untuk visualisasi data. Tipe-tipe \textit{chart} yang didukung oleh ChartJS adalah \textit{bar}, \textit{line}, \textit{area}, \textit{pie}, \textit{bubble}, \textit{radar}, \textit{polar}, \textit{mix}, dan \textit{scatter}. Pada skripsi ini tipe \textit{chart} yang digunakan adalah \textit{bar chart}. Untuk menginstal \textit{library} ChartJS dapat dilakukan dengan menggunakan sintaks:
 \begin{verbatim}
 	npm i react-chartjs-2 chart.js
 \end{verbatim}
@@ -969,13 +916,13 @@ ChartJS adalah sebuah open-source library JavaScript yang digunakan untuk visual
 %\end{itemize}
 
 \section{Express.js}
-\textit{Express.js} adalah sebuah framework sebuah aplikasi web untuk Node.js. Untuk menginstal Express.js dapat dilakukan dengan melakukan sintaks:
+\textit{Express.js} adalah sebuah \textit{framework} sebuah aplikasi web untuk Node.js. Untuk menginstal Express.js dapat dilakukan dengan melakukan sintaks:
 \begin{verbatim}
 	npm install express --save
 \end{verbatim}
-Ketika menjalankan sintaks diatas, maka secara otomatis menambahkan library express.js yang akan disimpan pada folder package.json.
+Ketika menjalankan sintaks diatas, maka secara otomatis menambahkan \textit{library} express.js yang disimpan pada folder package.json.
 \subsubsection{Routing}
-Routing adalah sebuah proses dari perangkat lunak dalam merespon beberapa endpoint. Dalam mendefinisikan routing menggunakan express.js terdapat struktur perintah sebagai berikut:
+\textit{Routing} adalah sebuah proses dari perangkat lunak dalam merespon beberapa \textit{endpoint}. Dalam mendefinisikan \textit{routing} menggunakan express.js terdapat struktur perintah sebagai berikut:
 \begin{verbatim}
 	app.METHOD(PATH, HANDLER)
 \end{verbatim} 

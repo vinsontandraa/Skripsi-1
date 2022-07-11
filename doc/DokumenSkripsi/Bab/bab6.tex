@@ -1,19 +1,18 @@
 \chapter{Kesimpulan dan Saran}
 \label{chap:kesimpulan_dan_saran}
 
-Pada bab ini akan membahas kesimpulan berdasarkan implementasi, serta saran-saran untuk pengembangan berikutnya.
+Pada bab ini membahas kesimpulan berdasarkan implementasi, serta saran-saran untuk pengembangan berikutnya.
 
 \section{Kesimpulan}
 Berdasarkan data yang dikumpulkan, diperoleh kesimpulan-kesimpulan sebagai berikut:
 \begin{enumerate}
-	\item Data pada HTTP Archive didapatkan dari public dataset.
-	\item Data berhasil direplikasi dengan mengikuti step atau langkah dari jurnal Pascal\cite{pascal}. 
-	\item Setelah diolah, terdapat 4.820 \textit{website} yang menggunakan aplikasi yang masih didukung.
+	\item Mengambil nilai informasi dengan cara melakukan query untuk mengumpulkan daftar \textit{website}, mencari aplikasi yang digunakan, mencari aplikasi yang digunakan \textit{website}, mengelompokkan berdasar nama semua aplikasi yang dipakai, mencari data tentang versi aplikasi yang masih didukung, dan melakukan perbandingan antara versi aplikasi yang masih dipakai sekarang dengan aplikasi yang masih didukung.
+	\item Berdasarkan penelitian ini dikarena ruang lingkup lebih besar, sehingga terdapat perbedaan seperti pada aplikasi Nginx, untuk ruang lingkup di Indonesia versi 1.10 paling banyak digunakan url, sedangkan untuk ruang lingkup dunia versi 1.14 yang paling banyak digunakan. Adapun beberapa aplikasi yang ditambahkan pada aplikasi ini yaitu Python dan JQuery Migrate. Pada aplikasi Python jumlah versi yang paling banyak digunakan adalah versi 2.7 dan pada aplikasi JQuery Migrate versi aplikasi yang paling banyak digunakan adalah versi 1.4
+	\item Setelah diolah, terdapat 4.280 \textit{website} yang menggunakan aplikasi yang semua aplikasinya masih didukung. Hasil didapatkan dengan membuat \textit{query} yang dapat dilihat pada Listing \ref{lst:finalresult}
 \end{enumerate}
 
 \section{Saran}
-Penulis memiliki beberapa saran untung pengembangan aplikasi selanjutnya:
+Penulis memiliki beberapa saran untuk pengembangan aplikasi selanjutnya:
 \begin{enumerate}
-	\item Data yang ada pada HTTP Archive masih kotor sehingga data harus dibersihkan dahulu agar data yang dihasilkan lebih valid.
-	\item Jika menggunakan teknologi BigQuery, dalam melakukan query harus dengan hati-hati karena setiap melakukan query akan dilakukan charge atau pembayaran.
+	\item Dapat menggunakan metode klasifikasi untuk menentukan apakah suatu teknologi atau aplikasi \textit{supported} atau \textit{unsupported}
 \end{enumerate}

@@ -49,6 +49,7 @@
 \usepackage{verbatim} 		%multiline comment
 \usepackage{pgfplots}
 \usepackage{enumitem}
+\usepackage{listings}
 %\overfullrule=3mm % memperlihatkan overfull 
 %=============================================================================
 
@@ -80,7 +81,7 @@
 %\mode{sidangakhir} 	% untuk sidang 2 / sidang pada Skripsi 2(IF)
 %\mode{final} 			% untuk mencetak buku skripsi 
 %=============================================================================
-\mode{sidang}
+\mode{sidangakhir}
 
 %_____________________________________________________________________________
 %=============================================================================
@@ -203,9 +204,9 @@
 % Petunjuk: hilangkan tanda << & >>, dan isi sesuai dengan data anda
 %=============================================================================
 \namanpm{Vinson Tandra}{2016730042}
-\tanggal{<<tanggal>>}{<<bulan>>}{2022}         %isi bulan dengan angka
+\tanggal{13}{6}{2022}         %isi bulan dengan angka
 \pembimbing{\PAN}{<<pembimbing pendamping/2>>}    
-\penguji{<<penguji 1>>}{<<penguji 2>>} 
+\penguji{\RCP}{\CHW} 
 %=============================================================================
 
 %_____________________________________________________________________________
@@ -234,8 +235,17 @@
 	% - hilangkan tanda << & >>, dan isi sesuai dengan data anda
 	% - langsung mulai setelah '{' awal, jangan mulai menulis di baris bawahnya
 		%=============================================================================
-		\abstrakINA{Di masa teknologi saat ini, banyak perusahaan yang menggunakan website sebagai tempat untuk mencari informasi. Terdapat banyak website yang menggunakan aplikasi yang sudah usang. HTTP Archive adalah sebuah proyek yang bersifat \textit{open source} untuk melihat bagaimana website dibuat. Di dalam HTTP Archive terdapat data-data historis yang disediakan untuk menunjukkan bagaimana website terus berkembang dan proyek ini sering digunakan untuk penelitian. Didalam HTTP Archive terdapat dataset yang berisi jutaan web setiap bulan dan dapat dianalisis menggunakan teknologi BigQuery. BigQuery adalah salah satu produk dari Google yang berbasis \textit{cloud} dan dapat digunakan untuk menganalisis data tanpa harus memikirkan database. Maka dari itu, data dari HTTP Archive dapat dianalisis untuk mendapatkan informasi versi dari setiap aplikasi yang masih didukung dan tidak serta mencari website yang sudah menggunakan aplikasi yang sudah didukung. Untuk mendapatkan data-data tersebut dapat melakukan query pada teknologi BigQuery. Data yang dihasilkan menunjukkan bahwa terdapat 4.820 website yang menggunakan aplikasi yang semua aplikasinya masih didukung.}
-		\abstrakENG{In today's technological era, many companies use the website as a place to find information. There are many websites that use outdated applications. HTTP Archive is an open source project to see how websites are made. The HTTP Archive contains historical data provided to show how the website continues to evolve and this project is often used for research. The HTTP Archive contains a dataset containing millions of websites every month and can be analyzed using BigQuery technology. BigQuery is a product from Google that is cloud-based and can be used to analyze data without having to think about databases. Therefore, data from the HTTP Archive can be analyzed to obtain version information of each application that is still supported and not, as well as looking for websites that already use supported applications. To get this data, you can perform a query on BigQuery technology. The resulting data shows that there are 4,820 websites that use applications, all of which are still supported.} 
+		\abstrakINA{Di masa teknologi saat ini, banyak perusahaan yang menggunakan \textit{website} sebagai tempat untuk mencari informasi. Terdapat banyak \textit{website} yang menggunakan aplikasi yang sudah usang. HTTPArchive adalah sebuah proyek yang bersifat \textit{open source} untuk melihat bagaimana \textit{website} dibuat. Di dalam HTTPArchive terdapat data-data historis yang disediakan untuk menunjukkan bagaimana \textit{website} terus berkembang dan proyek ini sering digunakan untuk penelitian. 
+			
+			Didalam HTTPArchive terdapat dataset yang berisi jutaan \textit{web} setiap bulan dan dapat dianalisis menggunakan teknologi BigQuery. BigQuery adalah salah satu produk dari Google yang berbasis \textit{cloud} dan dapat digunakan untuk menganalisis data. BigQuery menggunakan SQL (\textit{Structured Query Language}) untuk mengakses data yang diberikan dengan malakukan \textit{query}. Maka dari itu, data dari HTTPArchive dapat dianalisis untuk mendapatkan informasi versi dari setiap aplikasi yang masih didukung dan tidak serta mencari \textit{website} yang sudah menggunakan aplikasi yang sudah didukung. Untuk mendapatkan data-data tersebut dapat melakukan \textit{query} pada teknologi BigQuery. 
+			
+			 Pada skripsi ini dibuat sebuah aplikasi yang menggunakan ReactJS untuk membuat tampilan dan NodeJS untuk pengambilan data. Langkah-langkah yang dilakukan adalah mengumpulkan daftar website, mencari aplikasi yang digunakan, mencari aplikasi yang digunakan website, mengelompokkan berdasar nama semua aplikasi yang dipakai, mencari data tentang versi aplikasi yang masih didukung, dan melakukan perbandingan antara versi aplikasi yang masih dipakai sekarang dengan aplikasi yang masih didukung (\textit{version compare}). Setelah langkah tersebut dilakukan, didapatkan hasil yaitu pada aplikasi Nginx, untuk ruang lingkup di Indonesia versi 1.10 paling banyak digunakan url, sedangkan untuk ruang lingkup dunia versi 1.14 yang paling banyak digunakan. Adapun beberapa aplikasi yang ditambahkan pada aplikasi ini yaitu Python dan JQuery Migrate. Pada aplikasi Python jumlah versi yang paling banyak digunakan adalah versi 2.7 dan pada aplikasi JQuery Migrate versi aplikasi yang paling banyak digunakan adalah versi 1.4. Data yang dihasilkan menunjukkan bahwa terdapat 4.280 \textit{website} yang menggunakan aplikasi yang semua aplikasinya masih didukung.}
+		\abstrakENG{In today's technological era, many companies use website as a place to find information. There are many websites that use outdated applications. HTTPArchive is a open source project to see how a website is created. HTTPArchive contains historical data provided to show how website continues to evolve and this project is often used for research.
+			
+			HTTPArchive contains a dataset containing millions of web every month and can be analyzed using BigQuery technology. BigQuery is a product from Google which is based on cloud and can be used to analyze data. BigQuery uses SQL (Structured Query Language) to access the given data by doing query. Therefore, data from HTTPArchive can be analyzed to get version information of each application that is still supported and not and look for website that is already using a supported application. To get these data, you can do query on BigQuery technology.
+			
+			In this thesis, an application is made that uses ReactJS to create views and NodeJS to retrieve data. The steps taken are to collect a list of websites, search for applications that are used, search for applications that are used by the website, group by name of all applications used, look for data on application versions that are still supported, and make comparisons between the versions of applications that are still in use today and the application. which is still supported version compare. After these steps were taken, the results were obtained, namely the Nginx application, for the scope of Indonesia version 1.10 the most widely used url, while for the world scope version 1.14 was the most widely used. There are several applications added to this application, namely Python and JQuery Migrate. In the Python application the most widely used version is version 2.7 and in the JQuery Migrate application the most widely used version of the application is version 1.4. The resulting data shows that there are 4,280 websites that use applications where all applications are still supported
+		} 
 		%=============================================================================
 		
 		%_____________________________________________________________________________
@@ -247,8 +257,8 @@
 		% - kunciENG: keywords in english
 		% Petunjuk: hilangkan tanda << & >>, dan isi sesuai dengan data anda.
 		%=============================================================================
-		\kunciINA{<<Tuliskan di sini kata-kata kunci yang anda gunakan, dalam bahasa Indonesia>>}
-		\kunciENG{<<Tuliskan di sini kata-kata kunci yang anda gunakan, dalam bahasa Inggris>>}
+		\kunciINA{BigQuery, HTTPArchive, Structured Query Language, Node.js, React.js, NPM, Version Compare}
+		\kunciENG{BigQuery, HTTPArchive, Structured Query Language, Node.js, React.js, NPM, Version Compare}
 		%=============================================================================
 		
 		%_____________________________________________________________________________
@@ -296,7 +306,7 @@
 		%\ttd{materai}
 		%\ttd{kosong}
 		%=============================================================================
-		\ttd{gambar}
+		\ttd{kosong}
 		
 		%_____________________________________________________________________________
 		%=============================================================================
